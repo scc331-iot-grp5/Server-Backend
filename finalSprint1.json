@@ -1,0 +1,6167 @@
+[
+    {
+        "id": "6d8cb456d04d659a",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9590072e46a918fc",
+        "type": "tab",
+        "label": "OWM Landscape",
+        "disabled": true,
+        "info": ""
+    },
+    {
+        "id": "3355d4f4711af25f",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "cd2093da94b153c7",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2617110fac7e2b50",
+        "type": "tab",
+        "label": "Verification",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9a9352e6f7e2acf5",
+        "type": "tab",
+        "label": "UI",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "043638c3a97d2f22",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "54b60863c21c6c37",
+        "type": "tab",
+        "label": "ReciveFromTwilio",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "54de595cdd544a22",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8999688d5d3c1c20",
+        "type": "tab",
+        "label": "randomQuote",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d2aa67716520bebf",
+        "type": "tab",
+        "label": "Display Data",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "77d08f2ef548d687",
+        "type": "tab",
+        "label": "Populate Boat Names Table",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "bab33013746645b8",
+        "type": "tab",
+        "label": "calculate penalties",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "816147e74f556a71",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "fb2a3b8c366976ef",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "5fcba569f1f7600a",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6c21b1db5480d9a2",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "5ecdbd2c1de7cc9e",
+        "type": "tab",
+        "label": "SaveToDB",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d212a43e3350495a",
+        "type": "tab",
+        "label": "Crash Management",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "84b5927ffda683d4",
+        "type": "serial-port",
+        "serialport": "/dev/tty.usbmodem102",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "\\n",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "3fd7311e.c028ce",
+        "type": "mqtt-broker",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": ""
+    },
+    {
+        "id": "2fe527e2b18c3e0d",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.43.65",
+        "port": "2560",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "12b2f72dc556c72c",
+        "type": "websocket-listener",
+        "path": "",
+        "wholemsg": "false"
+    },
+    {
+        "id": "5f151f6c8844ff8e",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.43.242",
+        "port": "2560",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "f58517cafec50859",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.43.242",
+        "port": "2560",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "b1de76ddbaf505a8",
+        "type": "mongodb",
+        "hostname": "cluster0.dbijv.mongodb.net",
+        "topology": "dnscluster",
+        "connectOptions": "",
+        "port": "27017",
+        "db": "Boats",
+        "name": ""
+    },
+    {
+        "id": "eaf96980e08c80fa",
+        "type": "mongodb",
+        "hostname": "cluster0.xdjeu.mongodb.net",
+        "topology": "dnscluster",
+        "connectOptions": "",
+        "port": "27017",
+        "db": "Boating",
+        "name": ""
+    },
+    {
+        "id": "b23b4e02f3e3da96",
+        "type": "mongodb",
+        "hostname": "cluster0.dbijv.mongodb.net",
+        "topology": "dnscluster",
+        "connectOptions": "",
+        "port": "27017",
+        "db": "Data",
+        "name": ""
+    },
+    {
+        "id": "1f12001b5cae229f",
+        "type": "twilio-api",
+        "name": "SMS",
+        "sid": "ACaf43223c67374d467827c0bd6fac879a",
+        "from": "+44 7897 015658"
+    },
+    {
+        "id": "d23404904d3d206b",
+        "type": "websocket-listener",
+        "z": "9590072e46a918fc",
+        "path": "/websocket",
+        "wholemsg": "false"
+    },
+    {
+        "id": "7e3d3ce763b99d93",
+        "type": "twitter-credentials",
+        "screen_name": "SSC330Group3"
+    },
+    {
+        "id": "372e143b1e112c38",
+        "type": "postgresDB",
+        "name": "@127.0.0.1:5432/postgres",
+        "host": "127.0.0.1",
+        "port": "5432",
+        "database": "postgres",
+        "ssl": false,
+        "max": "10",
+        "min": 1,
+        "idle": "1000"
+    },
+    {
+        "id": "bc556db074ac0cf0",
+        "type": "sqlitedb",
+        "db": "/Users/cameronpugh/testing",
+        "mode": "RWC"
+    },
+    {
+        "id": "ececb8d0c570151e",
+        "type": "sqlitedb",
+        "db": "/users/cameronpugh/lp.db",
+        "mode": "RWC"
+    },
+    {
+        "id": "98d0417d50b00af4",
+        "type": "sqliteQueuedDb",
+        "db": "/Users/cameronpugh",
+        "mode": "RWC"
+    },
+    {
+        "id": "fa08e5de020a4429",
+        "type": "sqlitedb",
+        "db": "/Users/cameronPugh/databasename.db",
+        "mode": "RWC"
+    },
+    {
+        "id": "6956152fdeb741d3",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "sql4.freesqldatabase.com",
+        "port": "3306",
+        "db": "sql4467174",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "9c9c56057984ad89",
+        "type": "serial in",
+        "z": "6d8cb456d04d659a",
+        "name": "",
+        "serial": "84b5927ffda683d4",
+        "x": 380,
+        "y": 240,
+        "wires": [
+            [
+                "a9182ea885ed1a73"
+            ]
+        ]
+    },
+    {
+        "id": "693744458d0b083c",
+        "type": "serial out",
+        "z": "6d8cb456d04d659a",
+        "name": "",
+        "serial": "84b5927ffda683d4",
+        "x": 650,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "c8dcd6644d9fe81e",
+        "type": "inject",
+        "z": "6d8cb456d04d659a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "7",
+        "payloadType": "str",
+        "x": 390,
+        "y": 340,
+        "wires": [
+            [
+                "693744458d0b083c"
+            ]
+        ]
+    },
+    {
+        "id": "a9182ea885ed1a73",
+        "type": "debug",
+        "z": "6d8cb456d04d659a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "37d82d6aa3dd584f",
+        "type": "comment",
+        "z": "9590072e46a918fc",
+        "name": "OpenWeatherMap One Call API for Weather and Forecast",
+        "info": "",
+        "x": 250,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "c4c4c10b3295fa6e",
+        "type": "http request",
+        "z": "9590072e46a918fc",
+        "name": "Get OWM data",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "query",
+        "url": "https://api.openweathermap.org/data/2.5/onecall",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 500,
+        "y": 180,
+        "wires": [
+            [
+                "3860f09dc2a12d20",
+                "ea209dda73e58269"
+            ]
+        ]
+    },
+    {
+        "id": "c5955005d1ba4caf",
+        "type": "inject",
+        "z": "9590072e46a918fc",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 110,
+        "y": 180,
+        "wires": [
+            [
+                "500cca9b1ed2367f"
+            ]
+        ]
+    },
+    {
+        "id": "3860f09dc2a12d20",
+        "type": "function",
+        "z": "9590072e46a918fc",
+        "name": "Format current data",
+        "func": "var icon = {};\n\nvar units = flow.get('units');\nif (units === undefined) {units = 'imperial';}\n\nfunction timeConvert(UNIX_timestamp){\n  var dateObject = new Date(UNIX_timestamp * 1000);\n  if (flow.get('hour12')) {  // 12 hour time format\n    return dateObject.toLocaleString('en', { timezone: msg.payload.timezone, hour12: true, hour: 'numeric', minute: '2-digit'}).toLowerCase();\n  } else {  // 24 hour time format\n    return dateObject.toLocaleString('en', { timezone: msg.payload.timezone, hour12: false, hour: 'numeric', minute: '2-digit'});\n  }      \n}\n\nvar degreesToCardinal = function(deg){\n  if (deg>11.25 && deg<=33.75){return \"NNE\";}\n  else if (deg>33.75 && deg<56.25){return \"NE\";}\n  else if (deg>56.25 && deg<78.75){return \"ENE\";}\n  else if (deg>78.75 && deg<101.25){return \"E\";}\n  else if (deg>101.25 && deg<123.75){return \"ESE\";}\n  else if (deg>123.75 && deg<146.25){return \"SE\";}\n  else if (deg>146.25 && deg<168.75){return \"SSE\";}\n  else if (deg>168.75 && deg<191.25){return \"S\";}\n  else if (deg>191.25 && deg<213.75){return \"SSW\";}\n  else if (deg>213.75 && deg<236.25){return \"SW\";}\n  else if (deg>236.25 && deg<258.75){return \"WSW\";}\n  else if (deg>258.75 && deg<281.25){return \"W\";}\n  else if (deg>281.25 && deg<303.75){return \"WNW\";}\n  else if (deg>303.75 && deg<326.25){return \"NW\";}\n  else if (deg>326.25 && deg<348.75){return \"NNW\";}\n  else {return \"N\";}\n}\n\nif (units == \"imperial\")\n{\n  msg.payload.current.temp = msg.payload.current.temp.toFixed() + ' °F';\n  msg.payload.current.wind_speed = msg.payload.current.wind_speed.toFixed() + ' mph';\n}\nelse  // metric units\n{\n  msg.payload.current.temp = msg.payload.current.temp.toFixed(1) + ' °C';\n  msg.payload.current.wind_speed = msg.payload.current.wind_speed.toFixed(1) + ' m/s';\n}\n\nmsg.payload.current.wind_cardinal = degreesToCardinal(msg.payload.current.wind_deg);\n\nmsg.payload.current.sunrise = timeConvert(msg.payload.current.sunrise);\nmsg.payload.current.sunset = timeConvert(msg.payload.current.sunset);\n\nvar iconString = 'wi-owm-' + msg.payload.current.weather[0].icon + ' wi-4x';\nicon = {\n    ui_control: {\n        icon: iconString\n    }\n}; \n\nreturn [msg, icon];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 180,
+        "wires": [
+            [
+                "c1cfd7e5e8bc15d9"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "500cca9b1ed2367f",
+        "type": "change",
+        "z": "9590072e46a918fc",
+        "name": "Settings",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.lat",
+                "pt": "msg",
+                "to": "53",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.lon",
+                "pt": "msg",
+                "to": "2",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.appid",
+                "pt": "msg",
+                "to": "54cc6c1e8bd7d5d7123659e4ce63eb71",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.units",
+                "pt": "msg",
+                "to": "metric",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.lang",
+                "pt": "msg",
+                "to": "en",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "hour12",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "units",
+                "pt": "flow",
+                "to": "payload.units",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "lang",
+                "pt": "flow",
+                "to": "payload.lang",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.exclude",
+                "pt": "msg",
+                "to": "minutely",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 180,
+        "wires": [
+            [
+                "c4c4c10b3295fa6e"
+            ]
+        ]
+    },
+    {
+        "id": "47e6585039762a38",
+        "type": "twitter out",
+        "z": "9590072e46a918fc",
+        "twitter": "7e3d3ce763b99d93",
+        "name": "Tweet",
+        "x": 990,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "ea209dda73e58269",
+        "type": "function",
+        "z": "9590072e46a918fc",
+        "name": "Format current data",
+        "func": "\nvar temp = msg.payload.current.temp.toFixed(1) + ' °C';\nvar windSpeed= msg.payload.current.wind_speed.toFixed(1) + ' m/s';\nvar desc = msg.payload.current.weather[0].description\nvar humidity = msg.payload.current.humidity + ' %';\nmsg.payload = \"Temp: \" + temp + \" Wind Speed: \" + windSpeed + \" Currently : \" + desc + \" ,With humidity \" + humidity +\" #RaceUpdates\";\nreturn msg;\n\n\n\n\n\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 240,
+        "wires": [
+            [
+                "7b323ebeb07229ae",
+                "47e6585039762a38"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "7b323ebeb07229ae",
+        "type": "debug",
+        "z": "9590072e46a918fc",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 990,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "c1cfd7e5e8bc15d9",
+        "type": "link out",
+        "z": "9590072e46a918fc",
+        "name": "weather",
+        "mode": "link",
+        "links": [
+            "737521d556b4497e",
+            "13572e37aa2caaae"
+        ],
+        "x": 975,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "ecad981f084ad41f",
+        "type": "link in",
+        "z": "9590072e46a918fc",
+        "name": "tweetpos",
+        "links": [
+            "11997c2ee991c20b"
+        ],
+        "x": 115,
+        "y": 320,
+        "wires": [
+            [
+                "90e53d014374f002"
+            ]
+        ]
+    },
+    {
+        "id": "904f9aac99a6b913",
+        "type": "debug",
+        "z": "9590072e46a918fc",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "90e53d014374f002",
+        "type": "function",
+        "z": "9590072e46a918fc",
+        "name": "Get name",
+        "func": "msg.collection = 'BoatNames'   // use your collection\nmsg.operation = 'find'\nmsg.pos = msg.payload.Position;\nvar a = msg.payload.Count;\nmsg.pos2 = a;\nvar splitString = msg.payload.BoatID.split(',');\nmsg.payload = {_msgid: splitString[a-1]};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 320,
+        "wires": [
+            [
+                "0cdcb02416707058"
+            ]
+        ]
+    },
+    {
+        "id": "0cdcb02416707058",
+        "type": "mongodb in",
+        "z": "9590072e46a918fc",
+        "mongodb": "b1de76ddbaf505a8",
+        "name": "",
+        "collection": "",
+        "operation": "find",
+        "x": 480,
+        "y": 320,
+        "wires": [
+            [
+                "904f9aac99a6b913",
+                "f56d91b1a505c61c"
+            ]
+        ]
+    },
+    {
+        "id": "f56d91b1a505c61c",
+        "type": "function",
+        "z": "9590072e46a918fc",
+        "name": "Format current data",
+        "func": "var checkpoint = msg.pos;\nvar place = msg.pos2;\n\nif(place == 1){\n    var append = \"st\";\n}\nelse if(place == 2){\n     append = \"nd\";\n}\nelse if(place == 3){\n     append = \"rd\";\n}\nelse \n{\n    append = \"th\"\n}\nvar name = msg.payload[0].Name;\nmsg.payload = name + \" has passed the \" + checkpoint + \" in \" + place+append + \" place!\";\nreturn msg\n\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 320,
+        "wires": [
+            [
+                "47e6585039762a38"
+            ]
+        ]
+    },
+    {
+        "id": "c9e14c0bfad33e11",
+        "type": "twilio out",
+        "z": "2617110fac7e2b50",
+        "twilio": "1f12001b5cae229f",
+        "twilioType": "sms",
+        "url": "",
+        "number": "",
+        "name": "",
+        "x": 810,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "795ed2a0a5f48687",
+        "type": "function",
+        "z": "2617110fac7e2b50",
+        "name": "random number",
+        "func": "var x = msg.payload.phoneNumber;\nvar a = msg.payload.boatID;\nmsg.payload = Math.floor((Math.random() * 9000) + 1000);\nmsg.boatID = a;\nmsg.topic = x;\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 460,
+        "wires": [
+            [
+                "c9e14c0bfad33e11",
+                "8d5a3d194aa421a1"
+            ]
+        ]
+    },
+    {
+        "id": "41a43ab4d974e0b1",
+        "type": "function",
+        "z": "2617110fac7e2b50",
+        "name": "Generate random name",
+        "func": "var things = ['Rock', 'Paper', 'Scissor','Swan','Black','Blue','Red','Never','Forget','Panic','Empty','Disco','Vacuum','Bags',\"The\",\"Milkman\",\"Donuts\",\"Cheese\",\"Milk\",\"Bottle\",\"Whiskey\",\"Banana\", \"Orange\", \"Apple\", \"Mango\"];\nvar thing = things[Math.floor(Math.random()*things.length)];\nvar thing2 = things[Math.floor(Math.random()*things.length)];\nmsg.payload = thing + thing2;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 600,
+        "wires": [
+            [
+                "cb7ab221e56b6283"
+            ]
+        ]
+    },
+    {
+        "id": "cb7ab221e56b6283",
+        "type": "debug",
+        "z": "2617110fac7e2b50",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 930,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "1ed37cbe4aef0d7b",
+        "type": "inject",
+        "z": "2617110fac7e2b50",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 510,
+        "y": 600,
+        "wires": [
+            [
+                "41a43ab4d974e0b1"
+            ]
+        ]
+    },
+    {
+        "id": "7da2a3b97a936983",
+        "type": "link in",
+        "z": "2617110fac7e2b50",
+        "name": "phoneNumber",
+        "links": [
+            "e09ef2a075b1d14d"
+        ],
+        "x": 435,
+        "y": 460,
+        "wires": [
+            [
+                "795ed2a0a5f48687"
+            ]
+        ]
+    },
+    {
+        "id": "8d5a3d194aa421a1",
+        "type": "function",
+        "z": "2617110fac7e2b50",
+        "name": " lookup ID and update",
+        "func": "var newPin = msg.payload;\nvar boatID = msg.boatID;\nmsg.collection = 'Verification'   // use your collection\n\nmsg.query = {_msgid:boatID};\n\nmsg.payload =\n{\n    _msgid : boatID,\n    isVerified : false,\n    pin :  newPin.toString(),\n    pinEntered : null\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 400,
+        "wires": [
+            [
+                "35e6aa08856e16ac"
+            ]
+        ]
+    },
+    {
+        "id": "35e6aa08856e16ac",
+        "type": "mongodb out",
+        "z": "2617110fac7e2b50",
+        "mongodb": "b1de76ddbaf505a8",
+        "name": "",
+        "collection": "",
+        "payonly": false,
+        "upsert": false,
+        "multi": false,
+        "operation": "update",
+        "x": 1100,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "b6e5e9aebe429c56",
+        "type": "mongodb in",
+        "z": "2617110fac7e2b50",
+        "mongodb": "b1de76ddbaf505a8",
+        "name": "",
+        "collection": "Verification",
+        "operation": "find",
+        "x": 740,
+        "y": 280,
+        "wires": [
+            [
+                "48146099b32572e7"
+            ]
+        ]
+    },
+    {
+        "id": "48146099b32572e7",
+        "type": "splitter",
+        "z": "2617110fac7e2b50",
+        "name": "",
+        "property": "payload",
+        "x": 1010,
+        "y": 280,
+        "wires": [
+            [
+                "ffc1237e97568816"
+            ]
+        ]
+    },
+    {
+        "id": "281237d0d4bd0496",
+        "type": "debug",
+        "z": "2617110fac7e2b50",
+        "name": "test",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1690,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "ffc1237e97568816",
+        "type": "switch",
+        "z": "2617110fac7e2b50",
+        "name": "checks if pin entered",
+        "property": "payload.pinEntered",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1220,
+        "y": 280,
+        "wires": [
+            [
+                "5d605d19d109a1ee"
+            ]
+        ]
+    },
+    {
+        "id": "5d605d19d109a1ee",
+        "type": "function",
+        "z": "2617110fac7e2b50",
+        "name": "compare verification pin",
+        "func": "var genPin = msg.payload.pin;\nvar pinEntered2 = msg.payload.pinEntered;\nmsg.collection = 'Verification'   // use your collection\n\nmsg.query = {_msgid:msg.payload._msgid};\n\nif(genPin == pinEntered2){\n    msg.payload =\n    {\n        _msgid : msg.payload._msgid,\n        isVerified : true,\n        pin :  genPin,\n        pinEntered : pinEntered2\n    };\n    return msg;\n}\nelse{\n    msg.payload =\n    {\n        _msgid : msg.payload._msgid,\n        isVerified : false,\n        pin :  genPin,\n        pinEntered : null\n    };\n    return msg;\n}\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1490,
+        "y": 280,
+        "wires": [
+            [
+                "4a8ad0f6571b7401",
+                "281237d0d4bd0496"
+            ]
+        ]
+    },
+    {
+        "id": "4a8ad0f6571b7401",
+        "type": "mongodb out",
+        "z": "2617110fac7e2b50",
+        "mongodb": "b1de76ddbaf505a8",
+        "name": "",
+        "collection": "",
+        "payonly": false,
+        "upsert": false,
+        "multi": false,
+        "operation": "update",
+        "x": 1800,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "e256df504a4a1604",
+        "type": "link in",
+        "z": "2617110fac7e2b50",
+        "name": "",
+        "links": [
+            "4b241be79dbdf0a9"
+        ],
+        "x": 335,
+        "y": 280,
+        "wires": [
+            [
+                "44fb36a6da0de96a"
+            ]
+        ]
+    },
+    {
+        "id": "44fb36a6da0de96a",
+        "type": "function",
+        "z": "2617110fac7e2b50",
+        "name": "",
+        "func": "msg.collection = 'Verification'   // use your collection\nmsg.operation = 'find'\nmsg.payload = {_msgid:msg.payload._msgid};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 280,
+        "wires": [
+            [
+                "b6e5e9aebe429c56"
+            ]
+        ]
+    },
+    {
+        "id": "045643a86257962f",
+        "type": "uibuilder",
+        "z": "9a9352e6f7e2acf5",
+        "name": "",
+        "topic": "",
+        "url": "Home",
+        "fwdInMessages": false,
+        "allowScripts": false,
+        "allowStyles": false,
+        "copyIndex": true,
+        "templateFolder": "vue",
+        "extTemplate": "",
+        "showfolder": false,
+        "useSecurity": false,
+        "sessionLength": 432000,
+        "tokenAutoExtend": false,
+        "reload": true,
+        "sourceFolder": "src",
+        "x": 630,
+        "y": 500,
+        "wires": [
+            [
+                "5fd43b472220f0d5",
+                "b1161f55fa5bfcb5",
+                "683d00e82a5c78f8",
+                "c2fd8277419d280a"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "5fd43b472220f0d5",
+        "type": "debug",
+        "z": "9a9352e6f7e2acf5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "b1161f55fa5bfcb5",
+        "type": "switch",
+        "z": "9a9352e6f7e2acf5",
+        "name": "phone number",
+        "property": "payload.phoneNumber",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 840,
+        "y": 540,
+        "wires": [
+            [
+                "e09ef2a075b1d14d"
+            ]
+        ]
+    },
+    {
+        "id": "e09ef2a075b1d14d",
+        "type": "link out",
+        "z": "9a9352e6f7e2acf5",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "7da2a3b97a936983"
+        ],
+        "x": 955,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "737521d556b4497e",
+        "type": "link in",
+        "z": "9a9352e6f7e2acf5",
+        "name": "weather in",
+        "links": [
+            "c1cfd7e5e8bc15d9"
+        ],
+        "x": 475,
+        "y": 500,
+        "wires": [
+            [
+                "045643a86257962f",
+                "ac9e62a615b5b339"
+            ]
+        ]
+    },
+    {
+        "id": "ac9e62a615b5b339",
+        "type": "debug",
+        "z": "9a9352e6f7e2acf5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "683d00e82a5c78f8",
+        "type": "switch",
+        "z": "9a9352e6f7e2acf5",
+        "name": "newName and boatID",
+        "property": "payload.newName",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 860,
+        "y": 400,
+        "wires": [
+            [
+                "d598f95a15e58fe2"
+            ]
+        ]
+    },
+    {
+        "id": "d598f95a15e58fe2",
+        "type": "link out",
+        "z": "9a9352e6f7e2acf5",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "961a06a5ac9fb31e"
+        ],
+        "x": 1015,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "beac0ffafe9b78a3",
+        "type": "link in",
+        "z": "9a9352e6f7e2acf5",
+        "name": "",
+        "links": [
+            "4370dfbcd426606c"
+        ],
+        "x": 475,
+        "y": 560,
+        "wires": [
+            [
+                "045643a86257962f",
+                "ac9e62a615b5b339"
+            ]
+        ]
+    },
+    {
+        "id": "5f7fe7a35108b4da",
+        "type": "link in",
+        "z": "9a9352e6f7e2acf5",
+        "name": "boat data in",
+        "links": [
+            "d7d0a7f85ffbb924"
+        ],
+        "x": 475,
+        "y": 440,
+        "wires": [
+            [
+                "045643a86257962f",
+                "ac9e62a615b5b339"
+            ]
+        ]
+    },
+    {
+        "id": "c2fd8277419d280a",
+        "type": "switch",
+        "z": "9a9352e6f7e2acf5",
+        "name": "posisrion",
+        "property": "payload.posistion",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 820,
+        "y": 460,
+        "wires": [
+            [
+                "48505563c282cb6a"
+            ]
+        ]
+    },
+    {
+        "id": "48505563c282cb6a",
+        "type": "link out",
+        "z": "9a9352e6f7e2acf5",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "ec832ec94009625a"
+        ],
+        "x": 955,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "bf537e4c9b1752c5",
+        "type": "http in",
+        "z": "54b60863c21c6c37",
+        "name": "",
+        "url": "/vue-rest/post",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 300,
+        "wires": [
+            [
+                "1b17d8058a9257f5",
+                "b87abe93142f890c"
+            ]
+        ]
+    },
+    {
+        "id": "b87abe93142f890c",
+        "type": "http response",
+        "z": "54b60863c21c6c37",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 510,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "33142ff37fa623fa",
+        "type": "function",
+        "z": "54b60863c21c6c37",
+        "name": "convert memory paramater ",
+        "func": "//msg.payload.timestamp = new Date().getTime();\nvar x = msg.payload.Memory;\nvar a = JSON.parse(x);\nvar boatid = a.twilio.collected_data.change_name.answers.boat_id.answer;\nvar name = a.twilio.collected_data.change_name.answers.new_name.answer;\n\nmsg.payload =\n{\n    _msgid : boatid,\n    Name :  name\n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 360,
+        "wires": [
+            [
+                "8c90b3ccfaabfca2"
+            ]
+        ]
+    },
+    {
+        "id": "1b17d8058a9257f5",
+        "type": "json",
+        "z": "54b60863c21c6c37",
+        "name": "",
+        "property": "payload.Memory",
+        "action": "str",
+        "pretty": true,
+        "x": 370,
+        "y": 360,
+        "wires": [
+            [
+                "33142ff37fa623fa"
+            ]
+        ]
+    },
+    {
+        "id": "61072b69ea2cec29",
+        "type": "comment",
+        "z": "54b60863c21c6c37",
+        "name": "Process request to change name, save new values to db",
+        "info": "",
+        "x": 270,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "8c90b3ccfaabfca2",
+        "type": "function",
+        "z": "54b60863c21c6c37",
+        "name": " lookup ID and update",
+        "func": "var x = msg.payload.Name;\nmsg.collection = 'BoatNames'   // use your collection\n\nmsg.query = {_msgid:msg.payload._msgid};\n\nmsg.payload =\n{\n    _msgid : msg.payload._msgid,\n    Name :  x\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 360,
+        "wires": [
+            [
+                "f58e2aa8b3c994a0"
+            ]
+        ]
+    },
+    {
+        "id": "f58e2aa8b3c994a0",
+        "type": "mongodb out",
+        "z": "54b60863c21c6c37",
+        "mongodb": "b1de76ddbaf505a8",
+        "name": "",
+        "collection": "",
+        "payonly": false,
+        "upsert": false,
+        "multi": false,
+        "operation": "update",
+        "x": 1160,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "961a06a5ac9fb31e",
+        "type": "link in",
+        "z": "54b60863c21c6c37",
+        "name": "bNameToDB",
+        "links": [
+            "d598f95a15e58fe2"
+        ],
+        "x": 675,
+        "y": 280,
+        "wires": [
+            [
+                "66ed2475d07a8349"
+            ]
+        ]
+    },
+    {
+        "id": "66ed2475d07a8349",
+        "type": "function",
+        "z": "54b60863c21c6c37",
+        "name": " lookup ID and update",
+        "func": "var x = msg.payload.newName;\nmsg.collection = 'BoatNames'   // use your collection\n\nmsg.query = {_msgid:msg.payload.boatid};\n\nmsg.payload =\n{\n    _msgid : msg.payload.boatid,\n    Name :  x\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 280,
+        "wires": [
+            [
+                "f58e2aa8b3c994a0"
+            ]
+        ]
+    },
+    {
+        "id": "fc6d30109b820b7b",
+        "type": "inject",
+        "z": "8999688d5d3c1c20",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "payloadType": "str",
+        "x": 370,
+        "y": 300,
+        "wires": [
+            [
+                "9a7d013cd7116214"
+            ]
+        ]
+    },
+    {
+        "id": "9a7d013cd7116214",
+        "type": "http request",
+        "z": "8999688d5d3c1c20",
+        "name": "Quote of the day",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://favqs.com/api/qotd",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 550,
+        "y": 300,
+        "wires": [
+            [
+                "4370dfbcd426606c",
+                "0dc78a3aca7e2b34"
+            ]
+        ]
+    },
+    {
+        "id": "4370dfbcd426606c",
+        "type": "link out",
+        "z": "8999688d5d3c1c20",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "beac0ffafe9b78a3"
+        ],
+        "x": 715,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "0dc78a3aca7e2b34",
+        "type": "debug",
+        "z": "8999688d5d3c1c20",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "e87a50b58c972558",
+        "type": "template",
+        "z": "d2aa67716520bebf",
+        "name": "Web Template",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n    <title>Boat Data</title>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css\" />\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js\"></script>\n    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n    <link type=\"text/css\" rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css\" />\n    <link type=\"text/css\" rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css\" />\n    <link rel=\"icon\" href=\"https://twemoji.maxcdn.com/2/svg/2693.svg\">\n    <link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\">\n    <link rel=\"stylesheet\" href=\"https://www.w3schools.com/lib/w3-colors-flat.css\">\n    \n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js\"></script>\n\n    <script type=\"text/javascript\">\n        $(function () {\n            var db = {{#payload}}{{{.}}}{{/payload}};\n                $(\"#jsgrid\").jsGrid({\n                    width: \"100%\",\n                    sorting: true,\n                    paging: true,\n\n                    data: db,\n\n                    fields: [\n                        { title:\"BoatID\", name: \"BoatID\", type: \"text\", width: 50 },\n                        { title:\"HB\", name: \"HB\", type: \"text\", width: 50 },\n                        { title:\"BoatDirection\", name: \"BoatDirection\", type: \"text\", width: 50 },\n                        { title:\"SailDirection\", name: \"SailDirection\", type:\"text\", width: 50}\n                       \n                    ],\n                });\n            });\n    \n  </script>\n  <link type=\"text/css\" rel=\"stylesheet\" href=\"../uibuilder/vendor/bootstrap/dist/css/bootstrap.min.css\" />\n    <link type=\"text/css\" rel=\"stylesheet\" href=\"../uibuilder/vendor/bootstrap-vue/dist/bootstrap-vue.css\" />\n    <style>\nbody,h1,h2,h3,h4,h5,h6 {font-family: \"Lato\", sans-serif}\n.w3-bar,h1,button {font-family: \"Montserrat\", sans-serif}\n.fa-anchor,.fa-life-ring {font-size:200px}\n.w3-flat-turquoise\n{color:#fff;background-color:#1abc9c}\n</style>\n    <link type=\"text/css\" rel=\"stylesheet\" href=\"./index.css\" media=\"all\">\n\n</head>\n<body>\n    <!-- Navbar -->\n    <div class=\"w3-top\">\n      <div class=\"w3-bar w3-white w3-card w3-left-align w3-large\">\n        <a class=\"w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red\" href=\"javascript:void(0);\" onclick=\"myFunction()\" title=\"Toggle Navigation Menu\"><i class=\"fa fa-bars\"></i></a>\n        <a href=\"/Home/index.html\" class=\"w3-bar-item w3-button w3-padding-large w3-white\">Home</a>\n        <a href=\"/Home/verification.html\" class=\"w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-blue\">Verification</a>\n        <a href=\"/Home/temp.html\" class=\"w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-blue\">Forcast Updates</a>\n        <a href=\"#\" class=\"w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-blue\">Map</a>\n        <a href=\"/Home/tutorial.html\" class=\"w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-blue\">Other</a>\n        <a href=\"/Home/change.html\" class=\"w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-blue\">Edit Values</a>\n        <a href=\"/data\" class=\"w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-blue\">Boats Data</a>\n      </div>\n    </div>\n<div class=\"w3-center\">\n  <h2>Containers</h2>\n  <p> `</p>\n</div>\n<!-- Header -->\n<header>\n    <div class=\"w3-container w3-flat-turquoise w3-center w3-padding-54\">\n    <h1 class=\"w3-jumbo w3-text-white w3-wide\"> Boat Data</h1>\n</div>\n</header>\n\n<!-- First Grid -->\n<div class=\"w3-row-padding w3-padding-64 w3-container\">\n  <div class=\"w3-content\">\n    \n      <h1>Display Each Boats Data</h1>\n        <div class=\"w3-table-all w3-xxlarge\"></div>\n        <div class=\"w3-table-all w3-xxlarge\" id=\"jsgrid\">\n        </div>\n   \n</div>\n</div>\n        \n    \n\n\n\n<div class=\"w3-container w3-black w3-center w3-opacity w3-padding-64\">\n    <h1 class=\"w3-margin w3-xlarge\">Quote of the day: live life</h1>\n</div>\n\n<!-- Footer -->\n<footer class=\"w3-container w3-padding-64 w3-center w3-opacity\">  \n  <div class=\"w3-xlarge w3-padding-32\">\n    <i class=\"fa fa-facebook-official w3-hover-opacity\"></i>\n    <i class=\"fa fa-instagram w3-hover-opacity\"></i>\n    <i class=\"fa fa-snapchat w3-hover-opacity\"></i>\n    <i class=\"fa fa-pinterest-p w3-hover-opacity\"></i>\n    <i class=\"fa fa-twitter w3-hover-opacity\"></i>\n    <i class=\"fa fa-linkedin w3-hover-opacity\"></i>\n </div>\n <p>Nothing\n\n\n\n    \n\n    <!-- These MUST be in the right order. Note no leading / -->\n\n    <!-- REQUIRED: Socket.IO is loaded only once for all instances. Without this, you don't get a websocket connection -->\n    <script src=\"../uibuilder/vendor/socket.io/socket.io.js\"></script>\n\n    <!-- Vendor Libraries - Load in the right order, use minified, production versions for speed -->\n    <script src=\"../uibuilder/vendor/vue/dist/vue.js\"></script> <!-- dev version with component compiler -->\n    <!-- <script src=\"../uibuilder/vendor/vue/dist/vue.min.js\"></script>   prod version with component compiler -->\n    <!-- <script src=\"../uibuilder/vendor/vue/dist/vue.runtime.min.js\"></script>   prod version without component compiler -->\n    <script src=\"../uibuilder/vendor/bootstrap-vue/dist/bootstrap-vue.js\"></script> <!-- Dev version -->\n    <!-- <script src=\"../uibuilder/vendor/bootstrap-vue/dist/bootstrap-vue.min.js\"></script>   Prod version -->\n\n    <!-- REQUIRED: Sets up Socket listeners and the msg object -->\n    <script src=\"./uibuilderfe.js\"></script> <!-- dev version -->\n    <!-- <script src=\"./uibuilderfe.min.js\"></script>     prod version -->\n\n    <!-- OPTIONAL: You probably want this. Put your custom code here -->\n    <script src=\"./index.js\"></script>\n\n</body></html>\n\n",
+        "x": 1020,
+        "y": 140,
+        "wires": [
+            [
+                "6c851e15548f213c"
+            ]
+        ]
+    },
+    {
+        "id": "cb5f33047fdc5f1a",
+        "type": "http in",
+        "z": "d2aa67716520bebf",
+        "name": "",
+        "url": "/data",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 170.2333984375,
+        "y": 146.4000701904297,
+        "wires": [
+            [
+                "8498865aa1a4fa03"
+            ]
+        ]
+    },
+    {
+        "id": "6c851e15548f213c",
+        "type": "http response",
+        "z": "d2aa67716520bebf",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1230,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "48ce053020c0c288",
+        "type": "json",
+        "z": "d2aa67716520bebf",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 827,
+        "y": 139.6999969482422,
+        "wires": [
+            [
+                "e87a50b58c972558"
+            ]
+        ]
+    },
+    {
+        "id": "8498865aa1a4fa03",
+        "type": "mongodb in",
+        "z": "d2aa67716520bebf",
+        "mongodb": "b1de76ddbaf505a8",
+        "name": "",
+        "collection": "SingleBD",
+        "operation": "find",
+        "x": 540.2333984375,
+        "y": 146.4000701904297,
+        "wires": [
+            [
+                "48ce053020c0c288"
+            ]
+        ]
+    },
+    {
+        "id": "ce30f4a0c2bfd0b6",
+        "type": "template",
+        "z": "d2aa67716520bebf",
+        "name": "Web Template",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n    <title>Boat Data</title>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css\" />\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js\"></script>\n    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n    <link type=\"text/css\" rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css\" />\n    <link type=\"text/css\" rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css\" />\n    <link rel=\"icon\" href=\"https://twemoji.maxcdn.com/2/svg/2693.svg\">\n    <link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\">\n    <link rel=\"stylesheet\" href=\"https://www.w3schools.com/lib/w3-colors-flat.css\">\n    \n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js\"></script>\n\n    <script type=\"text/javascript\">\n        $(function () {\n            var db = {{#payload}}{{{.}}}{{/payload}};\n                $(\"#jsgrid\").jsGrid({\n                    width: \"100%\",\n                    sorting: true,\n                    paging: true,\n\n                    data: db,\n\n                    fields: [\n                        { title:\"BuoyID\", name: \"_msgid\", type: \"text\", width: 50 },\n                        { title:\"Position\", name: \"Position\", type: \"text\", width: 50 }\n                        \n                       \n                    ],\n                });\n            });\n    \n  </script>\n  <link type=\"text/css\" rel=\"stylesheet\" href=\"../uibuilder/vendor/bootstrap/dist/css/bootstrap.min.css\" />\n    <link type=\"text/css\" rel=\"stylesheet\" href=\"../uibuilder/vendor/bootstrap-vue/dist/bootstrap-vue.css\" />\n    <style>\nbody,h1,h2,h3,h4,h5,h6 {font-family: \"Lato\", sans-serif}\n.w3-bar,h1,button {font-family: \"Montserrat\", sans-serif}\n.fa-anchor,.fa-life-ring {font-size:200px}\n.w3-flat-turquoise\n{color:#fff;background-color:#1abc9c}\n</style>\n    <link type=\"text/css\" rel=\"stylesheet\" href=\"./index.css\" media=\"all\">\n\n</head>\n<body>\n    <!-- Navbar -->\n    <div class=\"w3-top\">\n      <div class=\"w3-bar w3-white w3-card w3-left-align w3-large\">\n        <a class=\"w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red\" href=\"javascript:void(0);\" onclick=\"myFunction()\" title=\"Toggle Navigation Menu\"><i class=\"fa fa-bars\"></i></a>\n        <a href=\"/Home/index.html\" class=\"w3-bar-item w3-button w3-padding-large w3-white\">Home</a>\n        <a href=\"/Home/verification.html\" class=\"w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-blue\">Verification</a>\n        <a href=\"/Home/temp.html\" class=\"w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-blue\">Forcast Updates</a>\n        <a href=\"#\" class=\"w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-blue\">Map</a>\n        <a href=\"/Home/tutorial.html\" class=\"w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-blue\">Other</a>\n        <a href=\"/Home/change.html\" class=\"w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-blue\">Edit Values</a>\n        <a href=\"/data\" class=\"w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-blue\">Boats Data</a>\n        <a href=\"/Buoys\" class=\"w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-blue\">Buoys Data</a>\n      </div>\n    </div>\n<div class=\"w3-center\">\n  <h2>Containers</h2>\n  <p> `</p>\n</div>\n<!-- Header -->\n<header>\n    <div class=\"w3-container w3-flat-turquoise w3-center w3-padding-54\">\n    <h1 class=\"w3-jumbo w3-text-white w3-wide\"> Buoy Data</h1>\n</div>\n</header>\n\n<!-- First Grid -->\n<div class=\"w3-row-padding w3-padding-64 w3-container\">\n  <div class=\"w3-content\">\n    \n      <h1>Display Each Buoys Data</h1>\n        <div class=\"w3-table-all w3-xxlarge\"></div>\n        <div class=\"w3-table-all w3-xxlarge\" id=\"jsgrid\">\n        </div>\n   \n</div>\n</div>\n        \n    \n\n\n\n<div class=\"w3-container w3-black w3-center w3-opacity w3-padding-64\">\n    <h1 class=\"w3-margin w3-xlarge\">Quote of the day: live life</h1>\n</div>\n\n<!-- Footer -->\n<footer class=\"w3-container w3-padding-64 w3-center w3-opacity\">  \n  <div class=\"w3-xlarge w3-padding-32\">\n    <i class=\"fa fa-facebook-official w3-hover-opacity\"></i>\n    <i class=\"fa fa-instagram w3-hover-opacity\"></i>\n    <i class=\"fa fa-snapchat w3-hover-opacity\"></i>\n    <i class=\"fa fa-pinterest-p w3-hover-opacity\"></i>\n    <i class=\"fa fa-twitter w3-hover-opacity\"></i>\n    <i class=\"fa fa-linkedin w3-hover-opacity\"></i>\n </div>\n <p>Nothing\n\n\n\n    \n\n    <!-- These MUST be in the right order. Note no leading / -->\n\n    <!-- REQUIRED: Socket.IO is loaded only once for all instances. Without this, you don't get a websocket connection -->\n    <script src=\"../uibuilder/vendor/socket.io/socket.io.js\"></script>\n\n    <!-- Vendor Libraries - Load in the right order, use minified, production versions for speed -->\n    <script src=\"../uibuilder/vendor/vue/dist/vue.js\"></script> <!-- dev version with component compiler -->\n    <!-- <script src=\"../uibuilder/vendor/vue/dist/vue.min.js\"></script>   prod version with component compiler -->\n    <!-- <script src=\"../uibuilder/vendor/vue/dist/vue.runtime.min.js\"></script>   prod version without component compiler -->\n    <script src=\"../uibuilder/vendor/bootstrap-vue/dist/bootstrap-vue.js\"></script> <!-- Dev version -->\n    <!-- <script src=\"../uibuilder/vendor/bootstrap-vue/dist/bootstrap-vue.min.js\"></script>   Prod version -->\n\n    <!-- REQUIRED: Sets up Socket listeners and the msg object -->\n    <script src=\"./uibuilderfe.js\"></script> <!-- dev version -->\n    <!-- <script src=\"./uibuilderfe.min.js\"></script>     prod version -->\n\n    <!-- OPTIONAL: You probably want this. Put your custom code here -->\n    <script src=\"./index.js\"></script>\n\n</body></html>\n\n",
+        "x": 1060,
+        "y": 300,
+        "wires": [
+            [
+                "f8220f6ae0213fad"
+            ]
+        ]
+    },
+    {
+        "id": "a60456e5f9f4f13e",
+        "type": "http in",
+        "z": "d2aa67716520bebf",
+        "name": "",
+        "url": "/Buoys",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 220.2333984375,
+        "y": 306.4000701904297,
+        "wires": [
+            [
+                "4f63d966b8739322"
+            ]
+        ]
+    },
+    {
+        "id": "f8220f6ae0213fad",
+        "type": "http response",
+        "z": "d2aa67716520bebf",
+        "name": "",
+        "x": 1260.2333984375,
+        "y": 286.4000701904297,
+        "wires": []
+    },
+    {
+        "id": "ca790389cd1be3c0",
+        "type": "json",
+        "z": "d2aa67716520bebf",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 867,
+        "y": 299.6999969482422,
+        "wires": [
+            [
+                "ce30f4a0c2bfd0b6"
+            ]
+        ]
+    },
+    {
+        "id": "4f63d966b8739322",
+        "type": "mongodb in",
+        "z": "d2aa67716520bebf",
+        "mongodb": "b1de76ddbaf505a8",
+        "name": "",
+        "collection": "BuoyPlaces",
+        "operation": "find",
+        "x": 540,
+        "y": 300,
+        "wires": [
+            [
+                "ca790389cd1be3c0"
+            ]
+        ]
+    },
+    {
+        "id": "ec832ec94009625a",
+        "type": "link in",
+        "z": "d2aa67716520bebf",
+        "name": "here",
+        "links": [
+            "48505563c282cb6a"
+        ],
+        "x": 175,
+        "y": 400,
+        "wires": [
+            [
+                "85f7c0063a872d89"
+            ]
+        ]
+    },
+    {
+        "id": "d0fe6ef49fee3bba",
+        "type": "function",
+        "z": "d2aa67716520bebf",
+        "name": "Update table",
+        "func": "msg.collection = 'BuoyPlaces'   // use your collection\n\nmsg.query =  {_msgid:msg.payload[0]._msgid};\n\n\nmsg.payload =\n{\n    _msgid : msg.payload[0]._msgid,\n    Position : msg.pos,\n    BoatID :msg.payload[0].BoatID,\n    Count : msg.payload[0].Count,\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 400,
+        "wires": [
+            [
+                "385d5fc70277622d"
+            ]
+        ]
+    },
+    {
+        "id": "85f7c0063a872d89",
+        "type": "function",
+        "z": "d2aa67716520bebf",
+        "name": "Get Buoy",
+        "func": "msg.collection = 'BuoyPlaces'   // use your collection\nmsg.operation = 'find'\nmsg.buoyid = msg.payload.buoyid;\nmsg.pos = msg.payload.posistion;\n\nmsg.payload = {_msgid:msg.payload.buoyid};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 400,
+        "wires": [
+            [
+                "2b3566c82c6b9658"
+            ]
+        ]
+    },
+    {
+        "id": "2b3566c82c6b9658",
+        "type": "mongodb in",
+        "z": "d2aa67716520bebf",
+        "mongodb": "b1de76ddbaf505a8",
+        "name": "",
+        "collection": "",
+        "operation": "find",
+        "x": 660,
+        "y": 400,
+        "wires": [
+            [
+                "d0fe6ef49fee3bba"
+            ]
+        ]
+    },
+    {
+        "id": "385d5fc70277622d",
+        "type": "mongodb out",
+        "z": "d2aa67716520bebf",
+        "mongodb": "b1de76ddbaf505a8",
+        "name": "",
+        "collection": "",
+        "payonly": false,
+        "upsert": false,
+        "multi": false,
+        "operation": "update",
+        "x": 1240,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "050d8fdffab180ef",
+        "type": "comment",
+        "z": "77d08f2ef548d687",
+        "name": "messageID,initial,boatid",
+        "info": "",
+        "x": 180,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "089629b1b977038a",
+        "type": "function",
+        "z": "77d08f2ef548d687",
+        "name": "Add default boat names",
+        "func": "msg.collection = 'BoatNames'   // use your collection\n\nmsg.payload =\n{\n    _msgid : msg.payload.boatID,\n    Name :  \"Boat\"\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 240,
+        "wires": [
+            [
+                "23bfcdc6f55e2702"
+            ]
+        ]
+    },
+    {
+        "id": "23bfcdc6f55e2702",
+        "type": "mongodb out",
+        "z": "77d08f2ef548d687",
+        "mongodb": "b1de76ddbaf505a8",
+        "name": "",
+        "collection": "",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 960,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "e52258604dbcf9e2",
+        "type": "function",
+        "z": "77d08f2ef548d687",
+        "name": "Add to verification table",
+        "func": "msg.collection = 'Verification'   // use your collection\n\nmsg.payload =\n{\n    _msgid : msg.payload.boatID,\n    isVerified :  false,\n    pin :  null,\n    pinEntered : null\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 300,
+        "wires": [
+            [
+                "23bfcdc6f55e2702"
+            ]
+        ]
+    },
+    {
+        "id": "e66d493454eef0b3",
+        "type": "serial in",
+        "z": "77d08f2ef548d687",
+        "name": "",
+        "serial": "84b5927ffda683d4",
+        "x": 100,
+        "y": 320,
+        "wires": [
+            [
+                "148b407a5071a972"
+            ]
+        ]
+    },
+    {
+        "id": "105a8ca8a240c2cd",
+        "type": "function",
+        "z": "77d08f2ef548d687",
+        "name": "getInitial",
+        "func": "var splitString = msg.payload.split(',');\n\nif (splitString[1] == \"Initial\")\n{\n    msg.payload = \n    { \n        boatID : splitString[2]\n    };\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 240,
+        "wires": [
+            [
+                "62e6d0c17c079929",
+                "86dbbf9493a64809",
+                "e52258604dbcf9e2",
+                "089629b1b977038a"
+            ]
+        ]
+    },
+    {
+        "id": "62e6d0c17c079929",
+        "type": "debug",
+        "z": "77d08f2ef548d687",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "a52fbf2d8b23f934",
+        "type": "inject",
+        "z": "77d08f2ef548d687",
+        "name": "Boat inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1,Initial,6969",
+        "payloadType": "str",
+        "x": 140,
+        "y": 180,
+        "wires": [
+            [
+                "105a8ca8a240c2cd"
+            ]
+        ]
+    },
+    {
+        "id": "513412ca515af669",
+        "type": "function",
+        "z": "77d08f2ef548d687",
+        "name": "crash event",
+        "func": "var splitString = msg.payload.split(',');\n\nif (splitString[1] == \"Crash\")\n{\n    msg.payload = splitString[2] + \",Penalised\";\n    return msg;\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 440,
+        "wires": [
+            [
+                "a89a3fcabbeaae79",
+                "4062f7d032f0afec"
+            ]
+        ]
+    },
+    {
+        "id": "a6786339d41560b2",
+        "type": "comment",
+        "z": "77d08f2ef548d687",
+        "name": "messageID,crash,boatid",
+        "info": "",
+        "x": 110,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "9056d748f4368108",
+        "type": "inject",
+        "z": "77d08f2ef548d687",
+        "name": "Boat inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1,Crash,6969",
+        "payloadType": "str",
+        "x": 140,
+        "y": 380,
+        "wires": [
+            [
+                "513412ca515af669"
+            ]
+        ]
+    },
+    {
+        "id": "a89a3fcabbeaae79",
+        "type": "serial out",
+        "z": "77d08f2ef548d687",
+        "name": "",
+        "serial": "84b5927ffda683d4",
+        "x": 650,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "86dbbf9493a64809",
+        "type": "function",
+        "z": "77d08f2ef548d687",
+        "name": "Add to Penalty table",
+        "func": "msg.collection = 'Penalty'   // use your collection\n\nmsg.payload =\n{\n    _msgid : msg.payload.boatID,\n    numOfPenalties : 0\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 360,
+        "wires": [
+            [
+                "23bfcdc6f55e2702"
+            ]
+        ]
+    },
+    {
+        "id": "4062f7d032f0afec",
+        "type": "function",
+        "z": "77d08f2ef548d687",
+        "name": "Get current Penalty",
+        "func": "msg.collection = 'Penalty'   // use your collection\nmsg.operation = 'find'\nvar splitString = msg.payload.split(',');\nmsg.payload = {_msgid:splitString[0]};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 500,
+        "wires": [
+            [
+                "81b97f18b2c2d34d"
+            ]
+        ]
+    },
+    {
+        "id": "b436088ec61d09ff",
+        "type": "mongodb out",
+        "z": "77d08f2ef548d687",
+        "mongodb": "b1de76ddbaf505a8",
+        "name": "",
+        "collection": "",
+        "payonly": false,
+        "upsert": false,
+        "multi": false,
+        "operation": "update",
+        "x": 1460,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "81b97f18b2c2d34d",
+        "type": "mongodb in",
+        "z": "77d08f2ef548d687",
+        "mongodb": "b1de76ddbaf505a8",
+        "name": "",
+        "collection": "",
+        "operation": "find",
+        "x": 860,
+        "y": 500,
+        "wires": [
+            [
+                "25909009d22446b4"
+            ]
+        ]
+    },
+    {
+        "id": "6b80f42a392538b9",
+        "type": "debug",
+        "z": "77d08f2ef548d687",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "25909009d22446b4",
+        "type": "function",
+        "z": "77d08f2ef548d687",
+        "name": "Update Penalty table",
+        "func": "msg.collection = 'Penalty'   // use your collection\nmsg.query =  {_msgid:msg.payload[0]._msgid};\nvar x = msg.payload[0].numOfPenalties;\nx = x+1;\nmsg.payload =\n{\n    _msgid : msg.payload[0]._msgid,\n    numOfPenalties :  x\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 500,
+        "wires": [
+            [
+                "6b80f42a392538b9",
+                "b436088ec61d09ff"
+            ]
+        ]
+    },
+    {
+        "id": "efe58c34044740fb",
+        "type": "function",
+        "z": "77d08f2ef548d687",
+        "name": "getVerification",
+        "func": "var splitString = msg.payload.split(',');\n\nif (splitString[1] == \"VERIFICATION\")\n{\n    msg.payload = \n    { \n        boatID : splitString[2],\n        pin : splitString[3]\n    };\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 620,
+        "wires": [
+            [
+                "374edd21ed958a32"
+            ]
+        ]
+    },
+    {
+        "id": "e05bc1c24cad4e2e",
+        "type": "comment",
+        "z": "77d08f2ef548d687",
+        "name": "messageID,vert,boatid,pin",
+        "info": "",
+        "x": 130,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "934734a4ff8a51f4",
+        "type": "function",
+        "z": "77d08f2ef548d687",
+        "name": "Update verification table",
+        "func": "msg.collection = 'Verification'   // use your collection\nmsg.query =  {_msgid:msg.payload[0]._msgid};\nmsg.payload =\n{\n    _msgid : msg.payload[0]._msgid,\n    isVerified :  msg.payload[0].isVerified,\n    pin :msg.payload[0].pin,\n    pinEntered : msg.pin\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1150,
+        "y": 620,
+        "wires": [
+            [
+                "b436088ec61d09ff",
+                "6b80f42a392538b9",
+                "4b241be79dbdf0a9"
+            ]
+        ]
+    },
+    {
+        "id": "6bec627122c24035",
+        "type": "inject",
+        "z": "77d08f2ef548d687",
+        "name": "Boat inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1,VERIFICATION,9379,8000",
+        "payloadType": "str",
+        "x": 140,
+        "y": 520,
+        "wires": [
+            [
+                "efe58c34044740fb"
+            ]
+        ]
+    },
+    {
+        "id": "374edd21ed958a32",
+        "type": "function",
+        "z": "77d08f2ef548d687",
+        "name": "Get pin",
+        "func": "msg.collection = 'Verification'   // use your collection\nvar x = msg.payload.pin;\nmsg.operation = 'find'\nmsg.payload = {_msgid:msg.payload.boatID};\nmsg.pin = x;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 620,
+        "wires": [
+            [
+                "37758ad485cb7548"
+            ]
+        ]
+    },
+    {
+        "id": "37758ad485cb7548",
+        "type": "mongodb in",
+        "z": "77d08f2ef548d687",
+        "mongodb": "b1de76ddbaf505a8",
+        "name": "",
+        "collection": "",
+        "operation": "find",
+        "x": 860,
+        "y": 620,
+        "wires": [
+            [
+                "934734a4ff8a51f4"
+            ]
+        ]
+    },
+    {
+        "id": "b16ba4dd914bf973",
+        "type": "comment",
+        "z": "77d08f2ef548d687",
+        "name": "messageID,measurepower,rssi",
+        "info": "",
+        "x": 130,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "e977f5c21557dade",
+        "type": "function",
+        "z": "77d08f2ef548d687",
+        "name": "getCalibratedMeasuredPower",
+        "func": "var splitString = msg.payload.split(',');\n\nif (splitString[1] == \"MEASURE_POWER\")\n{\n    msg.payload = \n    { \n        rssi : splitString[2]\n    };\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 760,
+        "wires": [
+            [
+                "a08bf167e2e3df50"
+            ]
+        ]
+    },
+    {
+        "id": "2cae4e7fc835a7c8",
+        "type": "inject",
+        "z": "77d08f2ef548d687",
+        "name": "DONT CLICK",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1,MEASURE_POWER,-55",
+        "payloadType": "str",
+        "x": 150,
+        "y": 660,
+        "wires": [
+            [
+                "e977f5c21557dade"
+            ]
+        ]
+    },
+    {
+        "id": "a6bbfb090c1d9b3a",
+        "type": "comment",
+        "z": "77d08f2ef548d687",
+        "name": "messageID,boastData,bSerial,hb,bDirection,sDirection",
+        "info": "",
+        "x": 540,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "66a787aba2872722",
+        "type": "inject",
+        "z": "77d08f2ef548d687",
+        "name": "Boat inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "3,BoatData,1236,3,S--,NE-",
+        "payloadType": "str",
+        "x": 160,
+        "y": 820,
+        "wires": [
+            [
+                "650f6e5e1491e1f0"
+            ]
+        ]
+    },
+    {
+        "id": "650f6e5e1491e1f0",
+        "type": "function",
+        "z": "77d08f2ef548d687",
+        "name": "getBoatData",
+        "func": "var splitString = msg.payload.split(',');\n\nif (splitString[1] == \"BoatData\")\n{\n    msg.payload = \n    { \n        \n        messageId : parseInt(splitString[0]),\n        boatID : splitString[2],\n        hb : splitString[3],\n        bDirection : splitString[4],\n        sDirection : splitString[5],\n     \n    };\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 900,
+        "wires": [
+            [
+                "e499d4ca36480b7c"
+            ]
+        ]
+    },
+    {
+        "id": "738fffc1d51e5728",
+        "type": "mongodb out",
+        "z": "77d08f2ef548d687",
+        "mongodb": "b1de76ddbaf505a8",
+        "name": "",
+        "collection": "",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 1020,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "e499d4ca36480b7c",
+        "type": "function",
+        "z": "77d08f2ef548d687",
+        "name": "Add to BoatData table",
+        "func": "msg.collection = 'BoatsData'   // use your collection\n\nmsg.payload =\n{\n    _msgid : msg.payload.messageId,\n    BoatID :msg.payload.boatID,\n    HB :msg.payload.hb,\n    BoatDirection :msg.payload.bDirection,\n    SailDirection :msg.payload.sDirection\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 900,
+        "wires": [
+            [
+                "738fffc1d51e5728",
+                "5d0bad59f1a551d5"
+            ]
+        ]
+    },
+    {
+        "id": "6ed0b55bf53b2885",
+        "type": "comment",
+        "z": "77d08f2ef548d687",
+        "name": "messageID,NearByBoat,bSerial,nearByBoat,rssi,hb",
+        "info": "",
+        "x": 210,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "190fa45ac55466ce",
+        "type": "inject",
+        "z": "77d08f2ef548d687",
+        "name": "Boat inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "4,NearByBoat,6969,2000,-95,3",
+        "payloadType": "str",
+        "x": 120,
+        "y": 1060,
+        "wires": [
+            [
+                "c06f4b746881bc6e"
+            ]
+        ]
+    },
+    {
+        "id": "c06f4b746881bc6e",
+        "type": "function",
+        "z": "77d08f2ef548d687",
+        "name": "getNearByBoatData",
+        "func": "var splitString = msg.payload.split(',');\n\nif (splitString[1] == \"NearByBoat\")\n{\n    msg.payload = \n    { \n        messageId : parseInt(splitString[0]),\n        boatID : splitString[2],\n        nearByBoat : splitString[3],\n        rssi : splitString[4],\n        hb : splitString[5]\n    };\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 1060,
+        "wires": [
+            [
+                "d05e4ba653d58e3a"
+            ]
+        ]
+    },
+    {
+        "id": "d05e4ba653d58e3a",
+        "type": "function",
+        "z": "77d08f2ef548d687",
+        "name": "Add to NearByBoats table",
+        "func": "msg.collection = 'NearByBoats'   // use your collection\nmsg.query =  {_msgid:msg.payload.boatID, NearByBoat:msg.payload.nearByBoat};\nmsg.rssi = msg.payload.rssi;\nmsg.hb = msg.payload.hb;\nmsg.payload =\n{\n    _msgid : msg.payload.boatID,\n    NearByBoat :msg.payload.nearByBoat,\n    RSSI :msg.payload.rssi,\n    HB :msg.payload.hb,\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 1060,
+        "wires": [
+            [
+                "820a9694bfebc45b",
+                "84031b4b50810b7a"
+            ]
+        ]
+    },
+    {
+        "id": "a490cc4f75a846b6",
+        "type": "comment",
+        "z": "77d08f2ef548d687",
+        "name": "messageID,BoatPosition,buoySerial,Boatid,rssi,hb",
+        "info": "",
+        "x": 210,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "9b1c09ebc15ada78",
+        "type": "inject",
+        "z": "77d08f2ef548d687",
+        "name": "Boat inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "7,BoatPosition,1200,1234,-75,6",
+        "payloadType": "str",
+        "x": 120,
+        "y": 1220,
+        "wires": [
+            [
+                "b208c874b9f23f98"
+            ]
+        ]
+    },
+    {
+        "id": "b208c874b9f23f98",
+        "type": "function",
+        "z": "77d08f2ef548d687",
+        "name": "getPositionData",
+        "func": "var splitString = msg.payload.split(',');\n\nif (splitString[1] == \"BoatPosition\")\n{\n    msg.payload = \n    { \n        messageId : parseInt(splitString[0]),\n        buoyID : splitString[2],\n        boatID : splitString[3],\n        rssi : splitString[4],\n        hb : splitString[5]\n    };\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 1220,
+        "wires": [
+            [
+                "4d4259210029516d"
+            ]
+        ]
+    },
+    {
+        "id": "4d4259210029516d",
+        "type": "function",
+        "z": "77d08f2ef548d687",
+        "name": "Add toBoatsPosition table",
+        "func": "msg.collection = 'PositionData'   // use your collection\nmsg.query =  {_msgid:msg.payload.buoyID, BoatID:msg.payload.boatID};\n\nmsg.payload =\n{\n    _msgid : msg.payload.buoyID,\n    BoatID :msg.payload.boatID,\n    RSSI :msg.payload.rssi,\n    HB :msg.payload.hb,\n    \n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 1220,
+        "wires": [
+            [
+                "b871bce3896630e0",
+                "9fef852ea043afe9",
+                "efacbccdfcaaedd4"
+            ]
+        ]
+    },
+    {
+        "id": "4b241be79dbdf0a9",
+        "type": "link out",
+        "z": "77d08f2ef548d687",
+        "name": "pin",
+        "mode": "link",
+        "links": [
+            "e256df504a4a1604"
+        ],
+        "x": 1375,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "5d0bad59f1a551d5",
+        "type": "function",
+        "z": "77d08f2ef548d687",
+        "name": "Update table",
+        "func": "msg.collection = 'SingleBD'   // use your collection\nmsg.payload._msgid = msg.payload.BoatID;\nmsg.query =  {_msgid:msg.payload._msgid};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 957.5,
+        "y": 837.5,
+        "wires": [
+            [
+                "327408fd7ea096f4"
+            ]
+        ]
+    },
+    {
+        "id": "327408fd7ea096f4",
+        "type": "mongodb out",
+        "z": "77d08f2ef548d687",
+        "mongodb": "b1de76ddbaf505a8",
+        "name": "",
+        "collection": "",
+        "payonly": false,
+        "upsert": true,
+        "multi": false,
+        "operation": "update",
+        "x": 1240,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "820a9694bfebc45b",
+        "type": "mongodb out",
+        "z": "77d08f2ef548d687",
+        "mongodb": "b1de76ddbaf505a8",
+        "name": "",
+        "collection": "",
+        "payonly": true,
+        "upsert": true,
+        "multi": false,
+        "operation": "update",
+        "x": 960,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "84031b4b50810b7a",
+        "type": "function",
+        "z": "77d08f2ef548d687",
+        "name": "Trigger Check Near Miss function",
+        "func": "msg.payload = true;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 1020,
+        "wires": [
+            [
+                "14e939926fbbe269"
+            ]
+        ]
+    },
+    {
+        "id": "14e939926fbbe269",
+        "type": "link out",
+        "z": "77d08f2ef548d687",
+        "name": "pen",
+        "mode": "link",
+        "links": [
+            "21c82d731b0d06ae"
+        ],
+        "x": 1175,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "5786dbbb0cffac86",
+        "type": "mongodb out",
+        "z": "77d08f2ef548d687",
+        "mongodb": "b23b4e02f3e3da96",
+        "name": "",
+        "collection": "",
+        "payonly": true,
+        "upsert": true,
+        "multi": false,
+        "operation": "insert",
+        "x": 1000,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "a08bf167e2e3df50",
+        "type": "function",
+        "z": "77d08f2ef548d687",
+        "name": "Add to data table",
+        "func": "msg.collection = 'data'   // use your collection\n\nmsg.payload =\n{\n    _msgid : msg.payload.rssi\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 740,
+        "wires": [
+            [
+                "5786dbbb0cffac86"
+            ]
+        ]
+    },
+    {
+        "id": "b871bce3896630e0",
+        "type": "mongodb out",
+        "z": "77d08f2ef548d687",
+        "mongodb": "b1de76ddbaf505a8",
+        "name": "",
+        "collection": "",
+        "payonly": true,
+        "upsert": true,
+        "multi": false,
+        "operation": "insert",
+        "x": 960,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "d51ca1ede0a437cb",
+        "type": "function",
+        "z": "77d08f2ef548d687",
+        "name": "get All Buoys",
+        "func": "var splitString = msg.payload.split(',');\n\nif (splitString[1] == \"AllBuoys\")\n{\n    msg.payload = \n    { \n        buoyID : splitString[2]\n    };\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 100,
+        "wires": [
+            [
+                "9f0531cea803084d"
+            ]
+        ]
+    },
+    {
+        "id": "9f0531cea803084d",
+        "type": "function",
+        "z": "77d08f2ef548d687",
+        "name": "Add default boat names",
+        "func": "msg.collection = 'BuoyPlaces'   // use your collection\n\nmsg.payload =\n{\n    _msgid : msg.payload.buoyID,\n    Position : \"checkpoint\",\n    BoatID : null,\n    Count : 0\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 100,
+        "wires": [
+            [
+                "23bfcdc6f55e2702"
+            ]
+        ]
+    },
+    {
+        "id": "ffddb1a13f410222",
+        "type": "inject",
+        "z": "77d08f2ef548d687",
+        "name": "Boat inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1,AllBuoys,1200",
+        "payloadType": "str",
+        "x": 160,
+        "y": 40,
+        "wires": [
+            [
+                "d51ca1ede0a437cb"
+            ]
+        ]
+    },
+    {
+        "id": "9fef852ea043afe9",
+        "type": "function",
+        "z": "77d08f2ef548d687",
+        "name": "Get Buoy",
+        "func": "msg.collection = 'BuoyPlaces'   // use your collection\nmsg.operation = 'find'\nmsg.boatid = msg.payload.BoatID;\nmsg.payload = {_msgid:msg.payload._msgid};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 1320,
+        "wires": [
+            [
+                "3e6d176195ed9739"
+            ]
+        ]
+    },
+    {
+        "id": "3e6d176195ed9739",
+        "type": "mongodb in",
+        "z": "77d08f2ef548d687",
+        "mongodb": "b1de76ddbaf505a8",
+        "name": "",
+        "collection": "",
+        "operation": "find",
+        "x": 840,
+        "y": 1320,
+        "wires": [
+            [
+                "8678af744e988955"
+            ]
+        ]
+    },
+    {
+        "id": "8678af744e988955",
+        "type": "function",
+        "z": "77d08f2ef548d687",
+        "name": "Update table",
+        "func": "// use your collection\nmsg.query =  {_msgid:msg.payload[0]._msgid};\nvar count = msg.payload[0].Count;\ncount = count + 1;\n\nif(msg.payload[0].BoatID == null) \n{\n    msg.payload =\n    {\n        _msgid : msg.payload[0]._msgid,\n        Position :  msg.payload[0].Position,\n        BoatID : msg.boatid+\",\",\n        Count : count\n    };\n    \n    return msg;\n}\nvar splitString = msg.payload[0].BoatID.split(',');\nvar x = 0;\nfor (let i = 0; i < splitString.length; i++) {\n  if(splitString[i] == msg.boatid){\n      x = x+1;\n  }\n}\nif(x != 1)\n{\n    msg.payload =\n    {\n        _msgid : msg.payload[0]._msgid,\n        Position :  msg.payload[0].Position,\n        BoatID : msg.payload[0].BoatID + msg.boatid + \",\",\n        Count : count\n    };\n    \n    return msg;  \n}\n\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1110,
+        "y": 1300,
+        "wires": [
+            [
+                "c4b95fe63dc1e7b4",
+                "8267b8f7fdf42ac7",
+                "11997c2ee991c20b"
+            ]
+        ]
+    },
+    {
+        "id": "8267b8f7fdf42ac7",
+        "type": "debug",
+        "z": "77d08f2ef548d687",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1210,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "c4b95fe63dc1e7b4",
+        "type": "mongodb out",
+        "z": "77d08f2ef548d687",
+        "mongodb": "b1de76ddbaf505a8",
+        "name": "",
+        "collection": "",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "update",
+        "x": 1380,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "11997c2ee991c20b",
+        "type": "link out",
+        "z": "77d08f2ef548d687",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "ecad981f084ad41f"
+        ],
+        "x": 1295,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "85db5b7c33ae1d74",
+        "type": "debug",
+        "z": "77d08f2ef548d687",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "148b407a5071a972",
+        "type": "function",
+        "z": "77d08f2ef548d687",
+        "name": "remove \\n",
+        "func": "str = msg.payload;\nstr = str.substring(0, str.length - 1);\nmsg.payload = str;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 120,
+        "y": 240,
+        "wires": [
+            [
+                "105a8ca8a240c2cd",
+                "d51ca1ede0a437cb",
+                "513412ca515af669",
+                "efe58c34044740fb",
+                "e977f5c21557dade",
+                "650f6e5e1491e1f0",
+                "c06f4b746881bc6e",
+                "b208c874b9f23f98",
+                "85db5b7c33ae1d74"
+            ]
+        ]
+    },
+    {
+        "id": "33e623efbb3968f3",
+        "type": "inject",
+        "z": "77d08f2ef548d687",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "collection",
+                "v": "Verification",
+                "vt": "str"
+            },
+            {
+                "p": "query",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 1590,
+        "y": 100,
+        "wires": [
+            [
+                "d1c26f976b75644e"
+            ]
+        ]
+    },
+    {
+        "id": "d1c26f976b75644e",
+        "type": "mongodb out",
+        "z": "77d08f2ef548d687",
+        "mongodb": "b1de76ddbaf505a8",
+        "name": "",
+        "collection": "",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "delete",
+        "x": 1980,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "0dc494ea6ce4110f",
+        "type": "inject",
+        "z": "77d08f2ef548d687",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "collection",
+                "v": "SinglePD",
+                "vt": "str"
+            },
+            {
+                "p": "query",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 1570,
+        "y": 160,
+        "wires": [
+            [
+                "d1c26f976b75644e"
+            ]
+        ]
+    },
+    {
+        "id": "0f65a0675812236d",
+        "type": "inject",
+        "z": "77d08f2ef548d687",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "collection",
+                "v": "SingleBD",
+                "vt": "str"
+            },
+            {
+                "p": "query",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 1570,
+        "y": 220,
+        "wires": [
+            [
+                "d1c26f976b75644e"
+            ]
+        ]
+    },
+    {
+        "id": "a4229464c9b41f22",
+        "type": "inject",
+        "z": "77d08f2ef548d687",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "collection",
+                "v": "PositionData",
+                "vt": "str"
+            },
+            {
+                "p": "query",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 1570,
+        "y": 280,
+        "wires": [
+            [
+                "d1c26f976b75644e"
+            ]
+        ]
+    },
+    {
+        "id": "0d93bdd45d2e9aed",
+        "type": "inject",
+        "z": "77d08f2ef548d687",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "collection",
+                "v": "Penalty",
+                "vt": "str"
+            },
+            {
+                "p": "query",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 1590,
+        "y": 340,
+        "wires": [
+            [
+                "d1c26f976b75644e"
+            ]
+        ]
+    },
+    {
+        "id": "b156cd441f1b33f5",
+        "type": "inject",
+        "z": "77d08f2ef548d687",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "collection",
+                "v": "BuoyPlaces",
+                "vt": "str"
+            },
+            {
+                "p": "query",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 1650,
+        "y": 460,
+        "wires": [
+            [
+                "d1c26f976b75644e"
+            ]
+        ]
+    },
+    {
+        "id": "8106382d9207df74",
+        "type": "inject",
+        "z": "77d08f2ef548d687",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "collection",
+                "v": "BoatsData",
+                "vt": "str"
+            },
+            {
+                "p": "query",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 1690,
+        "y": 540,
+        "wires": [
+            [
+                "d1c26f976b75644e"
+            ]
+        ]
+    },
+    {
+        "id": "88beedc0cc151ac4",
+        "type": "inject",
+        "z": "77d08f2ef548d687",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "collection",
+                "v": "NearByBoats",
+                "vt": "str"
+            },
+            {
+                "p": "query",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 1590,
+        "y": 400,
+        "wires": [
+            [
+                "d1c26f976b75644e"
+            ]
+        ]
+    },
+    {
+        "id": "a8a2da85b8a64c87",
+        "type": "inject",
+        "z": "77d08f2ef548d687",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "collection",
+                "v": "BoatNames",
+                "vt": "str"
+            },
+            {
+                "p": "query",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 1730,
+        "y": 620,
+        "wires": [
+            [
+                "d1c26f976b75644e"
+            ]
+        ]
+    },
+    {
+        "id": "efacbccdfcaaedd4",
+        "type": "function",
+        "z": "77d08f2ef548d687",
+        "name": "",
+        "func": "msg.collection = 'SinglePD'   // use your collection\nmsg.query =  {_msgid:msg.payload._msgid, BoatID:msg.payload.BoatID};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 1420,
+        "wires": [
+            [
+                "85122834218a44e1"
+            ]
+        ]
+    },
+    {
+        "id": "85122834218a44e1",
+        "type": "mongodb out",
+        "z": "77d08f2ef548d687",
+        "mongodb": "b1de76ddbaf505a8",
+        "name": "",
+        "collection": "",
+        "payonly": true,
+        "upsert": true,
+        "multi": false,
+        "operation": "update",
+        "x": 1000,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "21c82d731b0d06ae",
+        "type": "link in",
+        "z": "bab33013746645b8",
+        "name": "",
+        "links": [
+            "14e939926fbbe269"
+        ],
+        "x": 155,
+        "y": 160,
+        "wires": [
+            [
+                "35f41d323a6b744c"
+            ]
+        ]
+    },
+    {
+        "id": "5b9b42fa404dd65f",
+        "type": "comment",
+        "z": "bab33013746645b8",
+        "name": "Near miss check",
+        "info": "",
+        "x": 220,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "9fbbb803a407a97a",
+        "type": "function",
+        "z": "bab33013746645b8",
+        "name": "Calculate Distance",
+        "func": "var mPower = msg.payload[0]._msgid;\nmsg.mPower = mPower;\nvar distance = 10 ** (( mPower - (msg.rssi)) / 20);\nif(distance <= 2)\n{\n    msg.payload =\n    {  \n        NearMiss : true\n       \n    }\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 160,
+        "wires": [
+            [
+                "875f6baf12d30281",
+                "024f63ec1c0245d1",
+                "b66f71c56c04db07"
+            ]
+        ]
+    },
+    {
+        "id": "35f41d323a6b744c",
+        "type": "mongodb in",
+        "z": "bab33013746645b8",
+        "mongodb": "b23b4e02f3e3da96",
+        "name": "Get MeasuredPower",
+        "collection": "data",
+        "operation": "find",
+        "x": 340,
+        "y": 160,
+        "wires": [
+            [
+                "9fbbb803a407a97a"
+            ]
+        ]
+    },
+    {
+        "id": "875f6baf12d30281",
+        "type": "debug",
+        "z": "bab33013746645b8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "de14c30d74aa3fe1",
+        "type": "function",
+        "z": "bab33013746645b8",
+        "name": "Update Penalty table",
+        "func": "msg.collection = 'Penalty'   // use your collection\nmsg.query =  {_msgid:msg.payload[0]._msgid};\nvar x = msg.payload[0].numOfPenalties;\nx = x+1;\nmsg.payload =\n{\n    _msgid : msg.payload[0]._msgid,\n    numOfPenalties :  x\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 300,
+        "wires": [
+            [
+                "cbee7c795ddda7b5"
+            ]
+        ]
+    },
+    {
+        "id": "cbee7c795ddda7b5",
+        "type": "mongodb out",
+        "z": "bab33013746645b8",
+        "mongodb": "b1de76ddbaf505a8",
+        "name": "",
+        "collection": "",
+        "payonly": false,
+        "upsert": false,
+        "multi": false,
+        "operation": "update",
+        "x": 1220,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "42aa39f1d56e0319",
+        "type": "mongodb in",
+        "z": "bab33013746645b8",
+        "mongodb": "b1de76ddbaf505a8",
+        "name": "",
+        "collection": "",
+        "operation": "find",
+        "x": 660,
+        "y": 300,
+        "wires": [
+            [
+                "de14c30d74aa3fe1"
+            ]
+        ]
+    },
+    {
+        "id": "320ef9ddf6874b86",
+        "type": "function",
+        "z": "bab33013746645b8",
+        "name": "Get current Penalty",
+        "func": "msg.collection = 'Penalty'   // use your collection\nmsg.operation = 'find'\nmsg.payload = {_msgid:msg.query._msgid};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 300,
+        "wires": [
+            [
+                "42aa39f1d56e0319"
+            ]
+        ]
+    },
+    {
+        "id": "a02eb7a2807aaeb0",
+        "type": "serial out",
+        "z": "bab33013746645b8",
+        "name": "",
+        "serial": "84b5927ffda683d4",
+        "x": 650,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "b047ac8a3626181b",
+        "type": "function",
+        "z": "bab33013746645b8",
+        "name": "send penalty",
+        "func": "msg.payload = msg.query._msgid + \",NearMiss\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 380,
+        "wires": [
+            [
+                "a02eb7a2807aaeb0",
+                "fb6b5d8f04824201"
+            ]
+        ]
+    },
+    {
+        "id": "fb6b5d8f04824201",
+        "type": "debug",
+        "z": "bab33013746645b8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "024f63ec1c0245d1",
+        "type": "function",
+        "z": "bab33013746645b8",
+        "name": "Get Boat Position Data",
+        "func": "msg.collection = 'PositionData'   // use your collection\nmsg.operation = 'find'\nmsg.payload = {BoatID:msg.query._msgid, HB:msg.hb};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 100,
+        "wires": [
+            [
+                "935ba9ed6e186d10"
+            ]
+        ]
+    },
+    {
+        "id": "b66f71c56c04db07",
+        "type": "function",
+        "z": "bab33013746645b8",
+        "name": "Get NearByBoat Position Data",
+        "func": "msg.collection = 'PositionData'   // use your collection\nmsg.operation = 'find'\nmsg.payload = {BoatID:msg.query.NearByBoat, HB:msg.hb};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 200,
+        "wires": [
+            [
+                "935ba9ed6e186d10"
+            ]
+        ]
+    },
+    {
+        "id": "a2e05344c9e9c4d8",
+        "type": "debug",
+        "z": "bab33013746645b8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1090,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "935ba9ed6e186d10",
+        "type": "mongodb in",
+        "z": "bab33013746645b8",
+        "mongodb": "b1de76ddbaf505a8",
+        "name": "",
+        "collection": "",
+        "operation": "find",
+        "x": 1160,
+        "y": 140,
+        "wires": [
+            [
+                "a2e05344c9e9c4d8",
+                "f4674a898aaa7234"
+            ]
+        ]
+    },
+    {
+        "id": "c9ab3c199b9ff90b",
+        "type": "function",
+        "z": "bab33013746645b8",
+        "name": "Get Boat previous Position Data",
+        "func": "var hb = msg.payload[0][0].HB;\nhb = hb - 1;\nmsg.payload = {_msgid:msg.payload[0][0]._msgid, HB:hb.toString(), BoatID:msg.payload[0][0].BoatID};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1830,
+        "y": 100,
+        "wires": [
+            [
+                "9b1d0b31c66f34c7"
+            ]
+        ]
+    },
+    {
+        "id": "f4674a898aaa7234",
+        "type": "join",
+        "z": "bab33013746645b8",
+        "name": "",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload[0]",
+        "propertyType": "msg",
+        "key": "payload[0]._msgid",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "1",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "num",
+        "reduceFixup": "",
+        "x": 1410,
+        "y": 140,
+        "wires": [
+            [
+                "625985ef33e5813f"
+            ]
+        ]
+    },
+    {
+        "id": "a2f357fa3998d231",
+        "type": "debug",
+        "z": "bab33013746645b8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1590,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "625985ef33e5813f",
+        "type": "function",
+        "z": "bab33013746645b8",
+        "name": "",
+        "func": "var mPower = msg.mPower;\nif(msg.payload[0][0]._msgid == msg.payload[0][1]._msgid)\n{\n    var distance1 = 10 ** (( mPower - (msg.payload[0][0].RSSI)) / 20);\n    var distance2 = 10 ** (( mPower - (msg.payload[0][1].RSSI)) / 20);\n}\nmsg.prevDist1 = msg.payload[0][0].BoatID + \",\" +distance1;\nmsg.prevDist2 = msg.payload[0][1].BoatID + \",\"+ distance2;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1560,
+        "y": 140,
+        "wires": [
+            [
+                "a2f357fa3998d231",
+                "f2aef2315fc37aab",
+                "c9ab3c199b9ff90b"
+            ]
+        ]
+    },
+    {
+        "id": "f2aef2315fc37aab",
+        "type": "function",
+        "z": "bab33013746645b8",
+        "name": "Get Boat previous Position Data",
+        "func": "var hb = msg.payload[0][1].HB;\nhb = hb - 1;\nmsg.payload = {_msgid:msg.payload[0][1]._msgid, HB:hb.toString(), BoatID:msg.payload[0][1].BoatID};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1830,
+        "y": 160,
+        "wires": [
+            [
+                "9b1d0b31c66f34c7"
+            ]
+        ]
+    },
+    {
+        "id": "9b1d0b31c66f34c7",
+        "type": "mongodb in",
+        "z": "bab33013746645b8",
+        "mongodb": "b1de76ddbaf505a8",
+        "name": "",
+        "collection": "",
+        "operation": "find",
+        "x": 2160,
+        "y": 120,
+        "wires": [
+            [
+                "0e0255ab9613b952"
+            ]
+        ]
+    },
+    {
+        "id": "0e0255ab9613b952",
+        "type": "join",
+        "z": "bab33013746645b8",
+        "name": "",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload[0]",
+        "propertyType": "msg",
+        "key": "payload[0]._msgid",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "1",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "num",
+        "reduceFixup": "",
+        "x": 2390,
+        "y": 120,
+        "wires": [
+            [
+                "4c01437dbcd22402",
+                "9286327edcc43fdf"
+            ]
+        ]
+    },
+    {
+        "id": "4c01437dbcd22402",
+        "type": "debug",
+        "z": "bab33013746645b8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2750,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "9286327edcc43fdf",
+        "type": "function",
+        "z": "bab33013746645b8",
+        "name": "",
+        "func": "var mPower = msg.mPower;\nif(msg.payload[0][0]._msgid == msg.payload[0][1]._msgid)\n{\n    var distance1 = 10 ** (( mPower - (msg.payload[0][0].RSSI)) / 20);\n    var distance2 = 10 ** (( mPower - (msg.payload[0][1].RSSI)) / 20);\n}\nvar a = msg.payload[0][0].BoatID + \",\" +distance1;\nvar b = msg.payload[0][1].BoatID + \",\"+ distance2;\nmsg.Dist1 = a;\nmsg.Dist2 = b;\nvar speed = 0;\nvar speed2 = 0;\nvar prevDist1 = msg.prevDist1.split(',');\nvar prevDist2 = msg.prevDist2.split(',');\nif(prevDist1[0] == msg.payload[0][0].BoatID)\n{\n    speed = (parseInt(prevDist1[1]) - distance1)/30;\n    msg.bID = msg.payload[0][0].BoatID;\n}\nelse if(prevDist1[0] == msg.payload[0][1].BoatID)\n{\n    speed = (parseInt(prevDist1[1]) - distance2)/30;\n    msg.bID = msg.payload[0][1].BoatID;\n}\n\nif(prevDist2[0] == msg.payload[0][0].BoatID)\n{\n    speed2 = (parseInt(prevDist2[1]) - distance1)/30;\n    msg.bID2 = msg.payload[0][0].BoatID;\n}\nelse if(prevDist2[0] == msg.payload[0][1].BoatID)\n{\n    speed2 = (parseInt(prevDist2[1]) - distance2)/30;\n    msg.bID2 = msg.payload[0][1].BoatID;\n}\nmsg.speed = speed;\nmsg.speed2 = speed2;\nif(speed>speed2)\n{\n    msg.payload = msg.bID;\n    msg.query._msgid = msg.bID;\n}\nelse{\n    msg.payload =  msg.bID2;\n    msg.query._msgid = msg.bID2;\n\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2540,
+        "y": 120,
+        "wires": [
+            [
+                "4c01437dbcd22402",
+                "a243526309fb2ce5"
+            ]
+        ]
+    },
+    {
+        "id": "a243526309fb2ce5",
+        "type": "link out",
+        "z": "bab33013746645b8",
+        "name": "nearMissPen",
+        "mode": "link",
+        "links": [
+            "1df83b97ea6eccdb"
+        ],
+        "x": 2715,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "1df83b97ea6eccdb",
+        "type": "link in",
+        "z": "bab33013746645b8",
+        "name": "",
+        "links": [
+            "a243526309fb2ce5"
+        ],
+        "x": 215,
+        "y": 300,
+        "wires": [
+            [
+                "320ef9ddf6874b86",
+                "b047ac8a3626181b"
+            ]
+        ]
+    },
+    {
+        "id": "544cf1751db5d79e",
+        "type": "inject",
+        "z": "bab33013746645b8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 580,
+        "wires": [
+            [
+                "8f35a6fc0575d3ef"
+            ]
+        ]
+    },
+    {
+        "id": "8f35a6fc0575d3ef",
+        "type": "mongodb in",
+        "z": "bab33013746645b8",
+        "mongodb": "b1de76ddbaf505a8",
+        "name": "",
+        "collection": "NearByBoats",
+        "operation": "find",
+        "x": 450,
+        "y": 580,
+        "wires": [
+            [
+                "9b043f397d51c814"
+            ]
+        ]
+    },
+    {
+        "id": "9b043f397d51c814",
+        "type": "splitter",
+        "z": "bab33013746645b8",
+        "name": "",
+        "property": "payload",
+        "x": 730,
+        "y": 580,
+        "wires": [
+            [
+                "cc57bf5091690d14"
+            ]
+        ]
+    },
+    {
+        "id": "cc57bf5091690d14",
+        "type": "function",
+        "z": "bab33013746645b8",
+        "name": "Calculate Distance",
+        "func": "var mPower = -55;\nmsg.mPower = mPower;\nvar distance = 10 ** (( mPower - (msg.payload.RSSI)) / 20);\nmsg.distance = distance;\nif(distance <= 10)\n{\n    msg.payload =\n    {  \n        OverTake : true,\n        ThisBoat: msg.payload._msgid,\n        NearBoat:msg.payload.NearByBoat\n       \n    }\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 580,
+        "wires": [
+            [
+                "9fb17fa4f766c73e",
+                "42fdb99abef2bb63",
+                "3d9f02658ab94bcc"
+            ]
+        ]
+    },
+    {
+        "id": "9fb17fa4f766c73e",
+        "type": "debug",
+        "z": "bab33013746645b8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1170,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "3d9f02658ab94bcc",
+        "type": "function",
+        "z": "bab33013746645b8",
+        "name": "Get Boat Data",
+        "func": "msg.collection = 'SingleBD'   // use your collection\nmsg.operation = 'find'\nmsg.boat = msg.payload.ThisBoat;\nmsg.nearBoat = msg.payload.NearBoat;\nmsg.payload = {_msgid:msg.payload.ThisBoat};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1180,
+        "y": 520,
+        "wires": [
+            [
+                "ec7ac8f9cc419f84"
+            ]
+        ]
+    },
+    {
+        "id": "42fdb99abef2bb63",
+        "type": "function",
+        "z": "bab33013746645b8",
+        "name": "Get NearByBoat Data",
+        "func": "msg.collection = 'SingleBD'   // use your collection\nmsg.operation = 'find'\nmsg.boat = msg.payload.ThisBoat;\nmsg.nearBoat = msg.payload.NearBoat;\nmsg.payload = {_msgid:msg.payload.NearBoat};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1180,
+        "y": 640,
+        "wires": [
+            [
+                "ec7ac8f9cc419f84"
+            ]
+        ]
+    },
+    {
+        "id": "ec7ac8f9cc419f84",
+        "type": "mongodb in",
+        "z": "bab33013746645b8",
+        "mongodb": "b1de76ddbaf505a8",
+        "name": "",
+        "collection": "",
+        "operation": "find",
+        "x": 1460,
+        "y": 580,
+        "wires": [
+            [
+                "5b4ac1b438989d64"
+            ]
+        ]
+    },
+    {
+        "id": "5b4ac1b438989d64",
+        "type": "join",
+        "z": "bab33013746645b8",
+        "name": "",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload[0]",
+        "propertyType": "msg",
+        "key": "payload[0]._msgid",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "1",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "num",
+        "reduceFixup": "",
+        "x": 1710,
+        "y": 580,
+        "wires": [
+            [
+                "c134b04a78b342cd",
+                "76c287449a39dfab"
+            ]
+        ]
+    },
+    {
+        "id": "05f7d85f839e3f49",
+        "type": "debug",
+        "z": "bab33013746645b8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2210,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "c134b04a78b342cd",
+        "type": "function",
+        "z": "bab33013746645b8",
+        "name": "ROW for boat",
+        "func": "var mPower = msg.mPower;\nif(msg.payload[0][1].BoatDirection == msg.payload[0][0].BoatDirection)\n{\n   msg.payload = msg.boat +\",\"+\"YES_ROW\";\n   return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1960,
+        "y": 520,
+        "wires": [
+            [
+                "05f7d85f839e3f49",
+                "97761b25c0347297",
+                "1ea194598e3a0afa"
+            ]
+        ]
+    },
+    {
+        "id": "97761b25c0347297",
+        "type": "serial out",
+        "z": "bab33013746645b8",
+        "name": "",
+        "serial": "84b5927ffda683d4",
+        "x": 2510,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "2e09dcfc35595a14",
+        "type": "comment",
+        "z": "bab33013746645b8",
+        "name": "head on overtaking",
+        "info": "",
+        "x": 1970,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "1ea194598e3a0afa",
+        "type": "function",
+        "z": "bab33013746645b8",
+        "name": "NO ROW for nearBoat",
+        "func": "msg.payload = msg.nearBoat +\",\"+\"NO_ROW\";\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2220,
+        "y": 460,
+        "wires": [
+            [
+                "97761b25c0347297"
+            ]
+        ]
+    },
+    {
+        "id": "6fae93aa0492a4c2",
+        "type": "debug",
+        "z": "bab33013746645b8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 3090,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "76c287449a39dfab",
+        "type": "function",
+        "z": "bab33013746645b8",
+        "name": "check if boats are BOTH facing wind",
+        "func": "var windDirection = \"ENE\";\n\nvar degreesToCardinal = function(deg){\n  if (deg==\"NNE\"){return 23;}\n  else if (deg==\"NE\"){return 45;}\n  else if (deg==\"ENE\"){return 65;}\n  else if (deg==\"E--\"){return 88;}\n  else if (deg==\"ESE\"){return 110;}\n  else if (deg==\"SE-\"){return 130;}\n  else if (deg==\"SSE\"){return 155;}\n  else if (deg==\"S--\"){return 185;}\n  else if (deg==\"SSW\"){return 205;}\n  else if (deg==\"SW-\"){return 222;}\n  else if (deg==\"WSW\"){return 245;}\n  else if (deg==\"W--\"){return 270;}\n  else if (deg==\"WNW\"){return 295;}\n  else if (deg==\"NW-\"){return 312;}\n  else if (deg==\"NNW\"){return 335;}\n  else {return 0;}\n}\nvar x = degreesToCardinal(msg.payload[0][1].BoatDirection);\nvar x2 = degreesToCardinal(msg.payload[0][0].BoatDirection);\nvar wind = degreesToCardinal(windDirection);\n\nvar limit1 = wind+90;\nvar limit2 = wind-90;\nif(limit1>360){\n    limit1 = limit1 - 360;\n}\nif(limit2<0){\n    limit2 = limit2 + 360;\n}\nmsg.lim1 = limit1;\nmsg.lim2 = limit2;\nmsg.x = x;\nmsg.x2 = x2;\nif((x>limit1 && x<=limit2)&&(x2>limit1 && x2<=limit2)){\n    msg.oppWind = true;\n    return msg;\n}\n msg.oppWind = false;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2010,
+        "y": 740,
+        "wires": [
+            [
+                "82dc80d3603426eb",
+                "1a2acbe09267307f"
+            ]
+        ]
+    },
+    {
+        "id": "82dc80d3603426eb",
+        "type": "switch",
+        "z": "bab33013746645b8",
+        "name": "isFalse",
+        "property": "oppWind",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 2330,
+        "y": 680,
+        "wires": [
+            [
+                "68a4c196ca22c5f6"
+            ]
+        ]
+    },
+    {
+        "id": "1a2acbe09267307f",
+        "type": "switch",
+        "z": "bab33013746645b8",
+        "name": "isTrue",
+        "property": "oppWind",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 2330,
+        "y": 820,
+        "wires": [
+            [
+                "c57088d958581474"
+            ]
+        ]
+    },
+    {
+        "id": "c57088d958581474",
+        "type": "function",
+        "z": "bab33013746645b8",
+        "name": "check which boat is has port tack",
+        "func": "\nvar degreesToCardinal = function(deg){\n  if (deg==\"NNE\"){return 23;}\n  else if (deg==\"NE\"){return 45;}\n  else if (deg==\"ENE\"){return 65;}\n  else if (deg==\"E--\"){return 88;}\n  else if (deg==\"ESE\"){return 110;}\n  else if (deg==\"SE-\"){return 130;}\n  else if (deg==\"SSE\"){return 155;}\n  else if (deg==\"S--\"){return 185;}\n  else if (deg==\"SSW\"){return 205;}\n  else if (deg==\"SW-\"){return 222;}\n  else if (deg==\"WSW\"){return 245;}\n  else if (deg==\"W--\"){return 270;}\n  else if (deg==\"WNW\"){return 295;}\n  else if (deg==\"NW-\"){return 312;}\n  else if (deg==\"NNW\"){return 335;}\n  else {return 0;}\n}\nvar x = degreesToCardinal(msg.payload[0][0].SailDirection);\nvar x2 = degreesToCardinal(msg.payload[0][1].SailDirection);\nvar b = degreesToCardinal(msg.payload[0][0].BoatDirection);\nvar b2 = degreesToCardinal(msg.payload[0][1].BoatDirection);\n\nvar limit = b+180;\nvar limit2 = b2+180;\n\n\n\nmsg.lim1 = limit;\nmsg.lim2 = limit2;\nmsg.x = x;\nmsg.x2 = x2;\nmsg.bd = b;\nmsg.bd2 = b2;\n\nif(x>b && x<=limit){\n    msg.portBoat = msg.payload[0][0].BoatID;\n    msg.portTack = true;\n    return msg;\n}\nelse if(x2>b2 && x2<=limit2){\n    msg.portBoat = msg.payload[0][1].BoatID;\n    msg.portTack = true;\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2620,
+        "y": 820,
+        "wires": [
+            [
+                "5a75029e0eee156d",
+                "bebf545333b25628"
+            ]
+        ]
+    },
+    {
+        "id": "5a75029e0eee156d",
+        "type": "function",
+        "z": "bab33013746645b8",
+        "name": "ROW for boat",
+        "func": "msg.payload = msg.portBoat +\",\"+\"YES_ROW\";\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2920,
+        "y": 820,
+        "wires": [
+            [
+                "76960cd140c6ed3c"
+            ]
+        ]
+    },
+    {
+        "id": "76960cd140c6ed3c",
+        "type": "serial out",
+        "z": "bab33013746645b8",
+        "name": "",
+        "serial": "84b5927ffda683d4",
+        "x": 3190,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "bebf545333b25628",
+        "type": "debug",
+        "z": "bab33013746645b8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 3070,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "68a4c196ca22c5f6",
+        "type": "function",
+        "z": "bab33013746645b8",
+        "name": "check which boat is facing the wind",
+        "func": "var windDirection = \"ENE\";\n\nvar degreesToCardinal = function(deg){\n  if (deg==\"NNE\"){return 23;}\n  else if (deg==\"NE\"){return 45;}\n  else if (deg==\"ENE\"){return 65;}\n  else if (deg==\"E--\"){return 88;}\n  else if (deg==\"ESE\"){return 110;}\n  else if (deg==\"SE-\"){return 130;}\n  else if (deg==\"SSE\"){return 155;}\n  else if (deg==\"S--\"){return 185;}\n  else if (deg==\"SSW\"){return 205;}\n  else if (deg==\"SW-\"){return 222;}\n  else if (deg==\"WSW\"){return 245;}\n  else if (deg==\"W--\"){return 270;}\n  else if (deg==\"WNW\"){return 295;}\n  else if (deg==\"NW-\"){return 312;}\n  else if (deg==\"NNW\"){return 335;}\n  else {return 0;}\n}\nvar x = degreesToCardinal(msg.payload[0][1].BoatDirection);\nvar x2 = degreesToCardinal(msg.payload[0][0].BoatDirection);\nvar wind = degreesToCardinal(windDirection);\n\nvar limit1 = wind+90;\nvar limit2 = wind-90;\nif(limit1>360){\n    limit1 = limit1 - 360;\n}\nif(limit2<0){\n    limit2 = limit2 + 360;\n}\nmsg.lim1 = limit1;\nmsg.lim2 = limit2;\nmsg.x = x;\nmsg.x2 = x2;\nif((x>limit1 && x<=limit2))\n{\n    msg.rightOfway = msg.payload[0][0].BoatID;\n    return msg;\n}\nelse{\n    msg.rightOfway = msg.payload[0][1].BoatID;\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2630,
+        "y": 680,
+        "wires": [
+            [
+                "6fae93aa0492a4c2",
+                "22eedd01ecebd0d7"
+            ]
+        ]
+    },
+    {
+        "id": "22eedd01ecebd0d7",
+        "type": "function",
+        "z": "bab33013746645b8",
+        "name": "ROW for boat",
+        "func": "msg.payload = msg.rightOfway +\",\"+\"YES_ROW\";\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2920,
+        "y": 680,
+        "wires": [
+            [
+                "76960cd140c6ed3c"
+            ]
+        ]
+    },
+    {
+        "id": "8311e486d3aa9875",
+        "type": "sqlbuilder",
+        "z": "fb2a3b8c366976ef",
+        "name": "",
+        "field": "topic",
+        "fieldType": "msg",
+        "sqldialect": "sqlite3",
+        "sqlquery": "query.select(\"name\").from(\"users\").where({\n    id: msg.user_id\n})",
+        "x": 450,
+        "y": 200,
+        "wires": [
+            [
+                "04a520eb0bb797b3",
+                "2c5d9e4021b76d39"
+            ]
+        ]
+    },
+    {
+        "id": "da94f62d5cc023ad",
+        "type": "inject",
+        "z": "fb2a3b8c366976ef",
+        "name": "",
+        "props": [
+            {
+                "p": "user_id",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "p": "database",
+                "v": "databasename.db",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 290,
+        "y": 200,
+        "wires": [
+            [
+                "8311e486d3aa9875"
+            ]
+        ]
+    },
+    {
+        "id": "04a520eb0bb797b3",
+        "type": "debug",
+        "z": "fb2a3b8c366976ef",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "454747577137b278",
+        "type": "debug",
+        "z": "fb2a3b8c366976ef",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "b3e271c7400dfeff",
+        "type": "exec",
+        "z": "fb2a3b8c366976ef",
+        "command": "sqlite3",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "1",
+        "winHide": true,
+        "oldrc": false,
+        "name": "",
+        "x": 450,
+        "y": 440,
+        "wires": [
+            [
+                "3c154b564c31f211"
+            ],
+            [
+                "3c154b564c31f211"
+            ],
+            [
+                "3c154b564c31f211"
+            ]
+        ]
+    },
+    {
+        "id": "ddbfb153770ffdb9",
+        "type": "inject",
+        "z": "fb2a3b8c366976ef",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "databasename.db djdj",
+        "payloadType": "str",
+        "x": 240,
+        "y": 440,
+        "wires": [
+            [
+                "b3e271c7400dfeff"
+            ]
+        ]
+    },
+    {
+        "id": "3c154b564c31f211",
+        "type": "debug",
+        "z": "fb2a3b8c366976ef",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "2c5d9e4021b76d39",
+        "type": "queuedsqlite",
+        "z": "fb2a3b8c366976ef",
+        "mydb": "98d0417d50b00af4",
+        "sqlquery": "msg.topic",
+        "dbName": "msg.database",
+        "db": "",
+        "sql": "",
+        "name": "",
+        "x": 700,
+        "y": 200,
+        "wires": [
+            [
+                "454747577137b278"
+            ]
+        ]
+    },
+    {
+        "id": "d20eb4e925119eb4",
+        "type": "sqlbuilder",
+        "z": "fb2a3b8c366976ef",
+        "name": "",
+        "field": "topic",
+        "fieldType": "msg",
+        "sqldialect": "sqlite3",
+        "sqlquery": "query.insert([{id:msg.user_id ,name: msg.name}]).into('users')",
+        "x": 450,
+        "y": 120,
+        "wires": [
+            [
+                "2c5d9e4021b76d39",
+                "04a520eb0bb797b3"
+            ]
+        ]
+    },
+    {
+        "id": "987e8d448c89d9db",
+        "type": "inject",
+        "z": "fb2a3b8c366976ef",
+        "name": "",
+        "props": [
+            {
+                "p": "payload.user_id",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "p": "database",
+                "v": "databasename.db",
+                "vt": "str"
+            },
+            {
+                "p": "payload.name",
+                "v": "uhushds",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 290,
+        "y": 120,
+        "wires": [
+            [
+                "d20eb4e925119eb4"
+            ]
+        ]
+    },
+    {
+        "id": "7468e5962965ec05",
+        "type": "encryptor",
+        "z": "fb2a3b8c366976ef",
+        "name": "",
+        "cryptoPassword": "xat48aQxJXDIWh5dncv9d?yPlaehpp",
+        "x": 480,
+        "y": 640,
+        "wires": [
+            [
+                "97892167785c43ba",
+                "724af81f1a47d1b3"
+            ]
+        ]
+    },
+    {
+        "id": "724af81f1a47d1b3",
+        "type": "decryptor",
+        "z": "fb2a3b8c366976ef",
+        "name": "",
+        "cryptoPassword": "xat48aQxJXDIWh5dncv9d?yPlaehpp",
+        "x": 740,
+        "y": 700,
+        "wires": [
+            [
+                "6e4532a61efef276"
+            ]
+        ]
+    },
+    {
+        "id": "4983be0a0c12f148",
+        "type": "inject",
+        "z": "fb2a3b8c366976ef",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "keypair",
+        "payload": "hello",
+        "payloadType": "str",
+        "x": 250,
+        "y": 600,
+        "wires": [
+            [
+                "7468e5962965ec05"
+            ]
+        ]
+    },
+    {
+        "id": "97892167785c43ba",
+        "type": "debug",
+        "z": "fb2a3b8c366976ef",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "6e4532a61efef276",
+        "type": "debug",
+        "z": "fb2a3b8c366976ef",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 930,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "d6b3c499e64de313",
+        "type": "splitter",
+        "z": "fb2a3b8c366976ef",
+        "name": "",
+        "property": "payload",
+        "x": 170,
+        "y": 700,
+        "wires": [
+            [
+                "968776ae7865ad51"
+            ]
+        ]
+    },
+    {
+        "id": "51d079410be855ba",
+        "type": "decryptor",
+        "z": "fb2a3b8c366976ef",
+        "name": "",
+        "cryptoPassword": "xat48aQxJXDIWh5dncv9d?yPlaehpp",
+        "x": 500,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "968776ae7865ad51",
+        "type": "function",
+        "z": "fb2a3b8c366976ef",
+        "name": "format message",
+        "func": "msg.payload = msg.payload.name;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 700,
+        "wires": [
+            [
+                "51d079410be855ba"
+            ]
+        ]
+    },
+    {
+        "id": "e81415cdf87ce8b2",
+        "type": "serial in",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "serial": "84b5927ffda683d4",
+        "x": 420,
+        "y": 300,
+        "wires": [
+            [
+                "2556e1057253abcd",
+                "bc8ea1447d12ecc8",
+                "b4ada918bf39692c",
+                "a8d643cad6e1278d"
+            ]
+        ]
+    },
+    {
+        "id": "bc8ea1447d12ecc8",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "getData",
+        "func": "var splitString = msg.payload.split(',');\n\nif (splitString[1] == \"Data\")\n{\n    msg.payload = \n    { \n        microbitIDOne : parseInt(splitString[2]),\n        microbitIDTwo : parseInt(splitString[3]),\n        objDirection : splitString[4],\n        objTemp : parseInt(splitString[5]),\n        objAcc : parseInt(splitString[6]),\n        rssiBetweenObj : parseInt(splitString[7]),\n        hb : parseInt(splitString[8])\n    }\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 180,
+        "wires": [
+            [
+                "8375aaa117e902c5",
+                "536ceefd624f5342",
+                "6ed56ca9d8c567a6",
+                "dd2c93986edcd0bf",
+                "f4c64a2f955a6b71",
+                "c63ee3bd6d7f2d4f",
+                "b920b7a91614dc27",
+                "3a34abe1de552b05"
+            ]
+        ]
+    },
+    {
+        "id": "2556e1057253abcd",
+        "type": "debug",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 370,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "1a1f215ce6fa4392",
+        "type": "inject",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "Data inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1,Data,7284,4711,NNW,22,33,-65,10",
+        "payloadType": "str",
+        "x": 700,
+        "y": 140,
+        "wires": [
+            [
+                "bc8ea1447d12ecc8"
+            ]
+        ]
+    },
+    {
+        "id": "b4ada918bf39692c",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "getNBBData",
+        "func": "var splitString = msg.payload.split(',');\n\nif (splitString[1] == \"NBBData\")\n{\n    msg.payload = \n    { \n        microbitIDOne : parseInt(splitString[2]),\n        microbitIDTwo : parseInt(splitString[3]),\n        rssiBetweenObj : parseInt(splitString[4]),\n        hb : parseInt(splitString[5])\n    }\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 380,
+        "wires": [
+            [
+                "e049d1dea6301dbe",
+                "f9795597672d2502",
+                "d2ac7df730e735a7",
+                "39a2daf701be9a75"
+            ]
+        ]
+    },
+    {
+        "id": "5a56a9330387cc76",
+        "type": "inject",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "NBBData inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1,NBBData,4711,7952,-80,10",
+        "payloadType": "str",
+        "x": 720,
+        "y": 340,
+        "wires": [
+            [
+                "b4ada918bf39692c"
+            ]
+        ]
+    },
+    {
+        "id": "a8d643cad6e1278d",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "crash event",
+        "func": "var splitString = msg.payload.split(',');\n\nif (splitString[1] == \"Crash\")\n{\n    msg.payload = splitString[2];\n    return msg;\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 460,
+        "wires": [
+            [
+                "2056523c813c7ca9"
+            ]
+        ]
+    },
+    {
+        "id": "a0f83e59d1accb08",
+        "type": "inject",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "Crash inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1,Crash,4892",
+        "payloadType": "str",
+        "x": 710,
+        "y": 420,
+        "wires": [
+            [
+                "a8d643cad6e1278d"
+            ]
+        ]
+    },
+    {
+        "id": "2056523c813c7ca9",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL - crash table",
+        "func": "// For todays date;\nDate.prototype.today = function () { \n    return this.getFullYear() +\"/\"+ (((this.getMonth()+1) < 10)?\"0\":\"\") + (this.getMonth()+1) +\"/\"+ ((this.getDate() < 10)?\"0\":\"\") + this.getDate();\n}\n\n// For the time now\nDate.prototype.timeNow = function () {\n     return ((this.getHours() < 10)?\"0\":\"\") + this.getHours() +\":\"+ ((this.getMinutes() < 10)?\"0\":\"\") + this.getMinutes() +\":\"+ ((this.getSeconds() < 10)?\"0\":\"\") + this.getSeconds();\n}\nvar newDate = new Date();\n\nmsg.column_name = [\"microbitID\", \"date\", \"time\"]\nmsg.column_sort = [parseInt(msg.payload),newDate.today(),newDate.timeNow()]\nmsg.database = 'Crash'\nmsg.command = \"insert\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1000,
+        "y": 460,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "8375aaa117e902c5",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL - add readings ",
+        "func": "msg.column_name = [\"microbitID\", \"temp\", \"acc\", \"direction\", \"heartbeat\"]\nmsg.column_sort = [parseInt(msg.payload.microbitIDTwo),parseInt(msg.payload.objTemp),parseInt(msg.payload.objAcc),msg.payload.objDirection,parseInt(msg.payload.hb)]\nmsg.database = 'Readings'\nmsg.command = \"insert\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 220,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "cc390ed7cd70c56b",
+        "type": "sql-prepare",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "x": 1390,
+        "y": 280,
+        "wires": [
+            [
+                "a55dfed0b8955e79"
+            ]
+        ]
+    },
+    {
+        "id": "a55dfed0b8955e79",
+        "type": "mysql",
+        "z": "5ecdbd2c1de7cc9e",
+        "mydb": "6956152fdeb741d3",
+        "name": "",
+        "x": 1590,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "536ceefd624f5342",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL - Initialise microbit table",
+        "func": "msg.column_name = [\"microbitID\",\"configID\"]\nmsg.column_sort = [parseInt(msg.payload.microbitIDTwo),1]\nmsg.database = 'Microbits'\nmsg.command = \"insert\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 180,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "6ed56ca9d8c567a6",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL- Initialise microbit table",
+        "func": "msg.column_name = [\"microbitID\",\"configID\"]\nmsg.column_sort = [parseInt(msg.payload.microbitIDOne),2]\nmsg.database = 'Microbits'\nmsg.command = \"insert\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 140,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "dd2c93986edcd0bf",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL- Initialise distance table",
+        "func": "msg.column_name = [\"microbitID\",\"microbitIDTwo\"]\nmsg.column_sort = [parseInt(msg.payload.microbitIDOne),parseInt(msg.payload.microbitIDTwo)]\nmsg.database = 'Distances'\nmsg.command = \"insert\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 100,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "f4c64a2f955a6b71",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL- update rssi values",
+        "func": "msg.column_name = [\"heartbeat\"]\nmsg.column_data = [parseInt(msg.payload.hb)]\nmsg.column_sort = [\"microbitID\",\"microbitIDTwo\"]\nmsg.data = [parseInt(msg.payload.microbitIDOne),parseInt(msg.payload.microbitIDTwo)]\nmsg.database = 'Distances'\nmsg.command = \"update\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 260,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "c63ee3bd6d7f2d4f",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL- update rssi values",
+        "func": "msg.column_name = [\"rssi\"]\nmsg.column_data = [parseInt(msg.payload.rssiBetweenObj)]\nmsg.column_sort = [\"microbitID\",\"microbitIDTwo\"]\nmsg.data = [parseInt(msg.payload.microbitIDOne),parseInt(msg.payload.microbitIDTwo)]\nmsg.database = 'Distances'\nmsg.command = \"update\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 300,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "e049d1dea6301dbe",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL- Initialise distance table",
+        "func": "msg.column_name = [\"microbitID\",\"microbitIDTwo\"]\nmsg.column_sort = [parseInt(msg.payload.microbitIDOne),parseInt(msg.payload.microbitIDTwo)]\nmsg.database = 'Distances'\nmsg.command = \"insert\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 340,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "f9795597672d2502",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL- update rssi values",
+        "func": "msg.column_name = [\"heartbeat\"]\nmsg.column_data = [parseInt(msg.payload.hb)]\nmsg.column_sort = [\"microbitID\",\"microbitIDTwo\"]\nmsg.data = [parseInt(msg.payload.microbitIDOne),parseInt(msg.payload.microbitIDTwo)]\nmsg.database = 'Distances'\nmsg.command = \"update\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 380,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "d2ac7df730e735a7",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL- update rssi values",
+        "func": "msg.column_name = [\"rssi\"]\nmsg.column_data = [parseInt(msg.payload.rssiBetweenObj)]\nmsg.column_sort = [\"microbitID\",\"microbitIDTwo\"]\nmsg.data = [parseInt(msg.payload.microbitIDOne),parseInt(msg.payload.microbitIDTwo)]\nmsg.database = 'Distances'\nmsg.command = \"update\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 420,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "72b2a256dcc9eff7",
+        "type": "serial out",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "serial": "84b5927ffda683d4",
+        "x": 710,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "ec36f010ef40a943",
+        "type": "inject",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "11117",
+        "payloadType": "str",
+        "x": 470,
+        "y": 560,
+        "wires": [
+            [
+                "72b2a256dcc9eff7"
+            ]
+        ]
+    },
+    {
+        "id": "101730067b53d836",
+        "type": "inject",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "11118",
+        "payloadType": "str",
+        "x": 470,
+        "y": 600,
+        "wires": [
+            [
+                "72b2a256dcc9eff7"
+            ]
+        ]
+    },
+    {
+        "id": "5b6d08378507ea96",
+        "type": "inject",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "795210",
+        "payloadType": "str",
+        "x": 470,
+        "y": 520,
+        "wires": [
+            [
+                "72b2a256dcc9eff7"
+            ]
+        ]
+    },
+    {
+        "id": "843a8432e996fb58",
+        "type": "comment",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "address,protocolID",
+        "info": "",
+        "x": 490,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "39a2daf701be9a75",
+        "type": "link out",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "crash Management",
+        "mode": "link",
+        "links": [
+            "0ae2576acaa1984e"
+        ],
+        "x": 895,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "16275d8490108660",
+        "type": "debug",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2150,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "580560b8789cdd5a",
+        "type": "http in",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "url": "/query",
+        "method": "post",
+        "upload": true,
+        "swaggerDoc": "",
+        "x": 1430,
+        "y": 560,
+        "wires": [
+            [
+                "e76646413ea39720"
+            ]
+        ]
+    },
+    {
+        "id": "8d8ce70fdb291694",
+        "type": "http response",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 2150,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "e76646413ea39720",
+        "type": "json",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": true,
+        "x": 1570,
+        "y": 560,
+        "wires": [
+            [
+                "aa524d46cd9cf069"
+            ]
+        ]
+    },
+    {
+        "id": "aa524d46cd9cf069",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "Query DB",
+        "func": "msg.topic = msg.payload.SQL\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1700,
+        "y": 560,
+        "wires": [
+            [
+                "63c6e37c3d1390e0"
+            ]
+        ]
+    },
+    {
+        "id": "63c6e37c3d1390e0",
+        "type": "mysql",
+        "z": "5ecdbd2c1de7cc9e",
+        "mydb": "6956152fdeb741d3",
+        "name": "",
+        "x": 1850,
+        "y": 560,
+        "wires": [
+            [
+                "40bd039696c44426"
+            ]
+        ]
+    },
+    {
+        "id": "40bd039696c44426",
+        "type": "json",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": true,
+        "x": 1990,
+        "y": 560,
+        "wires": [
+            [
+                "8d8ce70fdb291694",
+                "16275d8490108660"
+            ]
+        ]
+    },
+    {
+        "id": "014896a7af25b19d",
+        "type": "comment",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "info": "",
+        "x": 1630,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "477d320c81c46eb5",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "func": "\nif(msg.payload[0].name == \"Car\")\n{\n    msg.topic = \"SELECT Object.speedLimit FROM Object INNER JOIN Microbits ON Object.objectID=Microbits.objectID WHERE Microbits.microbitID = \" + msg.yu\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 820,
+        "wires": [
+            [
+                "a51d4649787c83de",
+                "b895ba8c4387117b"
+            ]
+        ]
+    },
+    {
+        "id": "b895ba8c4387117b",
+        "type": "debug",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1450,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "a51d4649787c83de",
+        "type": "mysql",
+        "z": "5ecdbd2c1de7cc9e",
+        "mydb": "6956152fdeb741d3",
+        "name": "",
+        "x": 1130,
+        "y": 820,
+        "wires": [
+            [
+                "b895ba8c4387117b",
+                "fb0c36acc0c88883"
+            ]
+        ]
+    },
+    {
+        "id": "c4ff4cb3bccb8e85",
+        "type": "serial out",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "serial": "84b5927ffda683d4",
+        "x": 1770,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "fb0c36acc0c88883",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "func": "msg.payload = msg.da + \"40\" + msg.payload[0].speedLimit\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1320,
+        "y": 820,
+        "wires": [
+            [
+                "c4ff4cb3bccb8e85",
+                "b895ba8c4387117b"
+            ]
+        ]
+    },
+    {
+        "id": "5a2fe691b0d5b1ae",
+        "type": "inject",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "79524010",
+        "payloadType": "str",
+        "x": 500,
+        "y": 700,
+        "wires": [
+            [
+                "72b2a256dcc9eff7"
+            ]
+        ]
+    },
+    {
+        "id": "b920b7a91614dc27",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "func": "msg.yu = msg.payload.microbitIDOne\nmsg.da= msg.payload.microbitIDTwo\nmsg.topic = \"SELECT Object.name FROM Object INNER JOIN Microbits ON Object.objectID=Microbits.objectID WHERE Microbits.microbitID = \" + msg.payload.microbitIDTwo\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1000,
+        "y": 580,
+        "wires": [
+            [
+                "4e33c73e9a45d19e"
+            ]
+        ]
+    },
+    {
+        "id": "4e33c73e9a45d19e",
+        "type": "mysql",
+        "z": "5ecdbd2c1de7cc9e",
+        "mydb": "6956152fdeb741d3",
+        "name": "",
+        "x": 810,
+        "y": 820,
+        "wires": [
+            [
+                "477d320c81c46eb5",
+                "b895ba8c4387117b"
+            ]
+        ]
+    },
+    {
+        "id": "3a34abe1de552b05",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "func": "msg.yu = msg.payload.microbitIDOne\nmsg.da= msg.payload.microbitIDTwo\nmsg.topic = \"SELECT Object.name FROM Object INNER JOIN Microbits ON Object.objectID=Microbits.objectID WHERE Microbits.microbitID = \" + msg.payload.microbitIDTwo\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 680,
+        "wires": [
+            [
+                "cc865b44481051cc"
+            ]
+        ]
+    },
+    {
+        "id": "cc865b44481051cc",
+        "type": "mysql",
+        "z": "5ecdbd2c1de7cc9e",
+        "mydb": "6956152fdeb741d3",
+        "name": "",
+        "x": 790,
+        "y": 920,
+        "wires": [
+            [
+                "c8e7da9c19981152"
+            ]
+        ]
+    },
+    {
+        "id": "c8e7da9c19981152",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "func": "\nif(msg.payload[0].name == \"Car\")\n{\n    msg.topic = \"SELECT Object.roadType FROM Object INNER JOIN Microbits ON Object.objectID=Microbits.objectID WHERE Microbits.microbitID = \" + msg.yu\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 920,
+        "wires": [
+            [
+                "e612605f88d100bf"
+            ]
+        ]
+    },
+    {
+        "id": "e612605f88d100bf",
+        "type": "mysql",
+        "z": "5ecdbd2c1de7cc9e",
+        "mydb": "6956152fdeb741d3",
+        "name": "",
+        "x": 1130,
+        "y": 920,
+        "wires": [
+            [
+                "6d50b8d25c0cf5ee"
+            ]
+        ]
+    },
+    {
+        "id": "6d50b8d25c0cf5ee",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "func": "var end = \"\"\nif(msg.payload[0].roadType == \"One Way\")\n{\n    end = \"10\"\n}\nif(msg.payload[0].roadType == \"Both Ways\")\n{\n    end = \"20\"\n}\n\nmsg.payload = msg.da + \"45\" + end\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1320,
+        "y": 920,
+        "wires": [
+            [
+                "b895ba8c4387117b",
+                "a329a1231b1ebe69"
+            ]
+        ]
+    },
+    {
+        "id": "a329a1231b1ebe69",
+        "type": "delay",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1510,
+        "y": 880,
+        "wires": [
+            [
+                "c4ff4cb3bccb8e85"
+            ]
+        ]
+    },
+    {
+        "id": "0ae2576acaa1984e",
+        "type": "link in",
+        "z": "d212a43e3350495a",
+        "name": "",
+        "links": [
+            "39a2daf701be9a75"
+        ],
+        "x": 55,
+        "y": 100,
+        "wires": [
+            [
+                "95e9bab1058ab225"
+            ]
+        ]
+    },
+    {
+        "id": "5dfaa201886eedc1",
+        "type": "function",
+        "z": "d212a43e3350495a",
+        "name": "calculate distance",
+        "func": "msg.distance = 10 ** (( -55 - (msg.payload.rssiBetweenObj)) / 20);\nmsg.topic = \"SELECT Object.name FROM Object INNER JOIN Microbits ON Object.objectID=Microbits.objectID WHERE Microbits.microbitID = \" + msg.payload.microbitIDOne\nmsg.mTwo = msg.payload.microbitIDTwo\nmsg.aa = msg.payload.microbitIDOne\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 100,
+        "wires": [
+            [
+                "34aeeb37348fa53f"
+            ]
+        ]
+    },
+    {
+        "id": "dafd3d2bd0258be5",
+        "type": "comment",
+        "z": "d212a43e3350495a",
+        "name": "inform of a potential crash (car to car, car to person)",
+        "info": "",
+        "x": 350,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "34aeeb37348fa53f",
+        "type": "mysql",
+        "z": "d212a43e3350495a",
+        "mydb": "6956152fdeb741d3",
+        "name": "",
+        "x": 550,
+        "y": 100,
+        "wires": [
+            [
+                "8734a222a3c12a49"
+            ]
+        ]
+    },
+    {
+        "id": "8734a222a3c12a49",
+        "type": "function",
+        "z": "d212a43e3350495a",
+        "name": "Query DB",
+        "func": "msg.mOne = msg.payload[0].name\nmsg.topic = \"SELECT Object.name FROM Object INNER JOIN Microbits ON Object.objectID=Microbits.objectID WHERE Microbits.microbitID = \" + msg.mTwo\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 100,
+        "wires": [
+            [
+                "0ef0c78cb17884af"
+            ]
+        ]
+    },
+    {
+        "id": "0ef0c78cb17884af",
+        "type": "mysql",
+        "z": "d212a43e3350495a",
+        "mydb": "6956152fdeb741d3",
+        "name": "",
+        "x": 870,
+        "y": 100,
+        "wires": [
+            [
+                "79725577b6304740",
+                "78f52b2da7548c2a"
+            ]
+        ]
+    },
+    {
+        "id": "79725577b6304740",
+        "type": "function",
+        "z": "d212a43e3350495a",
+        "name": "Check if possible",
+        "func": "if(msg.payload[0].name == \"Car\" && msg.mOne == \"Car\")\n{\n    if(1 < msg.distance && msg.distance < 10 )\n    {\n        msg.payload = msg.aa + \"10\"\n        return msg;\n    }\n}\nif(msg.payload[0].name == \"Person\" && msg.mOne == \"Car\")\n{\n    if(1 <msg.distance && msg.distance < 10)\n    {\n        msg.payload = msg.aa + \"10\"\n        return msg;\n    }\n}\nif(msg.payload[0].name == \"Car\" && msg.mOne == \"Person\")\n{\n    if(1 <msg.distance && msg.distance < 10)\n    {\n        msg.payload = msg.aa + \"10\"\n        return msg;\n    }\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1090,
+        "y": 100,
+        "wires": [
+            [
+                "d73cec0c8024f382",
+                "c3279d0f16f1e609",
+                "9ee52fdf44c2147c"
+            ]
+        ]
+    },
+    {
+        "id": "4b4d9f21070f4afd",
+        "type": "comment",
+        "z": "d212a43e3350495a",
+        "name": "distance <10 and both obj acc>30 when they are bother Cars",
+        "info": "",
+        "x": 380,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "0dd2eb7c03a7c53b",
+        "type": "comment",
+        "z": "d212a43e3350495a",
+        "name": "distance <10 and Car obj acc>30 when one is car",
+        "info": "",
+        "x": 350,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "d73cec0c8024f382",
+        "type": "serial out",
+        "z": "d212a43e3350495a",
+        "name": "",
+        "serial": "84b5927ffda683d4",
+        "x": 1350,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "2812d09880d1259b",
+        "type": "delay",
+        "z": "d212a43e3350495a",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1580,
+        "y": 100,
+        "wires": [
+            [
+                "96cdebf1a571ccfe"
+            ]
+        ]
+    },
+    {
+        "id": "96cdebf1a571ccfe",
+        "type": "serial out",
+        "z": "d212a43e3350495a",
+        "name": "",
+        "serial": "84b5927ffda683d4",
+        "x": 1770,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "c3279d0f16f1e609",
+        "type": "function",
+        "z": "d212a43e3350495a",
+        "name": "Check if possible",
+        "func": "msg.payload = msg.mTwo + \"10\"\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1330,
+        "y": 100,
+        "wires": [
+            [
+                "2812d09880d1259b",
+                "9ee52fdf44c2147c"
+            ]
+        ]
+    },
+    {
+        "id": "9ee52fdf44c2147c",
+        "type": "debug",
+        "z": "d212a43e3350495a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1730,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "95e9bab1058ab225",
+        "type": "delay",
+        "z": "d212a43e3350495a",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "20",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 180,
+        "y": 100,
+        "wires": [
+            [
+                "5dfaa201886eedc1",
+                "2550762e4c693c0d"
+            ]
+        ]
+    },
+    {
+        "id": "2550762e4c693c0d",
+        "type": "debug",
+        "z": "d212a43e3350495a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 370,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "6abb98ccc469f5eb",
+        "type": "comment",
+        "z": "d212a43e3350495a",
+        "name": "detect person in car (car to person)",
+        "info": "",
+        "x": 300,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "78f52b2da7548c2a",
+        "type": "function",
+        "z": "d212a43e3350495a",
+        "name": "Check if possible",
+        "func": "if(msg.payload[0].name == \"Person\" && msg.mOne == \"Car\")\n{\n    if(1 > msg.distance)\n    {\n        msg.payload = msg.aa + \"50\"\n        msg.inCar = true\n        return msg;\n    }\n}\nif(msg.payload[0].name == \"Car\" && msg.mOne == \"Person\")\n{\n    if(1 > msg.distance)\n    {\n        msg.payload = msg.aa + \"50\"\n        msg.inCar = true\n        return msg;\n    }\n}\nmsg.payload = msg.aa + \"51\"\nmsg.inCar = false\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1090,
+        "y": 320,
+        "wires": [
+            [
+                "9c7146a25f6ecde2",
+                "05de162134386121"
+            ]
+        ]
+    },
+    {
+        "id": "146d6dab9bc18dd9",
+        "type": "function",
+        "z": "d212a43e3350495a",
+        "name": "send",
+        "func": "msg.payload = msg.mTwo + \"50\"\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1530,
+        "y": 360,
+        "wires": [
+            [
+                "87525376c25f692b",
+                "eb3d52270620d183"
+            ]
+        ]
+    },
+    {
+        "id": "260a7d2e23ec0d8f",
+        "type": "serial out",
+        "z": "d212a43e3350495a",
+        "name": "",
+        "serial": "84b5927ffda683d4",
+        "x": 1510,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "87525376c25f692b",
+        "type": "delay",
+        "z": "d212a43e3350495a",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1760,
+        "y": 360,
+        "wires": [
+            [
+                "71b019d0ea6414ba"
+            ]
+        ]
+    },
+    {
+        "id": "71b019d0ea6414ba",
+        "type": "serial out",
+        "z": "d212a43e3350495a",
+        "name": "",
+        "serial": "84b5927ffda683d4",
+        "x": 1970,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "743608c267c1eb3d",
+        "type": "comment",
+        "z": "d212a43e3350495a",
+        "name": "distance <1",
+        "info": "",
+        "x": 230,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "9c7146a25f6ecde2",
+        "type": "switch",
+        "z": "d212a43e3350495a",
+        "name": "true",
+        "property": "inCar",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1310,
+        "y": 360,
+        "wires": [
+            [
+                "146d6dab9bc18dd9",
+                "260a7d2e23ec0d8f",
+                "eb3d52270620d183",
+                "b163d0e02a998d81"
+            ]
+        ]
+    },
+    {
+        "id": "05de162134386121",
+        "type": "switch",
+        "z": "d212a43e3350495a",
+        "name": "false",
+        "property": "inCar",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1310,
+        "y": 460,
+        "wires": [
+            [
+                "bc69d19cbcc7ca57",
+                "260a7d2e23ec0d8f",
+                "eb3d52270620d183",
+                "43f2fae9bce64769"
+            ]
+        ]
+    },
+    {
+        "id": "bc69d19cbcc7ca57",
+        "type": "function",
+        "z": "d212a43e3350495a",
+        "name": "send",
+        "func": "msg.payload = msg.mTwo + \"51\"\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1530,
+        "y": 460,
+        "wires": [
+            [
+                "87525376c25f692b",
+                "eb3d52270620d183"
+            ]
+        ]
+    },
+    {
+        "id": "78590cc1bf9e6894",
+        "type": "inject",
+        "z": "d212a43e3350495a",
+        "name": "display x",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "471150",
+        "payloadType": "str",
+        "x": 980,
+        "y": 460,
+        "wires": [
+            [
+                "f553a36819af623a"
+            ]
+        ]
+    },
+    {
+        "id": "56151de1a5b6daa9",
+        "type": "inject",
+        "z": "d212a43e3350495a",
+        "name": "display x",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "795250",
+        "payloadType": "str",
+        "x": 970,
+        "y": 500,
+        "wires": [
+            [
+                "f553a36819af623a"
+            ]
+        ]
+    },
+    {
+        "id": "451f2054220ea2dd",
+        "type": "inject",
+        "z": "d212a43e3350495a",
+        "name": "display nothing",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "471151",
+        "payloadType": "str",
+        "x": 1000,
+        "y": 540,
+        "wires": [
+            [
+                "f553a36819af623a"
+            ]
+        ]
+    },
+    {
+        "id": "93f0ff5d449f6a8a",
+        "type": "inject",
+        "z": "d212a43e3350495a",
+        "name": "Display nothing",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "795251",
+        "payloadType": "str",
+        "x": 990,
+        "y": 580,
+        "wires": [
+            [
+                "f553a36819af623a"
+            ]
+        ]
+    },
+    {
+        "id": "dee919cc2f665eb6",
+        "type": "inject",
+        "z": "d212a43e3350495a",
+        "name": "Alert",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "471110",
+        "payloadType": "str",
+        "x": 970,
+        "y": 620,
+        "wires": [
+            [
+                "f553a36819af623a"
+            ]
+        ]
+    },
+    {
+        "id": "0bc7764f1b47a2e1",
+        "type": "inject",
+        "z": "d212a43e3350495a",
+        "name": "Alert",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "795210",
+        "payloadType": "str",
+        "x": 960,
+        "y": 660,
+        "wires": [
+            [
+                "f553a36819af623a"
+            ]
+        ]
+    },
+    {
+        "id": "f553a36819af623a",
+        "type": "serial out",
+        "z": "d212a43e3350495a",
+        "name": "",
+        "serial": "84b5927ffda683d4",
+        "x": 1270,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "eb3d52270620d183",
+        "type": "debug",
+        "z": "d212a43e3350495a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1750,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "b163d0e02a998d81",
+        "type": "function",
+        "z": "d212a43e3350495a",
+        "name": "Query DB",
+        "func": "msg.topic = \"SELECT Passenger.car, Passenger.person FROM Passenger WHERE Passenger.person = \" + msg.aa +\" AND Passenger.car = \" + msg.mTwo +\" OR Passenger.person = \"+ 0\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1520,
+        "y": 200,
+        "wires": [
+            [
+                "709346eaeca0a452"
+            ]
+        ]
+    },
+    {
+        "id": "709346eaeca0a452",
+        "type": "mysql",
+        "z": "d212a43e3350495a",
+        "mydb": "6956152fdeb741d3",
+        "name": "",
+        "x": 1690,
+        "y": 200,
+        "wires": [
+            [
+                "eb3d52270620d183",
+                "19a8ea9811fabefd",
+                "a8dc658522fd0ea4"
+            ]
+        ]
+    },
+    {
+        "id": "19a8ea9811fabefd",
+        "type": "switch",
+        "z": "d212a43e3350495a",
+        "name": "insert",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "empty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 2010,
+        "y": 140,
+        "wires": [
+            [
+                "93acacbb20f730db"
+            ]
+        ]
+    },
+    {
+        "id": "a8dc658522fd0ea4",
+        "type": "switch",
+        "z": "d212a43e3350495a",
+        "name": "update",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 2000,
+        "y": 220,
+        "wires": [
+            [
+                "5f00c8b6c8d3d084"
+            ]
+        ]
+    },
+    {
+        "id": "93acacbb20f730db",
+        "type": "function",
+        "z": "d212a43e3350495a",
+        "name": "Query DB",
+        "func": "\nmsg.topic = \"INSERT INTO Passenger (car, person) VALUES (\"+msg.mTwo+\",\"+msg.aa+\")\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2160,
+        "y": 140,
+        "wires": [
+            [
+                "ce50f46b6e8cae02"
+            ]
+        ]
+    },
+    {
+        "id": "ce50f46b6e8cae02",
+        "type": "mysql",
+        "z": "d212a43e3350495a",
+        "mydb": "6956152fdeb741d3",
+        "name": "",
+        "x": 2350,
+        "y": 180,
+        "wires": [
+            [
+                "f2e79c247bde049d"
+            ]
+        ]
+    },
+    {
+        "id": "f2e79c247bde049d",
+        "type": "debug",
+        "z": "d212a43e3350495a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2510,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "5f00c8b6c8d3d084",
+        "type": "function",
+        "z": "d212a43e3350495a",
+        "name": "Query DB",
+        "func": "msg.topic = \"UPDATE Passenger SET Passenger.person = \"+msg.aa+\" WHERE Passenger.person = \"+0+\" AND Passenger.car = \"+msg.mTwo;\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2160,
+        "y": 220,
+        "wires": [
+            [
+                "ce50f46b6e8cae02"
+            ]
+        ]
+    },
+    {
+        "id": "43f2fae9bce64769",
+        "type": "function",
+        "z": "d212a43e3350495a",
+        "name": "Query DB",
+        "func": "\nmsg.topic = \"UPDATE Passenger SET Passenger.person = \"+ null +\" WHERE Passenger.person = \"+msg.aa+\" AND Passenger.car = \"+msg.mTwo;\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1680,
+        "y": 500,
+        "wires": [
+            [
+                "ce50f46b6e8cae02"
+            ]
+        ]
+    }
+]
