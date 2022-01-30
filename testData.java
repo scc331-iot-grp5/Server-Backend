@@ -61,9 +61,9 @@ public class testData {
     public static void main(String[] args) {
         testData dbHandler = new testData("sql4467174", "sql4.freesqldatabase.com", "sql4467174", "y4jcQacpxU", 3306);
         
-        try{
-            TimeUnit.SECONDS.sleep(10);
-        }catch (Exception e){}
+        // try{
+        //     TimeUnit.SECONDS.sleep(10);
+        // }catch (Exception e){}
         
         
         dbHandler.updateDistance(1003, 1000, 1, -70);
@@ -74,125 +74,123 @@ public class testData {
             TimeUnit.SECONDS.sleep(2);
         }catch (Exception e){}
 
-        dbHandler.updateDistance(1003, 1000, 1, -70);
-        dbHandler.updateDistance(1003, 1001, 1, -70);
-        dbHandler.updateDistance(1003, 1002, 1, -70);
+        dbHandler.updateDistance(1003, 1000, 2, -61);
+        dbHandler.updateDistance(1003, 1001, 2, -60);
+        dbHandler.updateDistance(1003, 1002, 2, -60);
 
         try{
             TimeUnit.SECONDS.sleep(2);
         }catch (Exception e){}
 
-        dbHandler.updateDistance(1003, 1000, 1, -70);
-        dbHandler.updateDistance(1003, 1001, 1, -70);
-        dbHandler.updateDistance(1003, 1002, 1, -70);
+        dbHandler.updateDistance(1003, 1000, 3, -62);
+        dbHandler.updateDistance(1003, 1001, 3, -61);
+        dbHandler.updateDistance(1003, 1002, 3, -60);
 
         try{
             TimeUnit.SECONDS.sleep(2);
         }catch (Exception e){}
 
-        dbHandler.updateDistance(1003, 1000, 1, -70);
-        dbHandler.updateDistance(1003, 1001, 1, -70);
-        dbHandler.updateDistance(1003, 1002, 1, -70);
+        dbHandler.updateDistance(1003, 1000, 4, -63);
+        dbHandler.updateDistance(1003, 1001, 4, -61);
+        dbHandler.updateDistance(1003, 1002, 4, -59);
 
         try{
             TimeUnit.SECONDS.sleep(2);
         }catch (Exception e){}
-        dbHandler.updateDistance(1003, 1000, 1, -70);
-        dbHandler.updateDistance(1003, 1001, 1, -70);
-        dbHandler.updateDistance(1003, 1002, 1, -70);
+        dbHandler.updateDistance(1003, 1000, 5, -63);
+        dbHandler.updateDistance(1003, 1001, 5, -62);
+        dbHandler.updateDistance(1003, 1002, 5, -59);
 
         try{
             TimeUnit.SECONDS.sleep(2);
         }catch (Exception e){}
-        dbHandler.updateDistance(1003, 1000, 1, -70);
-        dbHandler.updateDistance(1003, 1001, 1, -70);
-        dbHandler.updateDistance(1003, 1002, 1, -70);
-
-        try{
-            TimeUnit.SECONDS.sleep(2);
-        }catch (Exception e){}
-
-        dbHandler.updateDistance(1003, 1000, 1, -70);
-        dbHandler.updateDistance(1003, 1001, 1, -70);
-        dbHandler.updateDistance(1003, 1002, 1, -70);
+        dbHandler.updateDistance(1003, 1000, 6, -70);
+        dbHandler.updateDistance(1003, 1001, 6, -70);
+        dbHandler.updateDistance(1003, 1002, 6, -70);
 
         try{
             TimeUnit.SECONDS.sleep(2);
         }catch (Exception e){}
 
-        dbHandler.updateDistance(1003, 1000, 1, -70);
-        dbHandler.updateDistance(1003, 1001, 1, -70);
-        dbHandler.updateDistance(1003, 1002, 1, -70);
+        dbHandler.updateDistance(1003, 1000, 7, -70);
+        dbHandler.updateDistance(1003, 1001, 7, -70);
+        dbHandler.updateDistance(1003, 1002, 7, -70);
 
         try{
             TimeUnit.SECONDS.sleep(2);
         }catch (Exception e){}
 
-        dbHandler.updateDistance(1003, 1000, 1, -70);
-        dbHandler.updateDistance(1003, 1001, 1, -70);
-        dbHandler.updateDistance(1003, 1002, 1, -70);
+        dbHandler.updateDistance(1003, 1000, 8, -70);
+        dbHandler.updateDistance(1003, 1001, 8, -70);
+        dbHandler.updateDistance(1003, 1002, 8, -70);
 
         try{
             TimeUnit.SECONDS.sleep(2);
         }catch (Exception e){}
 
-        dbHandler.updateDistance(1003, 1000, 1, -70);
-        dbHandler.updateDistance(1003, 1001, 1, -70);
-        dbHandler.updateDistance(1003, 1002, 1, -70);
+        dbHandler.updateDistance(1003, 1000, 9, -70);
+        dbHandler.updateDistance(1003, 1001, 9, -70);
+        dbHandler.updateDistance(1003, 1002, 9, -70);
 
         try{
             TimeUnit.SECONDS.sleep(2);
         }catch (Exception e){}
 
-        dbHandler.updateDistance(1003, 1000, 1, -70);
-        dbHandler.updateDistance(1003, 1001, 1, -70);
-        dbHandler.updateDistance(1003, 1002, 1, -70);
+        dbHandler.updateDistance(1003, 1000, 10, -70);
+        dbHandler.updateDistance(1003, 1001, 10, -70);
+        dbHandler.updateDistance(1003, 1002, 10, -70);
 
         try{
             TimeUnit.SECONDS.sleep(2);
         }catch (Exception e){}
 
-        dbHandler.updateDistance(1003, 1000, 1, -70);
-        dbHandler.updateDistance(1003, 1001, 1, -70);
-        dbHandler.updateDistance(1003, 1002, 1, -70);
+        dbHandler.updateDistance(1003, 1000, 11, -70);
+        dbHandler.updateDistance(1003, 1001, 11, -70);
+        dbHandler.updateDistance(1003, 1002, 11, -70);
 
         try{
             TimeUnit.SECONDS.sleep(2);
         }catch (Exception e){}
 
-        dbHandler.updateDistance(1003, 1000, 1, -70);
-        dbHandler.updateDistance(1003, 1001, 1, -70);
-        dbHandler.updateDistance(1003, 1002, 1, -70);
+        dbHandler.updateDistance(1003, 1000, 12, -70);
+        dbHandler.updateDistance(1003, 1001, 12, -70);
+        dbHandler.updateDistance(1003, 1002, 12, -70);
 
         try{
             TimeUnit.SECONDS.sleep(2);
         }catch (Exception e){}
 
-        dbHandler.updateDistance(1003, 1000, 1, -70);
-        dbHandler.updateDistance(1003, 1001, 1, -70);
-        dbHandler.updateDistance(1003, 1002, 1, -70);
+        dbHandler.updateDistance(1003, 1000, 13, -70);
+        dbHandler.updateDistance(1003, 1001, 13, -70);
+        dbHandler.updateDistance(1003, 1002, 13, -70);
 
         try{
             TimeUnit.SECONDS.sleep(2);
         }catch (Exception e){}
 
-        dbHandler.updateDistance(1003, 1000, 1, -70);
-        dbHandler.updateDistance(1003, 1001, 1, -70);
-        dbHandler.updateDistance(1003, 1002, 1, -70);
+        dbHandler.updateDistance(1003, 1000, 14, -70);
+        dbHandler.updateDistance(1003, 1001, 14, -70);
+        dbHandler.updateDistance(1003, 1002, 14, -70);
 
         try{
             TimeUnit.SECONDS.sleep(2);
         }catch (Exception e){}
 
-        dbHandler.updateDistance(1003, 1000, 1, -70);
-        dbHandler.updateDistance(1003, 1001, 1, -70);
-        dbHandler.updateDistance(1003, 1002, 1, -70);
+        dbHandler.updateDistance(1003, 1000, 15, -70);
+        dbHandler.updateDistance(1003, 1001, 15, -70);
+        dbHandler.updateDistance(1003, 1002, 15, -70);
 
         try{
             TimeUnit.SECONDS.sleep(2);
         }catch (Exception e){}
 
-        dbHandler.resetTable();
+        dbHandler.updateDistance(1003, 1000, 16, -70);
+        dbHandler.updateDistance(1003, 1001, 16, -70);
+        dbHandler.updateDistance(1003, 1002, 16, -70);
+
+        try{
+            TimeUnit.SECONDS.sleep(2);
+        }catch (Exception e){}
     }
 }
 

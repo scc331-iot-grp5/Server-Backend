@@ -16,10 +16,10 @@ public class DatabaseHandler {
     public class RssiCoords {
 
         int rssi;
-        int xCoord;
-        int yCoord;
+        double xCoord;
+        double yCoord;
 
-        public RssiCoords (int rssi, int xCoord, int yCoord)
+        public RssiCoords (int rssi, double xCoord, double yCoord)
         {
             this.rssi = rssi;
             this.xCoord = xCoord;
@@ -40,7 +40,7 @@ public class DatabaseHandler {
         this.username = uName;
         this.password = pWord;
         this.port = port;
-        // dbCon();
+        dbCon();
     }
 
     public void dbCon () {
@@ -95,10 +95,10 @@ public class DatabaseHandler {
             Statement dbPull = conn.createStatement();
             ResultSet rs = dbPull.executeQuery(query);
             while (rs.next()) {
-                System.out.println(rs.getInt(1));
-                System.out.println(rs.getInt(2));
-                System.out.println(rs.getInt(3));
-                rssiCoords.add(new RssiCoords(rs.getInt(1), rs.getInt(2), rs.getInt(3)));
+                LatLng latLng = new LatLng(rs.getDouble(3), rs.getDouble(2));
+                OSRef osRef = latLng.toOSRef();
+
+                rssiCoords.add(new RssiCoords(rs.getInt(1),osRef.getEasting(), osRef.getNorthing()));
             }
             return rssiCoords;
         } catch (Exception e) {
@@ -107,8 +107,12 @@ public class DatabaseHandler {
         }
     }
 
-    public void updateLocation(int microbitID, int xCoord, int yCoord){
-        String query = "REPLACE INTO Location(microbitID, xCoord, yCoord)" + " VALUES(" + microbitID + ", " + xCoord + ", " + yCoord + ");";
+    public void updateLocation(int microbitID, double xCoord, double yCoord){
+        OSRef osRef = new OSRef(xCoord, yCoord);
+        LatLng latLng = osRef.toLatLng();
+        System.out.println(latLng.getLat());
+        System.out.println(latLng.getLng());
+        String query = "REPLACE INTO Location(microbitID, xCoord, yCoord)" + " VALUES(" + microbitID + ", " + latLng.getLat() + ", " + latLng.getLng() + ");";
         try {
             Statement pst = conn.createStatement();
             pst.executeUpdate(query);
@@ -117,64 +121,47 @@ public class DatabaseHandler {
         }
     }
 
-    private double rssiToMetres(int rssi)
+    private double rssiToMetres(double rssi)
     {
-        return Math.pow(10, (rssi + 40) / (10 * 2));
+        return Math.pow(10, (-40 - rssi) / (10 * 2));
     }
 
     public static void main(String[] args) {
         DatabaseHandler dbHandler = new DatabaseHandler("sql4467174", "sql4.freesqldatabase.com", "sql4467174", "y4jcQacpxU", 3306);
-        
-        double latitude = 54.010252;
-        double longitude = -2.788147;
-        LatLng latLng = new LatLng(latitude, longitude);
-
-        OSRef osRef = latLng.toOSRef();
-        double easting = osRef.getEasting();
-        double northing = osRef.getNorthing();
-
-        System.out.println(easting);
-        System.out.println(northing);
-
-
-        double[][] positions = new double[][] { {rssiCoords.get(0).xCoord, rssiCoords.get(0).yCoord}, {rssiCoords.get(1).xCoord, rssiCoords.get(1).yCoord}, {rssiCoords.get(2).xCoord, rssiCoords.get(2).yCoord} };
-        double[] distances = new double[] {dbHandler.rssiToMetres(rssiCoords.get(0).rssi), dbHandler.rssiToMetres(rssiCoords.get(0).rssi), dbHandler.rssiToMetres(rssiCoords.get(0).rssi)};
-
-        LinearLeastSquaresSolver solver = new LinearLeastSquaresSolver(new TrilaterationFunction(positions, distances));
-        RealVector linearCalculatedPosition = solver.solve();
-
-
-
 
         while (true){
             ArrayList<Integer> microbitIDs = dbHandler.getMicrobitIDs();
 
             for (int microbitID : microbitIDs)
             {
+                System.out.println(microbitID);
                 try{
                     ArrayList<RssiCoords> rssiCoords = dbHandler.getRSSI(microbitID);
 
-                    System.out.println(rssiCoords.get(0).xCoord);
-                    System.out.println(rssiCoords.get(0).yCoord);
-                    System.out.println(rssiCoords.get(0).rssi);
-                    
-                    
                     double[][] positions = new double[][] { {rssiCoords.get(0).xCoord, rssiCoords.get(0).yCoord}, {rssiCoords.get(1).xCoord, rssiCoords.get(1).yCoord}, {rssiCoords.get(2).xCoord, rssiCoords.get(2).yCoord} };
-                    double[] distances = new double[] {dbHandler.rssiToMetres(rssiCoords.get(0).rssi), dbHandler.rssiToMetres(rssiCoords.get(0).rssi), dbHandler.rssiToMetres(rssiCoords.get(0).rssi)};
+                    double[] distances = new double[] {dbHandler.rssiToMetres(rssiCoords.get(0).rssi), dbHandler.rssiToMetres(rssiCoords.get(1).rssi), dbHandler.rssiToMetres(rssiCoords.get(2).rssi)};
 
                     LinearLeastSquaresSolver solver = new LinearLeastSquaresSolver(new TrilaterationFunction(positions, distances));
                     RealVector linearCalculatedPosition = solver.solve();
 
-                    dbHandler.updateLocation(microbitID, (int)linearCalculatedPosition.getEntry(0), (int)linearCalculatedPosition.getEntry(1));
+                    // double easting = linearCalculatedPosition.getEntry(0);
+                    // double northing = linearCalculatedPosition.getEntry(1);
+                    
+                    // OSRef osRef = new OSRef(easting, northing);
+                    // LatLng latLng = osRef.toLatLng();
+
+                    // System.out.println(latLng.getLat());
+                    // System.out.println(latLng.getLng());
+
+
+                    dbHandler.updateLocation(microbitID, linearCalculatedPosition.getEntry(0), linearCalculatedPosition.getEntry(1));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                
             }
             try{
                 TimeUnit.SECONDS.sleep(1);
             } catch (Exception e){}
-            
         }
     }
 }
