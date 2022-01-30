@@ -10,6 +10,20 @@ import org.apache.commons.math3.linear.RealVector;
 
 public class DatabaseHandler {
 
+    public class RssiCoords {
+
+        int rssi;
+        int xCoord;
+        int yCoord;
+
+        public RssiCoords (int rssi, int xCoord, int yCoord)
+        {
+            this.rssi = rssi;
+            this.xCoord = xCoord;
+            this.yCoord = yCoord;
+        }
+    }
+
     private String dbName = "";
     private String serverName = "";
     private String username = "";
@@ -36,6 +50,23 @@ public class DatabaseHandler {
         }
     }
 
+    public ArrayList<Integer> getMicrobitIDs()
+    {
+        String query = "SELECT DISTINCT microbitID FROM Distances";
+        ArrayList<Integer> microbitIDs = new ArrayList<>();
+        try {
+            Statement dbPull = conn.createStatement();
+            ResultSet rs = dbPull.executeQuery(query);
+            while (rs.next()) {
+                microbitIDs.add(rs.getInt(1));
+            }
+            return microbitIDs;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return microbitIDs;
+        }
+    }
+
     public int getCurrentHeartbeat(int microbitID){
         String query = "SELECT MAX(heartbeat) FROM Distances WHERE microbitID=" + microbitID + ";";
         int currentHeartbeat = 0;
@@ -53,68 +84,78 @@ public class DatabaseHandler {
     }
     
 
-    public HashMap<Integer, Integer> getRSSI(int microbitID) {
+    public ArrayList<RssiCoords> getRSSI(int microbitID) {
         int heartbeat = getCurrentHeartbeat(microbitID);
-
-        String query = "SELECT microbitIDTwo, rssi FROM Distances WHERE heartbeat=" + heartbeat + " AND microbitID=" + microbitID + ";";
-        HashMap<Integer, Integer> hm = new HashMap<>(); 
+        String query = "SELECT Distances.rssi, Location.xCoord, Location.yCoord FROM Distances INNER JOIN Location ON Distances.microbitIDTwo = Location.microbitID INNER JOIN Microbits ON Distances.microbitIDTwo = Microbits.microbitID WHERE Distances.heartbeat=" + heartbeat + " AND Distances.microbitID=" + microbitID + " AND Microbits.configID=1 ORDER BY Distances.rssi DESC LIMIT 3;";
+        ArrayList<RssiCoords> rssiCoords = new ArrayList<RssiCoords>();
         try {
             Statement dbPull = conn.createStatement();
             ResultSet rs = dbPull.executeQuery(query);
             while (rs.next()) {
                 System.out.println(rs.getInt(1));
                 System.out.println(rs.getInt(2));
-                hm.put(rs.getInt(1), rs.getInt(2));
+                System.out.println(rs.getInt(3));
+                rssiCoords.add(new RssiCoords(rs.getInt(1), rs.getInt(2), rs.getInt(3)));
             }
-            return hm;
+            return rssiCoords;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
-
-        
     }
 
-    public HashMap<Integer, ArrayList<Integer>> getDistances(ArrayList<Integer> microbitIDs){
-        String microbitIDString = "(";
-        for(Integer key : microbitIDs)
-        {
-            microbitIDString += key + ",";
-        }
-        microbitIDString = microbitIDString.substring(0, microbitIDString.length() - 1);
-        microbitIDString += ")";
-        
-        String query2 = "SELECT * FROM Location WHERE microbitID IN " + microbitIDString + ";";
-        HashMap<Integer, ArrayList<Integer>> hm = new HashMap<>(); 
+    public void updateLocation(int microbitID, int xCoord, int yCoord){
+        String query = "REPLACE INTO Location(microbitID, xCoord, yCoord)" + " VALUES(" + microbitID + ", " + xCoord + ", " + yCoord + ");";
         try {
-            Statement dbPull = conn.createStatement();
-            ResultSet rs = dbPull.executeQuery(query2);
-            while (rs.next()) {
-                System.out.println(rs.getInt(1));
-                System.out.println(rs.getInt(2));
-                System.out.println(rs.getInt(3));
-                ArrayList<Integer> coords= new ArrayList<>(Arrays.asList(rs.getInt(2), rs.getInt(3)));
-                hm.put(rs.getInt(1), coords);
-            }
-            return hm;
+            Statement pst = conn.createStatement();
+            pst.executeUpdate(query);
         } catch (Exception e) {
             e.printStackTrace();
-            return null;
         }
+    }
+
+    private double rssiToMetres(int rssi)
+    {
+        return Math.pow(10, (rssi + 40) / (10 * 2));
     }
 
     public static void main(String[] args) {
         DatabaseHandler dbHandler = new DatabaseHandler("sql4467174", "sql4.freesqldatabase.com", "sql4467174", "y4jcQacpxU", 3306);
-        // HashMap<Integer, Integer> RSSIs = dbHandler.getRSSI(6969);
-        // ArrayList<Integer> microbitIDs = new ArrayList<>(RSSIs.keySet());
-        // HashMap<Integer, ArrayList<Integer>> Location = dbHandler.getDistances(microbitIDs);
+        
+        while (true){
+            ArrayList<Integer> microbitIDs = dbHandler.getMicrobitIDs();
 
-        double[][] positions = new double[][] { {50,50}, {60,60}, {70,50} };
-        double[] distances = new double[] {15, 20, 15};
+            for (int microbitID : microbitIDs)
+            {
+                try{
+                    ArrayList<RssiCoords> rssiCoords = dbHandler.getRSSI(microbitID);
 
-        LinearLeastSquaresSolver solver = new LinearLeastSquaresSolver(new TrilaterationFunction(positions, distances));
-        RealVector linearCalculatedPosition = solver.solve();
-        System.out.println(linearCalculatedPosition);
+                    System.out.println(rssiCoords.get(0).xCoord);
+                    System.out.println(rssiCoords.get(0).yCoord);
+                    System.out.println(rssiCoords.get(0).rssi);
+                    
+                    
+                    double[][] positions = new double[][] { {rssiCoords.get(0).xCoord, rssiCoords.get(0).yCoord}, {rssiCoords.get(1).xCoord, rssiCoords.get(1).yCoord}, {rssiCoords.get(2).xCoord, rssiCoords.get(2).yCoord} };
+                    double[] distances = new double[] {dbHandler.rssiToMetres(rssiCoords.get(0).rssi), dbHandler.rssiToMetres(rssiCoords.get(0).rssi), dbHandler.rssiToMetres(rssiCoords.get(0).rssi)};
+
+                    LinearLeastSquaresSolver solver = new LinearLeastSquaresSolver(new TrilaterationFunction(positions, distances));
+                    RealVector linearCalculatedPosition = solver.solve();
+
+                    // Point p1 = new Point(54.046664728087016, -2.809063187992983,1);
+                    // Point p2=new Point(54.04641118531464, -2.809028319277111,1);
+                    // Point p3=new Point(54.046448980608645, -2.8086447634025147,1);
+                    // double[] a=Trilateration.Compute(p1,p2,p3);
+                    // System.out.println(a[0]);
+                    // System.out.println(a[1]);
+
+                    // dbHandler.updateLocation(microbitID, (int)linearCalculatedPosition.getEntry(0), (int)linearCalculatedPosition.getEntry(1));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                
+            }
+            
+        }
     }
 }
 
