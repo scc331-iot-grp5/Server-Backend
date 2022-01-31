@@ -1,0 +1,2466 @@
+[
+    {
+        "id": "5ecdbd2c1de7cc9e",
+        "type": "tab",
+        "label": "SaveToDB",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d212a43e3350495a",
+        "type": "tab",
+        "label": "Crash Management",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2af9ce60acc944f0",
+        "type": "tab",
+        "label": "Dash",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "84b5927ffda683d4",
+        "type": "serial-port",
+        "serialport": "/dev/tty.usbmodem102",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "\\n",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "3fd7311e.c028ce",
+        "type": "mqtt-broker",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": ""
+    },
+    {
+        "id": "2fe527e2b18c3e0d",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.43.65",
+        "port": "2560",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "12b2f72dc556c72c",
+        "type": "websocket-listener",
+        "path": "",
+        "wholemsg": "false"
+    },
+    {
+        "id": "5f151f6c8844ff8e",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.43.242",
+        "port": "2560",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "f58517cafec50859",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.43.242",
+        "port": "2560",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "b1de76ddbaf505a8",
+        "type": "mongodb",
+        "hostname": "cluster0.dbijv.mongodb.net",
+        "topology": "dnscluster",
+        "connectOptions": "",
+        "port": "27017",
+        "db": "Boats",
+        "name": ""
+    },
+    {
+        "id": "eaf96980e08c80fa",
+        "type": "mongodb",
+        "hostname": "cluster0.xdjeu.mongodb.net",
+        "topology": "dnscluster",
+        "connectOptions": "",
+        "port": "27017",
+        "db": "Boating",
+        "name": ""
+    },
+    {
+        "id": "b23b4e02f3e3da96",
+        "type": "mongodb",
+        "hostname": "cluster0.dbijv.mongodb.net",
+        "topology": "dnscluster",
+        "connectOptions": "",
+        "port": "27017",
+        "db": "Data",
+        "name": ""
+    },
+    {
+        "id": "1f12001b5cae229f",
+        "type": "twilio-api",
+        "name": "SMS",
+        "sid": "ACaf43223c67374d467827c0bd6fac879a",
+        "from": "+44 7897 015658"
+    },
+    {
+        "id": "7e3d3ce763b99d93",
+        "type": "twitter-credentials",
+        "screen_name": "SSC330Group3"
+    },
+    {
+        "id": "372e143b1e112c38",
+        "type": "postgresDB",
+        "name": "@127.0.0.1:5432/postgres",
+        "host": "127.0.0.1",
+        "port": "5432",
+        "database": "postgres",
+        "ssl": false,
+        "max": "10",
+        "min": 1,
+        "idle": "1000"
+    },
+    {
+        "id": "bc556db074ac0cf0",
+        "type": "sqlitedb",
+        "db": "/Users/cameronpugh/testing",
+        "mode": "RWC"
+    },
+    {
+        "id": "ececb8d0c570151e",
+        "type": "sqlitedb",
+        "db": "/users/cameronpugh/lp.db",
+        "mode": "RWC"
+    },
+    {
+        "id": "98d0417d50b00af4",
+        "type": "sqliteQueuedDb",
+        "db": "/Users/cameronpugh",
+        "mode": "RWC"
+    },
+    {
+        "id": "fa08e5de020a4429",
+        "type": "sqlitedb",
+        "db": "/Users/cameronPugh/databasename.db",
+        "mode": "RWC"
+    },
+    {
+        "id": "6956152fdeb741d3",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "sql4.freesqldatabase.com",
+        "port": "3306",
+        "db": "sql4467174",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "e81415cdf87ce8b2",
+        "type": "serial in",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "serial": "84b5927ffda683d4",
+        "x": 420,
+        "y": 300,
+        "wires": [
+            [
+                "2556e1057253abcd",
+                "bc8ea1447d12ecc8",
+                "b4ada918bf39692c",
+                "a8d643cad6e1278d"
+            ]
+        ]
+    },
+    {
+        "id": "bc8ea1447d12ecc8",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "getData",
+        "func": "var splitString = msg.payload.split(',');\n\nif (splitString[1] == \"Data\")\n{\n    msg.payload = \n    { \n        microbitIDOne : parseInt(splitString[2]),\n        microbitIDTwo : parseInt(splitString[3]),\n        objDirection : splitString[4],\n        objTemp : parseInt(splitString[5]),\n        objAcc : parseInt(splitString[6]),\n        rssiBetweenObj : parseInt(splitString[7]),\n        hb : parseInt(splitString[8])\n    }\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 180,
+        "wires": [
+            [
+                "8375aaa117e902c5",
+                "536ceefd624f5342",
+                "6ed56ca9d8c567a6",
+                "dd2c93986edcd0bf",
+                "f4c64a2f955a6b71",
+                "c63ee3bd6d7f2d4f",
+                "b920b7a91614dc27",
+                "3a34abe1de552b05"
+            ]
+        ]
+    },
+    {
+        "id": "2556e1057253abcd",
+        "type": "debug",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 370,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "1a1f215ce6fa4392",
+        "type": "inject",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "Data inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1,Data,7284,4711,NNW,22,33,-65,10",
+        "payloadType": "str",
+        "x": 700,
+        "y": 140,
+        "wires": [
+            [
+                "bc8ea1447d12ecc8"
+            ]
+        ]
+    },
+    {
+        "id": "b4ada918bf39692c",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "getNBBData",
+        "func": "var splitString = msg.payload.split(',');\n\nif (splitString[1] == \"NBBData\")\n{\n    msg.payload = \n    { \n        microbitIDOne : parseInt(splitString[2]),\n        microbitIDTwo : parseInt(splitString[3]),\n        rssiBetweenObj : parseInt(splitString[4]),\n        hb : parseInt(splitString[5])\n    }\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 380,
+        "wires": [
+            [
+                "e049d1dea6301dbe",
+                "f9795597672d2502",
+                "d2ac7df730e735a7",
+                "39a2daf701be9a75"
+            ]
+        ]
+    },
+    {
+        "id": "5a56a9330387cc76",
+        "type": "inject",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "NBBData inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1,NBBData,4711,7952,-71,10",
+        "payloadType": "str",
+        "x": 720,
+        "y": 340,
+        "wires": [
+            [
+                "b4ada918bf39692c"
+            ]
+        ]
+    },
+    {
+        "id": "a8d643cad6e1278d",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "crash event",
+        "func": "var splitString = msg.payload.split(',');\n\nif (splitString[1] == \"Crash\")\n{\n    msg.payload = splitString[2];\n    return msg;\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 460,
+        "wires": [
+            [
+                "2056523c813c7ca9"
+            ]
+        ]
+    },
+    {
+        "id": "a0f83e59d1accb08",
+        "type": "inject",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "Crash inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1,Crash,4892",
+        "payloadType": "str",
+        "x": 710,
+        "y": 420,
+        "wires": [
+            [
+                "a8d643cad6e1278d"
+            ]
+        ]
+    },
+    {
+        "id": "2056523c813c7ca9",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL - crash table",
+        "func": "// For todays date;\nDate.prototype.today = function () { \n    return this.getFullYear() +\"/\"+ (((this.getMonth()+1) < 10)?\"0\":\"\") + (this.getMonth()+1) +\"/\"+ ((this.getDate() < 10)?\"0\":\"\") + this.getDate();\n}\n\n// For the time now\nDate.prototype.timeNow = function () {\n     return ((this.getHours() < 10)?\"0\":\"\") + this.getHours() +\":\"+ ((this.getMinutes() < 10)?\"0\":\"\") + this.getMinutes() +\":\"+ ((this.getSeconds() < 10)?\"0\":\"\") + this.getSeconds();\n}\nvar newDate = new Date();\n\nmsg.column_name = [\"microbitID\", \"date\", \"time\"]\nmsg.column_sort = [parseInt(msg.payload),newDate.today(),newDate.timeNow()]\nmsg.database = 'Crash'\nmsg.command = \"insert\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1000,
+        "y": 460,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "8375aaa117e902c5",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL - add readings ",
+        "func": "msg.column_name = [\"microbitID\", \"temp\", \"acc\", \"direction\", \"heartbeat\"]\nmsg.column_sort = [parseInt(msg.payload.microbitIDTwo),parseInt(msg.payload.objTemp),parseInt(msg.payload.objAcc),msg.payload.objDirection,parseInt(msg.payload.hb)]\nmsg.database = 'Readings'\nmsg.command = \"insert\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 220,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "cc390ed7cd70c56b",
+        "type": "sql-prepare",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "x": 1410,
+        "y": 280,
+        "wires": [
+            [
+                "b992deea659d3381"
+            ]
+        ]
+    },
+    {
+        "id": "a55dfed0b8955e79",
+        "type": "mysql",
+        "z": "5ecdbd2c1de7cc9e",
+        "mydb": "6956152fdeb741d3",
+        "name": "",
+        "x": 1770,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "536ceefd624f5342",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL - Initialise microbit table",
+        "func": "msg.column_name = [\"microbitID\",\"configID\"]\nmsg.column_sort = [parseInt(msg.payload.microbitIDTwo),1]\nmsg.database = 'Microbits'\nmsg.command = \"insert\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 180,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "6ed56ca9d8c567a6",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL- Initialise microbit table",
+        "func": "msg.column_name = [\"microbitID\",\"configID\"]\nmsg.column_sort = [parseInt(msg.payload.microbitIDOne),2]\nmsg.database = 'Microbits'\nmsg.command = \"insert\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 140,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "dd2c93986edcd0bf",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL- Initialise distance table",
+        "func": "msg.column_name = [\"microbitID\",\"microbitIDTwo\"]\nmsg.column_sort = [parseInt(msg.payload.microbitIDOne),parseInt(msg.payload.microbitIDTwo)]\nmsg.database = 'Distances'\nmsg.command = \"insert\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 100,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "f4c64a2f955a6b71",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL- update rssi values",
+        "func": "msg.column_name = [\"heartbeat\"]\nmsg.column_data = [parseInt(msg.payload.hb)]\nmsg.column_sort = [\"microbitID\",\"microbitIDTwo\"]\nmsg.data = [parseInt(msg.payload.microbitIDOne),parseInt(msg.payload.microbitIDTwo)]\nmsg.database = 'Distances'\nmsg.command = \"update\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 260,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "c63ee3bd6d7f2d4f",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL- update rssi values",
+        "func": "msg.column_name = [\"rssi\"]\nmsg.column_data = [parseInt(msg.payload.rssiBetweenObj)]\nmsg.column_sort = [\"microbitID\",\"microbitIDTwo\"]\nmsg.data = [parseInt(msg.payload.microbitIDOne),parseInt(msg.payload.microbitIDTwo)]\nmsg.database = 'Distances'\nmsg.command = \"update\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 300,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "e049d1dea6301dbe",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL- Initialise distance table",
+        "func": "msg.column_name = [\"microbitID\",\"microbitIDTwo\"]\nmsg.column_sort = [parseInt(msg.payload.microbitIDOne),parseInt(msg.payload.microbitIDTwo)]\nmsg.database = 'Distances'\nmsg.command = \"insert\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 340,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "f9795597672d2502",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL- update rssi values",
+        "func": "msg.column_name = [\"heartbeat\"]\nmsg.column_data = [parseInt(msg.payload.hb)]\nmsg.column_sort = [\"microbitID\",\"microbitIDTwo\"]\nmsg.data = [parseInt(msg.payload.microbitIDOne),parseInt(msg.payload.microbitIDTwo)]\nmsg.database = 'Distances'\nmsg.command = \"update\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 380,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "d2ac7df730e735a7",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL- update rssi values",
+        "func": "msg.column_name = [\"rssi\"]\nmsg.column_data = [parseInt(msg.payload.rssiBetweenObj)]\nmsg.column_sort = [\"microbitID\",\"microbitIDTwo\"]\nmsg.data = [parseInt(msg.payload.microbitIDOne),parseInt(msg.payload.microbitIDTwo)]\nmsg.database = 'Distances'\nmsg.command = \"update\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 420,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "72b2a256dcc9eff7",
+        "type": "serial out",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "serial": "84b5927ffda683d4",
+        "x": 710,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "ec36f010ef40a943",
+        "type": "inject",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "11117",
+        "payloadType": "str",
+        "x": 470,
+        "y": 560,
+        "wires": [
+            [
+                "72b2a256dcc9eff7"
+            ]
+        ]
+    },
+    {
+        "id": "101730067b53d836",
+        "type": "inject",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "11118",
+        "payloadType": "str",
+        "x": 470,
+        "y": 600,
+        "wires": [
+            [
+                "72b2a256dcc9eff7"
+            ]
+        ]
+    },
+    {
+        "id": "5b6d08378507ea96",
+        "type": "inject",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "795210",
+        "payloadType": "str",
+        "x": 470,
+        "y": 520,
+        "wires": [
+            [
+                "72b2a256dcc9eff7"
+            ]
+        ]
+    },
+    {
+        "id": "843a8432e996fb58",
+        "type": "comment",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "address,protocolID",
+        "info": "",
+        "x": 490,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "39a2daf701be9a75",
+        "type": "link out",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "crash Management",
+        "mode": "link",
+        "links": [
+            "0ae2576acaa1984e"
+        ],
+        "x": 895,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "16275d8490108660",
+        "type": "debug",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2150,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "580560b8789cdd5a",
+        "type": "http in",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "url": "/query",
+        "method": "post",
+        "upload": true,
+        "swaggerDoc": "",
+        "x": 1430,
+        "y": 560,
+        "wires": [
+            [
+                "e76646413ea39720"
+            ]
+        ]
+    },
+    {
+        "id": "8d8ce70fdb291694",
+        "type": "http response",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 2150,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "e76646413ea39720",
+        "type": "json",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": true,
+        "x": 1570,
+        "y": 560,
+        "wires": [
+            [
+                "aa524d46cd9cf069"
+            ]
+        ]
+    },
+    {
+        "id": "aa524d46cd9cf069",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "Query DB",
+        "func": "msg.topic = msg.payload.SQL\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1700,
+        "y": 560,
+        "wires": [
+            [
+                "63c6e37c3d1390e0"
+            ]
+        ]
+    },
+    {
+        "id": "63c6e37c3d1390e0",
+        "type": "mysql",
+        "z": "5ecdbd2c1de7cc9e",
+        "mydb": "6956152fdeb741d3",
+        "name": "",
+        "x": 1850,
+        "y": 560,
+        "wires": [
+            [
+                "40bd039696c44426"
+            ]
+        ]
+    },
+    {
+        "id": "40bd039696c44426",
+        "type": "json",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": true,
+        "x": 1990,
+        "y": 560,
+        "wires": [
+            [
+                "8d8ce70fdb291694",
+                "16275d8490108660"
+            ]
+        ]
+    },
+    {
+        "id": "014896a7af25b19d",
+        "type": "comment",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "info": "",
+        "x": 1630,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "477d320c81c46eb5",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "func": "\nif(msg.payload[0].name == \"Car\")\n{\n    msg.topic = \"SELECT Object.speedLimit FROM Object INNER JOIN Microbits ON Object.objectID=Microbits.objectID WHERE Microbits.microbitID = \" + msg.yu\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 820,
+        "wires": [
+            [
+                "a51d4649787c83de",
+                "b895ba8c4387117b"
+            ]
+        ]
+    },
+    {
+        "id": "b895ba8c4387117b",
+        "type": "debug",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1450,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "a51d4649787c83de",
+        "type": "mysql",
+        "z": "5ecdbd2c1de7cc9e",
+        "mydb": "6956152fdeb741d3",
+        "name": "",
+        "x": 1130,
+        "y": 820,
+        "wires": [
+            [
+                "b895ba8c4387117b",
+                "fb0c36acc0c88883"
+            ]
+        ]
+    },
+    {
+        "id": "c4ff4cb3bccb8e85",
+        "type": "serial out",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "serial": "84b5927ffda683d4",
+        "x": 1770,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "fb0c36acc0c88883",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "func": "msg.payload = msg.da + \"40\" + msg.payload[0].speedLimit\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1320,
+        "y": 820,
+        "wires": [
+            [
+                "c4ff4cb3bccb8e85",
+                "b895ba8c4387117b"
+            ]
+        ]
+    },
+    {
+        "id": "5a2fe691b0d5b1ae",
+        "type": "inject",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "79524010",
+        "payloadType": "str",
+        "x": 500,
+        "y": 700,
+        "wires": [
+            [
+                "72b2a256dcc9eff7"
+            ]
+        ]
+    },
+    {
+        "id": "b920b7a91614dc27",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "func": "msg.yu = msg.payload.microbitIDOne\nmsg.da= msg.payload.microbitIDTwo\nmsg.topic = \"SELECT Object.name FROM Object INNER JOIN Microbits ON Object.objectID=Microbits.objectID WHERE Microbits.microbitID = \" + msg.payload.microbitIDTwo\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1000,
+        "y": 580,
+        "wires": [
+            [
+                "4e33c73e9a45d19e"
+            ]
+        ]
+    },
+    {
+        "id": "4e33c73e9a45d19e",
+        "type": "mysql",
+        "z": "5ecdbd2c1de7cc9e",
+        "mydb": "6956152fdeb741d3",
+        "name": "",
+        "x": 810,
+        "y": 820,
+        "wires": [
+            [
+                "477d320c81c46eb5",
+                "b895ba8c4387117b"
+            ]
+        ]
+    },
+    {
+        "id": "3a34abe1de552b05",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "func": "msg.yu = msg.payload.microbitIDOne\nmsg.da= msg.payload.microbitIDTwo\nmsg.topic = \"SELECT Object.name FROM Object INNER JOIN Microbits ON Object.objectID=Microbits.objectID WHERE Microbits.microbitID = \" + msg.payload.microbitIDTwo\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 680,
+        "wires": [
+            [
+                "cc865b44481051cc"
+            ]
+        ]
+    },
+    {
+        "id": "cc865b44481051cc",
+        "type": "mysql",
+        "z": "5ecdbd2c1de7cc9e",
+        "mydb": "6956152fdeb741d3",
+        "name": "",
+        "x": 790,
+        "y": 920,
+        "wires": [
+            [
+                "c8e7da9c19981152"
+            ]
+        ]
+    },
+    {
+        "id": "c8e7da9c19981152",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "func": "\nif(msg.payload[0].name == \"Car\")\n{\n    msg.topic = \"SELECT Object.roadType FROM Object INNER JOIN Microbits ON Object.objectID=Microbits.objectID WHERE Microbits.microbitID = \" + msg.yu\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 920,
+        "wires": [
+            [
+                "e612605f88d100bf"
+            ]
+        ]
+    },
+    {
+        "id": "e612605f88d100bf",
+        "type": "mysql",
+        "z": "5ecdbd2c1de7cc9e",
+        "mydb": "6956152fdeb741d3",
+        "name": "",
+        "x": 1130,
+        "y": 920,
+        "wires": [
+            [
+                "6d50b8d25c0cf5ee"
+            ]
+        ]
+    },
+    {
+        "id": "6d50b8d25c0cf5ee",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "func": "var end = \"\"\nif(msg.payload[0].roadType == \"One Way\")\n{\n    end = \"10\"\n}\nif(msg.payload[0].roadType == \"Both Ways\")\n{\n    end = \"20\"\n}\n\nmsg.payload = msg.da + \"45\" + end\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1320,
+        "y": 920,
+        "wires": [
+            [
+                "b895ba8c4387117b",
+                "a329a1231b1ebe69"
+            ]
+        ]
+    },
+    {
+        "id": "a329a1231b1ebe69",
+        "type": "delay",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1510,
+        "y": 880,
+        "wires": [
+            [
+                "c4ff4cb3bccb8e85"
+            ]
+        ]
+    },
+    {
+        "id": "f48f3a198616954f",
+        "type": "batch",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "mode": "interval",
+        "count": 10,
+        "overlap": 0,
+        "interval": 10,
+        "allowEmptySequence": false,
+        "topics": [],
+        "x": 80,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b992deea659d3381",
+        "type": "delay",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "500",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1590,
+        "y": 280,
+        "wires": [
+            [
+                "a55dfed0b8955e79"
+            ]
+        ]
+    },
+    {
+        "id": "0ae2576acaa1984e",
+        "type": "link in",
+        "z": "d212a43e3350495a",
+        "name": "",
+        "links": [
+            "39a2daf701be9a75"
+        ],
+        "x": 55,
+        "y": 100,
+        "wires": [
+            [
+                "95e9bab1058ab225"
+            ]
+        ]
+    },
+    {
+        "id": "5dfaa201886eedc1",
+        "type": "function",
+        "z": "d212a43e3350495a",
+        "name": "calculate distance",
+        "func": "msg.distance = 10 ** (( -55 - (msg.payload.rssiBetweenObj)) / 20);\nmsg.topic = \"SELECT Object.name FROM Object INNER JOIN Microbits ON Object.objectID=Microbits.objectID WHERE Microbits.microbitID = \" + msg.payload.microbitIDOne\nmsg.mTwo = msg.payload.microbitIDTwo\nmsg.aa = msg.payload.microbitIDOne\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 100,
+        "wires": [
+            [
+                "34aeeb37348fa53f"
+            ]
+        ]
+    },
+    {
+        "id": "dafd3d2bd0258be5",
+        "type": "comment",
+        "z": "d212a43e3350495a",
+        "name": "inform of a potential crash (car to car, car to person)",
+        "info": "",
+        "x": 350,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "34aeeb37348fa53f",
+        "type": "mysql",
+        "z": "d212a43e3350495a",
+        "mydb": "6956152fdeb741d3",
+        "name": "",
+        "x": 550,
+        "y": 100,
+        "wires": [
+            [
+                "8734a222a3c12a49"
+            ]
+        ]
+    },
+    {
+        "id": "8734a222a3c12a49",
+        "type": "function",
+        "z": "d212a43e3350495a",
+        "name": "Query DB",
+        "func": "msg.mOne = msg.payload[0].name\nmsg.topic = \"SELECT Object.name FROM Object INNER JOIN Microbits ON Object.objectID=Microbits.objectID WHERE Microbits.microbitID = \" + msg.mTwo\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 100,
+        "wires": [
+            [
+                "0ef0c78cb17884af"
+            ]
+        ]
+    },
+    {
+        "id": "0ef0c78cb17884af",
+        "type": "mysql",
+        "z": "d212a43e3350495a",
+        "mydb": "6956152fdeb741d3",
+        "name": "",
+        "x": 870,
+        "y": 100,
+        "wires": [
+            [
+                "79725577b6304740",
+                "78f52b2da7548c2a"
+            ]
+        ]
+    },
+    {
+        "id": "79725577b6304740",
+        "type": "function",
+        "z": "d212a43e3350495a",
+        "name": "Check if possible",
+        "func": "if(msg.payload[0].name == \"Car\" && msg.mOne == \"Car\")\n{\n    if(1 < msg.distance && msg.distance < 10 )\n    {\n        msg.payload = msg.aa + \"10\"\n        return msg;\n    }\n}\nif(msg.payload[0].name == \"Person\" && msg.mOne == \"Car\")\n{\n    if(1 <msg.distance && msg.distance < 10)\n    {\n        msg.payload = msg.aa + \"10\"\n        return msg;\n    }\n}\nif(msg.payload[0].name == \"Car\" && msg.mOne == \"Person\")\n{\n    if(1 <msg.distance && msg.distance < 10)\n    {\n        msg.payload = msg.aa + \"10\"\n        return msg;\n    }\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1090,
+        "y": 100,
+        "wires": [
+            [
+                "d73cec0c8024f382",
+                "c3279d0f16f1e609",
+                "9ee52fdf44c2147c"
+            ]
+        ]
+    },
+    {
+        "id": "4b4d9f21070f4afd",
+        "type": "comment",
+        "z": "d212a43e3350495a",
+        "name": "distance <10 and both obj acc>30 when they are bother Cars",
+        "info": "",
+        "x": 380,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "0dd2eb7c03a7c53b",
+        "type": "comment",
+        "z": "d212a43e3350495a",
+        "name": "distance <10 and Car obj acc>30 when one is car",
+        "info": "",
+        "x": 350,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "d73cec0c8024f382",
+        "type": "serial out",
+        "z": "d212a43e3350495a",
+        "name": "",
+        "serial": "84b5927ffda683d4",
+        "x": 1350,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "2812d09880d1259b",
+        "type": "delay",
+        "z": "d212a43e3350495a",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1580,
+        "y": 100,
+        "wires": [
+            [
+                "96cdebf1a571ccfe"
+            ]
+        ]
+    },
+    {
+        "id": "96cdebf1a571ccfe",
+        "type": "serial out",
+        "z": "d212a43e3350495a",
+        "name": "",
+        "serial": "84b5927ffda683d4",
+        "x": 1770,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "c3279d0f16f1e609",
+        "type": "function",
+        "z": "d212a43e3350495a",
+        "name": "Check if possible",
+        "func": "msg.payload = msg.mTwo + \"10\"\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1330,
+        "y": 100,
+        "wires": [
+            [
+                "2812d09880d1259b",
+                "9ee52fdf44c2147c"
+            ]
+        ]
+    },
+    {
+        "id": "9ee52fdf44c2147c",
+        "type": "debug",
+        "z": "d212a43e3350495a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1730,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "95e9bab1058ab225",
+        "type": "delay",
+        "z": "d212a43e3350495a",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "20",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 180,
+        "y": 100,
+        "wires": [
+            [
+                "5dfaa201886eedc1",
+                "2550762e4c693c0d"
+            ]
+        ]
+    },
+    {
+        "id": "2550762e4c693c0d",
+        "type": "debug",
+        "z": "d212a43e3350495a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 370,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "6abb98ccc469f5eb",
+        "type": "comment",
+        "z": "d212a43e3350495a",
+        "name": "detect person in car (car to person)",
+        "info": "",
+        "x": 300,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "78f52b2da7548c2a",
+        "type": "function",
+        "z": "d212a43e3350495a",
+        "name": "Check if possible",
+        "func": "if(msg.payload[0].name == \"Person\" && msg.mOne == \"Car\")\n{\n    if(1 > msg.distance)\n    {\n        msg.payload = msg.aa + \"50\"\n        msg.inCar = true\n        return msg;\n    }\n}\nif(msg.payload[0].name == \"Car\" && msg.mOne == \"Person\")\n{\n    if(1 > msg.distance)\n    {\n        msg.payload = msg.aa + \"50\"\n        msg.inCar = true\n        return msg;\n    }\n}\nmsg.payload = msg.aa + \"51\"\nmsg.inCar = false\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1090,
+        "y": 320,
+        "wires": [
+            [
+                "9c7146a25f6ecde2",
+                "05de162134386121"
+            ]
+        ]
+    },
+    {
+        "id": "146d6dab9bc18dd9",
+        "type": "function",
+        "z": "d212a43e3350495a",
+        "name": "send",
+        "func": "msg.payload = msg.mTwo + \"50\"\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1530,
+        "y": 360,
+        "wires": [
+            [
+                "87525376c25f692b",
+                "eb3d52270620d183"
+            ]
+        ]
+    },
+    {
+        "id": "260a7d2e23ec0d8f",
+        "type": "serial out",
+        "z": "d212a43e3350495a",
+        "name": "",
+        "serial": "84b5927ffda683d4",
+        "x": 1510,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "87525376c25f692b",
+        "type": "delay",
+        "z": "d212a43e3350495a",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1760,
+        "y": 360,
+        "wires": [
+            [
+                "71b019d0ea6414ba"
+            ]
+        ]
+    },
+    {
+        "id": "71b019d0ea6414ba",
+        "type": "serial out",
+        "z": "d212a43e3350495a",
+        "name": "",
+        "serial": "84b5927ffda683d4",
+        "x": 1970,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "743608c267c1eb3d",
+        "type": "comment",
+        "z": "d212a43e3350495a",
+        "name": "distance <1",
+        "info": "",
+        "x": 230,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "9c7146a25f6ecde2",
+        "type": "switch",
+        "z": "d212a43e3350495a",
+        "name": "true",
+        "property": "inCar",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1310,
+        "y": 360,
+        "wires": [
+            [
+                "146d6dab9bc18dd9",
+                "260a7d2e23ec0d8f",
+                "eb3d52270620d183",
+                "b163d0e02a998d81"
+            ]
+        ]
+    },
+    {
+        "id": "05de162134386121",
+        "type": "switch",
+        "z": "d212a43e3350495a",
+        "name": "false",
+        "property": "inCar",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1310,
+        "y": 460,
+        "wires": [
+            [
+                "bc69d19cbcc7ca57",
+                "260a7d2e23ec0d8f",
+                "eb3d52270620d183",
+                "43f2fae9bce64769"
+            ]
+        ]
+    },
+    {
+        "id": "bc69d19cbcc7ca57",
+        "type": "function",
+        "z": "d212a43e3350495a",
+        "name": "send",
+        "func": "msg.payload = msg.mTwo + \"51\"\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1530,
+        "y": 460,
+        "wires": [
+            [
+                "87525376c25f692b",
+                "eb3d52270620d183"
+            ]
+        ]
+    },
+    {
+        "id": "78590cc1bf9e6894",
+        "type": "inject",
+        "z": "d212a43e3350495a",
+        "name": "display x",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "471150",
+        "payloadType": "str",
+        "x": 980,
+        "y": 460,
+        "wires": [
+            [
+                "f553a36819af623a"
+            ]
+        ]
+    },
+    {
+        "id": "56151de1a5b6daa9",
+        "type": "inject",
+        "z": "d212a43e3350495a",
+        "name": "display x",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "795250",
+        "payloadType": "str",
+        "x": 970,
+        "y": 500,
+        "wires": [
+            [
+                "f553a36819af623a"
+            ]
+        ]
+    },
+    {
+        "id": "451f2054220ea2dd",
+        "type": "inject",
+        "z": "d212a43e3350495a",
+        "name": "display nothing",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "471151",
+        "payloadType": "str",
+        "x": 1000,
+        "y": 540,
+        "wires": [
+            [
+                "f553a36819af623a"
+            ]
+        ]
+    },
+    {
+        "id": "93f0ff5d449f6a8a",
+        "type": "inject",
+        "z": "d212a43e3350495a",
+        "name": "Display nothing",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "795251",
+        "payloadType": "str",
+        "x": 990,
+        "y": 580,
+        "wires": [
+            [
+                "f553a36819af623a"
+            ]
+        ]
+    },
+    {
+        "id": "dee919cc2f665eb6",
+        "type": "inject",
+        "z": "d212a43e3350495a",
+        "name": "Alert",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "471110",
+        "payloadType": "str",
+        "x": 970,
+        "y": 620,
+        "wires": [
+            [
+                "f553a36819af623a"
+            ]
+        ]
+    },
+    {
+        "id": "0bc7764f1b47a2e1",
+        "type": "inject",
+        "z": "d212a43e3350495a",
+        "name": "Alert",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "795210",
+        "payloadType": "str",
+        "x": 960,
+        "y": 660,
+        "wires": [
+            [
+                "f553a36819af623a"
+            ]
+        ]
+    },
+    {
+        "id": "f553a36819af623a",
+        "type": "serial out",
+        "z": "d212a43e3350495a",
+        "name": "",
+        "serial": "84b5927ffda683d4",
+        "x": 1270,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "eb3d52270620d183",
+        "type": "debug",
+        "z": "d212a43e3350495a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1750,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "b163d0e02a998d81",
+        "type": "function",
+        "z": "d212a43e3350495a",
+        "name": "Query DB",
+        "func": "msg.topic = \"SELECT Passenger.car, Passenger.person FROM Passenger WHERE Passenger.person = \" + msg.aa +\" AND Passenger.car = \" + msg.mTwo +\" OR Passenger.person = \"+ 0\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1520,
+        "y": 200,
+        "wires": [
+            [
+                "709346eaeca0a452"
+            ]
+        ]
+    },
+    {
+        "id": "709346eaeca0a452",
+        "type": "mysql",
+        "z": "d212a43e3350495a",
+        "mydb": "6956152fdeb741d3",
+        "name": "",
+        "x": 1690,
+        "y": 200,
+        "wires": [
+            [
+                "eb3d52270620d183",
+                "19a8ea9811fabefd",
+                "a8dc658522fd0ea4"
+            ]
+        ]
+    },
+    {
+        "id": "19a8ea9811fabefd",
+        "type": "switch",
+        "z": "d212a43e3350495a",
+        "name": "insert",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "empty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 2010,
+        "y": 140,
+        "wires": [
+            [
+                "93acacbb20f730db"
+            ]
+        ]
+    },
+    {
+        "id": "a8dc658522fd0ea4",
+        "type": "switch",
+        "z": "d212a43e3350495a",
+        "name": "update",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 2000,
+        "y": 220,
+        "wires": [
+            [
+                "5f00c8b6c8d3d084"
+            ]
+        ]
+    },
+    {
+        "id": "93acacbb20f730db",
+        "type": "function",
+        "z": "d212a43e3350495a",
+        "name": "Query DB",
+        "func": "\nmsg.topic = \"INSERT INTO Passenger (car, person) VALUES (\"+msg.mTwo+\",\"+msg.aa+\")\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2160,
+        "y": 140,
+        "wires": [
+            [
+                "ce50f46b6e8cae02"
+            ]
+        ]
+    },
+    {
+        "id": "ce50f46b6e8cae02",
+        "type": "mysql",
+        "z": "d212a43e3350495a",
+        "mydb": "6956152fdeb741d3",
+        "name": "",
+        "x": 2350,
+        "y": 180,
+        "wires": [
+            [
+                "f2e79c247bde049d"
+            ]
+        ]
+    },
+    {
+        "id": "f2e79c247bde049d",
+        "type": "debug",
+        "z": "d212a43e3350495a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2510,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "5f00c8b6c8d3d084",
+        "type": "function",
+        "z": "d212a43e3350495a",
+        "name": "Query DB",
+        "func": "msg.topic = \"UPDATE Passenger SET Passenger.person = \"+msg.aa+\" WHERE Passenger.person = \"+0+\" AND Passenger.car = \"+msg.mTwo;\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2160,
+        "y": 220,
+        "wires": [
+            [
+                "ce50f46b6e8cae02"
+            ]
+        ]
+    },
+    {
+        "id": "43f2fae9bce64769",
+        "type": "function",
+        "z": "d212a43e3350495a",
+        "name": "Query DB",
+        "func": "\nmsg.topic = \"UPDATE Passenger SET Passenger.person = \"+ null +\" WHERE Passenger.person = \"+msg.aa+\" AND Passenger.car = \"+msg.mTwo;\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1680,
+        "y": 500,
+        "wires": [
+            [
+                "ce50f46b6e8cae02"
+            ]
+        ]
+    },
+    {
+        "id": "344803d79a8a3491",
+        "type": "debug",
+        "z": "2af9ce60acc944f0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1170,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "540e498f9382673a",
+        "type": "http in",
+        "z": "2af9ce60acc944f0",
+        "name": "",
+        "url": "old-dash",
+        "method": "get",
+        "upload": true,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 120,
+        "wires": [
+            [
+                "958962c05cb9c62e"
+            ]
+        ]
+    },
+    {
+        "id": "958962c05cb9c62e",
+        "type": "function",
+        "z": "2af9ce60acc944f0",
+        "name": "Record Lookup",
+        "func": "msg.topic = \"SELECT mb.microbitID as microbitID, o.name as name, \" +\n\"r1.temp as temp, r1.acc as acc, r1.direction as direction, \" +\n\"'' microB, '' as date, '' as time, '1' as qry \" +\n\"FROM Microbits mb, Object o, Readings r1, \" +\n\"(SELECT r2.microbitID, max(r2.heartbeat) as maxhb \" +\n\"FROM Readings r2 \"+\n\"GROUP BY r2.microbitID) as mr \" +\n\"WHERE o.objectID = mb.objectID \" +\n\"AND mb.MicrobitID = r1.microbitID \" +\n\"AND mr.MicrobitID = r1.microbitID \" +\n\"AND mr.maxhb = r1.heartbeat \" +\n\"UNION \" +\n\"SELECT '' as microbitID, '' as name, \" +\n\"'' as temp, '' as acc, '' as direction, \" +\n\"microbitID as microB, date, time, '2' as qry \" +\n\"FROM Crash \" +\n\"ORDER BY 9\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 160,
+        "wires": [
+            [
+                "ac41b197bc97bf2b"
+            ]
+        ]
+    },
+    {
+        "id": "ac41b197bc97bf2b",
+        "type": "mysql",
+        "z": "2af9ce60acc944f0",
+        "mydb": "6956152fdeb741d3",
+        "name": "DB Conn",
+        "x": 580,
+        "y": 160,
+        "wires": [
+            [
+                "a8fc6dd0ccea4c51"
+            ]
+        ]
+    },
+    {
+        "id": "0b19ea5553c8ec70",
+        "type": "http response",
+        "z": "2af9ce60acc944f0",
+        "name": "",
+        "x": 1350,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "a8fc6dd0ccea4c51",
+        "type": "json",
+        "z": "2af9ce60acc944f0",
+        "name": "",
+        "property": "payload,name",
+        "action": "str",
+        "pretty": true,
+        "x": 770,
+        "y": 160,
+        "wires": [
+            [
+                "a817b61936c64715",
+                "831eb06bd1a770d0"
+            ]
+        ]
+    },
+    {
+        "id": "d52b8989999e3d6f",
+        "type": "inject",
+        "z": "2af9ce60acc944f0",
+        "name": "run",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 200,
+        "wires": [
+            [
+                "958962c05cb9c62e"
+            ]
+        ]
+    },
+    {
+        "id": "a817b61936c64715",
+        "type": "template",
+        "z": "2af9ce60acc944f0",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<HTML>\n    <head>\n    <style>\n    table {\n      font-family: arial, sans-serif;\n      border-collapse: collapse;\n      width: 100%;\n    }\n    \n    td, th {\n      border: 1px solid #dddddd;\n      text-align: left;\n      padding: 5px;\n    }\n    \n    tr:nth-child(even) {\n      background-color: #E9F6FE;\n    }\n    tr:nth-child(odd) {\n      background-color: #C6DAE6;\n    }\n    tr:first-child {\n      background-color: #03476E;\n      color: #EBF2F6;\n    }\n    </style>\n    </head>\n        <body>\n    \n        <div style=\"width:100%;height:10%;border:1px solid #000;\">\n            <h2>Autonomous Vehicle System</h2>\n        </div>\n        <div style=\"width:100%;height:50%;border:1px solid #000;\">Map goes here\n        </div>\n        <div style=\"width:50%;height:40%;float:left;border:0px solid #000;\">\n            <TABLE>\n              <tr>\n                <th>Microbit Id</th>\n                <th>Devices</th>\n                <th>Temperature</th>\n                <th>Acceleration</th>\n                <th>Direction</th>\n              </tr>\n                {{#payload}}\n                    <tr>\n                        <td> {{microbitID}} </td>\n                        \n                        <SCRIPT>\n                            let param = {{{payload.name}}};\n                            if (param = 'Person'){\n                                document.body.innerHTML = \"<td> \" + param + \" </td> \"\n                            }\n                        </SCRIPT>\n                        \n                        <td> {{temp}} </td>\n                        <td> {{acc}} </td>\n                        <td> {{direction}} </td>\n                    </tr>\n                {{/payload}}   \n            </TABLE>\n        </div>\n        \n        <div style=\"width:50%;height:40%;float:right;border:0px solid #000;\">\n            <TABLE>\n              <tr>\n                <th>Microbit Id</th>\n                <th>Date</th>\n                <th>Time</th>\n              </tr>\n                {{#payload2}}    \n                    <tr>\n                        <td> {{microbitID}} </td>\n                        <td> {{date}} </td>\n                        <td> {{time}} </td>\n                    </tr>\n                {{/payload2}}   \n            </TABLE>\n        </div>\n        \n    </body>\n</HTML>\n",
+        "output": "str",
+        "x": 960,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "831eb06bd1a770d0",
+        "type": "function",
+        "z": "2af9ce60acc944f0",
+        "name": "",
+        "func": "var myStr=\"\";\nvar counter_qry1 = 0;\nvar counter_qry2 = 0;\nfor(var i=0;i<=msg.payload.length-1;i++){\n    var row=msg.payload[i];\n    if(row){\n        if (row.qry == 1 && row.microbitID != null){\n            if (counter_qry1 == 0){\n                counter_qry1++;\n                \n            }\n            myStr +=\"<tr>\";\n            myStr +=\"<td>\"+row.microbitID+\"</td>\";\n            myStr +=\"<td>\"+row.name+\"</td>\";\n            myStr +=\"<td>\"+row.temp+\"</td>\";\n            myStr +=\"<td>\"+row.acc+\"</td>\";\n            myStr +=\"<td>\"+row.direction+\"</td>\";\n            myStr +=\"</tr>\";\n        }\n        if (row.qry == 2 && counter_qry2 ==0){\n                myStr +=\"</table>\";\n                myStr +=\"</div>\";\n        }\n        if (row.qry == 2 && row.microB != null){\n            if (counter_qry2 ==0){\n                counter_qry2++;\n                myStr +=\"</table>\";\n                myStr +=\"</div>\";\n                myStr +='<div style=\"width:50%;height:40%;float:right;border:0px solid #000;\">';\n                myStr +=\"<TABLE><tr><th>Microbit Id</th><th>Date</th><th>Time</th></tr>\"\n                myStr +=\"<tr>\";\n                myStr +=\"<td>\"+row.microB+\"</td>\";\n                myStr +=\"<td>\"+row.date+\"</td>\";\n                myStr +=\"<td>\"+row.time+\"</td>\";\n                myStr +=\"</tr>\";\n            }\n            else\n            {\n                myStr +=\"<tr>\";\n                myStr +=\"<td>\"+row.microB+\"</td>\";\n                myStr +=\"<td>\"+row.date+\"</td>\";\n                myStr +=\"<td>\"+row.time+\"</td>\";\n                myStr +=\"</tr>\";\n                \n            }\n        }\n    }else{\n        myStr+=\"no object at index \"+i.toString();\n    }\n}\nif (counter_qry2 > 0){\n    myStr +=\"</table>\";\n    myStr +=\"</div>\";\n}\n\nif (counter_qry2 ==0){\n    myStr +=\"</table>\";\n    myStr +=\"</div>\";\n    myStr +='<div style=\"width:50%;height:40%;float:right;border:0px solid #000;\">';\n    myStr +=\"<TABLE><tr><th>Microbit Id</th><th>Date</th><th>Time</th></tr></TABLE></div>\"\n}\n\nmsg.payload=myStr;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 200,
+        "wires": [
+            [
+                "1a1a148cb4b20540",
+                "344803d79a8a3491"
+            ]
+        ]
+    },
+    {
+        "id": "1a1a148cb4b20540",
+        "type": "template",
+        "z": "2af9ce60acc944f0",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<HTML>\n    <head>\n    <style>\n    table {\n      font-family: arial, sans-serif;\n      border-collapse: collapse;\n      width: 100%;\n    }\n    \n    td, th {\n      border: 1px solid #dddddd;\n      text-align: left;\n      padding: 5px;\n    }\n    \n    tr:nth-child(even) {\n      background-color: #E9F6FE;\n    }\n    tr:nth-child(odd) {\n      background-color: #C6DAE6;\n    }\n    tr:first-child {\n      background-color: #03476E;\n      color: #EBF2F6;\n    }\n    </style>\n    </head>\n        <body>\n    \n        <div style=\"width:100%;height:10%;border:1px solid #000;\">\n            <h2>Autonomous Vehicle System</h2>\n        </div>\n        <div style=\"width:100%;height:50%;border:1px solid #000;\">Map goes here\n        </div>\n        <div style=\"width:50%;height:40%;float:left;border:0px solid #000;\">\n            <TABLE>\n              <tr>\n                <th>Microbit Id</th>\n                <th>Devices</th>\n                <th>Temperature</th>\n                <th>Acceleration</th>\n                <th>Direction</th>\n              </tr>\n        {{{payload}}}\n    </body>\n</HTML>\n",
+        "output": "str",
+        "x": 1160,
+        "y": 160,
+        "wires": [
+            [
+                "0b19ea5553c8ec70"
+            ]
+        ]
+    },
+    {
+        "id": "6e1f5f55762bd815",
+        "type": "function",
+        "z": "2af9ce60acc944f0",
+        "name": "Get Microbit Info",
+        "func": "const topic = `SELECT mb.microbitID as microbitId,\n       obj.name      as sensorType\n\nFROM Microbits mb\n         NATURAL JOIN Object obj\n\nORDER BY mb.microbitID;`;\n\nreturn {...msg, topic};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 300,
+        "wires": [
+            [
+                "eb8dc0a9f3f03cc2"
+            ]
+        ]
+    },
+    {
+        "id": "980d1ec340df8bf0",
+        "type": "function",
+        "z": "2af9ce60acc944f0",
+        "name": "Get Crash Info",
+        "func": "const topic = `SELECT mb.microbitID as microbitId,\n       obj.name      as sensorType,\n       c.date        as date,\n       c.time        as time\n\nFROM Microbits mb\n         NATURAL JOIN Crash c\n         NATURAL JOIN Object obj\n\nORDER BY mb.microbitID;`;\n\nreturn {...msg, topic};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 380,
+        "wires": [
+            [
+                "a8262f15f7d44bfd"
+            ]
+        ]
+    },
+    {
+        "id": "eb8dc0a9f3f03cc2",
+        "type": "mysql",
+        "z": "2af9ce60acc944f0",
+        "mydb": "6956152fdeb741d3",
+        "name": "DB Conn",
+        "x": 600,
+        "y": 300,
+        "wires": [
+            [
+                "f26ba9d10d2327e5"
+            ]
+        ]
+    },
+    {
+        "id": "a8262f15f7d44bfd",
+        "type": "mysql",
+        "z": "2af9ce60acc944f0",
+        "mydb": "6956152fdeb741d3",
+        "name": "DB Conn",
+        "x": 600,
+        "y": 380,
+        "wires": [
+            [
+                "4afd40f91d946cc5"
+            ]
+        ]
+    },
+    {
+        "id": "b7570979c18b9739",
+        "type": "http in",
+        "z": "2af9ce60acc944f0",
+        "name": "",
+        "url": "dash",
+        "method": "get",
+        "upload": true,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 380,
+        "wires": [
+            [
+                "6e1f5f55762bd815",
+                "980d1ec340df8bf0",
+                "679e83962dff62e1",
+                "c084f3732afbf7e3"
+            ]
+        ]
+    },
+    {
+        "id": "f73400ada598e843",
+        "type": "join",
+        "z": "2af9ce60acc944f0",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "4",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "num",
+        "reduceFixup": "",
+        "x": 1050,
+        "y": 420,
+        "wires": [
+            [
+                "42572b401164ceb4",
+                "6817950eca3a19ec"
+            ]
+        ]
+    },
+    {
+        "id": "6817950eca3a19ec",
+        "type": "http response",
+        "z": "2af9ce60acc944f0",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1230,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "e70d5962e6fcdfcc",
+        "type": "inject",
+        "z": "2af9ce60acc944f0",
+        "name": "run",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 460,
+        "wires": [
+            [
+                "6e1f5f55762bd815",
+                "980d1ec340df8bf0",
+                "679e83962dff62e1",
+                "c084f3732afbf7e3"
+            ]
+        ]
+    },
+    {
+        "id": "42572b401164ceb4",
+        "type": "debug",
+        "z": "2af9ce60acc944f0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1230,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "f26ba9d10d2327e5",
+        "type": "function",
+        "z": "2af9ce60acc944f0",
+        "name": "set devices topic",
+        "func": "return {...msg, topic: 'devices'};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 300,
+        "wires": [
+            [
+                "f73400ada598e843"
+            ]
+        ]
+    },
+    {
+        "id": "4afd40f91d946cc5",
+        "type": "function",
+        "z": "2af9ce60acc944f0",
+        "name": "set crashes topic",
+        "func": "return {...msg, topic: 'crashes'};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 380,
+        "wires": [
+            [
+                "f73400ada598e843"
+            ]
+        ]
+    },
+    {
+        "id": "679e83962dff62e1",
+        "type": "function",
+        "z": "2af9ce60acc944f0",
+        "name": "Get All Readings",
+        "func": "const topic = `SELECT mb.microbitID as microbitId,\n       obj.name      as sensorType,\n       r.temp        as temp,\n       r.acc         as acc,\n       r.direction   as direction,\n       r.heartbeat   as heartbeat\n\nFROM Microbits mb\n         INNER JOIN Readings r ON r.microbitID = mb.microbitID\n         INNER JOIN Object obj ON obj.objectID = mb.objectID\n\nORDER BY mb.microbitID;`;\n\nreturn {...msg, topic};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 460,
+        "wires": [
+            [
+                "3e0084c8df327449"
+            ]
+        ]
+    },
+    {
+        "id": "3e0084c8df327449",
+        "type": "mysql",
+        "z": "2af9ce60acc944f0",
+        "mydb": "6956152fdeb741d3",
+        "name": "DB Conn",
+        "x": 600,
+        "y": 460,
+        "wires": [
+            [
+                "69129b026d36a86c"
+            ]
+        ]
+    },
+    {
+        "id": "69129b026d36a86c",
+        "type": "function",
+        "z": "2af9ce60acc944f0",
+        "name": "set readings topic",
+        "func": "return {...msg, topic: 'readings'};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 460,
+        "wires": [
+            [
+                "f73400ada598e843"
+            ]
+        ]
+    },
+    {
+        "id": "c084f3732afbf7e3",
+        "type": "function",
+        "z": "2af9ce60acc944f0",
+        "name": "Get All Locations",
+        "func": "const topic = `SELECT mb.microbitID as microbitId, loc.xCoord as longitude, loc.yCoord as latitude\nFROM Microbits mb\n    INNER JOIN Location loc on mb.microbitID = loc.microbitID;`;\n\nreturn {...msg, topic};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 540,
+        "wires": [
+            [
+                "e91601c367ad6be2"
+            ]
+        ]
+    },
+    {
+        "id": "e91601c367ad6be2",
+        "type": "mysql",
+        "z": "2af9ce60acc944f0",
+        "mydb": "6956152fdeb741d3",
+        "name": "DB Conn",
+        "x": 600,
+        "y": 540,
+        "wires": [
+            [
+                "6ad2ac3ff10ce1d9"
+            ]
+        ]
+    },
+    {
+        "id": "6ad2ac3ff10ce1d9",
+        "type": "function",
+        "z": "2af9ce60acc944f0",
+        "name": "set locations topic",
+        "func": "return {...msg, topic: 'locations'};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 540,
+        "wires": [
+            [
+                "f73400ada598e843"
+            ]
+        ]
+    }
+]
