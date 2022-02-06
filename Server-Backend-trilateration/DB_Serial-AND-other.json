@@ -1,0 +1,675 @@
+[
+    {
+        "id": "5ecdbd2c1de7cc9e",
+        "type": "tab",
+        "label": "SaveToDB",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e81415cdf87ce8b2",
+        "type": "serial in",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "serial": "84b5927ffda683d4",
+        "x": 420,
+        "y": 300,
+        "wires": [
+            [
+                "2556e1057253abcd",
+                "bc8ea1447d12ecc8",
+                "b4ada918bf39692c",
+                "a8d643cad6e1278d"
+            ]
+        ]
+    },
+    {
+        "id": "bc8ea1447d12ecc8",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "getData",
+        "func": "var splitString = msg.payload.split(',');\n\nif (splitString[1] == \"Data\")\n{\n    msg.payload = \n    { \n        microbitIDOne : parseInt(splitString[2]),\n        microbitIDTwo : parseInt(splitString[3]),\n        objDirection : splitString[4],\n        objTemp : parseInt(splitString[5]),\n        objAcc : parseInt(splitString[6]),\n        rssiBetweenObj : parseInt(splitString[7]),\n        hb : parseInt(splitString[8])\n    }\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 180,
+        "wires": [
+            [
+                "8375aaa117e902c5",
+                "536ceefd624f5342",
+                "6ed56ca9d8c567a6",
+                "dd2c93986edcd0bf",
+                "f4c64a2f955a6b71",
+                "c63ee3bd6d7f2d4f"
+            ]
+        ]
+    },
+    {
+        "id": "2556e1057253abcd",
+        "type": "debug",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 370,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "1a1f215ce6fa4392",
+        "type": "inject",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "Data inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1,Data,6969,2222,NNW,22,33,-65,10",
+        "payloadType": "str",
+        "x": 700,
+        "y": 140,
+        "wires": [
+            [
+                "bc8ea1447d12ecc8"
+            ]
+        ]
+    },
+    {
+        "id": "2ca424a562b24d4a",
+        "type": "debug",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1770,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "b4ada918bf39692c",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "getNBBData",
+        "func": "var splitString = msg.payload.split(',');\n\nif (splitString[1] == \"NBBData\")\n{\n    msg.payload = \n    { \n        microbitIDOne : parseInt(splitString[2]),\n        microbitIDTwo : parseInt(splitString[3]),\n        rssiBetweenObj : parseInt(splitString[4]),\n        hb : parseInt(splitString[5])\n    }\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 380,
+        "wires": [
+            [
+                "e049d1dea6301dbe",
+                "f9795597672d2502",
+                "d2ac7df730e735a7",
+                "39a2daf701be9a75"
+            ]
+        ]
+    },
+    {
+        "id": "5a56a9330387cc76",
+        "type": "inject",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "NBBData inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1,NBBData,4711,7952,-80,10",
+        "payloadType": "str",
+        "x": 720,
+        "y": 340,
+        "wires": [
+            [
+                "b4ada918bf39692c"
+            ]
+        ]
+    },
+    {
+        "id": "a8d643cad6e1278d",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "crash event",
+        "func": "var splitString = msg.payload.split(',');\n\nif (splitString[1] == \"Crash\")\n{\n    msg.payload = splitString[2];\n    return msg;\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 460,
+        "wires": [
+            [
+                "2056523c813c7ca9"
+            ]
+        ]
+    },
+    {
+        "id": "a0f83e59d1accb08",
+        "type": "inject",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "Crash inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1,Crash,4892",
+        "payloadType": "str",
+        "x": 710,
+        "y": 420,
+        "wires": [
+            [
+                "a8d643cad6e1278d"
+            ]
+        ]
+    },
+    {
+        "id": "2056523c813c7ca9",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL - crash table",
+        "func": "// For todays date;\nDate.prototype.today = function () { \n    return this.getFullYear() +\"/\"+ (((this.getMonth()+1) < 10)?\"0\":\"\") + (this.getMonth()+1) +\"/\"+ ((this.getDate() < 10)?\"0\":\"\") + this.getDate();\n}\n\n// For the time now\nDate.prototype.timeNow = function () {\n     return ((this.getHours() < 10)?\"0\":\"\") + this.getHours() +\":\"+ ((this.getMinutes() < 10)?\"0\":\"\") + this.getMinutes() +\":\"+ ((this.getSeconds() < 10)?\"0\":\"\") + this.getSeconds();\n}\nvar newDate = new Date();\n\nmsg.column_name = [\"microbitID\", \"date\", \"time\"]\nmsg.column_sort = [parseInt(msg.payload),newDate.today(),newDate.timeNow()]\nmsg.database = 'Crash'\nmsg.command = \"insert\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1000,
+        "y": 460,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "8375aaa117e902c5",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL - add readings ",
+        "func": "msg.column_name = [\"microbitID\", \"temp\", \"acc\", \"direction\", \"heartbeat\"]\nmsg.column_sort = [parseInt(msg.payload.microbitIDTwo),parseInt(msg.payload.objTemp),parseInt(msg.payload.objAcc),msg.payload.objDirection,parseInt(msg.payload.hb)]\nmsg.database = 'Readings'\nmsg.command = \"insert\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 220,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "cc390ed7cd70c56b",
+        "type": "sql-prepare",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "x": 1390,
+        "y": 280,
+        "wires": [
+            [
+                "a55dfed0b8955e79",
+                "2ca424a562b24d4a"
+            ]
+        ]
+    },
+    {
+        "id": "a55dfed0b8955e79",
+        "type": "mysql",
+        "z": "5ecdbd2c1de7cc9e",
+        "mydb": "6956152fdeb741d3",
+        "name": "",
+        "x": 1590,
+        "y": 280,
+        "wires": [
+            [
+                "2ca424a562b24d4a"
+            ]
+        ]
+    },
+    {
+        "id": "536ceefd624f5342",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL - Initialise microbit table",
+        "func": "msg.column_name = [\"microbitID\",\"configID\"]\nmsg.column_sort = [parseInt(msg.payload.microbitIDTwo),1]\nmsg.database = 'Microbits'\nmsg.command = \"insert\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 180,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "6ed56ca9d8c567a6",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL- Initialise microbit table",
+        "func": "msg.column_name = [\"microbitID\",\"configID\"]\nmsg.column_sort = [parseInt(msg.payload.microbitIDOne),2]\nmsg.database = 'Microbits'\nmsg.command = \"insert\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 140,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "dd2c93986edcd0bf",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL- Initialise distance table",
+        "func": "msg.column_name = [\"microbitID\",\"microbitIDTwo\"]\nmsg.column_sort = [parseInt(msg.payload.microbitIDOne),parseInt(msg.payload.microbitIDTwo)]\nmsg.database = 'Distances'\nmsg.command = \"insert\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 100,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "f4c64a2f955a6b71",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL- update rssi values",
+        "func": "msg.column_name = [\"heartbeat\"]\nmsg.column_data = [parseInt(msg.payload.hb)]\nmsg.column_sort = [\"microbitID\",\"microbitIDTwo\"]\nmsg.data = [parseInt(msg.payload.microbitIDOne),parseInt(msg.payload.microbitIDTwo)]\nmsg.database = 'Distances'\nmsg.command = \"update\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 260,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "c63ee3bd6d7f2d4f",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL- update rssi values",
+        "func": "msg.column_name = [\"rssi\"]\nmsg.column_data = [parseInt(msg.payload.rssiBetweenObj)]\nmsg.column_sort = [\"microbitID\",\"microbitIDTwo\"]\nmsg.data = [parseInt(msg.payload.microbitIDOne),parseInt(msg.payload.microbitIDTwo)]\nmsg.database = 'Distances'\nmsg.command = \"update\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 300,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "e049d1dea6301dbe",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL- Initialise distance table",
+        "func": "msg.column_name = [\"microbitID\",\"microbitIDTwo\"]\nmsg.column_sort = [parseInt(msg.payload.microbitIDOne),parseInt(msg.payload.microbitIDTwo)]\nmsg.database = 'Distances'\nmsg.command = \"insert\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 340,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "f9795597672d2502",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL- update rssi values",
+        "func": "msg.column_name = [\"heartbeat\"]\nmsg.column_data = [parseInt(msg.payload.hb)]\nmsg.column_sort = [\"microbitID\",\"microbitIDTwo\"]\nmsg.data = [parseInt(msg.payload.microbitIDOne),parseInt(msg.payload.microbitIDTwo)]\nmsg.database = 'Distances'\nmsg.command = \"update\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 380,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "d2ac7df730e735a7",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "convert to SQL- update rssi values",
+        "func": "msg.column_name = [\"rssi\"]\nmsg.column_data = [parseInt(msg.payload.rssiBetweenObj)]\nmsg.column_sort = [\"microbitID\",\"microbitIDTwo\"]\nmsg.data = [parseInt(msg.payload.microbitIDOne),parseInt(msg.payload.microbitIDTwo)]\nmsg.database = 'Distances'\nmsg.command = \"update\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 420,
+        "wires": [
+            [
+                "cc390ed7cd70c56b"
+            ]
+        ]
+    },
+    {
+        "id": "72b2a256dcc9eff7",
+        "type": "serial out",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "serial": "84b5927ffda683d4",
+        "x": 710,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "ec36f010ef40a943",
+        "type": "inject",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "11117",
+        "payloadType": "str",
+        "x": 470,
+        "y": 560,
+        "wires": [
+            [
+                "72b2a256dcc9eff7"
+            ]
+        ]
+    },
+    {
+        "id": "101730067b53d836",
+        "type": "inject",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "11118",
+        "payloadType": "str",
+        "x": 470,
+        "y": 600,
+        "wires": [
+            [
+                "72b2a256dcc9eff7"
+            ]
+        ]
+    },
+    {
+        "id": "5b6d08378507ea96",
+        "type": "inject",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "7952100",
+        "payloadType": "str",
+        "x": 480,
+        "y": 520,
+        "wires": [
+            [
+                "72b2a256dcc9eff7"
+            ]
+        ]
+    },
+    {
+        "id": "843a8432e996fb58",
+        "type": "comment",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "address,protocolID",
+        "info": "",
+        "x": 490,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "39a2daf701be9a75",
+        "type": "link out",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "crash Management",
+        "mode": "link",
+        "links": [
+            "0ae2576acaa1984e"
+        ],
+        "x": 895,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "ea979a9794534691",
+        "type": "http in",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "url": "/test",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 1420,
+        "y": 460,
+        "wires": [
+            [
+                "494f8a2e81d7d82a"
+            ]
+        ]
+    },
+    {
+        "id": "494f8a2e81d7d82a",
+        "type": "function",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "Query DB",
+        "func": "msg.topic = \"SELECT * FROM Distances\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1600,
+        "y": 460,
+        "wires": [
+            [
+                "e103bc3357a0adba"
+            ]
+        ]
+    },
+    {
+        "id": "5690e3945b846923",
+        "type": "json",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": true,
+        "x": 1930,
+        "y": 460,
+        "wires": [
+            [
+                "2a48f2b888d2d2db",
+                "16275d8490108660"
+            ]
+        ]
+    },
+    {
+        "id": "16275d8490108660",
+        "type": "debug",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2160,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "2a48f2b888d2d2db",
+        "type": "http response",
+        "z": "5ecdbd2c1de7cc9e",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 2090,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "e103bc3357a0adba",
+        "type": "mysql",
+        "z": "5ecdbd2c1de7cc9e",
+        "mydb": "6956152fdeb741d3",
+        "name": "",
+        "x": 1770,
+        "y": 460,
+        "wires": [
+            [
+                "5690e3945b846923"
+            ]
+        ]
+    },
+    {
+        "id": "84b5927ffda683d4",
+        "type": "serial-port",
+        "serialport": "/dev/tty.usbmodem102",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "\\n",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "6956152fdeb741d3",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "sql4.freesqldatabase.com",
+        "port": "3306",
+        "db": "sql4467174",
+        "tz": "",
+        "charset": "UTF8"
+    }
+]
