@@ -1,7 +1,12 @@
 {
-  "zone": "1",
-  "apply": ["car"],
+  "zone": "2",
   "conditions": [{
+    "microbitGroup": "2",
+    "fact": "temperature",
+    "operator": "greaterThan",
+    "value": "-15"
+  },
+  {
     "fact": "temperature",
     "operator": "greaterThan",
     "value": "-15"
