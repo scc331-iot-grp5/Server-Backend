@@ -147,6 +147,8 @@ public class RulesEngine {
                 return "SELECT device_id, y FROM acceleration_readings LEFT JOIN readings ON readings.id = reading_id WHERE reported_at in (SELECT max(reported_at) FROM readings GROUP BY device_id)";
             case "z acceleration":
                 return "SELECT device_id, z FROM acceleration_readings LEFT JOIN readings ON readings.id = reading_id WHERE reported_at in (SELECT max(reported_at) FROM readings GROUP BY device_id)";
+            case "speed":
+                return "SELECT device_id, z FROM speed_readings LEFT JOIN readings ON readings.id = reading_id WHERE reported_at in (SELECT max(reported_at) FROM readings GROUP BY device_id)";
         }
         return null;
     }
@@ -219,7 +221,7 @@ public class RulesEngine {
         return microbits;
     }
 
-    public HashSet<Integer> filterMicrobitGroups(int groupID)
+    public HashSet<Integer> getMicrobitsInGroup(String groupID)
     {
         String query = "SELECT devices.id FROM devices INNER JOIN device_types ON device_types.id = devices.type WHERE device_types.id = " + groupID;
         HashSet<Integer> microbitIDs = new HashSet<>();
@@ -227,7 +229,7 @@ public class RulesEngine {
             Statement dbPull = conn.createStatement();
             ResultSet rs = dbPull.executeQuery(query);
             while (rs.next()) {
-                microbit.add(rs.getInt(1));
+                microbitIDs.add(rs.getInt(1));
             }
             return microbitIDs;
         } catch (Exception e) {
@@ -236,75 +238,131 @@ public class RulesEngine {
         }
     }
 
+    public HashSet<Integer> computeCondition(JSONObject condition, Geometry zone)
+    {
+        String fact = (String) condition.get("fact");
+        String operator = (String) condition.get("operator");
+        double value = Double.valueOf((String) condition.get("value"));
+        if(operator.equals("in") && zone!=null)
+        {
+            return executeInCondition(zone);
+        }
+        else{
+            return executeSimpleCondition(fact, operator, value);
+        }
+    }
+
+    public HashSet<Integer> microbitFiltering(String microbitGroup, HashSet<Integer> conditionResult)
+    {
+        HashSet<Integer> microbitFilter = getMicrobitsInGroup(microbitGroup);
+        ArrayList<HashSet<Integer>> sets = new ArrayList<>();
+        sets.add(conditionResult);
+        sets.add(microbitFilter);
+        return setIntersection(sets);
+    }
+
+    public HashSet<Integer> computeRule(JSONArray conditions, Geometry zone)
+    {
+        HashMap<String, ArrayList<HashSet<Integer>>> microbitSets = new HashMap<>();
+        Iterator<JSONObject> iterator = conditions.iterator();
+        while (iterator.hasNext()){
+            JSONObject condition = iterator.next();
+            HashSet<Integer> conditionResult = computeCondition(condition, zone);
+            
+            if(condition.containsKey("microbitGroup")){
+
+                String microbitGroup = (String) condition.get("microbitGroup");
+                conditionResult = microbitFiltering(microbitGroup, conditionResult);
+                if(!microbitSets.containsKey(microbitGroup))
+                {
+                    ArrayList<HashSet<Integer>> temp = new ArrayList<>();
+                    temp.add(conditionResult);
+                    microbitSets.put(microbitGroup, temp);
+                }
+                else{
+                    microbitSets.get(microbitGroup).add(conditionResult);
+                }
+            } else if(condition.containsKey("microbit")){
+                
+                String microbit = (String) condition.get("microbit");
+                HashSet<Integer> mtemp = new HashSet<>();
+                if(conditionResult.contains(microbit)){
+                    mtemp.add((Integer.valueOf(microbit)));
+                }
+                if(!microbitSets.containsKey(microbit))
+                {
+                    ArrayList<HashSet<Integer>> temp = new ArrayList<>();
+                    temp.add(conditionResult);
+                    microbitSets.put(microbit, temp);
+                }
+                else{
+                    microbitSets.get(microbit).add(conditionResult);
+                }
+            } else {
+                if(!microbitSets.containsKey("0")){
+                    ArrayList<HashSet<Integer>> temp = new ArrayList<>();
+                    temp.add(conditionResult);
+                    microbitSets.put("0", temp);
+                } else {
+                    microbitSets.get("0").add(conditionResult);
+                }
+            }
+            
+        }
+        HashMap<String, HashSet<Integer>> successfullMicrobits = new HashMap<>();
+        for(Map.Entry<String, ArrayList<HashSet<Integer>>> entry : microbitSets.entrySet()){
+            HashSet<Integer> microbitSet = setIntersection(entry.getValue());
+
+            if(microbitSet.isEmpty()) //if Intersection is empty not all conditions met
+            {
+                return new HashSet<>();
+            }
+            successfullMicrobits.put(entry.getKey(), microbitSet);
+        }
+
+        HashSet<Integer> output = new HashSet<>();
+        for(Map.Entry<String, HashSet<Integer>> entry : successfullMicrobits.entrySet()){
+            if(!entry.getKey().equals("0"))
+            {
+                output.addAll(entry.getValue());
+            }
+        }
+        if(successfullMicrobits.containsKey("0"))
+        {
+            output.retainAll(successfullMicrobits.get("0"));
+        }
+
+        return output;
+    }
+
     public static void main(String[] args) {
         RulesEngine rulesEngine = new RulesEngine("iota", "dodecahedron.noah.katapult.cloud", "root", "AdaLovelace1815", 3306);
         
         JSONObject rule = rulesEngine.getJSON();
         JSONArray conditions = (JSONArray) rule.get("conditions");
 
-        ArrayList<HashSet<Integer>> microbitSets = new ArrayList<>();
+        // ArrayList<HashSet<Integer>> microbitSets2 = new ArrayList<>();
+        
         if(rule.containsKey("zone"))
         {
             String ruleZone = (String) rule.get("zone");
-            String query = "SELECT geo_json FROM map_zones LEFT JOIN zones_in_groups ON map_zones.id = zone_id WHERE group_id=" + ruleZone;
+            String query = "SELECT geo_json FROM zones LEFT JOIN zone_groups ON zones.id = zone_groups.id WHERE zone_groups.id=" + ruleZone;
             ArrayList<Geometry> zones = rulesEngine.zoneQuery(query);
 
             for(Geometry zone : zones)
             {
-                Iterator<JSONObject> iterator = conditions.iterator();
-                while (iterator.hasNext()){
-                    JSONObject condition = iterator.next(); 
-                    String fact = (String) condition.get("fact");
-                    String operator = (String) condition.get("operator");
-                    double value = Double.valueOf((String) condition.get("value"));
-
-                    if(operator.equals("in"))
-                    {
-                        microbitSets.add(rulesEngine.executeInCondition(zone));
-                    }
-                    else{
-                        microbitSets.add(rulesEngine.executeSimpleCondition(fact, operator, value));
-                    }
-                }
+                rulesEngine.computeRule(conditions, zone);
             }
         }
         else{
-            Iterator<JSONObject> iterator = conditions.iterator();
-            while (iterator.hasNext()){
-                JSONObject condition = iterator.next(); 
-                String fact = (String) condition.get("fact");
-                String operator = (String) condition.get("operator");
-                double value = Double.valueOf((String) condition.get("value"));
-                
-                microbitSets.add(rulesEngine.executeSimpleCondition(fact, operator, value));
-            }
+            rulesEngine.computeRule(conditions, null);
         }
 
-        if(rule.containsKey("microbitGroup"))
-        {
-            JSONArray groups = (JSONArray) rule.get("microbitGroup");
-            Iterator<JSONObject> iterator = groups.iterator();
-            while (iterator.hasNext())
-            {
-                microbitSets.add(rulesEngine.filterMicrobitGroups((int) iterator.next()));
-            }
-        }
 
-        if(rule.containsKey("microbitID"))
-        {
-            JSONArray microbitIDs = (JSONArray) rule.get("microbitID");
-            Iterator<JSONObject> iterator = microbitIDs.iterator();
-            microbitIDs = new HashSet<>();
-            while (iterator.hasNext())
-            {
-                microbitIDs.add((int) iterator.next());
-            }
-            microbitSets.add(microbitIDs);
-        }
             
 
-        HashSet<Integer> intersection = rulesEngine.setIntersection(microbitSets);
+        // HashSet<Integer> intersection = rulesEngine.setIntersection(microbitSets);
 
-        intersection.forEach((e) -> { System.out.println(e); });
+        // intersection.forEach((e) -> { System.out.println(e); });
     }
 }
