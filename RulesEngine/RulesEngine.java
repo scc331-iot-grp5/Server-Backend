@@ -1,4 +1,5 @@
 import java.sql.*;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,6 +15,7 @@ import org.locationtech.jts.geom.PrecisionModel;
 import org.locationtech.jts.geom.GeometryFactory;
 import org.locationtech.jts.io.geojson.GeoJsonReader;
 
+import net.objecthunter.exp4j.*;
 
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
@@ -238,6 +240,26 @@ public class RulesEngine {
         }
     }
 
+    public String computeValue(String valueString, HashMap<String, String> zoneRules)
+    {
+        String[] valueSplit = valueString.split(" ");
+        for(int i = 0; i < valueSplit.length; i++)
+        {
+            if(valueSplit[i].contains("$")){
+                valueSplit[i] = valueSplit[i].replace("$", "");
+                System.out.println(valueSplit[i]);
+                if(zoneRules.containsKey(valueSplit[i])){
+                    valueSplit[i] = zoneRules.get(valueSplit[i]);
+                }
+            }
+        }
+        String calculation = String.join(" ", valueSplit);
+        System.out.println(calculation);
+        Expression e =  new ExpressionBuilder(calculation).build();
+        double result = e.evaluate();
+        return String.valueOf(result);
+    }
+
     public HashSet<Integer> computeCondition(JSONObject condition, Geometry zone)
     {
         String fact = (String) condition.get("fact");
@@ -261,7 +283,7 @@ public class RulesEngine {
         return setIntersection(sets);
     }
 
-    public HashSet<Integer> computeRule(JSONArray conditions, Geometry zone)
+    public HashSet<Integer> computeRule(ArrayList<JSONObject> conditions, Geometry zone)
     {
         HashMap<String, ArrayList<HashSet<Integer>>> microbitSets = new HashMap<>();
         Iterator<JSONObject> iterator = conditions.iterator();
@@ -334,6 +356,30 @@ public class RulesEngine {
 
         return output;
     }
+    
+    
+    public HashMap<String, HashMap<String, String>> getZoneRules(String ruleZone)
+    {
+        String query = "SELECT zone_id, name, value FROM zone_group_var_values zgvv INNER JOIN zone_group_vars zgv on zgvv.var_id = zgv.id WHERE zgv.group_id = " + ruleZone;
+        HashMap<String, HashMap<String, String>> zoneRules = new HashMap<>();
+        try {
+            Statement dbPull = conn.createStatement();
+            ResultSet rs = dbPull.executeQuery(query);
+            while (rs.next()) {
+                String zone_id = rs.getString(1);
+                String name = rs.getString(2);
+                String value = rs.getString(3);
+                if(!zoneRules.containsKey(zone_id)){
+                    zoneRules.put(zone_id, new HashMap<String, String>());
+                }
+                zoneRules.get(zone_id).put(name, value);
+            }
+            return zoneRules;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return zoneRules;
+        }
+    }
 
     public static void main(String[] args) {
         RulesEngine rulesEngine = new RulesEngine("iota", "dodecahedron.noah.katapult.cloud", "root", "AdaLovelace1815", 3306);
@@ -349,9 +395,31 @@ public class RulesEngine {
             String query = "SELECT geo_json FROM zones LEFT JOIN zone_groups ON zones.id = zone_groups.id WHERE zone_groups.id=" + ruleZone;
             ArrayList<Geometry> zones = rulesEngine.zoneQuery(query);
 
+            HashMap<String, HashMap<String, String>> zoneRules = rulesEngine.getZoneRules(ruleZone);
+            zoneRules.get("2").entrySet().forEach(entry -> {
+                System.out.println(entry.getKey() + " " + entry.getValue());
+            });
+            
+            ArrayList<JSONObject> newConditions = new ArrayList<>();
+            Iterator<JSONObject> iterator = conditions.iterator();
+            while (iterator.hasNext()){
+                JSONObject condition = iterator.next();
+                if(condition.containsKey("microbitGroup"))
+                {
+                    String microbitGroup = (String) condition.get("microbitGroup");
+                    String value = (String) condition.get("value");
+                    if(value.contains("$")){
+                        value = rulesEngine.computeValue(value, zoneRules.get(microbitGroup));
+                        System.out.println(value);
+                        condition.put("value", value);
+                    }
+                }
+                newConditions.add(condition);
+            }
+
             for(Geometry zone : zones)
             {
-                rulesEngine.computeRule(conditions, zone);
+                rulesEngine.computeRule(newConditions, zone);
             }
         }
         else{

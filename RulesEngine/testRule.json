@@ -4,7 +4,7 @@
     "microbitGroup": "2",
     "fact": "temperature",
     "operator": "greaterThan",
-    "value": "-15"
+    "value": "$testVar"
   },
   {
     "fact": "temperature",
