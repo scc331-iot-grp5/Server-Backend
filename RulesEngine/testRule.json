@@ -1,15 +1,13 @@
 {
-  "zone": "1",
-  "apply": ["car"],
-  "conditions": [{
+  "zone": "2",
+  "conditions": [
+  {
     "fact": "temperature",
     "operator": "greaterThan",
     "value": "-15"
   }],
-  "event": {
+  "events": [{
     "type": "reportIncident",
-    "params": {
-      "message": "Player has fouled out!"
-    }
-  }
+    "severity": "30"
+  }]
 }
