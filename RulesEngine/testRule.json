@@ -1,20 +1,13 @@
 {
   "zone": "2",
-  "conditions": [{
-    "microbitGroup": "2",
-    "fact": "temperature",
-    "operator": "greaterThan",
-    "value": "$testVar"
-  },
+  "conditions": [
   {
     "fact": "temperature",
     "operator": "greaterThan",
     "value": "-15"
   }],
-  "event": {
+  "events": [{
     "type": "reportIncident",
-    "params": {
-      "message": "Player has fouled out!"
-    }
-  }
+    "severity": "30"
+  }]
 }

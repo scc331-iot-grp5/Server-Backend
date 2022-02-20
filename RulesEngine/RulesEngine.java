@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.HashSet;
+import java.util.Date;
 import java.util.Set;
 
 import org.locationtech.jts.geom.Geometry;
@@ -22,9 +23,19 @@ import org.json.simple.JSONArray;
 import org.json.simple.parser.ParseException;
 import org.json.simple.parser.JSONParser;
 
+import java.io.OutputStreamWriter;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
+
+import java.net.*;
 
 
 public class RulesEngine {
@@ -35,6 +46,7 @@ public class RulesEngine {
     private String password = "";
     private int port = 0;
     private Connection conn;
+    private HttpClient httpClient;
     GeometryFactory gf;
     GeoJsonReader reader;
     JSONParser jsonParser = new JSONParser();
@@ -49,6 +61,9 @@ public class RulesEngine {
         PrecisionModel pm = new PrecisionModel();
         gf = new GeometryFactory(pm);
         reader = new GeoJsonReader(gf);
+        httpClient = HttpClient.newBuilder()
+            .version(HttpClient.Version.HTTP_1_1)
+            .build();
     }
 
     public void dbCon () {
@@ -206,11 +221,6 @@ public class RulesEngine {
         String query = "SELECT device_id, longitude, latitude FROM location_readings LEFT JOIN readings ON readings.id = reading_id WHERE reported_at in (SELECT max(reported_at) FROM readings GROUP BY device_id)";
         Map<Integer, Point> facts = locationQuery(query);
 
-        for(Coordinate coord : zone.getCoordinates())
-        {
-            System.out.println(coord.toString());
-        }
-
         HashSet<Integer> microbits = new HashSet<>();
         for(Map.Entry<Integer, Point> entry : facts.entrySet())
         {
@@ -247,14 +257,12 @@ public class RulesEngine {
         {
             if(valueSplit[i].contains("$")){
                 valueSplit[i] = valueSplit[i].replace("$", "");
-                System.out.println(valueSplit[i]);
                 if(zoneRules.containsKey(valueSplit[i])){
                     valueSplit[i] = zoneRules.get(valueSplit[i]);
                 }
             }
         }
         String calculation = String.join(" ", valueSplit);
-        System.out.println(calculation);
         Expression e =  new ExpressionBuilder(calculation).build();
         double result = e.evaluate();
         return String.valueOf(result);
@@ -290,7 +298,6 @@ public class RulesEngine {
         while (iterator.hasNext()){
             JSONObject condition = iterator.next();
             HashSet<Integer> conditionResult = computeCondition(condition, zone);
-            
             if(condition.containsKey("microbitGroup")){
 
                 String microbitGroup = (String) condition.get("microbitGroup");
@@ -331,6 +338,7 @@ public class RulesEngine {
             }
             
         }
+
         HashMap<String, HashSet<Integer>> successfullMicrobits = new HashMap<>();
         for(Map.Entry<String, ArrayList<HashSet<Integer>>> entry : microbitSets.entrySet()){
             HashSet<Integer> microbitSet = setIntersection(entry.getValue());
@@ -351,9 +359,14 @@ public class RulesEngine {
         }
         if(successfullMicrobits.containsKey("0"))
         {
-            output.retainAll(successfullMicrobits.get("0"));
+            if(output.isEmpty()){
+                output.addAll(successfullMicrobits.get("0"));
+            }
+            else{
+                output.retainAll(successfullMicrobits.get("0"));
+            }
+            
         }
-
         return output;
     }
     
@@ -381,56 +394,143 @@ public class RulesEngine {
         }
     }
 
+    public int getCurrentReadingID(int microbitID)
+    {
+        String query = "SELECT reading_id FROM location_readings LEFT JOIN readings ON readings.id = reading_id WHERE device_id =" + microbitID + " AND reported_at in (SELECT max(reported_at) FROM readings GROUP BY device_id)";
+        int readingID = 0;
+        try {
+            Statement dbPull = conn.createStatement();
+            ResultSet rs = dbPull.executeQuery(query);
+            while (rs.next()) {
+                readingID = rs.getInt(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return readingID;
+    }
+
+    public void reportIncident(int severity, int ruleID, HashSet<Integer> microbitIDs){
+        String query = "INSERT INTO event_involves (event_id, device_id, reading_id) VALUES";
+        for(Integer microbitID : microbitIDs){
+            query = query + " (LAST_INSERT_ID(), " + microbitID + ", " + getCurrentReadingID(microbitID) + "),";
+        }
+        query = query.substring(0, query.length()-1);
+        query = query + ";";
+        try {
+            Statement pst = conn.createStatement();
+            pst.addBatch("BEGIN;");
+            pst.addBatch("INSERT INTO calculated_events (created_at, severity, rule) VALUES( \"" + new Timestamp(new Date().getTime()) + "\", " + severity + ", " + ruleID + ");");
+            pst.addBatch(query);
+            pst.addBatch("COMMIT;");
+            pst.executeBatch();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void executeEvents(HashSet<Integer> microbitIDs, JSONArray events, int ruleID){
+        JSONObject paramaters = new JSONObject();
+        paramaters.put("microbitIDs", microbitIDs.toArray());
+        paramaters.put("triggerAlert", 0);
+        paramaters.put("sendMessage", 0);
+
+        Iterator iterator = events.iterator();
+        while(iterator.hasNext()){
+            JSONObject event = (JSONObject) iterator.next();
+            if(event.get("type").equals("triggerAlert")){
+                paramaters.put("triggerAlert", 1);
+            }
+            if(event.get("type").equals("sendMessage")){
+                paramaters.put("sendMessage", event.get("message"));
+            }
+            if(event.get("type").equals("reportIncident")){
+                String severity = (String) event.get("severity");
+                reportIncident(Integer.valueOf(severity), ruleID, microbitIDs);
+            }
+
+        }
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .POST(HttpRequest.BodyPublishers.ofString(paramaters.toString()))
+                .uri(URI.create("http://127.0.0.1:1880/event"))
+                .setHeader("User-Agent", "Java 11 HttpClient Bot") // add request header
+                .header("Content-Type", "application/json")
+                .build();
+        try{
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }
+
+    public HashMap<Integer, JSONObject> getRules()
+    {
+        String query = "SELECT id, body FROM rules";
+        HashMap<Integer, JSONObject> hm = new HashMap<>();
+        try {
+            Statement dbPull = conn.createStatement();
+            ResultSet rs = dbPull.executeQuery(query);
+            while (rs.next()) {
+                hm.put(rs.getInt(1), (JSONObject) jsonParser.parse(rs.getString(2)));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return hm;
+    }
+
     public static void main(String[] args) {
         RulesEngine rulesEngine = new RulesEngine("iota", "dodecahedron.noah.katapult.cloud", "root", "AdaLovelace1815", 3306);
         
-        JSONObject rule = rulesEngine.getJSON();
-        JSONArray conditions = (JSONArray) rule.get("conditions");
-
+        // JSONObject rule = rulesEngine.getJSON();
+        // JSONArray conditions = (JSONArray) rule.get("conditions");
+        // JSONArray events = (JSONArray) rule.get("events");
+        // int ruleID = 2;
         // ArrayList<HashSet<Integer>> microbitSets2 = new ArrayList<>();
-        
-        if(rule.containsKey("zone"))
+
+        HashMap<Integer, JSONObject> rules = rulesEngine.getRules();
+        for(Map.Entry<Integer, JSONObject> entry : rules.entrySet())
         {
-            String ruleZone = (String) rule.get("zone");
-            String query = "SELECT geo_json FROM zones LEFT JOIN zone_groups ON zones.id = zone_groups.id WHERE zone_groups.id=" + ruleZone;
-            ArrayList<Geometry> zones = rulesEngine.zoneQuery(query);
-
-            HashMap<String, HashMap<String, String>> zoneRules = rulesEngine.getZoneRules(ruleZone);
-            zoneRules.get("2").entrySet().forEach(entry -> {
-                System.out.println(entry.getKey() + " " + entry.getValue());
-            });
+            JSONObject rule = entry.getValue();
+            Integer ruleID = entry.getKey();
+            JSONArray conditions = (JSONArray) rule.get("conditions");
+            JSONArray events = (JSONArray) rule.get("events");
             
-            ArrayList<JSONObject> newConditions = new ArrayList<>();
-            Iterator<JSONObject> iterator = conditions.iterator();
-            while (iterator.hasNext()){
-                JSONObject condition = iterator.next();
-                if(condition.containsKey("microbitGroup"))
-                {
-                    String microbitGroup = (String) condition.get("microbitGroup");
-                    String value = (String) condition.get("value");
-                    if(value.contains("$")){
-                        value = rulesEngine.computeValue(value, zoneRules.get(microbitGroup));
-                        System.out.println(value);
-                        condition.put("value", value);
-                    }
-                }
-                newConditions.add(condition);
-            }
-
-            for(Geometry zone : zones)
+            if(rule.containsKey("zone"))
             {
-                rulesEngine.computeRule(newConditions, zone);
+                String ruleZone = (String) rule.get("zone");
+                String query = "SELECT geo_json FROM zones LEFT JOIN zone_groups ON zones.id = zone_groups.id WHERE zone_groups.id=" + ruleZone;
+                ArrayList<Geometry> zones = rulesEngine.zoneQuery(query);
+    
+                HashMap<String, HashMap<String, String>> zoneRules = rulesEngine.getZoneRules(ruleZone);
+                
+                ArrayList<JSONObject> newConditions = new ArrayList<>();
+                Iterator<JSONObject> iterator = conditions.iterator();
+                while (iterator.hasNext()){
+                    JSONObject condition = iterator.next();
+                    if(condition.containsKey("microbitGroup"))
+                    {
+                        String microbitGroup = (String) condition.get("microbitGroup");
+                        String value = (String) condition.get("value");
+                        if(value.contains("$")){
+                            value = rulesEngine.computeValue(value, zoneRules.get(microbitGroup));
+                            condition.put("value", value);
+                        }
+                    }
+                    newConditions.add(condition);
+                }
+    
+                for(Geometry zone : zones)
+                {
+                    HashSet<Integer> microbitIDs = rulesEngine.computeRule(newConditions, zone);
+                    rulesEngine.executeEvents(microbitIDs, events, ruleID);
+                }
+            }
+            else{
+                HashSet<Integer> microbitIDs = rulesEngine.computeRule(conditions, null);
+                rulesEngine.executeEvents(microbitIDs, events, ruleID);
             }
         }
-        else{
-            rulesEngine.computeRule(conditions, null);
-        }
-
-
-            
-
-        // HashSet<Integer> intersection = rulesEngine.setIntersection(microbitSets);
-
-        // intersection.forEach((e) -> { System.out.println(e); });
     }
 }
