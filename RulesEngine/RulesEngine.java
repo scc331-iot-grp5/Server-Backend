@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.HashSet;
 import java.util.Date;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.geom.Point;
@@ -489,48 +490,55 @@ public class RulesEngine {
         // int ruleID = 2;
         // ArrayList<HashSet<Integer>> microbitSets2 = new ArrayList<>();
 
-        HashMap<Integer, JSONObject> rules = rulesEngine.getRules();
-        for(Map.Entry<Integer, JSONObject> entry : rules.entrySet())
+        while(true)
         {
-            JSONObject rule = entry.getValue();
-            Integer ruleID = entry.getKey();
-            JSONArray conditions = (JSONArray) rule.get("conditions");
-            JSONArray events = (JSONArray) rule.get("events");
-            
-            if(rule.containsKey("zone"))
+            HashMap<Integer, JSONObject> rules = rulesEngine.getRules();
+            for(Map.Entry<Integer, JSONObject> entry : rules.entrySet())
             {
-                String ruleZone = (String) rule.get("zone");
-                String query = "SELECT geo_json FROM zones LEFT JOIN zone_groups ON zones.id = zone_groups.id WHERE zone_groups.id=" + ruleZone;
-                ArrayList<Geometry> zones = rulesEngine.zoneQuery(query);
-    
-                HashMap<String, HashMap<String, String>> zoneRules = rulesEngine.getZoneRules(ruleZone);
+                JSONObject rule = entry.getValue();
+                Integer ruleID = entry.getKey();
+                JSONArray conditions = (JSONArray) rule.get("conditions");
+                JSONArray events = (JSONArray) rule.get("events");
                 
-                ArrayList<JSONObject> newConditions = new ArrayList<>();
-                Iterator<JSONObject> iterator = conditions.iterator();
-                while (iterator.hasNext()){
-                    JSONObject condition = iterator.next();
-                    if(condition.containsKey("microbitGroup"))
-                    {
-                        String microbitGroup = (String) condition.get("microbitGroup");
-                        String value = (String) condition.get("value");
-                        if(value.contains("$")){
-                            value = rulesEngine.computeValue(value, zoneRules.get(microbitGroup));
-                            condition.put("value", value);
-                        }
-                    }
-                    newConditions.add(condition);
-                }
-    
-                for(Geometry zone : zones)
+                if(rule.containsKey("zone"))
                 {
-                    HashSet<Integer> microbitIDs = rulesEngine.computeRule(newConditions, zone);
+                    String ruleZone = (String) rule.get("zone");
+                    String query = "SELECT geo_json FROM zones LEFT JOIN zone_groups ON zones.id = zone_groups.id WHERE zone_groups.id=" + ruleZone;
+                    ArrayList<Geometry> zones = rulesEngine.zoneQuery(query);
+        
+                    HashMap<String, HashMap<String, String>> zoneRules = rulesEngine.getZoneRules(ruleZone);
+                    
+                    ArrayList<JSONObject> newConditions = new ArrayList<>();
+                    Iterator<JSONObject> iterator = conditions.iterator();
+                    while (iterator.hasNext()){
+                        JSONObject condition = iterator.next();
+                        if(condition.containsKey("microbitGroup"))
+                        {
+                            String microbitGroup = (String) condition.get("microbitGroup");
+                            String value = (String) condition.get("value");
+                            if(value.contains("$")){
+                                value = rulesEngine.computeValue(value, zoneRules.get(microbitGroup));
+                                condition.put("value", value);
+                            }
+                        }
+                        newConditions.add(condition);
+                    }
+        
+                    for(Geometry zone : zones)
+                    {
+                        HashSet<Integer> microbitIDs = rulesEngine.computeRule(newConditions, zone);
+                        rulesEngine.executeEvents(microbitIDs, events, ruleID);
+                    }
+                }
+                else{
+                    HashSet<Integer> microbitIDs = rulesEngine.computeRule(conditions, null);
                     rulesEngine.executeEvents(microbitIDs, events, ruleID);
                 }
             }
-            else{
-                HashSet<Integer> microbitIDs = rulesEngine.computeRule(conditions, null);
-                rulesEngine.executeEvents(microbitIDs, events, ruleID);
-            }
+            try{
+                TimeUnit.SECONDS.sleep(1);
+            } catch (Exception e){}
         }
+       
     }
 }
