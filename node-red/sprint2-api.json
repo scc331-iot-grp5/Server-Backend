@@ -601,7 +601,7 @@
         "type": "function",
         "z": "f6f2187d.f17ca8",
         "name": "extract value",
-        "func": "return msg.payload.length > 0\n    ? { ...msg, payload: { value: true } }\n    : { ...msg, payload: { value: false } };\n",
+        "func": "return msg.payload.length > 0\n    ? { ...msg, payload: true }\n    : { ...msg, payload: false };\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -818,7 +818,7 @@
         "type": "function",
         "z": "f6f2187d.f17ca8",
         "name": "extract value",
-        "func": "return msg.payload.length > 0\n    ? { ...msg, payload: { value: true } }\n    : { ...msg, payload: { value: false } };\n",
+        "func": "return msg.payload.length > 0\n    ? { ...msg, payload: true }\n    : { ...msg, payload: false };\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -841,6 +841,50 @@
         "headers": {},
         "x": 1430,
         "y": 540,
+        "wires": []
+    },
+    {
+        "id": "b7e0b4b7651b7864",
+        "type": "catch",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 1560,
+        "y": 40,
+        "wires": [
+            [
+                "a94b99d2018516cc",
+                "b582db3930a2af3c"
+            ]
+        ]
+    },
+    {
+        "id": "a94b99d2018516cc",
+        "type": "http response",
+        "z": "f6f2187d.f17ca8",
+        "name": "Status err",
+        "statusCode": "500",
+        "headers": {},
+        "x": 1740,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "b582db3930a2af3c",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1730,
+        "y": 80,
         "wires": []
     },
     {
@@ -1655,6 +1699,50 @@
         "wires": []
     },
     {
+        "id": "5241437ccffe43e6",
+        "type": "catch",
+        "z": "2b42d9e8fdfb1bc3",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 1440,
+        "y": 40,
+        "wires": [
+            [
+                "681e140b01a8ed02",
+                "5d3ace27dd878e25"
+            ]
+        ]
+    },
+    {
+        "id": "681e140b01a8ed02",
+        "type": "http response",
+        "z": "2b42d9e8fdfb1bc3",
+        "name": "Status err",
+        "statusCode": "500",
+        "headers": {},
+        "x": 1620,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "5d3ace27dd878e25",
+        "type": "debug",
+        "z": "2b42d9e8fdfb1bc3",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1610,
+        "y": 80,
+        "wires": []
+    },
+    {
         "id": "5c3fc5066ee06a42",
         "type": "http in",
         "z": "0fe66fdcbd0cc623",
@@ -1715,7 +1803,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 130,
-        "y": 580,
+        "y": 620,
         "wires": [
             [
                 "ee4062744051860d"
@@ -1732,7 +1820,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 140,
-        "y": 700,
+        "y": 760,
         "wires": [
             [
                 "6ef2c6c591f97036"
@@ -1783,7 +1871,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 140,
-        "y": 640,
+        "y": 700,
         "wires": [
             [
                 "ee8d0b1cdeb2a396"
@@ -1800,7 +1888,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 130,
-        "y": 480,
+        "y": 500,
         "wires": [
             [
                 "5936d573c29b3745"
@@ -1834,7 +1922,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 120,
-        "y": 860,
+        "y": 1040,
         "wires": [
             [
                 "1644e0db3cf08c42"
@@ -1851,7 +1939,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 130,
-        "y": 960,
+        "y": 1140,
         "wires": [
             [
                 "9904906444c01f72"
@@ -1868,7 +1956,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 190,
-        "y": 1240,
+        "y": 1420,
         "wires": [
             [
                 "45f10585d164e5e2"
@@ -1885,7 +1973,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 130,
-        "y": 1020,
+        "y": 1200,
         "wires": [
             [
                 "7fc05a7eae57518d"
@@ -1902,7 +1990,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 150,
-        "y": 1120,
+        "y": 1300,
         "wires": [
             [
                 "250d075f02f7dae7"
@@ -1919,7 +2007,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 120,
-        "y": 800,
+        "y": 980,
         "wires": [
             [
                 "a62e796f191d9fe4"
@@ -1936,7 +2024,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 190,
-        "y": 1180,
+        "y": 1360,
         "wires": [
             [
                 "2c2a90d97b7e70b3"
@@ -2363,8 +2451,8 @@
         "type": "function",
         "z": "0fe66fdcbd0cc623",
         "name": "list",
-        "func": "const qry = `SELECT * FROM iota.zone_groups;`\n\nreturn {...msg, topic: qry};",
-        "outputs": 1,
+        "func": "return [\n    {\n        ...msg,\n        topic: 'SELECT * FROM iota.zone_groups;',\n        qryFor: 'groups'\n    },\n    {\n        ...msg,\n        topic: 'SELECT * FROM iota.zone_group_members;',\n        qryFor: 'members',\n    },\n];",
+        "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -2374,6 +2462,9 @@
         "wires": [
             [
                 "196cc57dd056eabd"
+            ],
+            [
+                "091763afe02aac1b"
             ]
         ]
     },
@@ -2384,10 +2475,10 @@
         "mydb": "7880329583bc4c4b",
         "name": "",
         "x": 470,
-        "y": 420,
+        "y": 400,
         "wires": [
             [
-                "4f60f550fb4b216f"
+                "d0488d6bad6c6e7f"
             ]
         ]
     },
@@ -2396,13 +2487,13 @@
         "type": "function",
         "z": "0fe66fdcbd0cc623",
         "name": "canon",
-        "func": "if (!msg.payload.length) {\n    return { ...msg, payload: [] };\n}\n\nconst zoneGroups = msg.payload.map(zg => {\n    const {\n        id,\n        name,\n        created_by,\n    } = zg;\n    \n    return {\n        id,\n        name,\n        created_by,\n    };\n});\n\nreturn { ...msg, payload: zoneGroups };",
+        "func": "const {groups, members} = msg.payload;\n\nif (!groups.length) {\n    return { ...msg, payload: [] };\n}\n\nconst zoneGroups = groups.map(zg => ({\n    ...zg,\n    members: members.filter((m) => m.group_id === zg.id).map((m) => m.zone_id),\n}));\n\nreturn { ...msg, payload: zoneGroups };",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
+        "x": 790,
         "y": 420,
         "wires": [
             [
@@ -2417,7 +2508,7 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 790,
+        "x": 950,
         "y": 420,
         "wires": []
     },
@@ -2433,7 +2524,7 @@
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 480,
+        "y": 500,
         "wires": [
             [
                 "fa87faebacc43c88"
@@ -2447,7 +2538,7 @@
         "mydb": "7880329583bc4c4b",
         "name": "",
         "x": 490,
-        "y": 480,
+        "y": 500,
         "wires": [
             [
                 "13da877583f38c4b"
@@ -2459,14 +2550,14 @@
         "type": "function",
         "z": "0fe66fdcbd0cc623",
         "name": "fetch",
-        "func": "if (msg.payload.affectedRows !== 1) {\n    return [null, { ...msg, statusCode: 500 }];\n}\n\nconst { insertId } = msg.payload;\n\nconst qry = `SELECT * FROM iota.zone_groups WHERE id = ?;`;\nconst params = [insertId];\n\nreturn [{ ...msg, topic: qry, payload: params }, null];",
+        "func": "if (msg.payload.affectedRows !== 1) {\n    return [null, { ...msg, statusCode: 500 }];\n}\n\nconst { insertId } = msg.payload;\n\nreturn [\n    {\n        ...msg,\n        topic: 'SELECT * FROM iota.zone_groups WHERE id = ?;',\n        payload: [insertId],\n    },\n    null,\n];",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 650,
-        "y": 480,
+        "y": 500,
         "wires": [
             [
                 "6d701a3e41693452"
@@ -2484,7 +2575,7 @@
         "statusCode": "",
         "headers": {},
         "x": 1130,
-        "y": 480,
+        "y": 500,
         "wires": []
     },
     {
@@ -2499,7 +2590,7 @@
         "finalize": "",
         "libs": [],
         "x": 970,
-        "y": 480,
+        "y": 500,
         "wires": [
             [
                 "864b86dbd24e61b2"
@@ -2513,7 +2604,7 @@
         "mydb": "7880329583bc4c4b",
         "name": "",
         "x": 810,
-        "y": 480,
+        "y": 500,
         "wires": [
             [
                 "58e5b347eb6c7482"
@@ -2528,7 +2619,7 @@
         "statusCode": "",
         "headers": {},
         "x": 810,
-        "y": 520,
+        "y": 540,
         "wires": []
     },
     {
@@ -2536,17 +2627,20 @@
         "type": "function",
         "z": "0fe66fdcbd0cc623",
         "name": "get",
-        "func": "const { id } = msg.req.params;\n\nconst qry = `SELECT * FROM iota.zone_groups WHERE id = ?`;\nconst params = [id];\n\nreturn {...msg, topic: qry, payload: params};",
-        "outputs": 1,
+        "func": "const { id } = msg.req.params;\nreturn [\n    {\n        ...msg,\n        topic: 'SELECT * FROM iota.zone_groups WHERE id = ?;',\n        payload: [id],\n        qryFor: 'group',\n    },\n    {\n        ...msg,\n        topic: 'SELECT zone_id FROM iota.zone_group_members WHERE group_id = ?;',\n        payload: [id],\n        qryFor: 'members',\n    },\n];",
+        "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 580,
+        "y": 620,
         "wires": [
             [
                 "8877bcb1638ab597"
+            ],
+            [
+                "47db3fa4813c191b"
             ]
         ]
     },
@@ -2557,10 +2651,10 @@
         "mydb": "7880329583bc4c4b",
         "name": "",
         "x": 490,
-        "y": 580,
+        "y": 600,
         "wires": [
             [
-                "0b51464246b0f936"
+                "32042aa903e9e6f1"
             ]
         ]
     },
@@ -2571,8 +2665,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 810,
-        "y": 580,
+        "x": 970,
+        "y": 620,
         "wires": []
     },
     {
@@ -2580,14 +2674,14 @@
         "type": "function",
         "z": "0fe66fdcbd0cc623",
         "name": "canon",
-        "func": "if (msg.payload.length !== 1) {\n    return { ...msg, statusCode: 500 };\n}\n\nconst {\n    id,\n    name,\n    created_by,\n} = msg.payload[0];\n\n\nreturn {\n    ...msg,\n    payload: {\n        id,\n        name,\n        created_by,\n    }\n};",
+        "func": "const { group, members } = msg.payload\n\nif (group.length === 0) {\n    return { ...msg, statusCode: 404 };\n} else if (group.length > 1) {\n    return { ...msg, statusCode: 500 };\n}\n\nreturn {\n    ...msg,\n    payload: {\n        ...group[0],\n        members: Array.isArray(members)\n            ? members.map((m) => m.zone_id)\n            : [],\n    }\n};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 650,
-        "y": 580,
+        "x": 810,
+        "y": 620,
         "wires": [
             [
                 "8c3b633b1fd42788"
@@ -2606,7 +2700,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 700,
+        "y": 760,
         "wires": [
             [
                 "9b158ec807c9b857"
@@ -2620,7 +2714,7 @@
         "mydb": "7880329583bc4c4b",
         "name": "",
         "x": 530,
-        "y": 700,
+        "y": 760,
         "wires": [
             [
                 "2e6ffbd06581f4c0"
@@ -2632,17 +2726,20 @@
         "type": "function",
         "z": "0fe66fdcbd0cc623",
         "name": "fetch",
-        "func": "if (msg.payload.affectedRows !== 1) {\n    return [null, { ...msg, statusCode: 500 }];\n}\n\nconst { patchedZoneGroupId } = msg;\n\nconst qry = `SELECT * FROM iota.zone_groups WHERE id = ?;`;\nconst params = [patchedZoneGroupId];\n\nreturn [{ ...msg, topic: qry, payload: params }, null];\n",
-        "outputs": 2,
+        "func": "if (msg.payload.affectedRows !== 1) {\n    return [null, null, { ...msg, statusCode: 500 }];\n}\n\nconst { patchedZoneGroupId: id } = msg;\n\nreturn [\n    {\n        ...msg,\n        topic: 'SELECT * FROM iota.zone_groups WHERE id = ?;',\n        payload: [id],\n        qryFor: 'groups',\n    },\n    {\n        ...msg,\n        topic: 'SELECT * FROM iota.zone_group_members WHERE group_id = ?;',\n        payload: [id],\n        qryFor: 'members',\n    },\n    null,\n];\n",
+        "outputs": 3,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 690,
-        "y": 700,
+        "y": 760,
         "wires": [
             [
                 "cc8131dc2b89b1bd"
+            ],
+            [
+                "e8df7b5dc80d2121"
             ],
             [
                 "a6a0f5b2d59f5d32"
@@ -2660,7 +2757,7 @@
             "content-type": "application/json"
         },
         "x": 850,
-        "y": 740,
+        "y": 840,
         "wires": []
     },
     {
@@ -2670,10 +2767,10 @@
         "mydb": "7880329583bc4c4b",
         "name": "",
         "x": 850,
-        "y": 700,
+        "y": 760,
         "wires": [
             [
-                "9fdf05975f9fbed7"
+                "2ced2ec98a85a092"
             ]
         ]
     },
@@ -2687,8 +2784,8 @@
             "Access-Control-Allow-Origin": "*",
             "content-type": "application/json"
         },
-        "x": 1170,
-        "y": 700,
+        "x": 1330,
+        "y": 760,
         "wires": []
     },
     {
@@ -2696,14 +2793,14 @@
         "type": "function",
         "z": "0fe66fdcbd0cc623",
         "name": "canon",
-        "func": "if (msg.payload.length !== 1) {\n    return { ...msg, statusCode: 500 };\n}\n\nconst {\n    id,\n    name,\n    created_by,\n} = msg.payload[0];\n\n\nreturn {\n    ...msg,\n    payload: {\n        id,\n        name,\n        created_by,\n    }\n};",
+        "func": "const { groups, members } = msg.payload;\n\nif (groups.length !== 1) {\n    return { ...msg, statusCode: 500 };\n}\n\nreturn {\n    ...msg,\n    payload: {\n        ...groups[0],\n        members: members.map((m) => m.zone_id),\n    }\n};\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1010,
-        "y": 700,
+        "x": 1170,
+        "y": 760,
         "wires": [
             [
                 "30bd513c07cbce1f"
@@ -2722,7 +2819,7 @@
         "finalize": "",
         "libs": [],
         "x": 350,
-        "y": 640,
+        "y": 700,
         "wires": [
             [
                 "908824362dbcd9e8"
@@ -2736,7 +2833,7 @@
         "mydb": "7880329583bc4c4b",
         "name": "",
         "x": 510,
-        "y": 640,
+        "y": 700,
         "wires": [
             [
                 "6a0c13b258d13a00"
@@ -2755,7 +2852,7 @@
         "finalize": "",
         "libs": [],
         "x": 690,
-        "y": 640,
+        "y": 700,
         "wires": [
             [
                 "bf70ee9a14ccb7f8"
@@ -2770,7 +2867,7 @@
         "statusCode": "",
         "headers": {},
         "x": 870,
-        "y": 640,
+        "y": 700,
         "wires": []
     },
     {
@@ -2785,7 +2882,7 @@
         "finalize": "",
         "libs": [],
         "x": 310,
-        "y": 800,
+        "y": 980,
         "wires": [
             [
                 "8ce31a0fea9d9c3a"
@@ -2799,7 +2896,7 @@
         "mydb": "7880329583bc4c4b",
         "name": "",
         "x": 470,
-        "y": 800,
+        "y": 980,
         "wires": [
             [
                 "5ee8eb4eee302c98"
@@ -2818,7 +2915,7 @@
         "finalize": "",
         "libs": [],
         "x": 630,
-        "y": 800,
+        "y": 980,
         "wires": [
             [
                 "d15198d5657ca3d3"
@@ -2833,7 +2930,7 @@
         "statusCode": "",
         "headers": {},
         "x": 790,
-        "y": 800,
+        "y": 980,
         "wires": []
     },
     {
@@ -2848,7 +2945,7 @@
         "finalize": "",
         "libs": [],
         "x": 310,
-        "y": 860,
+        "y": 1040,
         "wires": [
             [
                 "19f27845e783f15c"
@@ -2862,7 +2959,7 @@
         "mydb": "7880329583bc4c4b",
         "name": "",
         "x": 470,
-        "y": 860,
+        "y": 1040,
         "wires": [
             [
                 "444c76d1df57cc9f"
@@ -2881,7 +2978,7 @@
         "finalize": "",
         "libs": [],
         "x": 630,
-        "y": 860,
+        "y": 1040,
         "wires": [
             [
                 "b75004ab5e3233cb"
@@ -2899,7 +2996,7 @@
         "statusCode": "",
         "headers": {},
         "x": 1110,
-        "y": 860,
+        "y": 1040,
         "wires": []
     },
     {
@@ -2914,7 +3011,7 @@
         "finalize": "",
         "libs": [],
         "x": 950,
-        "y": 860,
+        "y": 1040,
         "wires": [
             [
                 "6e40901a7690a40d"
@@ -2928,7 +3025,7 @@
         "mydb": "7880329583bc4c4b",
         "name": "",
         "x": 790,
-        "y": 860,
+        "y": 1040,
         "wires": [
             [
                 "144add833589ae34"
@@ -2943,7 +3040,7 @@
         "statusCode": "",
         "headers": {},
         "x": 790,
-        "y": 900,
+        "y": 1080,
         "wires": []
     },
     {
@@ -2958,7 +3055,7 @@
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 960,
+        "y": 1140,
         "wires": [
             [
                 "efe2325692fe28ea"
@@ -2972,7 +3069,7 @@
         "mydb": "7880329583bc4c4b",
         "name": "",
         "x": 490,
-        "y": 960,
+        "y": 1140,
         "wires": [
             [
                 "635d1e5e8ee0b230"
@@ -2987,7 +3084,7 @@
         "statusCode": "",
         "headers": {},
         "x": 810,
-        "y": 960,
+        "y": 1140,
         "wires": []
     },
     {
@@ -3002,7 +3099,7 @@
         "finalize": "",
         "libs": [],
         "x": 650,
-        "y": 960,
+        "y": 1140,
         "wires": [
             [
                 "a8566c6a4f4b09fa"
@@ -3021,7 +3118,7 @@
         "finalize": "",
         "libs": [],
         "x": 340,
-        "y": 1020,
+        "y": 1200,
         "wires": [
             [
                 "060d4d5b4e29fe56"
@@ -3035,7 +3132,7 @@
         "mydb": "7880329583bc4c4b",
         "name": "",
         "x": 510,
-        "y": 1020,
+        "y": 1200,
         "wires": [
             [
                 "f54969461341cd32"
@@ -3054,7 +3151,7 @@
         "finalize": "",
         "libs": [],
         "x": 670,
-        "y": 1020,
+        "y": 1200,
         "wires": [
             [
                 "865c89291bef1562"
@@ -3075,7 +3172,7 @@
             "content-type": "application/json"
         },
         "x": 830,
-        "y": 1060,
+        "y": 1240,
         "wires": []
     },
     {
@@ -3085,7 +3182,7 @@
         "mydb": "7880329583bc4c4b",
         "name": "",
         "x": 830,
-        "y": 1020,
+        "y": 1200,
         "wires": [
             [
                 "965762bff12a4b1f"
@@ -3103,7 +3200,7 @@
             "content-type": "application/json"
         },
         "x": 1150,
-        "y": 1020,
+        "y": 1200,
         "wires": []
     },
     {
@@ -3118,7 +3215,7 @@
         "finalize": "",
         "libs": [],
         "x": 990,
-        "y": 1020,
+        "y": 1200,
         "wires": [
             [
                 "29bba75fdfc5a01a"
@@ -3137,7 +3234,7 @@
         "finalize": "",
         "libs": [],
         "x": 370,
-        "y": 1120,
+        "y": 1300,
         "wires": [
             [
                 "287568e2691cacf6"
@@ -3151,7 +3248,7 @@
         "mydb": "7880329583bc4c4b",
         "name": "",
         "x": 530,
-        "y": 1120,
+        "y": 1300,
         "wires": [
             [
                 "2b38326eedf32104"
@@ -3170,7 +3267,7 @@
         "finalize": "",
         "libs": [],
         "x": 710,
-        "y": 1120,
+        "y": 1300,
         "wires": [
             [
                 "5bd8507fa66d1006"
@@ -3185,7 +3282,7 @@
         "statusCode": "",
         "headers": {},
         "x": 890,
-        "y": 1120,
+        "y": 1300,
         "wires": []
     },
     {
@@ -3200,7 +3297,7 @@
         "finalize": "",
         "libs": [],
         "x": 450,
-        "y": 1180,
+        "y": 1360,
         "wires": [
             [
                 "b23c46bd0350ca7b"
@@ -3214,7 +3311,7 @@
         "mydb": "7880329583bc4c4b",
         "name": "",
         "x": 610,
-        "y": 1180,
+        "y": 1360,
         "wires": [
             [
                 "7865d918cc6bcba2"
@@ -3233,7 +3330,7 @@
         "finalize": "",
         "libs": [],
         "x": 790,
-        "y": 1180,
+        "y": 1360,
         "wires": [
             [
                 "e42615770b06d776"
@@ -3248,7 +3345,7 @@
         "statusCode": "",
         "headers": {},
         "x": 970,
-        "y": 1180,
+        "y": 1360,
         "wires": []
     },
     {
@@ -3263,7 +3360,7 @@
         "finalize": "",
         "libs": [],
         "x": 460,
-        "y": 1240,
+        "y": 1420,
         "wires": [
             [
                 "8e27951933d86dc9"
@@ -3277,7 +3374,7 @@
         "mydb": "7880329583bc4c4b",
         "name": "",
         "x": 630,
-        "y": 1240,
+        "y": 1420,
         "wires": [
             [
                 "7f44a41b1a9ccae6"
@@ -3292,7 +3389,7 @@
         "statusCode": "",
         "headers": {},
         "x": 950,
-        "y": 1280,
+        "y": 1460,
         "wires": []
     },
     {
@@ -3307,7 +3404,7 @@
         "finalize": "",
         "libs": [],
         "x": 790,
-        "y": 1240,
+        "y": 1420,
         "wires": [
             [
                 "41b9f9bac9685626"
@@ -3324,7 +3421,7 @@
         "mydb": "7880329583bc4c4b",
         "name": "",
         "x": 950,
-        "y": 1240,
+        "y": 1420,
         "wires": [
             [
                 "f6c63f28227ae8d3"
@@ -3343,7 +3440,7 @@
         "finalize": "",
         "libs": [],
         "x": 1130,
-        "y": 1240,
+        "y": 1420,
         "wires": [
             [
                 "100ff1f2f4f1dfed"
@@ -3358,8 +3455,257 @@
         "statusCode": "",
         "headers": {},
         "x": 1310,
-        "y": 1240,
+        "y": 1420,
         "wires": []
+    },
+    {
+        "id": "47db3fa4813c191b",
+        "type": "mysql",
+        "z": "0fe66fdcbd0cc623",
+        "mydb": "7880329583bc4c4b",
+        "name": "",
+        "x": 490,
+        "y": 640,
+        "wires": [
+            [
+                "32042aa903e9e6f1"
+            ]
+        ]
+    },
+    {
+        "id": "32042aa903e9e6f1",
+        "type": "join",
+        "z": "0fe66fdcbd0cc623",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "qryFor",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 650,
+        "y": 620,
+        "wires": [
+            [
+                "0b51464246b0f936"
+            ]
+        ]
+    },
+    {
+        "id": "091763afe02aac1b",
+        "type": "mysql",
+        "z": "0fe66fdcbd0cc623",
+        "mydb": "7880329583bc4c4b",
+        "name": "",
+        "x": 470,
+        "y": 440,
+        "wires": [
+            [
+                "d0488d6bad6c6e7f"
+            ]
+        ]
+    },
+    {
+        "id": "d0488d6bad6c6e7f",
+        "type": "join",
+        "z": "0fe66fdcbd0cc623",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "qryFor",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 630,
+        "y": 420,
+        "wires": [
+            [
+                "4f60f550fb4b216f"
+            ]
+        ]
+    },
+    {
+        "id": "0cb719e8f7e344dd",
+        "type": "http in",
+        "z": "0fe66fdcbd0cc623",
+        "name": "",
+        "url": "/zone_group/:id/member/:zone_id",
+        "method": "put",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 900,
+        "wires": [
+            [
+                "3aa6b22c382c5976"
+            ]
+        ]
+    },
+    {
+        "id": "3aa6b22c382c5976",
+        "type": "function",
+        "z": "0fe66fdcbd0cc623",
+        "name": "update",
+        "func": "const { id, zone_id } = msg.req.params;\nconst { member } = msg.payload;\n\nconst [qry, params] = member\n    ? ['INSERT INTO iota.zone_group_members (group_id, zone_id) VALUES (?, ?);', [id, zone_id]]\n    : ['DELETE FROM iota.zone_group_members WHERE group_id = ? AND zone_id = ?;', [id, zone_id]];\n\nreturn { ...msg, payload: params, topic: qry };\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 900,
+        "wires": [
+            [
+                "06a2d3587db569ec"
+            ]
+        ]
+    },
+    {
+        "id": "06a2d3587db569ec",
+        "type": "mysql",
+        "z": "0fe66fdcbd0cc623",
+        "mydb": "7880329583bc4c4b",
+        "name": "",
+        "x": 630,
+        "y": 900,
+        "wires": [
+            [
+                "99d920366fc5f614",
+                "2d2665b7a50f7a4e"
+            ]
+        ]
+    },
+    {
+        "id": "99d920366fc5f614",
+        "type": "function",
+        "z": "0fe66fdcbd0cc623",
+        "name": "extract res",
+        "func": "const { id, zone_id } = msg.req.params;\nconst { member } = msg.payload;\n\nconst [qry, params] = member\n    ? ['INSERT INTO iota.zone_group_members (group_id, zone_id) VALUES (?, ?);', [id, zone_id]]\n    : ['DELETE FROM iota.zone_group_members WHERE group_id = ? AND zone_id = ?;', [id, zone_id]];\n\nreturn { ...msg, payload: params, topic: qry };\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2d2665b7a50f7a4e",
+        "type": "http response",
+        "z": "0fe66fdcbd0cc623",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 790,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "5e631cc5d640b165",
+        "type": "catch",
+        "z": "0fe66fdcbd0cc623",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 1380,
+        "y": 40,
+        "wires": [
+            [
+                "527392987effcd14",
+                "af32030aabcf78f3"
+            ]
+        ]
+    },
+    {
+        "id": "527392987effcd14",
+        "type": "http response",
+        "z": "0fe66fdcbd0cc623",
+        "name": "Status err",
+        "statusCode": "500",
+        "headers": {},
+        "x": 1560,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "af32030aabcf78f3",
+        "type": "debug",
+        "z": "0fe66fdcbd0cc623",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1550,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "e8df7b5dc80d2121",
+        "type": "mysql",
+        "z": "0fe66fdcbd0cc623",
+        "mydb": "7880329583bc4c4b",
+        "name": "",
+        "x": 850,
+        "y": 800,
+        "wires": [
+            [
+                "2ced2ec98a85a092"
+            ]
+        ]
+    },
+    {
+        "id": "2ced2ec98a85a092",
+        "type": "join",
+        "z": "0fe66fdcbd0cc623",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "qryFor",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 1010,
+        "y": 760,
+        "wires": [
+            [
+                "9fdf05975f9fbed7"
+            ]
+        ]
     },
     {
         "id": "96e22032bcf063c2",
@@ -3456,7 +3802,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 80,
-        "y": 420,
+        "y": 440,
         "wires": [
             [
                 "4a1aca8174460327"
@@ -3473,7 +3819,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 90,
-        "y": 480,
+        "y": 540,
         "wires": [
             [
                 "cdcd038b40fa9bb6"
@@ -3900,17 +4246,20 @@
         "type": "function",
         "z": "67cf813d3ed04c28",
         "name": "list",
-        "func": "const qry = `SELECT * FROM iota.calculated_events;`\n\nreturn {...msg, topic: qry};",
-        "outputs": 1,
+        "func": "return [\n    {...msg, topic: 'SELECT * FROM iota.calculated_events;', qryFor: 'events'},\n    {...msg, topic: 'SELECT * FROM iota.event_involves;', qryFor: 'involves'},\n];",
+        "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 250,
-        "y": 420,
+        "y": 440,
         "wires": [
             [
                 "bd90c05dfedcfb11"
+            ],
+            [
+                "dc4df47bc73bed57"
             ]
         ]
     },
@@ -3924,7 +4273,7 @@
         "y": 420,
         "wires": [
             [
-                "db9831e5cce094bf"
+                "b039f158bbd8460b"
             ]
         ]
     },
@@ -3933,14 +4282,14 @@
         "type": "function",
         "z": "67cf813d3ed04c28",
         "name": "canon",
-        "func": "if (!msg.payload.length) {\n    return { ...msg, payload: [] };\n}\n\nreturn { ...msg };",
+        "func": "const { events, involves } = msg.payload;\n\nif (!events.length) {\n    return { ...msg, payload: [] };\n}\n\nreturn {\n    ...msg,\n    payload: events.map((e) => ({\n        ...e,\n        involves: involves\n            .filter((i) => i.event_id === e.id)\n            .map(({ device_id, reading_id }) => ({ device_id, reading_id }))\n    })),\n};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 570,
-        "y": 420,
+        "x": 730,
+        "y": 440,
         "wires": [
             [
                 "363896da36f71d50"
@@ -3954,8 +4303,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 730,
-        "y": 420,
+        "x": 890,
+        "y": 440,
         "wires": []
     },
     {
@@ -3963,17 +4312,20 @@
         "type": "function",
         "z": "67cf813d3ed04c28",
         "name": "get",
-        "func": "const { id } = msg.req.params;\n\nconst qry = `SELECT * FROM iota.calculated_events WHERE id = ?`;\nconst params = [id];\n\nreturn {...msg, topic: qry, payload: params};",
-        "outputs": 1,
+        "func": "const { id } = msg.req.params;\n\nreturn [\n    {\n        ...msg,\n        topic: 'SELECT * FROM iota.calculated_events WHERE id = ?',\n        payload: [id],\n        qryFor: 'events',\n    },\n    {\n        ...msg,\n        topic: 'SELECT * FROM iota.event_involves WHERE event_id = ?',\n        payload: [id],\n        qryFor: 'involves',\n    },\n];",
+        "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 270,
-        "y": 480,
+        "y": 540,
         "wires": [
             [
                 "a6ea44bd77cc8aea"
+            ],
+            [
+                "71e5d86fc81550b9"
             ]
         ]
     },
@@ -3984,10 +4336,10 @@
         "mydb": "7880329583bc4c4b",
         "name": "",
         "x": 430,
-        "y": 480,
+        "y": 520,
         "wires": [
             [
-                "4a166673e77df3e7"
+                "f797583010108112"
             ]
         ]
     },
@@ -3998,8 +4350,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 750,
-        "y": 480,
+        "x": 910,
+        "y": 540,
         "wires": []
     },
     {
@@ -4007,19 +4359,441 @@
         "type": "function",
         "z": "67cf813d3ed04c28",
         "name": "canon",
-        "func": "if (msg.payload.length === 0) {\n    return { ...msg, statusCode: 404 };\n} else if (msg.payload.length !== 1) {\n    return { ...msg, statusCode: 500 };\n}\n\nreturn {\n    ...msg,\n    payload: msg.payload[0],\n};",
+        "func": "const { events, involves } = msg.payload;\n\nif (events.length === 0) {\n    return { ...msg, statusCode: 404 };\n} else if (events.length !== 1) {\n    return { ...msg, statusCode: 500 };\n}\n\nreturn {\n    ...msg,\n    payload: {\n        ...events[0],\n        involves: involves.map(({ device_id, reading_id }) => ({ device_id, reading_id })),\n    },\n};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
-        "y": 480,
+        "x": 750,
+        "y": 540,
         "wires": [
             [
                 "4c9f12db735985a2"
             ]
         ]
+    },
+    {
+        "id": "6697277601e4afbe",
+        "type": "catch",
+        "z": "67cf813d3ed04c28",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 1240,
+        "y": 40,
+        "wires": [
+            [
+                "b98638a4cf7acce2",
+                "6cbd586acea0d196"
+            ]
+        ]
+    },
+    {
+        "id": "b98638a4cf7acce2",
+        "type": "http response",
+        "z": "67cf813d3ed04c28",
+        "name": "Status err",
+        "statusCode": "500",
+        "headers": {},
+        "x": 1420,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "6cbd586acea0d196",
+        "type": "debug",
+        "z": "67cf813d3ed04c28",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1410,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "dc4df47bc73bed57",
+        "type": "mysql",
+        "z": "67cf813d3ed04c28",
+        "mydb": "7880329583bc4c4b",
+        "name": "",
+        "x": 410,
+        "y": 460,
+        "wires": [
+            [
+                "b039f158bbd8460b"
+            ]
+        ]
+    },
+    {
+        "id": "71e5d86fc81550b9",
+        "type": "mysql",
+        "z": "67cf813d3ed04c28",
+        "mydb": "7880329583bc4c4b",
+        "name": "",
+        "x": 430,
+        "y": 560,
+        "wires": [
+            [
+                "f797583010108112"
+            ]
+        ]
+    },
+    {
+        "id": "b039f158bbd8460b",
+        "type": "join",
+        "z": "67cf813d3ed04c28",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "qryFor",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 570,
+        "y": 440,
+        "wires": [
+            [
+                "db9831e5cce094bf"
+            ]
+        ]
+    },
+    {
+        "id": "f797583010108112",
+        "type": "join",
+        "z": "67cf813d3ed04c28",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "qryFor",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 590,
+        "y": 540,
+        "wires": [
+            [
+                "4a166673e77df3e7"
+            ]
+        ]
+    },
+    {
+        "id": "ad28624478f9e704",
+        "type": "http in",
+        "z": "5a88cd04a0a41d7d",
+        "name": "",
+        "url": "/reading",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 80,
+        "wires": [
+            [
+                "75dbee04b302e50b"
+            ]
+        ]
+    },
+    {
+        "id": "495379e46161710f",
+        "type": "function",
+        "z": "5a88cd04a0a41d7d",
+        "name": "canon all",
+        "func": "const { payload: { all: readings, distance: distances } } = msg;\n\nconsole.log(readings, distances)\n\nconst canonOne = ({\n    id,\n    device_id,\n    heartbeat,\n    reported_at,\n    \n    accel_x,\n    accel_y,\n    accel_z,\n    heading,\n    zone,\n    latitude: lat,\n    longitude: lng,\n    speed,\n    temp_degrees: tmp,\n    volume_db: vol,\n}) => {\n    const ds = distances\n        .filter((d) => d.id === id)\n        .map(({distance_from, distance}) => ({distance_from, distance}));\n\n    return {\n        id,\n        device_id,\n        heartbeat,\n        reported_at,\n        acceleration: accel_x === null\n            ? undefined\n            : { x: accel_x, y: accel_y, z: accel_z },\n        distances: ds.length ? ds : undefined,\n        heading: heading === null\n            ? undefined\n            : heading,\n        location: (lat === null && lng === null && zone === null)\n            ? undefined\n            : {\n                latitude: lat === null ? undefined : lat,\n                longitude: lng === null ? undefined : lng,\n                zone: zone === null ? undefined : zone,\n            },\n        speed: speed === null\n            ? undefined\n            : speed,\n        temperature: tmp === null ? undefined : tmp,\n        volume: vol === null ? undefined : vol,\n    };\n}\n\nreturn { ...msg, payload: readings.map(canonOne) };\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 80,
+        "wires": [
+            [
+                "972369cd630fd61f"
+            ]
+        ]
+    },
+    {
+        "id": "75dbee04b302e50b",
+        "type": "function",
+        "z": "5a88cd04a0a41d7d",
+        "name": "get query",
+        "func": "const { params } = msg.req;\n\nconst withDeviceId = typeof params.device_id === 'string';\nconst qry = withDeviceId ? ` WHERE device_id = ?` : ``;\nconst qParams = withDeviceId ? [params.device_id] : [];\n\nreturn [\n    { ...msg, topic: `SELECT * FROM view_all_readings${qry};`, payload: qParams, readings: `all` },\n    { ...msg, topic: `SELECT * FROM view_distance_readings${qry};`, payload: qParams, readings: `distance` },\n];\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 80,
+        "wires": [
+            [
+                "54a2b4bd4c9b3f5f"
+            ],
+            [
+                "443a35c996803a35"
+            ]
+        ]
+    },
+    {
+        "id": "54a2b4bd4c9b3f5f",
+        "type": "mysql",
+        "z": "5a88cd04a0a41d7d",
+        "mydb": "7880329583bc4c4b",
+        "name": "",
+        "x": 450,
+        "y": 60,
+        "wires": [
+            [
+                "d623367a0d54a307"
+            ]
+        ]
+    },
+    {
+        "id": "972369cd630fd61f",
+        "type": "http response",
+        "z": "5a88cd04a0a41d7d",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 950,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "330c61f33bbceb51",
+        "type": "http in",
+        "z": "5a88cd04a0a41d7d",
+        "name": "",
+        "url": "/reading/:id",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 100,
+        "y": 180,
+        "wires": [
+            [
+                "8ea77a0fc94efa7a"
+            ]
+        ]
+    },
+    {
+        "id": "443a35c996803a35",
+        "type": "mysql",
+        "z": "5a88cd04a0a41d7d",
+        "mydb": "7880329583bc4c4b",
+        "name": "",
+        "x": 450,
+        "y": 100,
+        "wires": [
+            [
+                "d623367a0d54a307"
+            ]
+        ]
+    },
+    {
+        "id": "d623367a0d54a307",
+        "type": "join",
+        "z": "5a88cd04a0a41d7d",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "readings",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 610,
+        "y": 80,
+        "wires": [
+            [
+                "495379e46161710f"
+            ]
+        ]
+    },
+    {
+        "id": "8ea77a0fc94efa7a",
+        "type": "function",
+        "z": "5a88cd04a0a41d7d",
+        "name": "get query",
+        "func": "const { id } = msg.req.params;\n\nreturn [\n    { ...msg, topic: `SELECT * FROM view_all_readings WHERE id = ?;`, payload: [id], readings: `all` },\n    { ...msg, topic: `SELECT * FROM view_distance_readings WHERE id = ?;`, payload: [id], readings: `distance` },\n];\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 180,
+        "wires": [
+            [
+                "a4e7fb1a08a9aff9"
+            ],
+            [
+                "d4741a536aa3804c"
+            ]
+        ]
+    },
+    {
+        "id": "a4e7fb1a08a9aff9",
+        "type": "mysql",
+        "z": "5a88cd04a0a41d7d",
+        "mydb": "7880329583bc4c4b",
+        "name": "",
+        "x": 470,
+        "y": 160,
+        "wires": [
+            [
+                "cee4fdeb87f92068"
+            ]
+        ]
+    },
+    {
+        "id": "d4741a536aa3804c",
+        "type": "mysql",
+        "z": "5a88cd04a0a41d7d",
+        "mydb": "7880329583bc4c4b",
+        "name": "",
+        "x": 470,
+        "y": 200,
+        "wires": [
+            [
+                "cee4fdeb87f92068"
+            ]
+        ]
+    },
+    {
+        "id": "cee4fdeb87f92068",
+        "type": "join",
+        "z": "5a88cd04a0a41d7d",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "readings",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 630,
+        "y": 180,
+        "wires": [
+            [
+                "93fef9d302219afa"
+            ]
+        ]
+    },
+    {
+        "id": "67ebaa93e30ee75e",
+        "type": "http response",
+        "z": "5a88cd04a0a41d7d",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 970,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "93fef9d302219afa",
+        "type": "function",
+        "z": "5a88cd04a0a41d7d",
+        "name": "canon all",
+        "func": "const { payload: { all: readings, distance: distances } } = msg;\n\nconst canonOne = ({\n    id, device_id, heartbeat, reported_at,\n    \n    accel_x, accel_y, accel_z,\n    heading,\n    zone,\n    latitude: lat, longitude: lng,\n    speed,\n    temp_degrees: tmp,\n    volume_db: vol,\n}) => {\n    const ds = distances\n        .filter((d) => d.id === id)\n        .map(({distance_from, distance}) => ({distance_from, distance}));\n\n    return {\n        id,\n        device_id,\n        heartbeat,\n        reported_at,\n        acceleration: accel_x === null\n            ? undefined\n            : { x: accel_x, y: accel_y, z: accel_z },\n        distances: ds.length ? ds : undefined,\n        heading: heading === null\n            ? undefined\n            : heading,\n        location: (lat === null && lng === null && zone === null)\n            ? undefined\n            : {\n                latitude: lat === null ? undefined : lat,\n                longitude: lng === null ? undefined : lng,\n                zone: zone === null ? undefined : zone,\n            },\n        speed: speed === null\n            ? undefined\n            : speed,\n        temperature: tmp === null ? undefined : tmp,\n        volume: vol === null ? undefined : vol,\n    };\n}\n\nconst res = readings.map(canonOne);\nif (res.length === 0) {\n    return {...msg, statusCode: 404}\n} else if (res.length > 1) {\n    return {...msg, statusCode: 500}\n}\nreturn { ...msg, payload: res[0] };\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 180,
+        "wires": [
+            [
+                "67ebaa93e30ee75e"
+            ]
+        ]
+    },
+    {
+        "id": "0b420309cceb4f76",
+        "type": "catch",
+        "z": "5a88cd04a0a41d7d",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 1180,
+        "y": 40,
+        "wires": [
+            [
+                "8a379e094cd35070",
+                "9dfc9c2394ea278c"
+            ]
+        ]
+    },
+    {
+        "id": "8a379e094cd35070",
+        "type": "http response",
+        "z": "5a88cd04a0a41d7d",
+        "name": "Status err",
+        "statusCode": "500",
+        "headers": {},
+        "x": 1360,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "9dfc9c2394ea278c",
+        "type": "debug",
+        "z": "5a88cd04a0a41d7d",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1350,
+        "y": 80,
+        "wires": []
     },
     {
         "id": "cdf5fb22b6d0c0aa",
