@@ -109,6 +109,8 @@ public class RulesEngine {
                 JSONArray trimmedJSON = (JSONArray) json.get("features");
                 Iterator<JSONObject> iterator = trimmedJSON.iterator();
                 JSONObject data = (JSONObject) iterator.next().get("geometry");
+                // System.out.println("ZONE QUERY");
+                // System.out.println(data.toJSONString());
                 Geometry polygon = reader.read(data.toJSONString());
                 zones.add(polygon);
             }
@@ -120,6 +122,7 @@ public class RulesEngine {
     }
 
     public Map<Integer, Double> simpleQuery(String query){
+
         Map<Integer, Double> results =  new HashMap<>();
         try {
             Statement dbPull = conn.createStatement();
@@ -141,6 +144,7 @@ public class RulesEngine {
             ResultSet rs = dbPull.executeQuery(query);
             while (rs.next()) {
                 Point point = gf.createPoint(new Coordinate(rs.getDouble(2), rs.getDouble(3)));
+                // System.out.println(point.getClass().getSimpleName());
                 results.put(rs.getInt(1), point);
             }
             return results;
@@ -154,19 +158,19 @@ public class RulesEngine {
     {
         switch(fact){
             case "temperature":
-                return "SELECT device_id, degrees FROM temperature_readings LEFT JOIN readings ON readings.id = reading_id WHERE reported_at in (SELECT max(reported_at) FROM readings GROUP BY device_id)";
+                return "SELECT device_id, degrees FROM temperature_readings INNER JOIN readings ON readings.id = reading_id WHERE reported_at in (SELECT max(reported_at) FROM readings GROUP BY device_id)";
             case "direction":
-                return "SELECT device_id, heading FROM compass_readings LEFT JOIN readings ON readings.id = reading_id WHERE reported_at in (SELECT max(reported_at) FROM readings GROUP BY device_id)";
+                return "SELECT device_id, heading FROM compass_readings INNER JOIN readings ON readings.id = reading_id WHERE reported_at in (SELECT max(reported_at) FROM readings GROUP BY device_id)";
             case "noise":
-                return "SELECT device_id, decibels FROM volume_readings LEFT JOIN readings ON readings.id = reading_id WHERE reported_at in (SELECT max(reported_at) FROM readings GROUP BY device_id)";
+                return "SELECT device_id, decibels FROM volume_readings INNER JOIN readings ON readings.id = reading_id WHERE reported_at in (SELECT max(reported_at) FROM readings GROUP BY device_id)";
             case "x acceleration":
-                return "SELECT device_id, x FROM acceleration_readings LEFT JOIN readings ON readings.id = reading_id WHERE reported_at in (SELECT max(reported_at) FROM readings GROUP BY device_id)";
+                return "SELECT device_id, x FROM acceleration_readings INNER JOIN readings ON readings.id = reading_id WHERE reported_at in (SELECT max(reported_at) FROM readings GROUP BY device_id)";
             case "y acceleration":
-                return "SELECT device_id, y FROM acceleration_readings LEFT JOIN readings ON readings.id = reading_id WHERE reported_at in (SELECT max(reported_at) FROM readings GROUP BY device_id)";
+                return "SELECT device_id, y FROM acceleration_readings INNER JOIN readings ON readings.id = reading_id WHERE reported_at in (SELECT max(reported_at) FROM readings GROUP BY device_id)";
             case "z acceleration":
-                return "SELECT device_id, z FROM acceleration_readings LEFT JOIN readings ON readings.id = reading_id WHERE reported_at in (SELECT max(reported_at) FROM readings GROUP BY device_id)";
+                return "SELECT device_id, z FROM acceleration_readings INNER JOIN readings ON readings.id = reading_id WHERE reported_at in (SELECT max(reported_at) FROM readings GROUP BY device_id)";
             case "speed":
-                return "SELECT device_id, z FROM speed_readings LEFT JOIN readings ON readings.id = reading_id WHERE reported_at in (SELECT max(reported_at) FROM readings GROUP BY device_id)";
+                return "SELECT device_id, z FROM speed_readings INNER JOIN readings ON readings.id = reading_id WHERE reported_at in (SELECT max(reported_at) FROM readings GROUP BY device_id)";
         }
         return null;
     }
@@ -204,29 +208,37 @@ public class RulesEngine {
         // create and execute query for simple fact
         String query = simpleGetQuery(fact);
         Map<Integer, Double> facts = simpleQuery(query);
+        System.out.println(facts);
 
         // For each possible fact, check if its true if its true add to set
         HashSet<Integer> microbits = new HashSet<>();
         for(Map.Entry<Integer, Double> entry : facts.entrySet())
         {
+            System.out.println(operator);
+            System.out.println(determine(entry.getValue(), operator, value));
             if(determine(entry.getValue(), operator, value))
             {
                 microbits.add(entry.getKey());
             }
         }
+        System.out.println(microbits);
         return microbits;
     }
 
     public HashSet<Integer> executeInCondition(Geometry zone)
     {
-        String query = "SELECT device_id, longitude, latitude FROM location_readings LEFT JOIN readings ON readings.id = reading_id WHERE reported_at in (SELECT max(reported_at) FROM readings GROUP BY device_id)";
+        String query = "SELECT device_id, longitude, latitude FROM location_readings INNER JOIN readings ON readings.id = reading_id WHERE reported_at in (SELECT max(reported_at) FROM readings GROUP BY device_id)";
         Map<Integer, Point> facts = locationQuery(query);
 
         HashSet<Integer> microbits = new HashSet<>();
         for(Map.Entry<Integer, Point> entry : facts.entrySet())
         {
+            System.out.println(zone);
+            System.out.println(entry.getValue());
+
             if(zone.contains(entry.getValue()))
             {
+                // System.out.println("IN CONDITION");
                 microbits.add(entry.getKey());
             }
         }
@@ -273,7 +285,13 @@ public class RulesEngine {
     {
         String fact = (String) condition.get("fact");
         String operator = (String) condition.get("operator");
-        double value = Double.valueOf((String) condition.get("value"));
+        double value = 0;
+        try{
+            value = Double.valueOf((String) condition.get("value"));
+        }catch(Exception e){
+            
+        }
+        // System.out.println(zone);
         if(operator.equals("in") && zone!=null)
         {
             return executeInCondition(zone);
@@ -298,6 +316,7 @@ public class RulesEngine {
         Iterator<JSONObject> iterator = conditions.iterator();
         while (iterator.hasNext()){
             JSONObject condition = iterator.next();
+            // System.out.println(condition);
             HashSet<Integer> conditionResult = computeCondition(condition, zone);
             if(condition.containsKey("microbitGroup")){
 
@@ -337,7 +356,7 @@ public class RulesEngine {
                     microbitSets.get("0").add(conditionResult);
                 }
             }
-            
+            System.out.println(microbitSets);
         }
 
         HashMap<String, HashSet<Integer>> successfullMicrobits = new HashMap<>();
@@ -432,6 +451,7 @@ public class RulesEngine {
 
     public void executeEvents(HashSet<Integer> microbitIDs, JSONArray events, int ruleID){
         JSONObject paramaters = new JSONObject();
+        System.out.println(microbitIDs);
         paramaters.put("microbitIDs", microbitIDs.toArray());
         paramaters.put("triggerAlert", 0);
         paramaters.put("sendMessage", 0);
@@ -447,14 +467,14 @@ public class RulesEngine {
             }
             if(event.get("type").equals("reportIncident")){
                 String severity = (String) event.get("severity");
-                reportIncident(Integer.valueOf(severity), ruleID, microbitIDs);
+                // reportIncident(Integer.valueOf(severity), ruleID, microbitIDs);
             }
 
         }
 
         HttpRequest request = HttpRequest.newBuilder()
                 .POST(HttpRequest.BodyPublishers.ofString(paramaters.toString()))
-                .uri(URI.create("http://127.0.0.1:1880/event"))
+                .uri(URI.create("https://f074-86-4-178-72.ngrok.io/event"))
                 .setHeader("User-Agent", "Java 11 HttpClient Bot") // add request header
                 .header("Content-Type", "application/json")
                 .build();
@@ -489,13 +509,17 @@ public class RulesEngine {
         // JSONArray events = (JSONArray) rule.get("events");
         // int ruleID = 2;
         // ArrayList<HashSet<Integer>> microbitSets2 = new ArrayList<>();
-
+        // try{
+        //     TimeUnit.SECONDS.sleep(20);
+        // } catch (Exception e){}
         while(true)
         {
             HashMap<Integer, JSONObject> rules = rulesEngine.getRules();
             for(Map.Entry<Integer, JSONObject> entry : rules.entrySet())
             {
+                System.out.println("------------NEW RULE--------------");
                 JSONObject rule = entry.getValue();
+                System.out.println(rule);
                 Integer ruleID = entry.getKey();
                 JSONArray conditions = (JSONArray) rule.get("conditions");
                 JSONArray events = (JSONArray) rule.get("events");
@@ -503,15 +527,18 @@ public class RulesEngine {
                 if(rule.containsKey("zone"))
                 {
                     String ruleZone = (String) rule.get("zone");
-                    String query = "SELECT geo_json FROM zones LEFT JOIN zone_groups ON zones.id = zone_groups.id WHERE zone_groups.id=" + ruleZone;
+                    String query = "SELECT geo_json FROM zones LEFT OUTER JOIN zone_group_members zgm ON zones.id = zgm.zone_id LEFT OUTER JOIN zone_groups zg on zgm.group_id = zg.id WHERE zg.id=" + ruleZone;
                     ArrayList<Geometry> zones = rulesEngine.zoneQuery(query);
-        
+                    System.out.println(zones);
+         
                     HashMap<String, HashMap<String, String>> zoneRules = rulesEngine.getZoneRules(ruleZone);
                     
                     ArrayList<JSONObject> newConditions = new ArrayList<>();
                     Iterator<JSONObject> iterator = conditions.iterator();
                     while (iterator.hasNext()){
+                        
                         JSONObject condition = iterator.next();
+                        System.out.println(condition);
                         if(condition.containsKey("microbitGroup"))
                         {
                             String microbitGroup = (String) condition.get("microbitGroup");
@@ -523,20 +550,22 @@ public class RulesEngine {
                         }
                         newConditions.add(condition);
                     }
-        
                     for(Geometry zone : zones)
                     {
+                        System.out.println("HIIIIII");
+                        // System.out.println(zone);
                         HashSet<Integer> microbitIDs = rulesEngine.computeRule(newConditions, zone);
                         rulesEngine.executeEvents(microbitIDs, events, ruleID);
                     }
                 }
                 else{
+                    // System.out.println("hi2");
                     HashSet<Integer> microbitIDs = rulesEngine.computeRule(conditions, null);
                     rulesEngine.executeEvents(microbitIDs, events, ruleID);
                 }
             }
             try{
-                TimeUnit.SECONDS.sleep(1);
+                TimeUnit.SECONDS.sleep(30);
             } catch (Exception e){}
         }
        

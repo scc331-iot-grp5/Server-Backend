@@ -1,0 +1,18 @@
+{
+  "conditions": [
+  {
+    "fact": "temperature",
+    "operator": ">",
+    "value": "0"
+  },
+{
+    "microbitGroup" : "6",
+    "fact": "location",
+    "operator": "in",
+    "value": "zone"
+}],
+  "events": [{
+    "type": "sendMessage",
+    "message": "10"
+  }]
+}

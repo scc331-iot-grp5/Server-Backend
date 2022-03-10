@@ -2,6 +2,8 @@
   "zone": "2",
   "conditions": [
   {
+    "microbitGroup" : "2",
+    "microbit" : "1000",
     "fact": "temperature",
     "operator": "greaterThan",
     "value": "-15"
@@ -9,5 +11,9 @@
   "events": [{
     "type": "reportIncident",
     "severity": "30"
-  }]
+  },
+  {"type": "triggerAlert"},
+  {"type": "sendMessage",
+    "message": "message"}
+  ]
 }
