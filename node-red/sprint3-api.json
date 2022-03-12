@@ -1,0 +1,4757 @@
+[
+  {
+    "id": "f6f2187d.f17ca8",
+    "type": "tab",
+    "label": "Users",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "2b42d9e8fdfb1bc3",
+    "type": "tab",
+    "label": "Devices",
+    "disabled": false,
+    "info": "",
+    "env": []
+  },
+  {
+    "id": "0fe66fdcbd0cc623",
+    "type": "tab",
+    "label": "Map",
+    "disabled": false,
+    "info": "",
+    "env": []
+  },
+  {
+    "id": "67cf813d3ed04c28",
+    "type": "tab",
+    "label": "Rules & Events",
+    "disabled": false,
+    "info": "",
+    "env": []
+  },
+  {
+    "id": "5a88cd04a0a41d7d",
+    "type": "tab",
+    "label": "Readings",
+    "disabled": false,
+    "info": "",
+    "env": []
+  },
+  {
+    "id": "7880329583bc4c4b",
+    "type": "MySQLdatabase",
+    "name": "iota",
+    "host": "dodecahedron.noah.katapult.cloud",
+    "port": "3306",
+    "db": "iota",
+    "tz": "UTC",
+    "charset": "UTF8"
+  },
+  {
+    "id": "faaab270fe4ea40e",
+    "type": "http in",
+    "z": "f6f2187d.f17ca8",
+    "name": "",
+    "url": "/log-in",
+    "method": "post",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 90,
+    "y": 40,
+    "wires": [
+      [
+        "11d48ef31a48d999"
+      ]
+    ]
+  },
+  {
+    "id": "97b806a1a4768c83",
+    "type": "http in",
+    "z": "f6f2187d.f17ca8",
+    "name": "",
+    "url": "/user",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 80,
+    "y": 100,
+    "wires": [
+      [
+        "40879299958e957b"
+      ]
+    ]
+  },
+  {
+    "id": "43cc7570c25a9781",
+    "type": "http in",
+    "z": "f6f2187d.f17ca8",
+    "name": "",
+    "url": "/user/:id",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 90,
+    "y": 260,
+    "wires": [
+      [
+        "a8d1ac7fd367e3fa"
+      ]
+    ]
+  },
+  {
+    "id": "ce342dea1527ce76",
+    "type": "http in",
+    "z": "f6f2187d.f17ca8",
+    "name": "",
+    "url": "/user",
+    "method": "post",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 90,
+    "y": 160,
+    "wires": [
+      [
+        "0747568e5765adda"
+      ]
+    ]
+  },
+  {
+    "id": "3cc2d568dfcb3793",
+    "type": "http in",
+    "z": "f6f2187d.f17ca8",
+    "name": "",
+    "url": "/user/:id",
+    "method": "post",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 100,
+    "y": 320,
+    "wires": [
+      [
+        "7a10123bf87c3feb"
+      ]
+    ]
+  },
+  {
+    "id": "97dc074c46a3ef19",
+    "type": "http in",
+    "z": "f6f2187d.f17ca8",
+    "name": "",
+    "url": "/user/:id",
+    "method": "delete",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 100,
+    "y": 420,
+    "wires": [
+      [
+        "92befde6d0a6e047"
+      ]
+    ]
+  },
+  {
+    "id": "8cf27fa82b23d38d",
+    "type": "mysql",
+    "z": "f6f2187d.f17ca8",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 650,
+    "y": 40,
+    "wires": [
+      [
+        "39ff3a172dd5530b",
+        "39ff3a172dd5530b"
+      ]
+    ]
+  },
+  {
+    "id": "11d48ef31a48d999",
+    "type": "function",
+    "z": "f6f2187d.f17ca8",
+    "name": "login query",
+    "func": "const { email, password_hash } = msg.payload;\n\nconst qry = `SELECT * FROM iota.users WHERE email = ? AND password_hash = ?;`;\nconst params = [email, password_hash];\n\nreturn { ...msg, topic: qry, payload: params };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 430,
+    "y": 40,
+    "wires": [
+      [
+        "8cf27fa82b23d38d",
+        "8cf27fa82b23d38d"
+      ]
+    ]
+  },
+  {
+    "id": "39ff3a172dd5530b",
+    "type": "function",
+    "z": "f6f2187d.f17ca8",
+    "name": "convert to user",
+    "func": "return msg.payload.length === 0\n    ? { ...msg, statusCode: 404 }\n    : { ...msg, payload: msg.payload[0] };\n",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 840,
+    "y": 40,
+    "wires": [
+      [
+        "baf93c0f6f4b25ea"
+      ]
+    ]
+  },
+  {
+    "id": "608b291d41d475d0",
+    "type": "http response",
+    "z": "f6f2187d.f17ca8",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 1070,
+    "y": 100,
+    "wires": []
+  },
+  {
+    "id": "c17feb97fdc952e8",
+    "type": "mysql",
+    "z": "f6f2187d.f17ca8",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 650,
+    "y": 100,
+    "wires": [
+      [
+        "742305c0b36ec9d7",
+        "742305c0b36ec9d7"
+      ]
+    ]
+  },
+  {
+    "id": "40879299958e957b",
+    "type": "function",
+    "z": "f6f2187d.f17ca8",
+    "name": "list all query",
+    "func": "const { email, password_hash } = msg.payload;\n\nconst qry = `SELECT * FROM iota.users;`;\n\nreturn { ...msg, topic: qry };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 430,
+    "y": 100,
+    "wires": [
+      [
+        "c17feb97fdc952e8",
+        "c17feb97fdc952e8"
+      ]
+    ]
+  },
+  {
+    "id": "742305c0b36ec9d7",
+    "type": "function",
+    "z": "f6f2187d.f17ca8",
+    "name": "sanitise",
+    "func": "return !msg.payload\n    ? { ...msg, payload: [] }\n    : {\n        ...msg,\n        payload: msg.payload.map((u) => ({...u, is_administrator: !!u.is_administrator}))\n    };\n",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 820,
+    "y": 100,
+    "wires": [
+      [
+        "608b291d41d475d0",
+        "608b291d41d475d0"
+      ]
+    ]
+  },
+  {
+    "id": "0747568e5765adda",
+    "type": "function",
+    "z": "f6f2187d.f17ca8",
+    "name": "create query",
+    "func": "const {\n    created_at,\n    display_name,\n    email,\n    password_hash,\n    profile_url = null,\n    profile_banner = null,\n    is_administrator,\n} = msg.payload;\n\nconst qry = `INSERT INTO iota.users (created_at, display_name, is_administrator, email, password_hash, profile_url, profile_banner) VALUES (?, ?, ?, ?, ?, ?, ?);`;\nconst params = [created_at, display_name, is_administrator, email, password_hash, profile_url, profile_banner];\n\nreturn { ...msg, topic: qry, payload: params };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 430,
+    "y": 160,
+    "wires": [
+      [
+        "8dfd8b5f9a2fc818"
+      ]
+    ]
+  },
+  {
+    "id": "8dfd8b5f9a2fc818",
+    "type": "mysql",
+    "z": "f6f2187d.f17ca8",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 650,
+    "y": 160,
+    "wires": [
+      [
+        "24a5a52d1ddf8a5b"
+      ]
+    ]
+  },
+  {
+    "id": "7593e4f0d458f0a4",
+    "type": "http in",
+    "z": "f6f2187d.f17ca8",
+    "name": "",
+    "url": "/user/:user_id/read/:device_id",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 160,
+    "y": 480,
+    "wires": [
+      [
+        "a0ba7714e8a42021"
+      ]
+    ]
+  },
+  {
+    "id": "57d5fd507ee9bd6d",
+    "type": "http in",
+    "z": "f6f2187d.f17ca8",
+    "name": "",
+    "url": "/user/:user_id/read/:device_id",
+    "method": "put",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 160,
+    "y": 540,
+    "wires": [
+      [
+        "6175ec654bca4a22"
+      ]
+    ]
+  },
+  {
+    "id": "1becb770ed9d7b44",
+    "type": "http response",
+    "z": "f6f2187d.f17ca8",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 1430,
+    "y": 160,
+    "wires": []
+  },
+  {
+    "id": "a8d1ac7fd367e3fa",
+    "type": "function",
+    "z": "f6f2187d.f17ca8",
+    "name": "create query",
+    "func": "const { id } = msg.req.params;\n\nconst qry = `SELECT * FROM iota.users WHERE id = ?`;\nconst params = [id];\n\nreturn { ...msg, topic: qry, payload: params };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 430,
+    "y": 260,
+    "wires": [
+      [
+        "b187efa3d91a492c"
+      ]
+    ]
+  },
+  {
+    "id": "24a5a52d1ddf8a5b",
+    "type": "function",
+    "z": "f6f2187d.f17ca8",
+    "name": "get by id",
+    "func": "if (msg.payload.affectedRows) {\n    const qry = `SELECT * FROM iota.users WHERE id = ?;`;\n    const params = [msg.payload.insertId]\n    return [{ ...msg, topic: qry, payload: params }, null]\n}\n\nreturn [null, { ...msg, statusCode: 500 }]\n",
+    "outputs": 2,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 820,
+    "y": 160,
+    "wires": [
+      [
+        "411c0ed0a8b9bebc"
+      ],
+      [
+        "374e5db7aaec31eb"
+      ]
+    ]
+  },
+  {
+    "id": "374e5db7aaec31eb",
+    "type": "http response",
+    "z": "f6f2187d.f17ca8",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 1070,
+    "y": 200,
+    "wires": []
+  },
+  {
+    "id": "411c0ed0a8b9bebc",
+    "type": "mysql",
+    "z": "f6f2187d.f17ca8",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 1070,
+    "y": 160,
+    "wires": [
+      [
+        "2117f6659935d9b9"
+      ]
+    ]
+  },
+  {
+    "id": "2117f6659935d9b9",
+    "type": "function",
+    "z": "f6f2187d.f17ca8",
+    "name": "extract user",
+    "func": "return msg.payload.length > 0\n    ? { ...msg, payload: msg.payload[0] }\n    : { ...msg, statusCode: 500 }",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1250,
+    "y": 160,
+    "wires": [
+      [
+        "1becb770ed9d7b44"
+      ]
+    ]
+  },
+  {
+    "id": "b187efa3d91a492c",
+    "type": "mysql",
+    "z": "f6f2187d.f17ca8",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 650,
+    "y": 260,
+    "wires": [
+      [
+        "fb777032d1281cd8"
+      ]
+    ]
+  },
+  {
+    "id": "fb777032d1281cd8",
+    "type": "function",
+    "z": "f6f2187d.f17ca8",
+    "name": "extract user",
+    "func": "return msg.payload.length > 0\n    ? {\n        ...msg,\n        payload: {\n            ...(msg.payload[0]),\n            is_administrator: !!msg.payload[0].is_administrator,\n        },\n    }\n    : { ...msg, statusCode: 404 }",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 830,
+    "y": 260,
+    "wires": [
+      [
+        "5e9f03a0c0a900d7"
+      ]
+    ]
+  },
+  {
+    "id": "5e9f03a0c0a900d7",
+    "type": "http response",
+    "z": "f6f2187d.f17ca8",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 1070,
+    "y": 260,
+    "wires": []
+  },
+  {
+    "id": "7a10123bf87c3feb",
+    "type": "function",
+    "z": "f6f2187d.f17ca8",
+    "name": "create patch query",
+    "func": "const { id } = msg.req.params;\n\nconst {\n    created_at,\n    display_name,\n    email,\n    password_hash,\n    profile_url,\n    profile_banner,\n    is_administrator,\n} = msg.payload;\n\nconst updates = [\n    { name: 'created_at', value: created_at },\n    { name: 'display_name', value: display_name },\n    { name: 'email', value: email },\n    { name: 'password_hash', value: password_hash },\n    { name: 'profile_url', value: profile_url },\n    { name: 'profile_banner', value: profile_banner },\n    { name: 'is_administrator', value: is_administrator },\n].filter(p => typeof p.value !== 'undefined');\n\nconst qry = `UPDATE iota.users SET ${ updates.map(p => `${p.name} = ?`).join(', ') } WHERE id = ?;`;\nconst params = [...updates.map(p => p.value), id];\n\nreturn { ...msg, topic: qry, payload: params, patchedUserId: id };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 450,
+    "y": 320,
+    "wires": [
+      [
+        "fd99778166c4f6c0"
+      ]
+    ]
+  },
+  {
+    "id": "fd99778166c4f6c0",
+    "type": "mysql",
+    "z": "f6f2187d.f17ca8",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 650,
+    "y": 320,
+    "wires": [
+      [
+        "0fc6227fb9c9837f"
+      ]
+    ]
+  },
+  {
+    "id": "0fc6227fb9c9837f",
+    "type": "function",
+    "z": "f6f2187d.f17ca8",
+    "name": "lookup changed entry",
+    "func": "if (msg.payload.affectedRows === 0) {\n    return [null, {...msg, statusCode: 500}]\n}\n\nconst { patchedUserId } = msg;\n\nconst qry = `SELECT * FROM iota.users WHERE id = ?;`;\nconst params = [ patchedUserId ];\n\nreturn [{ ...msg, topic: qry, payload: params }, null];",
+    "outputs": 2,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 860,
+    "y": 320,
+    "wires": [
+      [
+        "3f6e620eaa782087"
+      ],
+      [
+        "da3b66610ae6082d"
+      ]
+    ]
+  },
+  {
+    "id": "53f24618230571f0",
+    "type": "http response",
+    "z": "f6f2187d.f17ca8",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 1430,
+    "y": 320,
+    "wires": []
+  },
+  {
+    "id": "a0ba7714e8a42021",
+    "type": "function",
+    "z": "f6f2187d.f17ca8",
+    "name": "lookup query",
+    "func": "const { user_id, device_id } = msg.req.params;\n\nconst qry = `SELECT * FROM iota.read_rights WHERE user_id = ? AND device_id = ?;`;\nconst params = [user_id, device_id];\n\nreturn { ...msg, topic: qry, payload: params };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 430,
+    "y": 480,
+    "wires": [
+      [
+        "46b78572530cd757"
+      ]
+    ]
+  },
+  {
+    "id": "46b78572530cd757",
+    "type": "mysql",
+    "z": "f6f2187d.f17ca8",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 650,
+    "y": 480,
+    "wires": [
+      [
+        "27c22040a82d09e0"
+      ]
+    ]
+  },
+  {
+    "id": "27c22040a82d09e0",
+    "type": "function",
+    "z": "f6f2187d.f17ca8",
+    "name": "extract value",
+    "func": "return msg.payload.length > 0\n    ? { ...msg, payload: true }\n    : { ...msg, payload: false };\n",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 830,
+    "y": 480,
+    "wires": [
+      [
+        "f3c51c41b1db184f"
+      ]
+    ]
+  },
+  {
+    "id": "f3c51c41b1db184f",
+    "type": "http response",
+    "z": "f6f2187d.f17ca8",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 1070,
+    "y": 480,
+    "wires": []
+  },
+  {
+    "id": "6175ec654bca4a22",
+    "type": "function",
+    "z": "f6f2187d.f17ca8",
+    "name": "set query",
+    "func": "const { user_id, device_id } = msg.req.params;\nconst { grant } = msg.payload;\n\nconst qry = grant\n    ? `INSERT INTO iota.read_rights (user_id, device_id) VALUES (?, ?);`\n    : `DELETE FROM iota.read_rights WHERE user_id = ? AND device_id = ?;`;\nconst params = [user_id, device_id];\n\nreturn { ...msg, topic: qry, payload: params, didGrant: grant, grantDeviceId: device_id, grantUserId: user_id };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 420,
+    "y": 540,
+    "wires": [
+      [
+        "7a839d06fa13be10"
+      ]
+    ]
+  },
+  {
+    "id": "f28e9597cc4f6e9b",
+    "type": "function",
+    "z": "f6f2187d.f17ca8",
+    "name": "extract user",
+    "func": "return msg.payload.length > 0\n    ? {\n        ...msg,\n        payload: {\n            ...(msg.payload[0]),\n            is_administrator: !!msg.payload[0].is_administrator,\n        },\n    }\n    : { ...msg, statusCode: 404 }",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1250,
+    "y": 320,
+    "wires": [
+      [
+        "53f24618230571f0"
+      ]
+    ]
+  },
+  {
+    "id": "3f6e620eaa782087",
+    "type": "mysql",
+    "z": "f6f2187d.f17ca8",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 1070,
+    "y": 320,
+    "wires": [
+      [
+        "f28e9597cc4f6e9b"
+      ]
+    ]
+  },
+  {
+    "id": "92befde6d0a6e047",
+    "type": "function",
+    "z": "f6f2187d.f17ca8",
+    "name": "delete by id query",
+    "func": "const { id } = msg.req.params;\n\nconst qry = `DELETE FROM iota.users WHERE id = ?;`;\nconst params = [id];\n\nreturn { ...msg, topic: qry, payload: params };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 450,
+    "y": 420,
+    "wires": [
+      [
+        "eabf204a97d1d1b6"
+      ]
+    ]
+  },
+  {
+    "id": "da3b66610ae6082d",
+    "type": "http response",
+    "z": "f6f2187d.f17ca8",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 1070,
+    "y": 360,
+    "wires": []
+  },
+  {
+    "id": "eabf204a97d1d1b6",
+    "type": "mysql",
+    "z": "f6f2187d.f17ca8",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 650,
+    "y": 420,
+    "wires": [
+      [
+        "728d122ebe6604ef"
+      ]
+    ]
+  },
+  {
+    "id": "a950a9b33583d746",
+    "type": "http response",
+    "z": "f6f2187d.f17ca8",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 1070,
+    "y": 420,
+    "wires": []
+  },
+  {
+    "id": "7a839d06fa13be10",
+    "type": "mysql",
+    "z": "f6f2187d.f17ca8",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 650,
+    "y": 540,
+    "wires": [
+      [
+        "699c3b00ceba49ec"
+      ]
+    ]
+  },
+  {
+    "id": "03fb83f0425e0f30",
+    "type": "http response",
+    "z": "f6f2187d.f17ca8",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 1070,
+    "y": 580,
+    "wires": []
+  },
+  {
+    "id": "728d122ebe6604ef",
+    "type": "function",
+    "z": "f6f2187d.f17ca8",
+    "name": "extract value",
+    "func": "if (msg.payload.affectedRows === 0) {\n    return { ...msg, statusCode: 500 };\n}\n\nreturn { ...msg, payload: {} };\n",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 830,
+    "y": 420,
+    "wires": [
+      [
+        "a950a9b33583d746"
+      ]
+    ]
+  },
+  {
+    "id": "699c3b00ceba49ec",
+    "type": "function",
+    "z": "f6f2187d.f17ca8",
+    "name": "canon result",
+    "func": "const { didGrant, grantUserId, grantDeviceId } = msg;\n\nif (!didGrant) {\n    return msg.payload.affectedRows.length > 0\n        ? [null, { ...msg, grant: false}]\n        : [null, { ...msg, statusCode: 500 }];\n}\n\nif (msg.payload.affectedRows.length > 0) {\n    return [null, { ...msg, statusCode: 500 }];\n}\n\nconst qry = `SELECT * FROM iota.read_rights WHERE user_id = ? AND device_id = ?;`;\nconst params = [grantUserId, grantDeviceId];\n\nreturn [{ ...msg, topic: qry, payload: params }, null]\n",
+    "outputs": 2,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 830,
+    "y": 540,
+    "wires": [
+      [
+        "f2429a3ee407e35b"
+      ],
+      [
+        "03fb83f0425e0f30"
+      ]
+    ]
+  },
+  {
+    "id": "f2429a3ee407e35b",
+    "type": "mysql",
+    "z": "f6f2187d.f17ca8",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 1070,
+    "y": 540,
+    "wires": [
+      [
+        "8162fe3ce07045a6"
+      ]
+    ]
+  },
+  {
+    "id": "8162fe3ce07045a6",
+    "type": "function",
+    "z": "f6f2187d.f17ca8",
+    "name": "extract value",
+    "func": "return msg.payload.length > 0\n    ? { ...msg, payload: true }\n    : { ...msg, payload: false };\n",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1250,
+    "y": 540,
+    "wires": [
+      [
+        "288367788ac935c9"
+      ]
+    ]
+  },
+  {
+    "id": "288367788ac935c9",
+    "type": "http response",
+    "z": "f6f2187d.f17ca8",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 1430,
+    "y": 540,
+    "wires": []
+  },
+  {
+    "id": "b7e0b4b7651b7864",
+    "type": "catch",
+    "z": "f6f2187d.f17ca8",
+    "name": "",
+    "scope": null,
+    "uncaught": false,
+    "x": 1560,
+    "y": 40,
+    "wires": [
+      [
+        "b582db3930a2af3c"
+      ]
+    ]
+  },
+  {
+    "id": "b582db3930a2af3c",
+    "type": "debug",
+    "z": "f6f2187d.f17ca8",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 1730,
+    "y": 40,
+    "wires": []
+  },
+  {
+    "id": "baf93c0f6f4b25ea",
+    "type": "http response",
+    "z": "f6f2187d.f17ca8",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 1070,
+    "y": 40,
+    "wires": []
+  },
+  {
+    "id": "d3680119ef0fe6a8",
+    "type": "comment",
+    "z": "f6f2187d.f17ca8",
+    "name": "Note: We're using POST instead of PATCh due to CORS issues 🥺",
+    "info": "",
+    "x": 300,
+    "y": 360,
+    "wires": []
+  },
+  {
+    "id": "693a2f950098de58",
+    "type": "http in",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "",
+    "url": "/device/:id",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 100,
+    "y": 100,
+    "wires": [
+      [
+        "1bddc5c88be18df3"
+      ]
+    ]
+  },
+  {
+    "id": "7afed3741de3dd43",
+    "type": "http in",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "",
+    "url": "/device",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 90,
+    "y": 40,
+    "wires": [
+      [
+        "8daf4b7ffc9e8a2c"
+      ]
+    ]
+  },
+  {
+    "id": "fa0c3bde7689d61b",
+    "type": "http in",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "",
+    "url": "/device/:id",
+    "method": "post",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 100,
+    "y": 160,
+    "wires": [
+      [
+        "14f1beb7793e474b"
+      ]
+    ]
+  },
+  {
+    "id": "eb343a1a5ef6ca09",
+    "type": "mysql",
+    "z": "2b42d9e8fdfb1bc3",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 530,
+    "y": 100,
+    "wires": [
+      [
+        "5faa375d040bb54c"
+      ]
+    ]
+  },
+  {
+    "id": "1bddc5c88be18df3",
+    "type": "function",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "create query",
+    "func": "const { id } = msg.req.params;\n\nconst qry = `SELECT * FROM iota.devices WHERE id = ?;`;\nconst params = [id];\n\nreturn { ...msg, topic: qry, payload: params };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 350,
+    "y": 100,
+    "wires": [
+      [
+        "eb343a1a5ef6ca09"
+      ]
+    ]
+  },
+  {
+    "id": "5faa375d040bb54c",
+    "type": "function",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "extract result",
+    "func": "if (msg.payload.length !== 1) {\n    return { ...msg, statusCode: 404 };\n}\n\nconst {\n    id,\n    name,\n    type,\n    sensor_set,\n    read_acceleration,\n    read_compass,\n    read_distance,\n    read_location,\n    read_speed,\n    read_temperature,\n    read_volume,\n    read_zone,\n} = msg.payload[0]\n\nconst device = {\n    id,\n    name,\n    sensor_set,\n    type_id: type,\n    config: {\n        acceleration: !!read_acceleration,\n        compass: !!read_compass,\n        distance: !!read_distance,\n        location: !!read_location,\n        speed: !!read_speed,\n        temperature: !!read_temperature,\n        volume: !!read_volume,\n        zone: !!read_zone,\n    },\n}\n\nreturn { ...msg, payload: device };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 710,
+    "y": 100,
+    "wires": [
+      [
+        "40ac4e317ecd7b39"
+      ]
+    ]
+  },
+  {
+    "id": "40ac4e317ecd7b39",
+    "type": "http response",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "",
+    "statusCode": "",
+    "headers": {
+      "Access-Control-Allow-Origin": "*",
+      "content-type": "application/json"
+    },
+    "x": 930,
+    "y": 100,
+    "wires": []
+  },
+  {
+    "id": "42542085a83240b7",
+    "type": "http in",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "",
+    "url": "/device_type",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 110,
+    "y": 260,
+    "wires": [
+      [
+        "e08a2ac3751ee6dc"
+      ]
+    ]
+  },
+  {
+    "id": "7069ea5d0890ce06",
+    "type": "http in",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "",
+    "url": "/device_type/:id",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 120,
+    "y": 420,
+    "wires": [
+      [
+        "01585a98041402a3"
+      ]
+    ]
+  },
+  {
+    "id": "e07a321069f9fbbf",
+    "type": "http in",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "",
+    "url": "/device_type",
+    "method": "post",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 110,
+    "y": 320,
+    "wires": [
+      [
+        "98945d02246c9462"
+      ]
+    ]
+  },
+  {
+    "id": "3612cef42b6f5c73",
+    "type": "http in",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "",
+    "url": "/device_type/:id",
+    "method": "delete",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 120,
+    "y": 480,
+    "wires": [
+      [
+        "1d87b3bb87090be7"
+      ]
+    ]
+  },
+  {
+    "id": "14a4ad1667899f75",
+    "type": "http in",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "",
+    "url": "/device_type/:id",
+    "method": "post",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 120,
+    "y": 540,
+    "wires": [
+      [
+        "dd9745202fbbc985"
+      ]
+    ]
+  },
+  {
+    "id": "8daf4b7ffc9e8a2c",
+    "type": "function",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "list query",
+    "func": "const [userFilter, qParams] =\n  typeof msg.payload.user_id === 'string'\n    ? [\n        ' INNER JOIN iota.read_rights r ON d.id = r.device_id WHERE r.user_id = ?',\n        [msg.payload.user_id],\n      ]\n    : ['', []];\n\nconst qry = `SELECT d.* FROM iota.devices d${userFilter};`;\n\nreturn { ...msg, topic: qry, payload: qParams };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 340,
+    "y": 40,
+    "wires": [
+      [
+        "fd79b0d4f9a3e7b5"
+      ]
+    ]
+  },
+  {
+    "id": "fd79b0d4f9a3e7b5",
+    "type": "mysql",
+    "z": "2b42d9e8fdfb1bc3",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 530,
+    "y": 40,
+    "wires": [
+      [
+        "b70357851304da63"
+      ]
+    ]
+  },
+  {
+    "id": "b70357851304da63",
+    "type": "function",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "canonicalise result",
+    "func": "if (!msg.payload.length) {\n    return { ...msg, payload: [] };\n}\n\nconst res = msg.payload.map(\n    ({\n        id,\n        name,\n        type,\n        sensor_set,\n        read_acceleration,\n        read_compass,\n        read_distance,\n        read_location,\n        read_speed,\n        read_temperature,\n        read_volume,\n        read_zone,\n    }) => ({\n        id,\n        name,\n        sensor_set,\n        type_id: type,\n        config: {\n            acceleration: !!read_acceleration,\n            compass: !!read_compass,\n            distance: !!read_distance,\n            location: !!read_location,\n            speed: !!read_speed,\n            temperature: !!read_temperature,\n            volume: !!read_volume,\n            zone: !!read_zone,\n        },\n    })\n)\n\nreturn { ...msg, payload: res };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 730,
+    "y": 40,
+    "wires": [
+      [
+        "3607eae46859e595"
+      ]
+    ]
+  },
+  {
+    "id": "3607eae46859e595",
+    "type": "http response",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "",
+    "statusCode": "",
+    "headers": {
+      "Access-Control-Allow-Origin": "*",
+      "content-type": "application/json"
+    },
+    "x": 930,
+    "y": 40,
+    "wires": []
+  },
+  {
+    "id": "14f1beb7793e474b",
+    "type": "function",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "create patch",
+    "func": "const { id } = msg.req.params;\n\nconst {\n    name,\n    type_id,\n    config,\n} = msg.payload;\n\nconst updates = [\n    {name: 'name', value: name},\n    {name: 'type', value: type_id},\n].filter(u => typeof u.value !== 'undefined');\n\nif (typeof config !== 'undefined') {\n    const { \n        acceleration,\n        compass,\n        distance,\n        location,\n        speed,\n        temperature,\n        volume,\n        zone,\n    } = config;\n    \n    updates.push(\n        ...[\n            {name: 'read_acceleration', value: acceleration},\n            {name: 'read_compass', value: compass},\n            {name: 'read_distance', value: distance},\n            {name: 'read_location', value: location},\n            {name: 'read_speed', value: speed},\n            {name: 'read_temperature', value: temperature},\n            {name: 'read_volume', value: volume},\n            {name: 'read_zone', value: zone},\n        ].filter(u => typeof u.value !== 'undefined'),\n    );\n}\n\nconst qry = `UPDATE iota.devices SET ${updates.map(u => `${u.name} = ?`).join(', ')} WHERE id = ?;`;\nconst params = [...updates.map(u => u.value), id];\nreturn { ...msg, topic: qry, payload: params, patchedDeviceId: id };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 350,
+    "y": 160,
+    "wires": [
+      [
+        "a789e1f6bfc369b4"
+      ]
+    ]
+  },
+  {
+    "id": "a789e1f6bfc369b4",
+    "type": "mysql",
+    "z": "2b42d9e8fdfb1bc3",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 530,
+    "y": 160,
+    "wires": [
+      [
+        "d30e9461ada97d70"
+      ]
+    ]
+  },
+  {
+    "id": "d30e9461ada97d70",
+    "type": "function",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "retrieve result",
+    "func": "if (msg.payload.affectedRows !== 1) {\n    return [null, { ...msg, statusCode: 500 }];\n}\n\nconst { patchedDeviceId } = msg;\n\nconst qry = `SELECT * FROM iota.devices WHERE id = ?;`;\nconst params = [patchedDeviceId];\n\nreturn [{ ...msg, topic: qry, payload: params }, null];\n",
+    "outputs": 2,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 720,
+    "y": 160,
+    "wires": [
+      [
+        "1b042eacd0ed8f93"
+      ],
+      [
+        "ca57de292c41c8f1"
+      ]
+    ]
+  },
+  {
+    "id": "1b042eacd0ed8f93",
+    "type": "mysql",
+    "z": "2b42d9e8fdfb1bc3",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 930,
+    "y": 160,
+    "wires": [
+      [
+        "bb96994a6c80b625"
+      ]
+    ]
+  },
+  {
+    "id": "bb96994a6c80b625",
+    "type": "function",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "extract result",
+    "func": "if (msg.payload.length !== 1) {\n    return { ...msg, statusCode: 404 };\n}\n\nconst {\n    id,\n    name,\n    type,\n    sensor_set,\n    read_acceleration,\n    read_compass,\n    read_distance,\n    read_location,\n    read_speed,\n    read_temperature,\n    read_volume,\n    read_zone,\n} = msg.payload[0]\n\nconst device = {\n    id,\n    name,\n    sensor_set,\n    type_id: type,\n    config: {\n        acceleration: !!read_acceleration,\n        compass: !!read_compass,\n        distance: !!read_distance,\n        location: !!read_location,\n        speed: !!read_speed,\n        temperature: !!read_temperature,\n        volume: !!read_volume,\n        zone: !!read_zone,\n    },\n}\nreturn { ...msg, payload: device };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1110,
+    "y": 160,
+    "wires": [
+      [
+        "f9a88be5b771e89d"
+      ]
+    ]
+  },
+  {
+    "id": "f9a88be5b771e89d",
+    "type": "http response",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "",
+    "statusCode": "",
+    "headers": {
+      "Access-Control-Allow-Origin": "*",
+      "content-type": "application/json"
+    },
+    "x": 1290,
+    "y": 160,
+    "wires": []
+  },
+  {
+    "id": "ca57de292c41c8f1",
+    "type": "http response",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "",
+    "statusCode": "",
+    "headers": {
+      "Access-Control-Allow-Origin": "*",
+      "content-type": "application/json"
+    },
+    "x": 930,
+    "y": 200,
+    "wires": []
+  },
+  {
+    "id": "e08a2ac3751ee6dc",
+    "type": "function",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "list query",
+    "func": "const qry = `SELECT * FROM iota.device_types;`;\n\nreturn { ...msg, topic: qry };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 340,
+    "y": 260,
+    "wires": [
+      [
+        "584cdc4e80ec9bec"
+      ]
+    ]
+  },
+  {
+    "id": "584cdc4e80ec9bec",
+    "type": "mysql",
+    "z": "2b42d9e8fdfb1bc3",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 530,
+    "y": 260,
+    "wires": [
+      [
+        "616adb653fb3917d"
+      ]
+    ]
+  },
+  {
+    "id": "616adb653fb3917d",
+    "type": "function",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "canonicalise result",
+    "func": "if (!msg.payload.length) {\n    return { ...msg, payload: [] };\n}\n\nconst res = msg.payload.map(p => {\n    const {\n        id,\n        name,\n        colour_r,\n        colour_g,\n        colour_b,\n    } = p;\n\n    return {\n        id,\n        name,\n\n        colour: {\n            r: colour_r,\n            g: colour_g,\n            b: colour_b,\n        },\n    };\n})\n\nreturn { ...msg, payload: res };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 730,
+    "y": 260,
+    "wires": [
+      [
+        "9b82c96aed6b5189"
+      ]
+    ]
+  },
+  {
+    "id": "9b82c96aed6b5189",
+    "type": "http response",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "",
+    "statusCode": "",
+    "headers": {
+      "Access-Control-Allow-Origin": "*",
+      "content-type": "application/json"
+    },
+    "x": 930,
+    "y": 260,
+    "wires": []
+  },
+  {
+    "id": "01585a98041402a3",
+    "type": "function",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "create query",
+    "func": "const {id} = msg.req.params;\n\nconst qry = `SELECT * FROM iota.device_types WHERE id = ?;`;\nconst params = [id];\nreturn { ...msg, topic: qry, payload: params };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 350,
+    "y": 420,
+    "wires": [
+      [
+        "33a13a056e3b30f2"
+      ]
+    ]
+  },
+  {
+    "id": "33a13a056e3b30f2",
+    "type": "mysql",
+    "z": "2b42d9e8fdfb1bc3",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 530,
+    "y": 420,
+    "wires": [
+      [
+        "429bac6896991742"
+      ]
+    ]
+  },
+  {
+    "id": "429bac6896991742",
+    "type": "function",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "canonicalise result",
+    "func": "if (!msg.payload.length) {\n    return { ...msg, statusCode: 404 };\n}\n\nconst res = msg.payload.map(p => {\n    const {\n        id,\n        name,\n        colour_r,\n        colour_g,\n        colour_b,\n    } = p;\n\n    return {\n        id,\n        name,\n\n        colour: {\n            r: colour_r,\n            g: colour_g,\n            b: colour_b,\n        },\n    };\n})\n\nreturn { ...msg, payload: res };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 730,
+    "y": 420,
+    "wires": [
+      [
+        "4dcaf238957e6c20"
+      ]
+    ]
+  },
+  {
+    "id": "4dcaf238957e6c20",
+    "type": "http response",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "",
+    "statusCode": "",
+    "headers": {
+      "Access-Control-Allow-Origin": "*",
+      "content-type": "application/json"
+    },
+    "x": 930,
+    "y": 420,
+    "wires": []
+  },
+  {
+    "id": "1d87b3bb87090be7",
+    "type": "function",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "create query",
+    "func": "const {id} = msg.req.params;\n\nconst qry = `DELETE FROM iota.device_types WHERE id = ?;`;\nconst params = [id];\nreturn { ...msg, topic: qry, payload: params };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 350,
+    "y": 480,
+    "wires": [
+      [
+        "05eb0f7e6ad02a09"
+      ]
+    ]
+  },
+  {
+    "id": "05eb0f7e6ad02a09",
+    "type": "mysql",
+    "z": "2b42d9e8fdfb1bc3",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 530,
+    "y": 480,
+    "wires": [
+      [
+        "53a59c59b81a202a"
+      ]
+    ]
+  },
+  {
+    "id": "53a59c59b81a202a",
+    "type": "function",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "canonicalise result",
+    "func": "if (msg.payload.affectedRows === 0) {\n    return { ...msg, statusCode: 500 };\n}\n\nreturn { ...msg, payload: {} };\n",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 730,
+    "y": 480,
+    "wires": [
+      [
+        "8b0258b0e8a3caa8"
+      ]
+    ]
+  },
+  {
+    "id": "8b0258b0e8a3caa8",
+    "type": "http response",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "",
+    "statusCode": "",
+    "headers": {
+      "Access-Control-Allow-Origin": "*",
+      "content-type": "application/json"
+    },
+    "x": 930,
+    "y": 480,
+    "wires": []
+  },
+  {
+    "id": "668826938a6bdc3b",
+    "type": "mysql",
+    "z": "2b42d9e8fdfb1bc3",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 530,
+    "y": 540,
+    "wires": [
+      [
+        "a8d92cebaf4825d2"
+      ]
+    ]
+  },
+  {
+    "id": "dd9745202fbbc985",
+    "type": "function",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "create query",
+    "func": "const { id } = msg.req.params;\n\nconst {\n    name,\n    colour,\n} = msg.payload;\n\nconst updates = [\n    {name: 'name', value: name},\n].filter(u => typeof u.value !== 'undefined');\n\nif (typeof colour !== 'undefined') {\n    const {r, g, b} = colour;\n    updates.push(\n        ...[\n            {name: 'colour_r', value: r},\n            {name: 'colour_g', value: g},\n            {name: 'colour_b', value: b},\n        ].filter(u => typeof u.value !== 'undefined'),\n    );\n}\n\nconst qry = `UPDATE iota.device_types SET ${ updates.map(u => `${u.name} = ?`).join(', ') } WHERE id = ?;`;\nconst params = [...updates.map(u => u.value), id];\n\nreturn { ...msg, payload: params, topic: qry, patchedDeviceTypeId: id };\n",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 350,
+    "y": 540,
+    "wires": [
+      [
+        "668826938a6bdc3b"
+      ]
+    ]
+  },
+  {
+    "id": "c4a7844ca8a4b935",
+    "type": "http response",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "",
+    "statusCode": "",
+    "headers": {
+      "Access-Control-Allow-Origin": "*",
+      "content-type": "application/json"
+    },
+    "x": 1290,
+    "y": 540,
+    "wires": []
+  },
+  {
+    "id": "a8d92cebaf4825d2",
+    "type": "function",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "retrieve result",
+    "func": "if (msg.payload.affectedRows !== 1) {\n    return [null, { ...msg, statusCode: 500 }];\n}\n\nconst { patchedDeviceTypeId } = msg;\n\nconst qry = `SELECT * FROM iota.device_types WHERE id = ?;`;\nconst params = [patchedDeviceTypeId];\n\nreturn [{ ...msg, topic: qry, payload: params }, null];\n",
+    "outputs": 2,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 720,
+    "y": 540,
+    "wires": [
+      [
+        "a7e7fa513a344f3f"
+      ],
+      [
+        "90e1a19b099dd3e4"
+      ]
+    ]
+  },
+  {
+    "id": "90e1a19b099dd3e4",
+    "type": "http response",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "",
+    "statusCode": "",
+    "headers": {
+      "Access-Control-Allow-Origin": "*",
+      "content-type": "application/json"
+    },
+    "x": 930,
+    "y": 580,
+    "wires": []
+  },
+  {
+    "id": "a7e7fa513a344f3f",
+    "type": "mysql",
+    "z": "2b42d9e8fdfb1bc3",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 930,
+    "y": 540,
+    "wires": [
+      [
+        "085d4192c090ca23"
+      ]
+    ]
+  },
+  {
+    "id": "085d4192c090ca23",
+    "type": "function",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "extract result",
+    "func": "if (msg.payload.length !== 1) {\n    return { ...msg, statusCode: 404 };\n}\n\nconst {\n    id,\n    name,\n    colour_r,\n    colour_g,\n    colour_b,\n} = msg.payload[0];\n\nconst deviceType = {\n    id,\n    name,\n    colour: {\n        r: colour_r,\n        g: colour_g,\n        b: colour_b,\n    },\n}\n\nreturn { ...msg, payload: deviceType };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1110,
+    "y": 540,
+    "wires": [
+      [
+        "c4a7844ca8a4b935"
+      ]
+    ]
+  },
+  {
+    "id": "98945d02246c9462",
+    "type": "function",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "create query",
+    "func": "const {\n    name,\n    colour: { r, g, b },\n} = msg.payload;\n\nconst qry = `INSERT INTO iota.device_types (name, colour_r, colour_g, colour_b) VALUES (?, ?, ?, ?);`;\nconst params = [name, r, g, b];\n\nreturn { ...msg, topic: qry, payload: params };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 350,
+    "y": 320,
+    "wires": [
+      [
+        "b33078a1b030cd83"
+      ]
+    ]
+  },
+  {
+    "id": "b33078a1b030cd83",
+    "type": "mysql",
+    "z": "2b42d9e8fdfb1bc3",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 530,
+    "y": 320,
+    "wires": [
+      [
+        "7318a2b9157a1788"
+      ]
+    ]
+  },
+  {
+    "id": "13b816c19e65c6e2",
+    "type": "function",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "extract result",
+    "func": "if (msg.payload.length !== 1) {\n    return { ...msg, statusCode: 404 }\n}\n\nconst {\n    id,\n    name,\n    colour_r,\n    colour_g,\n    colour_b,\n} = msg.payload[0];\n\nreturn {\n    ...msg,\n    payload: {\n        id,\n        name,\n        colour: {\n            r: colour_r,\n            g: colour_g,\n            b: colour_b,\n        },\n    },\n};",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1110,
+    "y": 320,
+    "wires": [
+      [
+        "d9468a83480319ce"
+      ]
+    ]
+  },
+  {
+    "id": "d9468a83480319ce",
+    "type": "http response",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 1290,
+    "y": 320,
+    "wires": []
+  },
+  {
+    "id": "7318a2b9157a1788",
+    "type": "function",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "retrieve result",
+    "func": "if (msg.payload.affectedRows !== 1) {\n    return [null, { ...msg, statusCode: 500 }];\n}\n\nconst { insertId } = msg.payload;\n\nconst qry = `SELECT * FROM iota.device_types WHERE id = ?;`;\nconst params = [insertId];\n\nreturn [{ ...msg, topic: qry, payload: params }, null];\n",
+    "outputs": 2,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 720,
+    "y": 320,
+    "wires": [
+      [
+        "c69291734d4a4a81"
+      ],
+      [
+        "8a4cc72c0735ed49"
+      ]
+    ]
+  },
+  {
+    "id": "c69291734d4a4a81",
+    "type": "mysql",
+    "z": "2b42d9e8fdfb1bc3",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 930,
+    "y": 320,
+    "wires": [
+      [
+        "13b816c19e65c6e2"
+      ]
+    ]
+  },
+  {
+    "id": "8a4cc72c0735ed49",
+    "type": "http response",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "",
+    "statusCode": "",
+    "headers": {
+      "Access-Control-Allow-Origin": "*",
+      "content-type": "application/json"
+    },
+    "x": 930,
+    "y": 360,
+    "wires": []
+  },
+  {
+    "id": "5241437ccffe43e6",
+    "type": "catch",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "",
+    "scope": null,
+    "uncaught": false,
+    "x": 1440,
+    "y": 40,
+    "wires": [
+      [
+        "5d3ace27dd878e25"
+      ]
+    ]
+  },
+  {
+    "id": "5d3ace27dd878e25",
+    "type": "debug",
+    "z": "2b42d9e8fdfb1bc3",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 1610,
+    "y": 40,
+    "wires": []
+  },
+  {
+    "id": "5c3fc5066ee06a42",
+    "type": "http in",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "url": "/zone",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 100,
+    "y": 40,
+    "wires": [
+      [
+        "3a62efd289f96337"
+      ]
+    ]
+  },
+  {
+    "id": "3c5a37965a717b39",
+    "type": "http in",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "url": "/zone_group",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 120,
+    "y": 420,
+    "wires": [
+      [
+        "1081c6426a0ec95c"
+      ]
+    ]
+  },
+  {
+    "id": "b27be9f9b77dee39",
+    "type": "http in",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "url": "/zone/:id",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 110,
+    "y": 200,
+    "wires": [
+      [
+        "6558b90419fbbf18"
+      ]
+    ]
+  },
+  {
+    "id": "410a94060221f4fd",
+    "type": "http in",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "url": "/zone_group/:id",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 130,
+    "y": 620,
+    "wires": [
+      [
+        "ee4062744051860d"
+      ]
+    ]
+  },
+  {
+    "id": "2af0f453cfd74cfd",
+    "type": "http in",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "url": "/zone_group/:id",
+    "method": "post",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 140,
+    "y": 760,
+    "wires": [
+      [
+        "6ef2c6c591f97036",
+        "4b65fd0c3009f5fb"
+      ]
+    ]
+  },
+  {
+    "id": "0282940c5338ccbf",
+    "type": "http in",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "url": "/zone/:id",
+    "method": "post",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 120,
+    "y": 320,
+    "wires": [
+      [
+        "639ae012613079d7"
+      ]
+    ]
+  },
+  {
+    "id": "4519f4164bc0a237",
+    "type": "http in",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "url": "/zone/:id",
+    "method": "delete",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 120,
+    "y": 260,
+    "wires": [
+      [
+        "8e03f8915475b4bc"
+      ]
+    ]
+  },
+  {
+    "id": "806a425d2430ae7f",
+    "type": "http in",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "url": "/zone_group/:id",
+    "method": "delete",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 140,
+    "y": 700,
+    "wires": [
+      [
+        "ee8d0b1cdeb2a396"
+      ]
+    ]
+  },
+  {
+    "id": "541254b0e25b135c",
+    "type": "http in",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "url": "/zone_group",
+    "method": "post",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 130,
+    "y": 500,
+    "wires": [
+      [
+        "5936d573c29b3745"
+      ]
+    ]
+  },
+  {
+    "id": "7e86042bfafb023f",
+    "type": "http in",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "url": "/zone",
+    "method": "post",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 110,
+    "y": 100,
+    "wires": [
+      [
+        "d5f8909315883c93"
+      ]
+    ]
+  },
+  {
+    "id": "aa56e8abe5ce2af0",
+    "type": "http in",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "url": "/zone_var",
+    "method": "post",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 120,
+    "y": 1040,
+    "wires": [
+      [
+        "1644e0db3cf08c42"
+      ]
+    ]
+  },
+  {
+    "id": "60af5e831b3dab62",
+    "type": "http in",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "url": "/zone_var/:id",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 130,
+    "y": 1140,
+    "wires": [
+      [
+        "9904906444c01f72"
+      ]
+    ]
+  },
+  {
+    "id": "141e905a8f6a0b07",
+    "type": "http in",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "url": "/zone_var/:var_id/value/:zone_id",
+    "method": "put",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 190,
+    "y": 1420,
+    "wires": [
+      [
+        "45f10585d164e5e2"
+      ]
+    ]
+  },
+  {
+    "id": "7f0db2cf4dd66964",
+    "type": "http in",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "url": "/zone_var/:id",
+    "method": "post",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 130,
+    "y": 1200,
+    "wires": [
+      [
+        "7fc05a7eae57518d"
+      ]
+    ]
+  },
+  {
+    "id": "ddebb74c2df937fd",
+    "type": "http in",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "url": "/zone_var/:var_id",
+    "method": "delete",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 150,
+    "y": 1300,
+    "wires": [
+      [
+        "250d075f02f7dae7"
+      ]
+    ]
+  },
+  {
+    "id": "d498977374c3728e",
+    "type": "http in",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "url": "/zone_var",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 120,
+    "y": 980,
+    "wires": [
+      [
+        "a62e796f191d9fe4"
+      ]
+    ]
+  },
+  {
+    "id": "4b1b07270de943f1",
+    "type": "http in",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "url": "/zone_var/:var_id/value/:zone_id",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 190,
+    "y": 1360,
+    "wires": [
+      [
+        "2c2a90d97b7e70b3"
+      ]
+    ]
+  },
+  {
+    "id": "3a62efd289f96337",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "list",
+    "func": "const qry = `SELECT z.*, zg.group_id FROM iota.zones z LEFT OUTER JOIN iota.zone_group_members zg ON z.id = zg.zone_id;`\n\nreturn {...msg, topic: qry};",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 270,
+    "y": 40,
+    "wires": [
+      [
+        "31c3b8c9fe8c3c9e"
+      ]
+    ]
+  },
+  {
+    "id": "31c3b8c9fe8c3c9e",
+    "type": "mysql",
+    "z": "0fe66fdcbd0cc623",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 430,
+    "y": 40,
+    "wires": [
+      [
+        "f141d6d95aa5927d"
+      ]
+    ]
+  },
+  {
+    "id": "f141d6d95aa5927d",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "canon",
+    "func": "if (!msg.payload.length) {\n    return { ...msg, payload: [] };\n}\n\nconst zones = msg.payload.map(z => {\n    const {\n        id,\n        name,\n        geo_json,\n        created_by,\n        created_at,\n        colour_r,\n        colour_g,\n        colour_b,\n    } = z;\n    \n    return {\n        id,\n        name,\n        geo_json,\n        created_by,\n        created_at,\n        colour: {\n            r: colour_r,\n            g: colour_g,\n            b: colour_b,\n        },\n    };\n});\n\nreturn { ...msg, payload: zones };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 590,
+    "y": 40,
+    "wires": [
+      [
+        "8cf6b38c265cfb8f"
+      ]
+    ]
+  },
+  {
+    "id": "8cf6b38c265cfb8f",
+    "type": "http response",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 750,
+    "y": 40,
+    "wires": []
+  },
+  {
+    "id": "d5f8909315883c93",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "create",
+    "func": "const {\n    name,\n    geo_json,\n    created_by,\n    created_at,\n    colour: { r, g, b },\n} = msg.payload;\n\nconst qry = `INSERT INTO iota.zones (name, geo_json, created_by, created_at, colour_r, colour_g, colour_b) VALUES (?, ?, ?, ?, ?, ?, ?);`;\nconst params = [name, geo_json, created_by, created_at, r, g, b];\n\nreturn { ...msg, topic: qry, payload: params };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 290,
+    "y": 100,
+    "wires": [
+      [
+        "87add7205264e07a"
+      ]
+    ]
+  },
+  {
+    "id": "87add7205264e07a",
+    "type": "mysql",
+    "z": "0fe66fdcbd0cc623",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 450,
+    "y": 100,
+    "wires": [
+      [
+        "a99ee0105d884892"
+      ]
+    ]
+  },
+  {
+    "id": "a99ee0105d884892",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "fetch",
+    "func": "if (msg.payload.affectedRows !== 1) {\n    return [null, { ...msg, statusCode: 500 }];\n}\n\nconst { insertId } = msg.payload;\n\nconst qry = `SELECT * FROM iota.zones WHERE id = ?;`;\nconst params = [insertId];\n\nreturn [{ ...msg, topic: qry, payload: params }, null];",
+    "outputs": 2,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 610,
+    "y": 100,
+    "wires": [
+      [
+        "a904fc61e1b9193c"
+      ],
+      [
+        "9bb6772891c1fbe5"
+      ]
+    ]
+  },
+  {
+    "id": "9cc2f6274983d26f",
+    "type": "http response",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 1090,
+    "y": 100,
+    "wires": []
+  },
+  {
+    "id": "b338f5c3be634757",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "canon",
+    "func": "if (msg.payload.length !== 1) {\n    return { ...msg, statusCode: 500 };\n}\n\nconst {\n    id,\n    name,\n    geo_json,\n    created_by,\n    created_at,\n    colour_r,\n    colour_g,\n    colour_b,\n} = msg.payload[0];\n\n\nreturn {\n    ...msg,\n    payload: {\n        id,\n        name,\n        geo_json,\n        created_by,\n        created_at,\n        colour: {\n            r: colour_r,\n            g: colour_g,\n            b: colour_b,\n        },\n    }\n};",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 930,
+    "y": 100,
+    "wires": [
+      [
+        "9cc2f6274983d26f"
+      ]
+    ]
+  },
+  {
+    "id": "a904fc61e1b9193c",
+    "type": "mysql",
+    "z": "0fe66fdcbd0cc623",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 770,
+    "y": 100,
+    "wires": [
+      [
+        "b338f5c3be634757"
+      ]
+    ]
+  },
+  {
+    "id": "9bb6772891c1fbe5",
+    "type": "http response",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 770,
+    "y": 140,
+    "wires": []
+  },
+  {
+    "id": "6558b90419fbbf18",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "get",
+    "func": "const { id } = msg.req.params;\n\nconst qry = `SELECT * FROM iota.zones WHERE id = ?`;\nconst params = [id];\n\nreturn {...msg, topic: qry, payload: params};",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 290,
+    "y": 200,
+    "wires": [
+      [
+        "0b26bf65a439e2f8"
+      ]
+    ]
+  },
+  {
+    "id": "0b26bf65a439e2f8",
+    "type": "mysql",
+    "z": "0fe66fdcbd0cc623",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 450,
+    "y": 200,
+    "wires": [
+      [
+        "07bf3150b09ff05f"
+      ]
+    ]
+  },
+  {
+    "id": "07bf3150b09ff05f",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "canon",
+    "func": "if (msg.payload.length !== 1) {\n    return { ...msg, statusCode: 500 };\n}\n\nconst {\n    id,\n    name,\n    geo_json,\n    created_by,\n    created_at,\n    colour_r,\n    colour_g,\n    colour_b,\n} = msg.payload[0];\n\n\nreturn {\n    ...msg,\n    payload: {\n        id,\n        name,\n        geo_json,\n        created_by,\n        created_at,\n        colour: {\n            r: colour_r,\n            g: colour_g,\n            b: colour_b,\n        },\n    }\n};",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 610,
+    "y": 200,
+    "wires": [
+      [
+        "53affb83d0bd1a3a"
+      ]
+    ]
+  },
+  {
+    "id": "53affb83d0bd1a3a",
+    "type": "http response",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 770,
+    "y": 200,
+    "wires": []
+  },
+  {
+    "id": "8e03f8915475b4bc",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "delete",
+    "func": "const { id } = msg.req.params;\n\nconst qry = `DELETE FROM iota.zones WHERE id = ?;`;\nconst params = [id];\n\nreturn { ...msg, topic: qry, payload: params };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 310,
+    "y": 260,
+    "wires": [
+      [
+        "632129bbabe40f5c"
+      ]
+    ]
+  },
+  {
+    "id": "632129bbabe40f5c",
+    "type": "mysql",
+    "z": "0fe66fdcbd0cc623",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 470,
+    "y": 260,
+    "wires": [
+      [
+        "e720667b646b5411"
+      ]
+    ]
+  },
+  {
+    "id": "e720667b646b5411",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "extract value",
+    "func": "if (msg.payload.affectedRows === 0) {\n    return { ...msg, statusCode: 500 };\n}\n\nreturn { ...msg, payload: {} };\n",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 650,
+    "y": 260,
+    "wires": [
+      [
+        "3559c5f9bc38e442"
+      ]
+    ]
+  },
+  {
+    "id": "3559c5f9bc38e442",
+    "type": "http response",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 830,
+    "y": 260,
+    "wires": []
+  },
+  {
+    "id": "639ae012613079d7",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "update",
+    "func": "const { id } = msg.req.params;\n\nconst {\n    name,\n    geo_json,\n    created_by,\n    created_at,\n    colour,\n} = msg.payload;\n\nconst updates = [\n    {name: 'name', value: name},\n    {name: 'geo_json', value: geo_json},\n    {name: 'created_by', value: created_by},\n    {name: 'created_at', value: created_at},\n].filter(u => typeof u.value !== 'undefined');\n\nif (typeof colour !== 'undefined') {\n    const {r, g, b} = colour;\n    updates.push(\n        ...[\n            {name: 'colour_r', value: r},\n            {name: 'colour_g', value: g},\n            {name: 'colour_b', value: b},\n        ].filter(u => typeof u.value !== 'undefined'),\n    );\n}\n\nconst qry = `UPDATE iota.zones SET ${ updates.map(u => `${u.name} = ?`).join(', ') } WHERE id = ?;`;\nconst params = [...updates.map(u => u.value), id];\n\nreturn { ...msg, payload: params, topic: qry, patchedZoneId: id };\n",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 320,
+    "y": 320,
+    "wires": [
+      [
+        "fc6e94c2d7d25b3a"
+      ]
+    ]
+  },
+  {
+    "id": "fc6e94c2d7d25b3a",
+    "type": "mysql",
+    "z": "0fe66fdcbd0cc623",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 490,
+    "y": 320,
+    "wires": [
+      [
+        "781bc5eea515fc1d"
+      ]
+    ]
+  },
+  {
+    "id": "781bc5eea515fc1d",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "fetch",
+    "func": "if (msg.payload.affectedRows !== 1) {\n    return [null, { ...msg, statusCode: 500 }];\n}\n\nconst { patchedZoneId } = msg;\n\nconst qry = `SELECT * FROM iota.zones WHERE id = ?;`;\nconst params = [patchedZoneId];\n\nreturn [{ ...msg, topic: qry, payload: params }, null];\n",
+    "outputs": 2,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 650,
+    "y": 320,
+    "wires": [
+      [
+        "e80a0cdc3f48f3c1"
+      ],
+      [
+        "461af05da3b4c57d"
+      ]
+    ]
+  },
+  {
+    "id": "461af05da3b4c57d",
+    "type": "http response",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "statusCode": "",
+    "headers": {
+      "Access-Control-Allow-Origin": "*",
+      "content-type": "application/json"
+    },
+    "x": 810,
+    "y": 360,
+    "wires": []
+  },
+  {
+    "id": "e80a0cdc3f48f3c1",
+    "type": "mysql",
+    "z": "0fe66fdcbd0cc623",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 810,
+    "y": 320,
+    "wires": [
+      [
+        "3b8e5b59721ec255"
+      ]
+    ]
+  },
+  {
+    "id": "ac1a81d747dc8e77",
+    "type": "http response",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "statusCode": "",
+    "headers": {
+      "Access-Control-Allow-Origin": "*",
+      "content-type": "application/json"
+    },
+    "x": 1130,
+    "y": 320,
+    "wires": []
+  },
+  {
+    "id": "3b8e5b59721ec255",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "canon",
+    "func": "if (msg.payload.length !== 1) {\n    return { ...msg, statusCode: 500 };\n}\n\nconst {\n    id,\n    name,\n    geo_json,\n    created_by,\n    created_at,\n    colour_r,\n    colour_g,\n    colour_b,\n} = msg.payload[0];\n\nconst zone = {\n    id,\n    name,\n    geo_json,\n    created_by,\n    created_at,\n    colour: {\n        r: colour_r,\n        g: colour_g,\n        b: colour_b,\n    },\n};\n\nreturn {\n    ...msg,\n    payload: zone,\n};",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 970,
+    "y": 320,
+    "wires": [
+      [
+        "ac1a81d747dc8e77"
+      ]
+    ]
+  },
+  {
+    "id": "1081c6426a0ec95c",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "list",
+    "func": "return [\n    {\n        ...msg,\n        topic: 'SELECT * FROM iota.zone_groups;',\n        qryFor: 'groups'\n    },\n    {\n        ...msg,\n        topic: 'SELECT * FROM iota.zone_group_members;',\n        qryFor: 'members',\n    },\n];",
+    "outputs": 2,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 310,
+    "y": 420,
+    "wires": [
+      [
+        "196cc57dd056eabd"
+      ],
+      [
+        "091763afe02aac1b"
+      ]
+    ]
+  },
+  {
+    "id": "196cc57dd056eabd",
+    "type": "mysql",
+    "z": "0fe66fdcbd0cc623",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 470,
+    "y": 400,
+    "wires": [
+      [
+        "d0488d6bad6c6e7f"
+      ]
+    ]
+  },
+  {
+    "id": "4f60f550fb4b216f",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "canon",
+    "func": "const {groups, members} = msg.payload;\n\nif (!groups.length) {\n    return { ...msg, payload: [] };\n}\n\nconst zoneGroups = groups.map(zg => ({\n    ...zg,\n    members: members.filter((m) => m.group_id === zg.id).map((m) => m.zone_id),\n}));\n\nreturn { ...msg, payload: zoneGroups };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 790,
+    "y": 420,
+    "wires": [
+      [
+        "426bab946734061c"
+      ]
+    ]
+  },
+  {
+    "id": "426bab946734061c",
+    "type": "http response",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 950,
+    "y": 420,
+    "wires": []
+  },
+  {
+    "id": "5936d573c29b3745",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "create",
+    "func": "const {\n    name,\n    created_by,\n} = msg.payload;\n\nconst qry = `INSERT INTO iota.zone_groups (name, created_by) VALUES (?, ?);`;\nconst params = [name, created_by];\n\nreturn { ...msg, topic: qry, payload: params };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 330,
+    "y": 500,
+    "wires": [
+      [
+        "fa87faebacc43c88"
+      ]
+    ]
+  },
+  {
+    "id": "fa87faebacc43c88",
+    "type": "mysql",
+    "z": "0fe66fdcbd0cc623",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 490,
+    "y": 500,
+    "wires": [
+      [
+        "13da877583f38c4b"
+      ]
+    ]
+  },
+  {
+    "id": "13da877583f38c4b",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "fetch",
+    "func": "if (msg.payload.affectedRows !== 1) {\n    return [null, { ...msg, statusCode: 500 }];\n}\n\nconst { insertId } = msg.payload;\n\nreturn [\n    {\n        ...msg,\n        topic: 'SELECT * FROM iota.zone_groups WHERE id = ?;',\n        payload: [insertId],\n    },\n    null,\n];",
+    "outputs": 2,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 650,
+    "y": 500,
+    "wires": [
+      [
+        "6d701a3e41693452"
+      ],
+      [
+        "d9a04995e3bb9467"
+      ]
+    ]
+  },
+  {
+    "id": "864b86dbd24e61b2",
+    "type": "http response",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 1130,
+    "y": 500,
+    "wires": []
+  },
+  {
+    "id": "58e5b347eb6c7482",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "canon",
+    "func": "if (msg.payload.length !== 1) {\n    return { ...msg, statusCode: 500 };\n}\n\nconst {\n    id,\n    name,\n    created_by,\n} = msg.payload[0];\n\n\nreturn {\n    ...msg,\n    payload: {\n        id,\n        name,\n        created_by,\n    }\n};",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 970,
+    "y": 500,
+    "wires": [
+      [
+        "864b86dbd24e61b2"
+      ]
+    ]
+  },
+  {
+    "id": "6d701a3e41693452",
+    "type": "mysql",
+    "z": "0fe66fdcbd0cc623",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 810,
+    "y": 500,
+    "wires": [
+      [
+        "58e5b347eb6c7482"
+      ]
+    ]
+  },
+  {
+    "id": "d9a04995e3bb9467",
+    "type": "http response",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 810,
+    "y": 540,
+    "wires": []
+  },
+  {
+    "id": "ee4062744051860d",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "get",
+    "func": "const { id } = msg.req.params;\nreturn [\n    {\n        ...msg,\n        topic: 'SELECT * FROM iota.zone_groups WHERE id = ?;',\n        payload: [id],\n        qryFor: 'group',\n    },\n    {\n        ...msg,\n        topic: 'SELECT zone_id FROM iota.zone_group_members WHERE group_id = ?;',\n        payload: [id],\n        qryFor: 'members',\n    },\n];",
+    "outputs": 2,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 330,
+    "y": 620,
+    "wires": [
+      [
+        "8877bcb1638ab597"
+      ],
+      [
+        "47db3fa4813c191b"
+      ]
+    ]
+  },
+  {
+    "id": "8877bcb1638ab597",
+    "type": "mysql",
+    "z": "0fe66fdcbd0cc623",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 490,
+    "y": 600,
+    "wires": [
+      [
+        "32042aa903e9e6f1"
+      ]
+    ]
+  },
+  {
+    "id": "8c3b633b1fd42788",
+    "type": "http response",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 970,
+    "y": 620,
+    "wires": []
+  },
+  {
+    "id": "0b51464246b0f936",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "canon",
+    "func": "const { group, members } = msg.payload\n\nif (group.length === 0) {\n    return { ...msg, statusCode: 404 };\n} else if (group.length > 1) {\n    return { ...msg, statusCode: 500 };\n}\n\nreturn {\n    ...msg,\n    payload: {\n        ...group[0],\n        members: Array.isArray(members)\n            ? members.map((m) => m.zone_id)\n            : [],\n    }\n};",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 810,
+    "y": 620,
+    "wires": [
+      [
+        "8c3b633b1fd42788"
+      ]
+    ]
+  },
+  {
+    "id": "6ef2c6c591f97036",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "update",
+    "func": "const { id } = msg.req.params;\n\nconst {\n    name,\n    created_by,\n} = msg.payload;\n\nconst updates = [\n    {name: 'name', value: name},\n    {name: 'created_by', value: created_by},\n].filter(u => typeof u.value !== 'undefined');\n\nconst qry = `UPDATE iota.zone_groups SET ${ updates.map(u => `${u.name} = ?`).join(', ') } WHERE id = ?;`;\nconst params = [...updates.map(u => u.value), id];\n\nreturn { ...msg, payload: params, topic: qry, patchedZoneGroupId: id };\n",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 360,
+    "y": 760,
+    "wires": [
+      [
+        "9b158ec807c9b857"
+      ]
+    ]
+  },
+  {
+    "id": "9b158ec807c9b857",
+    "type": "mysql",
+    "z": "0fe66fdcbd0cc623",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 530,
+    "y": 760,
+    "wires": [
+      [
+        "2e6ffbd06581f4c0"
+      ]
+    ]
+  },
+  {
+    "id": "2e6ffbd06581f4c0",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "fetch",
+    "func": "if (msg.payload.affectedRows !== 1) {\n    return [null, null, { ...msg, statusCode: 500 }];\n}\n\nconst { patchedZoneGroupId: id } = msg;\n\nreturn [\n    {\n        ...msg,\n        topic: 'SELECT * FROM iota.zone_groups WHERE id = ?;',\n        payload: [id],\n        qryFor: 'groups',\n    },\n    {\n        ...msg,\n        topic: 'SELECT * FROM iota.zone_group_members WHERE group_id = ?;',\n        payload: [id],\n        qryFor: 'members',\n    },\n    null,\n];\n",
+    "outputs": 3,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 690,
+    "y": 760,
+    "wires": [
+      [
+        "cc8131dc2b89b1bd"
+      ],
+      [
+        "e8df7b5dc80d2121"
+      ],
+      [
+        "a6a0f5b2d59f5d32"
+      ]
+    ]
+  },
+  {
+    "id": "a6a0f5b2d59f5d32",
+    "type": "http response",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "statusCode": "",
+    "headers": {
+      "Access-Control-Allow-Origin": "*",
+      "content-type": "application/json"
+    },
+    "x": 850,
+    "y": 840,
+    "wires": []
+  },
+  {
+    "id": "cc8131dc2b89b1bd",
+    "type": "mysql",
+    "z": "0fe66fdcbd0cc623",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 850,
+    "y": 760,
+    "wires": [
+      [
+        "2ced2ec98a85a092"
+      ]
+    ]
+  },
+  {
+    "id": "30bd513c07cbce1f",
+    "type": "http response",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "statusCode": "",
+    "headers": {
+      "Access-Control-Allow-Origin": "*",
+      "content-type": "application/json"
+    },
+    "x": 1330,
+    "y": 760,
+    "wires": []
+  },
+  {
+    "id": "9fdf05975f9fbed7",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "canon",
+    "func": "const { groups, members } = msg.payload;\n\nif (groups.length !== 1) {\n    return { ...msg, statusCode: 500 };\n}\n\nreturn {\n    ...msg,\n    payload: {\n        ...groups[0],\n        members: members.map((m) => m.zone_id),\n    }\n};\n",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1170,
+    "y": 760,
+    "wires": [
+      [
+        "30bd513c07cbce1f"
+      ]
+    ]
+  },
+  {
+    "id": "ee8d0b1cdeb2a396",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "delete",
+    "func": "const { id } = msg.req.params;\n\nconst qry = `DELETE FROM iota.zone_groups WHERE id = ?;`;\nconst params = [id];\n\nreturn { ...msg, topic: qry, payload: params };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 350,
+    "y": 700,
+    "wires": [
+      [
+        "908824362dbcd9e8"
+      ]
+    ]
+  },
+  {
+    "id": "908824362dbcd9e8",
+    "type": "mysql",
+    "z": "0fe66fdcbd0cc623",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 510,
+    "y": 700,
+    "wires": [
+      [
+        "6a0c13b258d13a00"
+      ]
+    ]
+  },
+  {
+    "id": "6a0c13b258d13a00",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "extract value",
+    "func": "if (msg.payload.affectedRows === 0) {\n    return { ...msg, statusCode: 500 };\n}\n\nreturn { ...msg, payload: {} };\n",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 690,
+    "y": 700,
+    "wires": [
+      [
+        "bf70ee9a14ccb7f8"
+      ]
+    ]
+  },
+  {
+    "id": "bf70ee9a14ccb7f8",
+    "type": "http response",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 870,
+    "y": 700,
+    "wires": []
+  },
+  {
+    "id": "a62e796f191d9fe4",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "list",
+    "func": "const qry = `SELECT * FROM iota.zone_group_vars;`\n\nreturn {...msg, topic: qry};",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 310,
+    "y": 980,
+    "wires": [
+      [
+        "8ce31a0fea9d9c3a"
+      ]
+    ]
+  },
+  {
+    "id": "8ce31a0fea9d9c3a",
+    "type": "mysql",
+    "z": "0fe66fdcbd0cc623",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 470,
+    "y": 980,
+    "wires": [
+      [
+        "5ee8eb4eee302c98"
+      ]
+    ]
+  },
+  {
+    "id": "5ee8eb4eee302c98",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "canon",
+    "func": "if (!msg.payload.length) {\n    return { ...msg, payload: [] };\n}\n\nreturn { ...msg };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 630,
+    "y": 980,
+    "wires": [
+      [
+        "d15198d5657ca3d3"
+      ]
+    ]
+  },
+  {
+    "id": "d15198d5657ca3d3",
+    "type": "http response",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 790,
+    "y": 980,
+    "wires": []
+  },
+  {
+    "id": "1644e0db3cf08c42",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "create",
+    "func": "const {\n    name,\n    group_id,\n    type,\n} = msg.payload;\n\nconst qry = `INSERT INTO iota.zone_group_vars (name, group_id, type) VALUES (?, ?, ?);`;\nconst params = [name, group_id, type];\n\nreturn { ...msg, topic: qry, payload: params };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 310,
+    "y": 1040,
+    "wires": [
+      [
+        "19f27845e783f15c"
+      ]
+    ]
+  },
+  {
+    "id": "19f27845e783f15c",
+    "type": "mysql",
+    "z": "0fe66fdcbd0cc623",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 470,
+    "y": 1040,
+    "wires": [
+      [
+        "444c76d1df57cc9f"
+      ]
+    ]
+  },
+  {
+    "id": "444c76d1df57cc9f",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "fetch",
+    "func": "if (msg.payload.affectedRows !== 1) {\n    return [null, { ...msg, statusCode: 500 }];\n}\n\nconst { insertId } = msg.payload;\n\nconst qry = `SELECT * FROM iota.zone_group_vars WHERE id = ?;`;\nconst params = [insertId];\n\nreturn [{ ...msg, topic: qry, payload: params }, null];",
+    "outputs": 2,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 630,
+    "y": 1040,
+    "wires": [
+      [
+        "b75004ab5e3233cb"
+      ],
+      [
+        "40a74b0a251b8b13"
+      ]
+    ]
+  },
+  {
+    "id": "6e40901a7690a40d",
+    "type": "http response",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 1110,
+    "y": 1040,
+    "wires": []
+  },
+  {
+    "id": "144add833589ae34",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "canon",
+    "func": "if (msg.payload.length !== 1) {\n    return { ...msg, statusCode: 500 };\n}\n\nreturn {\n    ...msg,\n    payload: msg.payload[0],\n};",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 950,
+    "y": 1040,
+    "wires": [
+      [
+        "6e40901a7690a40d"
+      ]
+    ]
+  },
+  {
+    "id": "b75004ab5e3233cb",
+    "type": "mysql",
+    "z": "0fe66fdcbd0cc623",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 790,
+    "y": 1040,
+    "wires": [
+      [
+        "144add833589ae34"
+      ]
+    ]
+  },
+  {
+    "id": "40a74b0a251b8b13",
+    "type": "http response",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 790,
+    "y": 1080,
+    "wires": []
+  },
+  {
+    "id": "9904906444c01f72",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "get",
+    "func": "const { id } = msg.req.params;\n\nconst qry = `SELECT * FROM iota.zone_group_vars WHERE id = ?`;\nconst params = [id];\n\nreturn {...msg, topic: qry, payload: params};",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 330,
+    "y": 1140,
+    "wires": [
+      [
+        "efe2325692fe28ea"
+      ]
+    ]
+  },
+  {
+    "id": "efe2325692fe28ea",
+    "type": "mysql",
+    "z": "0fe66fdcbd0cc623",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 490,
+    "y": 1140,
+    "wires": [
+      [
+        "635d1e5e8ee0b230"
+      ]
+    ]
+  },
+  {
+    "id": "a8566c6a4f4b09fa",
+    "type": "http response",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 810,
+    "y": 1140,
+    "wires": []
+  },
+  {
+    "id": "635d1e5e8ee0b230",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "canon",
+    "func": "if (msg.payload.length !== 1) {\n    return { ...msg, statusCode: 500 };\n}\n\nreturn {\n    ...msg,\n    payload: msg.payload[0],\n};",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 650,
+    "y": 1140,
+    "wires": [
+      [
+        "a8566c6a4f4b09fa"
+      ]
+    ]
+  },
+  {
+    "id": "7fc05a7eae57518d",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "update",
+    "func": "const { id } = msg.req.params;\n\nconst {\n    name,\n    group_id,\n    type,\n} = msg.payload;\n\nconst updates = [\n    {name: 'name', value: name},\n    {name: 'group_id', value: group_id},\n    {name: 'type', value: type},\n].filter(u => typeof u.value !== 'undefined');\n\nconst qry = `UPDATE iota.zone_group_vars SET ${ updates.map(u => `${u.name} = ?`).join(', ') } WHERE id = ?;`;\nconst params = [...updates.map(u => u.value), id];\n\nreturn { ...msg, payload: params, topic: qry, patchedZoneGroupVarId: id };\n",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 340,
+    "y": 1200,
+    "wires": [
+      [
+        "060d4d5b4e29fe56"
+      ]
+    ]
+  },
+  {
+    "id": "060d4d5b4e29fe56",
+    "type": "mysql",
+    "z": "0fe66fdcbd0cc623",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 510,
+    "y": 1200,
+    "wires": [
+      [
+        "f54969461341cd32"
+      ]
+    ]
+  },
+  {
+    "id": "f54969461341cd32",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "fetch",
+    "func": "if (msg.payload.affectedRows !== 1) {\n    return [null, { ...msg, statusCode: 500 }];\n}\n\nconst { patchedZoneGroupVarId } = msg;\n\nconst qry = `SELECT * FROM iota.zone_group_vars WHERE id = ?;`;\nconst params = [patchedZoneGroupVarId];\n\nreturn [{ ...msg, topic: qry, payload: params }, null];\n",
+    "outputs": 2,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 670,
+    "y": 1200,
+    "wires": [
+      [
+        "865c89291bef1562"
+      ],
+      [
+        "0d5a544945144f52"
+      ]
+    ]
+  },
+  {
+    "id": "0d5a544945144f52",
+    "type": "http response",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "statusCode": "",
+    "headers": {
+      "Access-Control-Allow-Origin": "*",
+      "content-type": "application/json"
+    },
+    "x": 830,
+    "y": 1240,
+    "wires": []
+  },
+  {
+    "id": "865c89291bef1562",
+    "type": "mysql",
+    "z": "0fe66fdcbd0cc623",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 830,
+    "y": 1200,
+    "wires": [
+      [
+        "965762bff12a4b1f"
+      ]
+    ]
+  },
+  {
+    "id": "29bba75fdfc5a01a",
+    "type": "http response",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "statusCode": "",
+    "headers": {
+      "Access-Control-Allow-Origin": "*",
+      "content-type": "application/json"
+    },
+    "x": 1150,
+    "y": 1200,
+    "wires": []
+  },
+  {
+    "id": "965762bff12a4b1f",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "canon",
+    "func": "if (msg.payload.length !== 1) {\n    return { ...msg, statusCode: 500 };\n}\n\nreturn {\n    ...msg,\n    payload: msg.payload[0],\n};",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 990,
+    "y": 1200,
+    "wires": [
+      [
+        "29bba75fdfc5a01a"
+      ]
+    ]
+  },
+  {
+    "id": "250d075f02f7dae7",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "delete",
+    "func": "const { var_id } = msg.req.params;\n\nconst qry = `DELETE FROM iota.zone_group_vars WHERE id = ?;`;\nconst params = [var_id];\n\nreturn { ...msg, topic: qry, payload: params };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 370,
+    "y": 1300,
+    "wires": [
+      [
+        "287568e2691cacf6"
+      ]
+    ]
+  },
+  {
+    "id": "287568e2691cacf6",
+    "type": "mysql",
+    "z": "0fe66fdcbd0cc623",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 530,
+    "y": 1300,
+    "wires": [
+      [
+        "2b38326eedf32104"
+      ]
+    ]
+  },
+  {
+    "id": "2b38326eedf32104",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "extract value",
+    "func": "if (msg.payload.affectedRows === 0) {\n    return { ...msg, statusCode: 500 };\n}\n\nreturn { ...msg, payload: {} };\n",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 710,
+    "y": 1300,
+    "wires": [
+      [
+        "5bd8507fa66d1006"
+      ]
+    ]
+  },
+  {
+    "id": "5bd8507fa66d1006",
+    "type": "http response",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 890,
+    "y": 1300,
+    "wires": []
+  },
+  {
+    "id": "2c2a90d97b7e70b3",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "get",
+    "func": "const { var_id, zone_id } = msg.req.params;\n\nconst qry = `SELECT * FROM iota.zone_group_var_values WHERE var_id = ? AND zone_id = ?;`;\nconst params = [var_id, zone_id];\n\nreturn { ...msg, topic: qry, payload: params };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 450,
+    "y": 1360,
+    "wires": [
+      [
+        "b23c46bd0350ca7b"
+      ]
+    ]
+  },
+  {
+    "id": "b23c46bd0350ca7b",
+    "type": "mysql",
+    "z": "0fe66fdcbd0cc623",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 610,
+    "y": 1360,
+    "wires": [
+      [
+        "7865d918cc6bcba2"
+      ]
+    ]
+  },
+  {
+    "id": "7865d918cc6bcba2",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "extract value",
+    "func": "if (msg.payload.length !== 1) {\n    return { ...msg, statusCode: 404 };\n}\n\nreturn { ...msg, payload: msg.payload[0].value };\n",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 790,
+    "y": 1360,
+    "wires": [
+      [
+        "e42615770b06d776"
+      ]
+    ]
+  },
+  {
+    "id": "e42615770b06d776",
+    "type": "http response",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 970,
+    "y": 1360,
+    "wires": []
+  },
+  {
+    "id": "45f10585d164e5e2",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "set query",
+    "func": "const { var_id, zone_id } = msg.req.params;\nconst { value } = msg.payload;\n\nconst qry = `INSERT INTO iota.zone_group_var_values (var_id, zone_id, value) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE value = ?;`\nconst params = [var_id, zone_id, value, value];\n\nreturn { ...msg, topic: qry, payload: params, setVarZoneId: zone_id, setVarVarId: var_id };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 460,
+    "y": 1420,
+    "wires": [
+      [
+        "8e27951933d86dc9"
+      ]
+    ]
+  },
+  {
+    "id": "8e27951933d86dc9",
+    "type": "mysql",
+    "z": "0fe66fdcbd0cc623",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 630,
+    "y": 1420,
+    "wires": [
+      [
+        "7f44a41b1a9ccae6"
+      ]
+    ]
+  },
+  {
+    "id": "4efbf7df37a1e181",
+    "type": "http response",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 950,
+    "y": 1460,
+    "wires": []
+  },
+  {
+    "id": "7f44a41b1a9ccae6",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "fetch",
+    "func": "const { setVarZoneId, setVarVarId } = msg;\n\nif (msg.payload.affectedRows !== 1 && msg.payload.affectedRows !== 2) { // allow 1 or 2 due to ON DUPLICATE KEY\n    return [null, { ...msg, statusCode: 500 }];\n}\n\nconst qry = `SELECT * FROM iota.zone_group_var_values WHERE var_id = ? AND zone_id = ?;`;\nconst params = [setVarVarId, setVarZoneId];\n\nreturn [{ ...msg, topic: qry, payload: params }, null]\n",
+    "outputs": 2,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 790,
+    "y": 1420,
+    "wires": [
+      [
+        "41b9f9bac9685626"
+      ],
+      [
+        "4efbf7df37a1e181"
+      ]
+    ]
+  },
+  {
+    "id": "41b9f9bac9685626",
+    "type": "mysql",
+    "z": "0fe66fdcbd0cc623",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 950,
+    "y": 1420,
+    "wires": [
+      [
+        "f6c63f28227ae8d3"
+      ]
+    ]
+  },
+  {
+    "id": "f6c63f28227ae8d3",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "extract value",
+    "func": "if (msg.payload.length !== 1) {\n    return { ...msg, statusCode: 500 };\n}\n\nreturn { ...msg, payload: msg.payload[0].value };\n",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1130,
+    "y": 1420,
+    "wires": [
+      [
+        "100ff1f2f4f1dfed"
+      ]
+    ]
+  },
+  {
+    "id": "100ff1f2f4f1dfed",
+    "type": "http response",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 1310,
+    "y": 1420,
+    "wires": []
+  },
+  {
+    "id": "47db3fa4813c191b",
+    "type": "mysql",
+    "z": "0fe66fdcbd0cc623",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 490,
+    "y": 640,
+    "wires": [
+      [
+        "32042aa903e9e6f1"
+      ]
+    ]
+  },
+  {
+    "id": "32042aa903e9e6f1",
+    "type": "join",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "mode": "custom",
+    "build": "object",
+    "property": "payload",
+    "propertyType": "msg",
+    "key": "qryFor",
+    "joiner": "\\n",
+    "joinerType": "str",
+    "accumulate": false,
+    "timeout": "",
+    "count": "2",
+    "reduceRight": false,
+    "reduceExp": "",
+    "reduceInit": "",
+    "reduceInitType": "",
+    "reduceFixup": "",
+    "x": 650,
+    "y": 620,
+    "wires": [
+      [
+        "0b51464246b0f936"
+      ]
+    ]
+  },
+  {
+    "id": "091763afe02aac1b",
+    "type": "mysql",
+    "z": "0fe66fdcbd0cc623",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 470,
+    "y": 440,
+    "wires": [
+      [
+        "d0488d6bad6c6e7f"
+      ]
+    ]
+  },
+  {
+    "id": "d0488d6bad6c6e7f",
+    "type": "join",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "mode": "custom",
+    "build": "object",
+    "property": "payload",
+    "propertyType": "msg",
+    "key": "qryFor",
+    "joiner": "\\n",
+    "joinerType": "str",
+    "accumulate": false,
+    "timeout": "",
+    "count": "2",
+    "reduceRight": false,
+    "reduceExp": "",
+    "reduceInit": "",
+    "reduceInitType": "",
+    "reduceFixup": "",
+    "x": 630,
+    "y": 420,
+    "wires": [
+      [
+        "4f60f550fb4b216f"
+      ]
+    ]
+  },
+  {
+    "id": "0cb719e8f7e344dd",
+    "type": "http in",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "url": "/zone_group/:id/member/:zone_id",
+    "method": "put",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 190,
+    "y": 900,
+    "wires": [
+      [
+        "3aa6b22c382c5976"
+      ]
+    ]
+  },
+  {
+    "id": "3aa6b22c382c5976",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "update",
+    "func": "const { id, zone_id } = msg.req.params;\nconst { member } = msg.payload;\n\nconst [qry, params] = member\n    ? ['INSERT INTO iota.zone_group_members (group_id, zone_id) VALUES (?, ?);', [id, zone_id]]\n    : ['DELETE FROM iota.zone_group_members WHERE group_id = ? AND zone_id = ?;', [id, zone_id]];\n\nreturn { ...msg, payload: params, topic: qry };\n",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 460,
+    "y": 900,
+    "wires": [
+      [
+        "06a2d3587db569ec"
+      ]
+    ]
+  },
+  {
+    "id": "06a2d3587db569ec",
+    "type": "mysql",
+    "z": "0fe66fdcbd0cc623",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 630,
+    "y": 900,
+    "wires": [
+      [
+        "99d920366fc5f614",
+        "2d2665b7a50f7a4e"
+      ]
+    ]
+  },
+  {
+    "id": "99d920366fc5f614",
+    "type": "function",
+    "z": "0fe66fdcbd0cc623",
+    "name": "extract res",
+    "func": "const { id, zone_id } = msg.req.params;\nconst { member } = msg.payload;\n\nconst [qry, params] = member\n    ? ['INSERT INTO iota.zone_group_members (group_id, zone_id) VALUES (?, ?);', [id, zone_id]]\n    : ['DELETE FROM iota.zone_group_members WHERE group_id = ? AND zone_id = ?;', [id, zone_id]];\n\nreturn { ...msg, payload: params, topic: qry };\n",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 810,
+    "y": 900,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "2d2665b7a50f7a4e",
+    "type": "http response",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 790,
+    "y": 940,
+    "wires": []
+  },
+  {
+    "id": "5e631cc5d640b165",
+    "type": "catch",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "scope": null,
+    "uncaught": false,
+    "x": 1380,
+    "y": 40,
+    "wires": [
+      [
+        "af32030aabcf78f3"
+      ]
+    ]
+  },
+  {
+    "id": "af32030aabcf78f3",
+    "type": "debug",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 1550,
+    "y": 40,
+    "wires": []
+  },
+  {
+    "id": "e8df7b5dc80d2121",
+    "type": "mysql",
+    "z": "0fe66fdcbd0cc623",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 850,
+    "y": 800,
+    "wires": [
+      [
+        "2ced2ec98a85a092"
+      ]
+    ]
+  },
+  {
+    "id": "2ced2ec98a85a092",
+    "type": "join",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "mode": "custom",
+    "build": "object",
+    "property": "payload",
+    "propertyType": "msg",
+    "key": "qryFor",
+    "joiner": "\\n",
+    "joinerType": "str",
+    "accumulate": false,
+    "timeout": "",
+    "count": "2",
+    "reduceRight": false,
+    "reduceExp": "",
+    "reduceInit": "",
+    "reduceInitType": "",
+    "reduceFixup": "",
+    "x": 1010,
+    "y": 760,
+    "wires": [
+      [
+        "9fdf05975f9fbed7"
+      ]
+    ]
+  },
+  {
+    "id": "4b65fd0c3009f5fb",
+    "type": "debug",
+    "z": "0fe66fdcbd0cc623",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 350,
+    "y": 800,
+    "wires": []
+  },
+  {
+    "id": "96e22032bcf063c2",
+    "type": "http in",
+    "z": "67cf813d3ed04c28",
+    "name": "",
+    "url": "/rule",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 80,
+    "y": 40,
+    "wires": [
+      [
+        "00f51acea4d5ca31"
+      ]
+    ]
+  },
+  {
+    "id": "b240baf26c953675",
+    "type": "http in",
+    "z": "67cf813d3ed04c28",
+    "name": "",
+    "url": "/rule",
+    "method": "post",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 80,
+    "y": 100,
+    "wires": [
+      [
+        "ef6f459ee1af1d6a"
+      ]
+    ]
+  },
+  {
+    "id": "5796d8e38777f880",
+    "type": "http in",
+    "z": "67cf813d3ed04c28",
+    "name": "",
+    "url": "/rule/:id",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 90,
+    "y": 200,
+    "wires": [
+      [
+        "29a3bdf581039e7e"
+      ]
+    ]
+  },
+  {
+    "id": "038b9041b146dc79",
+    "type": "http in",
+    "z": "67cf813d3ed04c28",
+    "name": "",
+    "url": "/rule/:id",
+    "method": "delete",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 100,
+    "y": 260,
+    "wires": [
+      [
+        "4ffd035e432b76e8"
+      ]
+    ]
+  },
+  {
+    "id": "c9adc4e4cb0cc8aa",
+    "type": "http in",
+    "z": "67cf813d3ed04c28",
+    "name": "",
+    "url": "/rule/:id",
+    "method": "post",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 90,
+    "y": 320,
+    "wires": [
+      [
+        "517a520404e9826e"
+      ]
+    ]
+  },
+  {
+    "id": "cd0aa01c65ee18fe",
+    "type": "http in",
+    "z": "67cf813d3ed04c28",
+    "name": "",
+    "url": "/event",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 80,
+    "y": 440,
+    "wires": [
+      [
+        "4a1aca8174460327"
+      ]
+    ]
+  },
+  {
+    "id": "2a197c111706e728",
+    "type": "http in",
+    "z": "67cf813d3ed04c28",
+    "name": "",
+    "url": "/event/:id",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 90,
+    "y": 540,
+    "wires": [
+      [
+        "cdcd038b40fa9bb6"
+      ]
+    ]
+  },
+  {
+    "id": "00f51acea4d5ca31",
+    "type": "function",
+    "z": "67cf813d3ed04c28",
+    "name": "list",
+    "func": "const [ceUserFilter, ceQParams] =\n  typeof msg.payload.user_id === 'string'\n    ? [\n        ' WHERE r.created_by = ?',\n        [msg.payload.user_id],\n      ]\n    : ['', []];\n    \nconst qry = `SELECT r.* FROM iota.rules r${ceUserFilter};`\n\nreturn {...msg, topic: qry, payload: ceQParams};",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 250,
+    "y": 40,
+    "wires": [
+      [
+        "ff7cdc049009d45d"
+      ]
+    ]
+  },
+  {
+    "id": "ff7cdc049009d45d",
+    "type": "mysql",
+    "z": "67cf813d3ed04c28",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 410,
+    "y": 40,
+    "wires": [
+      [
+        "b18074072c0ac028"
+      ]
+    ]
+  },
+  {
+    "id": "b18074072c0ac028",
+    "type": "function",
+    "z": "67cf813d3ed04c28",
+    "name": "canon",
+    "func": "if (!msg.payload.length) {\n    return { ...msg, payload: [] };\n}\n\nreturn { ...msg };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 570,
+    "y": 40,
+    "wires": [
+      [
+        "6c1ccbd994fe4586"
+      ]
+    ]
+  },
+  {
+    "id": "6c1ccbd994fe4586",
+    "type": "http response",
+    "z": "67cf813d3ed04c28",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 730,
+    "y": 40,
+    "wires": []
+  },
+  {
+    "id": "ef6f459ee1af1d6a",
+    "type": "function",
+    "z": "67cf813d3ed04c28",
+    "name": "create",
+    "func": "const {\n    name,\n    created_by,\n    body,\n} = msg.payload;\n\nconst qry = `INSERT INTO iota.rules (name, created_by, body) VALUES (?, ?, ?);`;\nconst params = [name, created_by, body];\n\nreturn { ...msg, topic: qry, payload: params };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 250,
+    "y": 100,
+    "wires": [
+      [
+        "b1adc29b18bbf775"
+      ]
+    ]
+  },
+  {
+    "id": "b1adc29b18bbf775",
+    "type": "mysql",
+    "z": "67cf813d3ed04c28",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 410,
+    "y": 100,
+    "wires": [
+      [
+        "2b86aa9614e44134"
+      ]
+    ]
+  },
+  {
+    "id": "2b86aa9614e44134",
+    "type": "function",
+    "z": "67cf813d3ed04c28",
+    "name": "fetch",
+    "func": "if (msg.payload.affectedRows !== 1) {\n    return [null, { ...msg, statusCode: 500 }];\n}\n\nconst { insertId } = msg.payload;\n\nconst qry = `SELECT * FROM iota.rules WHERE id = ?;`;\nconst params = [insertId];\n\nreturn [{ ...msg, topic: qry, payload: params }, null];",
+    "outputs": 2,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 570,
+    "y": 100,
+    "wires": [
+      [
+        "5ddb15f994adb274"
+      ],
+      [
+        "f64e73e097795993"
+      ]
+    ]
+  },
+  {
+    "id": "3d1c9ffc85e03857",
+    "type": "http response",
+    "z": "67cf813d3ed04c28",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 1050,
+    "y": 100,
+    "wires": []
+  },
+  {
+    "id": "ff6518a5dd1052d0",
+    "type": "function",
+    "z": "67cf813d3ed04c28",
+    "name": "canon",
+    "func": "if (msg.payload.length !== 1) {\n    return { ...msg, statusCode: 500 };\n}\n\nreturn {\n    ...msg,\n    payload: msg.payload[0],\n};",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 890,
+    "y": 100,
+    "wires": [
+      [
+        "3d1c9ffc85e03857"
+      ]
+    ]
+  },
+  {
+    "id": "5ddb15f994adb274",
+    "type": "mysql",
+    "z": "67cf813d3ed04c28",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 730,
+    "y": 100,
+    "wires": [
+      [
+        "ff6518a5dd1052d0"
+      ]
+    ]
+  },
+  {
+    "id": "f64e73e097795993",
+    "type": "http response",
+    "z": "67cf813d3ed04c28",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 730,
+    "y": 140,
+    "wires": []
+  },
+  {
+    "id": "29a3bdf581039e7e",
+    "type": "function",
+    "z": "67cf813d3ed04c28",
+    "name": "get",
+    "func": "const { id } = msg.req.params;\n\nconst qry = `SELECT * FROM iota.rules WHERE id = ?`;\nconst params = [id];\n\nreturn {...msg, topic: qry, payload: params};",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 270,
+    "y": 200,
+    "wires": [
+      [
+        "41c96c52c70550a2"
+      ]
+    ]
+  },
+  {
+    "id": "41c96c52c70550a2",
+    "type": "mysql",
+    "z": "67cf813d3ed04c28",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 430,
+    "y": 200,
+    "wires": [
+      [
+        "6d86e815c93654d0"
+      ]
+    ]
+  },
+  {
+    "id": "2bb761527bc934ef",
+    "type": "http response",
+    "z": "67cf813d3ed04c28",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 750,
+    "y": 200,
+    "wires": []
+  },
+  {
+    "id": "6d86e815c93654d0",
+    "type": "function",
+    "z": "67cf813d3ed04c28",
+    "name": "canon",
+    "func": "if (msg.payload.length !== 1) {\n    return { ...msg, statusCode: 500 };\n}\n\nreturn {\n    ...msg,\n    payload: msg.payload[0],\n};",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 590,
+    "y": 200,
+    "wires": [
+      [
+        "2bb761527bc934ef"
+      ]
+    ]
+  },
+  {
+    "id": "4ffd035e432b76e8",
+    "type": "function",
+    "z": "67cf813d3ed04c28",
+    "name": "delete",
+    "func": "const { id } = msg.req.params;\n\nconst qry = `DELETE FROM iota.rules WHERE id = ?;`;\nconst params = [id];\n\nreturn { ...msg, topic: qry, payload: params };",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 290,
+    "y": 260,
+    "wires": [
+      [
+        "dcfcf26d3dad7f54"
+      ]
+    ]
+  },
+  {
+    "id": "dcfcf26d3dad7f54",
+    "type": "mysql",
+    "z": "67cf813d3ed04c28",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 450,
+    "y": 260,
+    "wires": [
+      [
+        "e5425186539224f5"
+      ]
+    ]
+  },
+  {
+    "id": "e5425186539224f5",
+    "type": "function",
+    "z": "67cf813d3ed04c28",
+    "name": "extract value",
+    "func": "if (msg.payload.affectedRows === 0) {\n    return { ...msg, statusCode: 500 };\n}\n\nreturn { ...msg, payload: {} };\n",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 630,
+    "y": 260,
+    "wires": [
+      [
+        "1f5abf60ea7480fb"
+      ]
+    ]
+  },
+  {
+    "id": "1f5abf60ea7480fb",
+    "type": "http response",
+    "z": "67cf813d3ed04c28",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 810,
+    "y": 260,
+    "wires": []
+  },
+  {
+    "id": "517a520404e9826e",
+    "type": "function",
+    "z": "67cf813d3ed04c28",
+    "name": "update",
+    "func": "const { id } = msg.req.params;\n\nconst {\n    name,\n    created_by,\n    body,\n} = msg.payload;\n\nconst updates = [\n    {name: 'name', value: name},\n    {name: 'created_by', value: created_by},\n    {name: 'body', value: body},\n].filter(u => typeof u.value !== 'undefined');\n\nconst qry = `UPDATE iota.rules SET ${ updates.map(u => `${u.name} = ?`).join(', ') } WHERE id = ?;`;\nconst params = [...updates.map(u => u.value), id];\n\nreturn { ...msg, payload: params, topic: qry, patchedRuleId: id };\n",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 300,
+    "y": 320,
+    "wires": [
+      [
+        "75ec5292b2bc999d"
+      ]
+    ]
+  },
+  {
+    "id": "75ec5292b2bc999d",
+    "type": "mysql",
+    "z": "67cf813d3ed04c28",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 470,
+    "y": 320,
+    "wires": [
+      [
+        "f566ac3bb5b766fa"
+      ]
+    ]
+  },
+  {
+    "id": "f566ac3bb5b766fa",
+    "type": "function",
+    "z": "67cf813d3ed04c28",
+    "name": "fetch",
+    "func": "if (msg.payload.affectedRows !== 1) {\n    return [null, { ...msg, statusCode: 500 }];\n}\n\nconst { patchedRuleId } = msg;\n\nconst qry = `SELECT * FROM iota.rules WHERE id = ?;`;\nconst params = [patchedRuleId];\n\nreturn [{ ...msg, topic: qry, payload: params }, null];\n",
+    "outputs": 2,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 630,
+    "y": 320,
+    "wires": [
+      [
+        "48cd577b075b9830"
+      ],
+      [
+        "c045ecb9beedb57d"
+      ]
+    ]
+  },
+  {
+    "id": "c045ecb9beedb57d",
+    "type": "http response",
+    "z": "67cf813d3ed04c28",
+    "name": "",
+    "statusCode": "",
+    "headers": {
+      "Access-Control-Allow-Origin": "*",
+      "content-type": "application/json"
+    },
+    "x": 790,
+    "y": 360,
+    "wires": []
+  },
+  {
+    "id": "48cd577b075b9830",
+    "type": "mysql",
+    "z": "67cf813d3ed04c28",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 790,
+    "y": 320,
+    "wires": [
+      [
+        "1aa4b85570db0583"
+      ]
+    ]
+  },
+  {
+    "id": "90263d04e29e288d",
+    "type": "http response",
+    "z": "67cf813d3ed04c28",
+    "name": "",
+    "statusCode": "",
+    "headers": {
+      "Access-Control-Allow-Origin": "*",
+      "content-type": "application/json"
+    },
+    "x": 1110,
+    "y": 320,
+    "wires": []
+  },
+  {
+    "id": "1aa4b85570db0583",
+    "type": "function",
+    "z": "67cf813d3ed04c28",
+    "name": "canon",
+    "func": "if (msg.payload.length !== 1) {\n    return { ...msg, statusCode: 500 };\n}\n\nreturn {\n    ...msg,\n    payload: msg.payload[0],\n};",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 950,
+    "y": 320,
+    "wires": [
+      [
+        "90263d04e29e288d"
+      ]
+    ]
+  },
+  {
+    "id": "4a1aca8174460327",
+    "type": "function",
+    "z": "67cf813d3ed04c28",
+    "name": "list",
+    "func": "const [ceUserFilter, ceQParams] =\n  typeof msg.payload.user_id === 'string'\n    ? [\n        ' INNER JOIN iota.rules r ON ce.rule = r.id WHERE r.created_by = ?',\n        [msg.payload.user_id],\n      ]\n    : ['', []];\n\n\nreturn [\n    {...msg, topic: `SELECT ce.* FROM iota.calculated_events ce${ceUserFilter};`, qryFor: 'events', payload: ceQParams},\n    {...msg, topic: `SELECT ei.* FROM iota.event_involves ei;`, qryFor: 'involves'},\n];",
+    "outputs": 2,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 250,
+    "y": 440,
+    "wires": [
+      [
+        "bd90c05dfedcfb11"
+      ],
+      [
+        "dc4df47bc73bed57"
+      ]
+    ]
+  },
+  {
+    "id": "bd90c05dfedcfb11",
+    "type": "mysql",
+    "z": "67cf813d3ed04c28",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 410,
+    "y": 420,
+    "wires": [
+      [
+        "b039f158bbd8460b"
+      ]
+    ]
+  },
+  {
+    "id": "db9831e5cce094bf",
+    "type": "function",
+    "z": "67cf813d3ed04c28",
+    "name": "canon",
+    "func": "const { events, involves } = msg.payload;\n\nif (!events.length) {\n    return { ...msg, payload: [] };\n}\n\nreturn {\n    ...msg,\n    payload: events.map((e) => ({\n        ...e,\n        involves: involves\n            .filter((i) => i.event_id === e.id)\n            .map(({ device_id, reading_id }) => ({ device_id, reading_id }))\n    })),\n};",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 730,
+    "y": 440,
+    "wires": [
+      [
+        "363896da36f71d50"
+      ]
+    ]
+  },
+  {
+    "id": "363896da36f71d50",
+    "type": "http response",
+    "z": "67cf813d3ed04c28",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 890,
+    "y": 440,
+    "wires": []
+  },
+  {
+    "id": "cdcd038b40fa9bb6",
+    "type": "function",
+    "z": "67cf813d3ed04c28",
+    "name": "get",
+    "func": "const { id } = msg.req.params;\n\nreturn [\n    {\n        ...msg,\n        topic: 'SELECT * FROM iota.calculated_events WHERE id = ?',\n        payload: [id],\n        qryFor: 'events',\n    },\n    {\n        ...msg,\n        topic: 'SELECT * FROM iota.event_involves WHERE event_id = ?',\n        payload: [id],\n        qryFor: 'involves',\n    },\n];",
+    "outputs": 2,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 270,
+    "y": 540,
+    "wires": [
+      [
+        "a6ea44bd77cc8aea"
+      ],
+      [
+        "71e5d86fc81550b9"
+      ]
+    ]
+  },
+  {
+    "id": "a6ea44bd77cc8aea",
+    "type": "mysql",
+    "z": "67cf813d3ed04c28",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 430,
+    "y": 520,
+    "wires": [
+      [
+        "f797583010108112"
+      ]
+    ]
+  },
+  {
+    "id": "4c9f12db735985a2",
+    "type": "http response",
+    "z": "67cf813d3ed04c28",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 910,
+    "y": 540,
+    "wires": []
+  },
+  {
+    "id": "4a166673e77df3e7",
+    "type": "function",
+    "z": "67cf813d3ed04c28",
+    "name": "canon",
+    "func": "const { events, involves } = msg.payload;\n\nif (events.length === 0) {\n    return { ...msg, statusCode: 404 };\n} else if (events.length !== 1) {\n    return { ...msg, statusCode: 500 };\n}\n\nreturn {\n    ...msg,\n    payload: {\n        ...events[0],\n        involves: involves.map(({ device_id, reading_id }) => ({ device_id, reading_id })),\n    },\n};",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 750,
+    "y": 540,
+    "wires": [
+      [
+        "4c9f12db735985a2"
+      ]
+    ]
+  },
+  {
+    "id": "6697277601e4afbe",
+    "type": "catch",
+    "z": "67cf813d3ed04c28",
+    "name": "",
+    "scope": null,
+    "uncaught": false,
+    "x": 1240,
+    "y": 40,
+    "wires": [
+      [
+        "6cbd586acea0d196"
+      ]
+    ]
+  },
+  {
+    "id": "6cbd586acea0d196",
+    "type": "debug",
+    "z": "67cf813d3ed04c28",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 1410,
+    "y": 40,
+    "wires": []
+  },
+  {
+    "id": "dc4df47bc73bed57",
+    "type": "mysql",
+    "z": "67cf813d3ed04c28",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 410,
+    "y": 460,
+    "wires": [
+      [
+        "b039f158bbd8460b"
+      ]
+    ]
+  },
+  {
+    "id": "71e5d86fc81550b9",
+    "type": "mysql",
+    "z": "67cf813d3ed04c28",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 430,
+    "y": 560,
+    "wires": [
+      [
+        "f797583010108112"
+      ]
+    ]
+  },
+  {
+    "id": "b039f158bbd8460b",
+    "type": "join",
+    "z": "67cf813d3ed04c28",
+    "name": "",
+    "mode": "custom",
+    "build": "object",
+    "property": "payload",
+    "propertyType": "msg",
+    "key": "qryFor",
+    "joiner": "\\n",
+    "joinerType": "str",
+    "accumulate": false,
+    "timeout": "",
+    "count": "2",
+    "reduceRight": false,
+    "reduceExp": "",
+    "reduceInit": "",
+    "reduceInitType": "",
+    "reduceFixup": "",
+    "x": 570,
+    "y": 440,
+    "wires": [
+      [
+        "db9831e5cce094bf"
+      ]
+    ]
+  },
+  {
+    "id": "f797583010108112",
+    "type": "join",
+    "z": "67cf813d3ed04c28",
+    "name": "",
+    "mode": "custom",
+    "build": "object",
+    "property": "payload",
+    "propertyType": "msg",
+    "key": "qryFor",
+    "joiner": "\\n",
+    "joinerType": "str",
+    "accumulate": false,
+    "timeout": "",
+    "count": "2",
+    "reduceRight": false,
+    "reduceExp": "",
+    "reduceInit": "",
+    "reduceInitType": "",
+    "reduceFixup": "",
+    "x": 590,
+    "y": 540,
+    "wires": [
+      [
+        "4a166673e77df3e7"
+      ]
+    ]
+  },
+  {
+    "id": "ad28624478f9e704",
+    "type": "http in",
+    "z": "5a88cd04a0a41d7d",
+    "name": "",
+    "url": "/reading",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 90,
+    "y": 80,
+    "wires": [
+      [
+        "75dbee04b302e50b"
+      ]
+    ]
+  },
+  {
+    "id": "495379e46161710f",
+    "type": "function",
+    "z": "5a88cd04a0a41d7d",
+    "name": "canon all",
+    "func": "const { payload: { all: readings, distance: distances } } = msg;\n\nconsole.log(readings, distances)\n\nconst canonOne = ({\n    id,\n    device_id,\n    heartbeat,\n    reported_at,\n    \n    accel_x,\n    accel_y,\n    accel_z,\n    heading,\n    zone,\n    latitude: lat,\n    longitude: lng,\n    speed,\n    temp_degrees: tmp,\n    volume_db: vol,\n}) => {\n    const ds = distances\n        .filter((d) => d.id === id)\n        .map(({distance_from, distance}) => ({distance_from, distance}));\n\n    return {\n        id,\n        device_id,\n        heartbeat,\n        reported_at,\n        acceleration: accel_x === null\n            ? undefined\n            : { x: accel_x, y: accel_y, z: accel_z },\n        distances: ds.length ? ds : undefined,\n        heading: heading === null\n            ? undefined\n            : heading,\n        location: (lat === null && lng === null && zone === null)\n            ? undefined\n            : {\n                latitude: lat === null ? undefined : lat,\n                longitude: lng === null ? undefined : lng,\n                zone: zone === null ? undefined : zone,\n            },\n        speed: speed === null\n            ? undefined\n            : speed,\n        temperature: tmp === null ? undefined : tmp,\n        volume: vol === null ? undefined : vol,\n    };\n}\n\nreturn { ...msg, payload: readings.map(canonOne) };\n",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 780,
+    "y": 80,
+    "wires": [
+      [
+        "972369cd630fd61f"
+      ]
+    ]
+  },
+  {
+    "id": "75dbee04b302e50b",
+    "type": "function",
+    "z": "5a88cd04a0a41d7d",
+    "name": "get query",
+    "func": "const { params } = msg.req;\n\nconst [userQry, usrParams] = typeof params.user_id === 'string'\n    ? [\n        ' INNER JOIN iota.read_rights rr ON rr.device_id = r.device_id WHERE rr.user_id = ?',\n        [params.user_id],\n      ]\n    : ['', []];\n\nconst [dvcQry, dvcParams] = typeof params.device_id === 'string'\n    ? [` ${userQry === '' ? 'WHERE' : 'AND'} r.device_id = ?`, [params.device_id]]\n    : ['', []];\n\nreturn [\n    {\n        ...msg,\n        topic: `SELECT r.* FROM view_all_readings r${userQry}${dvcQry};`,\n        payload: [...usrParams, ...dvcParams],\n        readings: `all`,\n    },\n    {\n        ...msg,\n        topic: `SELECT r.* FROM view_distance_readings r${userQry}${dvcQry};`,\n        payload: [...usrParams, ...dvcParams],\n        readings: `distance`,\n    },\n];\n",
+    "outputs": 2,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 280,
+    "y": 80,
+    "wires": [
+      [
+        "54a2b4bd4c9b3f5f"
+      ],
+      [
+        "443a35c996803a35"
+      ]
+    ]
+  },
+  {
+    "id": "54a2b4bd4c9b3f5f",
+    "type": "mysql",
+    "z": "5a88cd04a0a41d7d",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 450,
+    "y": 60,
+    "wires": [
+      [
+        "d623367a0d54a307"
+      ]
+    ]
+  },
+  {
+    "id": "972369cd630fd61f",
+    "type": "http response",
+    "z": "5a88cd04a0a41d7d",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 950,
+    "y": 80,
+    "wires": []
+  },
+  {
+    "id": "330c61f33bbceb51",
+    "type": "http in",
+    "z": "5a88cd04a0a41d7d",
+    "name": "",
+    "url": "/reading/:id",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 100,
+    "y": 180,
+    "wires": [
+      [
+        "8ea77a0fc94efa7a"
+      ]
+    ]
+  },
+  {
+    "id": "443a35c996803a35",
+    "type": "mysql",
+    "z": "5a88cd04a0a41d7d",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 450,
+    "y": 100,
+    "wires": [
+      [
+        "d623367a0d54a307"
+      ]
+    ]
+  },
+  {
+    "id": "d623367a0d54a307",
+    "type": "join",
+    "z": "5a88cd04a0a41d7d",
+    "name": "",
+    "mode": "custom",
+    "build": "object",
+    "property": "payload",
+    "propertyType": "msg",
+    "key": "readings",
+    "joiner": "\\n",
+    "joinerType": "str",
+    "accumulate": false,
+    "timeout": "",
+    "count": "2",
+    "reduceRight": false,
+    "reduceExp": "",
+    "reduceInit": "",
+    "reduceInitType": "",
+    "reduceFixup": "",
+    "x": 610,
+    "y": 80,
+    "wires": [
+      [
+        "495379e46161710f"
+      ]
+    ]
+  },
+  {
+    "id": "8ea77a0fc94efa7a",
+    "type": "function",
+    "z": "5a88cd04a0a41d7d",
+    "name": "get query",
+    "func": "const { id } = msg.req.params;\n\nreturn [\n    { ...msg, topic: `SELECT * FROM view_all_readings WHERE id = ?;`, payload: [id], readings: `all` },\n    { ...msg, topic: `SELECT * FROM view_distance_readings WHERE id = ?;`, payload: [id], readings: `distance` },\n];\n",
+    "outputs": 2,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 300,
+    "y": 180,
+    "wires": [
+      [
+        "a4e7fb1a08a9aff9"
+      ],
+      [
+        "d4741a536aa3804c"
+      ]
+    ]
+  },
+  {
+    "id": "a4e7fb1a08a9aff9",
+    "type": "mysql",
+    "z": "5a88cd04a0a41d7d",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 470,
+    "y": 160,
+    "wires": [
+      [
+        "cee4fdeb87f92068"
+      ]
+    ]
+  },
+  {
+    "id": "d4741a536aa3804c",
+    "type": "mysql",
+    "z": "5a88cd04a0a41d7d",
+    "mydb": "7880329583bc4c4b",
+    "name": "",
+    "x": 470,
+    "y": 200,
+    "wires": [
+      [
+        "cee4fdeb87f92068"
+      ]
+    ]
+  },
+  {
+    "id": "cee4fdeb87f92068",
+    "type": "join",
+    "z": "5a88cd04a0a41d7d",
+    "name": "",
+    "mode": "custom",
+    "build": "object",
+    "property": "payload",
+    "propertyType": "msg",
+    "key": "readings",
+    "joiner": "\\n",
+    "joinerType": "str",
+    "accumulate": false,
+    "timeout": "",
+    "count": "2",
+    "reduceRight": false,
+    "reduceExp": "",
+    "reduceInit": "",
+    "reduceInitType": "",
+    "reduceFixup": "",
+    "x": 630,
+    "y": 180,
+    "wires": [
+      [
+        "93fef9d302219afa"
+      ]
+    ]
+  },
+  {
+    "id": "67ebaa93e30ee75e",
+    "type": "http response",
+    "z": "5a88cd04a0a41d7d",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 970,
+    "y": 180,
+    "wires": []
+  },
+  {
+    "id": "93fef9d302219afa",
+    "type": "function",
+    "z": "5a88cd04a0a41d7d",
+    "name": "canon all",
+    "func": "const { payload: { all: readings, distance: distances } } = msg;\n\nconst canonOne = ({\n    id, device_id, heartbeat, reported_at,\n    \n    accel_x, accel_y, accel_z,\n    heading,\n    zone,\n    latitude: lat, longitude: lng,\n    speed,\n    temp_degrees: tmp,\n    volume_db: vol,\n}) => {\n    const ds = distances\n        .filter((d) => d.id === id)\n        .map(({distance_from, distance}) => ({distance_from, distance}));\n\n    return {\n        id,\n        device_id,\n        heartbeat,\n        reported_at,\n        acceleration: accel_x === null\n            ? undefined\n            : { x: accel_x, y: accel_y, z: accel_z },\n        distances: ds.length ? ds : undefined,\n        heading: heading === null\n            ? undefined\n            : heading,\n        location: (lat === null && lng === null && zone === null)\n            ? undefined\n            : {\n                latitude: lat === null ? undefined : lat,\n                longitude: lng === null ? undefined : lng,\n                zone: zone === null ? undefined : zone,\n            },\n        speed: speed === null\n            ? undefined\n            : speed,\n        temperature: tmp === null ? undefined : tmp,\n        volume: vol === null ? undefined : vol,\n    };\n}\n\nconst res = readings.map(canonOne);\nif (res.length === 0) {\n    return {...msg, statusCode: 404}\n} else if (res.length > 1) {\n    return {...msg, statusCode: 500}\n}\nreturn { ...msg, payload: res[0] };\n",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 800,
+    "y": 180,
+    "wires": [
+      [
+        "67ebaa93e30ee75e"
+      ]
+    ]
+  },
+  {
+    "id": "0b420309cceb4f76",
+    "type": "catch",
+    "z": "5a88cd04a0a41d7d",
+    "name": "",
+    "scope": null,
+    "uncaught": false,
+    "x": 1180,
+    "y": 40,
+    "wires": [
+      [
+        "9dfc9c2394ea278c"
+      ]
+    ]
+  },
+  {
+    "id": "9dfc9c2394ea278c",
+    "type": "debug",
+    "z": "5a88cd04a0a41d7d",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 1350,
+    "y": 40,
+    "wires": []
+  }
+]
